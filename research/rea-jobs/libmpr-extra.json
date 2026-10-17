@@ -1,0 +1,37 @@
+{
+  "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+  "output_directory": "research/build/rea-rerun/libmpr-extra",
+  "queries": [
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x19e638"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x1211c8"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x17e3ac"
+      }
+    },
+    {
+      "name": "procedure_callers",
+      "arguments": {
+        "procedure": "0x1d6044"
+      }
+    },
+    {
+      "name": "procedure_callees",
+      "arguments": {
+        "procedure": "0x27e880"
+      }
+    }
+  ],
+  "export_bundle": true
+}

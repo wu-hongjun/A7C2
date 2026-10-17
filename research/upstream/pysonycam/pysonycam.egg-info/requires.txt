@@ -1,0 +1,15 @@
+libusb1>=3.0.0
+
+[dev]
+pytest>=7.0
+pytest-cov
+ruff
+mypy
+
+[docs]
+sphinx
+sphinx-rtd-theme
+
+[gui]
+opencv-python>=4.5
+numpy>=1.21

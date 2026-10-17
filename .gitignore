@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.venv-research/
+.camera-backups/
+research/build/
+research/firmware/
+research/extracted/
+# Per-camera data belongs outside this public research tree.
+*.private.bin

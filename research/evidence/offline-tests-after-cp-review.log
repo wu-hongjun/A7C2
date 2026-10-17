@@ -1,0 +1,13 @@
+test_asset_integrity (test_offline.OfflineTests.test_asset_integrity) ... ok
+test_each_body_keeps_own_calibration (test_offline.OfflineTests.test_each_body_keeps_own_calibration) ... ok
+test_native_frame_rejects_failure_and_foreign_model (test_offline.OfflineTests.test_native_frame_rejects_failure_and_foreign_model) ... ok
+test_occupied_slots_are_rejected (test_offline.OfflineTests.test_occupied_slots_are_rejected) ... ok
+test_preexisting_temp_is_not_overwritten (test_offline.OfflineTests.test_preexisting_temp_is_not_overwritten) ... ok
+test_unknown_native_result_sends_no_cleanup (test_offline.OfflineTests.test_unknown_native_result_sends_no_cleanup) ... ok
+test_unrelated_values_are_not_ignored (test_offline.OfflineTests.test_unrelated_values_are_not_ignored) ... ok
+test_wrong_image_and_fixed_window_guards (test_offline.OfflineTests.test_wrong_image_and_fixed_window_guards) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+OK

@@ -1,24 +1,45 @@
 {
-  "status": "EXPERIMENTAL_PREVIEW",
-  "bodies_tested": 1,
+  "status": "EXPERIMENTAL_OFFLINE_REVISION",
+  "release": "0.1.1-preview",
+  "bodies_tested": 0,
   "model": "ILCE-7CM2",
   "firmware": "2.01",
-  "camera_and_host_complete_file_hashes": true,
-  "native_parameter_storage_readback": true,
-  "user_reported": [
-    "Menu visible after battery removal",
-    "FL2, FL3 and ST new photos and camera playback normal"
-  ],
+  "offline_host_tests": 24,
+  "isolated_cp_cases": 9185,
+  "isolated_ap_converter_cases": 259,
+  "full_forward_reverse_program_hashes_verified": true,
+  "native_executable_text_unchanged": true,
+  "hardware_installation_performed_this_session": false,
+  "connected_camera_firmware_version": null,
+  "connected_camera_backup_complete": false,
+  "evidence": "research/FIXES.md",
   "not_validated": [
-    "Portable frontend on a second body",
-    "RAW/HEIF/burst/video combinations",
-    "long-term stability",
-    "exact A1II color matching",
-    "power-loss recovery"
+    "Hardware installation of revised candidate",
+    "Full photographic, reset/import, video and CP runtime behavior",
+    "Native-worker fault and power-loss recovery"
   ],
-  "isolated_instruction_cases": 2550,
-  "native_installer_fault_cases": 16,
-  "wbi_cases": 11,
-  "portable_offline_guard_tests": 8,
-  "portable_host_simulation_cases": 8
+  "historical_0_1_0_inherited_reports": {
+    "status": "EXPERIMENTAL_PREVIEW",
+    "bodies_tested": 1,
+    "model": "ILCE-7CM2",
+    "firmware": "2.01",
+    "camera_and_host_complete_file_hashes": true,
+    "native_parameter_storage_readback": true,
+    "user_reported": [
+      "Menu visible after battery removal",
+      "FL2, FL3 and ST new photos and camera playback normal"
+    ],
+    "not_validated": [
+      "Portable frontend on a second body",
+      "RAW/HEIF/burst/video combinations",
+      "long-term stability",
+      "exact A1II color matching",
+      "power-loss recovery"
+    ],
+    "isolated_instruction_cases": 2550,
+    "native_installer_fault_cases": 16,
+    "wbi_cases": 11,
+    "portable_offline_guard_tests": 8,
+    "portable_host_simulation_cases": 8
+  }
 }

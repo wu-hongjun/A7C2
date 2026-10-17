@@ -1,0 +1,142 @@
+{
+  "sha": "115102f9288f5055c27241849172b70f4509c359",
+  "node_id": "C_kwDOR7LIE9oAKDExNTEwMmY5Mjg4ZjUwNTVjMjcyNDE4NDkxNzJiNzBmNDUwOWMzNTk",
+  "commit": {
+    "author": {
+      "name": "Oliver Hamilton",
+      "email": "oliver9523@gmail.com",
+      "date": "2026-10-04T13:03:36Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-04T13:03:36Z"
+    },
+    "message": "Merge pull request #3 from olkham/claude/affectionate-newton-ijalqy\n\nAdd fast mode and save media options to capture()",
+    "tree": {
+      "sha": "99242698ad74744b3fc3b014a364b0ed60f0c9fe",
+      "url": "https://api.github.com/repos/olkham/pysonycam/git/trees/99242698ad74744b3fc3b014a364b0ed60f0c9fe"
+    },
+    "url": "https://api.github.com/repos/olkham/pysonycam/git/commits/115102f9288f5055c27241849172b70f4509c359",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqwk6oCRC1aQ7uu5UhlAAASUYQAHx7iH5D+DiMQvpTfEsRJaDQ\nRzBIY6BJg29rd3v05AHTwX7iwmXuC88lxBC+Uq5YYSU16ZTLMeTvNNkWRnftHT08\nn8vNCYEEN23vQ6BGIFBcnIHYhZKJ11mgB0b9t+XAVyAxNlyiDu5bGL0Fe700bmTO\ndO2yNu58krnGeie/efwbjiiKX28170JKGJCHBynkPJFySXW76Fx7NscN14AZO87G\nahChLby0oF/vNw5SUxU1S2sOKuFg+2I9FSP/xuSOldwzUjFLPp9sfyeWq68QasbU\nfa1ve2jEK2CybCphMfKBHScIOyd9uiD7Liiq4o5vUdQ28ucASMm43SV/EM5UQBYz\nRxrQuTeV8XpAz4nG86EieDtTvITqRgOjEMO2EfhRf7DFGH1YQnEKUmPir71yo80K\ndpjS2PL8ggeUBwlxpu0TE1lZLbtEDGl7qNnAhhoSA83eA1weU+pGN4ggyN88gRwr\nGcs1lj99J1XOFV81xXLeykViklLVGwm2HV1li+52aclBA025qzTJjoezfgwVv+x+\nnhsK7nAzx13cc71RzJiYUtLrzDG3j7g26UeB2VdmUCl4Xk0YSTwDZ4tiEUkAHlmo\ndTy3vPuNH0S79cGVmWdlVchvg75VNQLvUl2afQ9EXb0MIOF91fQoeXg33xG24YZM\nfijBRJT8KQ29+QxQ2kJf\n=9puq\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 99242698ad74744b3fc3b014a364b0ed60f0c9fe\nparent 3ef483cfd808aca4920547084ed9b9933aaaf98d\nparent 41d701b9f954f528246800e1d21b4698cf6b75ea\nauthor Oliver Hamilton <oliver9523@gmail.com> 1791119016 +0100\ncommitter GitHub <noreply@github.com> 1791119016 +0100\n\nMerge pull request #3 from olkham/claude/affectionate-newton-ijalqy\n\nAdd fast mode and save media options to capture()",
+      "verified_at": "2026-10-04T13:03:37Z"
+    }
+  },
+  "url": "https://api.github.com/repos/olkham/pysonycam/commits/115102f9288f5055c27241849172b70f4509c359",
+  "html_url": "https://github.com/olkham/pysonycam/commit/115102f9288f5055c27241849172b70f4509c359",
+  "comments_url": "https://api.github.com/repos/olkham/pysonycam/commits/115102f9288f5055c27241849172b70f4509c359/comments",
+  "author": {
+    "login": "olkham",
+    "id": 21026657,
+    "node_id": "MDQ6VXNlcjIxMDI2NjU3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/21026657?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/olkham",
+    "html_url": "https://github.com/olkham",
+    "followers_url": "https://api.github.com/users/olkham/followers",
+    "following_url": "https://api.github.com/users/olkham/following{/other_user}",
+    "gists_url": "https://api.github.com/users/olkham/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/olkham/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/olkham/subscriptions",
+    "organizations_url": "https://api.github.com/users/olkham/orgs",
+    "repos_url": "https://api.github.com/users/olkham/repos",
+    "events_url": "https://api.github.com/users/olkham/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/olkham/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "3ef483cfd808aca4920547084ed9b9933aaaf98d",
+      "url": "https://api.github.com/repos/olkham/pysonycam/commits/3ef483cfd808aca4920547084ed9b9933aaaf98d",
+      "html_url": "https://github.com/olkham/pysonycam/commit/3ef483cfd808aca4920547084ed9b9933aaaf98d"
+    },
+    {
+      "sha": "41d701b9f954f528246800e1d21b4698cf6b75ea",
+      "url": "https://api.github.com/repos/olkham/pysonycam/commits/41d701b9f954f528246800e1d21b4698cf6b75ea",
+      "html_url": "https://github.com/olkham/pysonycam/commit/41d701b9f954f528246800e1d21b4698cf6b75ea"
+    }
+  ],
+  "stats": {
+    "total": 239,
+    "additions": 231,
+    "deletions": 8
+  },
+  "files": [
+    {
+      "sha": "dd10f61ccc18d829e99a9296a2040b8e25a7cb2b",
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "blob_url": "https://github.com/olkham/pysonycam/blob/115102f9288f5055c27241849172b70f4509c359/README.md",
+      "raw_url": "https://github.com/olkham/pysonycam/raw/115102f9288f5055c27241849172b70f4509c359/README.md",
+      "contents_url": "https://api.github.com/repos/olkham/pysonycam/contents/README.md?ref=115102f9288f5055c27241849172b70f4509c359",
+      "patch": "@@ -108,6 +108,16 @@ with SonyCamera() as camera:\n     camera.authenticate()\n     camera.set_mode(\"still\")\n     camera.capture(\"photo.jpg\")\n+\n+    # Save to the camera's memory card instead (returns b\"\")\n+    camera.capture(save_to_camera=True)\n+\n+    # Save to both the host and the memory card\n+    from pysonycam import SaveMedia\n+    camera.capture(\"photo.jpg\", save_to_camera=SaveMedia.HOST_AND_CAMERA)\n+\n+    # Shorter shutter timing; re-fires once if the camera misses the press\n+    camera.capture(\"photo.jpg\", fast_mode=True)\n ```\n \n ### Change Camera Settings\n@@ -213,7 +223,7 @@ with SonyCamera() as camera:\n | `set_white_balance(wb)` | Set white balance mode |\n | `set_exposure_compensation(value)` | Set EV compensation |\n | `set_save_media(media)` | Set save destination (host/camera/both) |\n-| `capture(path=None)` | Capture a photo, optionally save to file \u2192 `bytes` |\n+| `capture(path=None, save_to_camera=False, fast_mode=False)` | Capture a photo to the host, the memory card, or both \u2192 `bytes` |\n | `get_liveview_frame()` | Get one LiveView JPEG frame \u2192 `bytes` |\n | `liveview_stream(count)` | Yield LiveView frames as a generator |\n | `zoom_in(speed)` / `zoom_out(speed)` / `zoom_stop()` | Zoom control |"
+    },
+    {
+      "sha": "f00e9d2d3426a93c80c0b8db2aa511f6ff7389e0",
+      "filename": "pysonycam/__init__.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "blob_url": "https://github.com/olkham/pysonycam/blob/115102f9288f5055c27241849172b70f4509c359/pysonycam%2F__init__.py",
+      "raw_url": "https://github.com/olkham/pysonycam/raw/115102f9288f5055c27241849172b70f4509c359/pysonycam%2F__init__.py",
+      "contents_url": "https://api.github.com/repos/olkham/pysonycam/contents/pysonycam%2F__init__.py?ref=115102f9288f5055c27241849172b70f4509c359",
+      "patch": "@@ -23,6 +23,7 @@\n     DriveMode,\n     ExposureMode,\n     OperatingMode,\n+    SaveMedia,\n     WhiteBalance,\n     FocusMode,\n     FocusArea,\n@@ -52,6 +53,7 @@\n     \"DriveMode\",\n     \"ExposureMode\",\n     \"OperatingMode\",\n+    \"SaveMedia\",\n     \"WhiteBalance\",\n     \"FocusMode\",\n     \"FocusArea\","
+    },
+    {
+      "sha": "85b98ed80249388f85357d316bb42e0f0caa6d56",
+      "filename": "pysonycam/camera.py",
+      "status": "modified",
+      "additions": 82,
+      "deletions": 7,
+      "changes": 89,
+      "blob_url": "https://github.com/olkham/pysonycam/blob/115102f9288f5055c27241849172b70f4509c359/pysonycam%2Fcamera.py",
+      "raw_url": "https://github.com/olkham/pysonycam/raw/115102f9288f5055c27241849172b70f4509c359/pysonycam%2Fcamera.py",
+      "contents_url": "https://api.github.com/repos/olkham/pysonycam/contents/pysonycam%2Fcamera.py?ref=115102f9288f5055c27241849172b70f4509c359",
+      "patch": "@@ -514,6 +514,7 @@ def capture(\n         save_to_camera: Union[bool, int, SaveMedia] = False,\n         timeout: float = 30.0,\n         fast_mode: bool = False,\n+        fast_retry_after: float = 5.0,\n     ) -> bytes:\n         \"\"\"Capture a still image and optionally save it to a file.\n \n@@ -537,6 +538,15 @@ def capture(\n               (``HOST``, ``CAMERA`` or ``HOST_AND_CAMERA``).\n         timeout : float\n             Maximum seconds to wait for capture to complete.\n+        fast_mode : bool\n+            Use shorter shutter-button timing: S1 is held only until AF locks\n+            and S2 is held for 0.2 s, instead of fixed 1.5 s delays.\n+        fast_retry_after : float\n+            Fast mode only, and only for captures the host receives. If\n+            ``SHOOTING_FILE_INFO`` still reads ``0x0000`` after this many\n+            seconds, the shutter is assumed to have been missed and is re-fired\n+            once with normal timing. Set this above your exposure time when\n+            using long exposures with ``fast_mode``.\n \n         Returns\n         -------\n@@ -596,17 +606,43 @@ def capture(\n             return b\"\"\n \n         # Now wait for SHOOTING_FILE_INFO bit 15 to be set (image ready on host).\n-        deadline = time.monotonic() + timeout\n+        # In fast mode the camera may drop the shutter press entirely (seen on\n+        # the ZV-E10), leaving SHOOTING_FILE_INFO at 0x0000 forever.  If nothing\n+        # shows up within ``fast_retry_after`` seconds, re-fire once using the\n+        # slower, more reliable timing instead of polling until the timeout.\n+        start = time.monotonic()\n+        deadline = start + timeout\n+        retried = not fast_mode\n         val = 0\n         while time.monotonic() < deadline:\n             info = self.get_property(DeviceProperty.SHOOTING_FILE_INFO)\n             val = info.current_value if isinstance(info.current_value, int) else 0\n             logger.debug(\"SHOOTING_FILE_INFO poll: 0x%04X\", val)\n             if val & 0x8000:\n                 break\n+            if (\n+                not retried\n+                and val == 0\n+                and time.monotonic() - start >= fast_retry_after\n+            ):\n+                logger.warning(\n+                    \"No image after %.1fs in fast mode \u2014 the camera may have \"\n+                    \"missed the shutter press; retrying with normal timing\",\n+                    fast_retry_after,\n+                )\n+                retried = True\n+                self._fire_shutter(fast=False)\n+                continue\n             time.sleep(0.2)\n         else:\n-            raise SonyCameraError(\"Capture timed out waiting for image\")\n+            hint = (\n+                \" (fast_mode is on \u2014 try fast_mode=False if your camera \"\n+                \"misses shutter presses)\" if fast_mode else \"\"\n+            )\n+            raise SonyCameraError(\n+                f\"Capture timed out after {timeout:.1f}s waiting for image \"\n+                f\"(SHOOTING_FILE_INFO=0x{val:04X}){hint}\"\n+            )\n \n         logger.info(\"Capture complete (SHOOTING_FILE_INFO=0x%04X), downloading image\", val)\n \n@@ -1702,17 +1738,56 @@ def battery_level(self) -> DevicePropInfo | None:\n     # Internal helpers\n     # ------------------------------------------------------------------\n \n+    # Minimum S2 hold time.  Matches the Sony C++ SDK example; shorter pulses\n+    # are silently ignored by some bodies (e.g. ZV-E10), so the shutter never\n+    # fires and SHOOTING_FILE_INFO stays at 0x0000.\n+    _FAST_S2_HOLD = 0.2\n+    # Maximum time fast mode waits for AF lock after pressing S1.\n+    _FAST_AF_TIMEOUT = 1.0\n+\n     def _fire_shutter(self, fast: bool = False) -> None:\n-        \"\"\"Send the S1\u2192S2\u2192release sequence to the camera.\"\"\"\n-        delay = 0.1 if fast else 1.5\n+        \"\"\"Send the S1\u2192S2\u2192release sequence to the camera.\n+\n+        In normal mode a fixed 1.5 s delay is used between each step.  In fast\n+        mode, S1 is held only until the camera reports AF lock (up to\n+        :attr:`_FAST_AF_TIMEOUT`), and S2 is held for :attr:`_FAST_S2_HOLD` \u2014\n+        long enough for the camera to register the press.\n+        \"\"\"\n         self.control_device(DeviceProperty.S1_BUTTON, 0x0002)\n-        time.sleep(delay)\n+        if fast:\n+            self._wait_for_af_lock(self._FAST_AF_TIMEOUT)\n+            hold = self._FAST_S2_HOLD\n+        else:\n+            time.sleep(1.5)\n+            hold = 1.5\n         self.control_device(DeviceProperty.S2_BUTTON, 0x0002)\n-        time.sleep(delay)\n+        time.sleep(hold)\n         self.control_device(DeviceProperty.S2_BUTTON, 0x0001)\n-        time.sleep(delay)\n+        time.sleep(0.1 if fast else 1.5)\n         self.control_device(DeviceProperty.S1_BUTTON, 0x0001)\n \n+    def _wait_for_af_lock(self, timeout: float) -> bool:\n+        \"\"\"Poll AF_LOCK_INDICATION until focus locks or *timeout* expires.\n+\n+        Always waits at least 0.1 s so the camera registers the S1 press.\n+        Returns True if focus locked; False otherwise (e.g. MF mode), in which\n+        case the caller should proceed anyway.\n+        \"\"\"\n+        time.sleep(0.1)\n+        deadline = time.monotonic() + max(0.0, timeout - 0.1)\n+        while True:\n+            try:\n+                af = self.get_property(DeviceProperty.AF_LOCK_INDICATION)\n+                if af.current_value:\n+                    return True\n+            except Exception:\n+                pass\n+            if time.monotonic() >= deadline:\n+                break\n+            time.sleep(0.05)\n+        logger.debug(\"AF did not lock within %.1fs \u2014 proceeding anyway\", timeout)\n+        return False\n+\n     def _wait_for_shooting_file_info_clear(self, timeout: float = 10.0) -> None:\n         \"\"\"Wait until SHOOTING_FILE_INFO bit 15 is clear (no stale image flag).\"\"\"\n         deadline = time.monotonic() + timeout"
+    },
+    {
+      "sha": "e957f5998f12ce0f54e83644834c843ad47e56ec",
+      "filename": "tests/test_camera.py",
+      "status": "modified",
+      "additions": 136,
+      "deletions": 0,
+      "changes": 136,
+      "blob_url": "https://github.com/olkham/pysonycam/blob/115102f9288f5055c27241849172b70f4509c359/tests%2Ftest_camera.py",
+      "raw_url": "https://github.com/olkham/pysonycam/raw/115102f9288f5055c27241849172b70f4509c359/tests%2Ftest_camera.py",
+      "contents_url": "https://api.github.com/repos/olkham/pysonycam/contents/tests%2Ftest_camera.py?ref=115102f9288f5055c27241849172b70f4509c359",
+      "patch": "@@ -967,3 +967,139 @@ def test_error(self):\n         cam._transport.receive.return_value = (_err_resp(), b\"\")\n         with pytest.raises(TransactionError):\n             cam.get_lens_information()\n+\n+\n+# \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n+# Still capture (save media + fast mode)\n+# \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n+\n+def _info(value):\n+    info = MagicMock()\n+    info.current_value = value\n+    return info\n+\n+\n+class _FakeClock:\n+    \"\"\"Monotonic clock advanced only by the patched time.sleep.\"\"\"\n+\n+    def __init__(self):\n+        self.now = 0.0\n+\n+    def monotonic(self):\n+        return self.now\n+\n+    def sleep(self, secs):\n+        self.now += secs\n+\n+\n+def _setup_capture(cam, file_info_values, af_locked=True):\n+    \"\"\"Prepare *cam* so capture() can run without real hardware.\n+\n+    *file_info_values* is a callable mapping the number of shutter presses\n+    so far to the SHOOTING_FILE_INFO value the camera reports.\n+    \"\"\"\n+    state = {\"s2_presses\": 0}\n+\n+    def control_device(code, value, size=2):\n+        if code == DeviceProperty.S2_BUTTON and value == 0x0002:\n+            state[\"s2_presses\"] += 1\n+\n+    def get_property(code):\n+        if code == DeviceProperty.SHOOTING_FILE_INFO:\n+            return _info(file_info_values(state[\"s2_presses\"]))\n+        if code == DeviceProperty.AF_LOCK_INDICATION:\n+            return _info(1 if af_locked else 0)\n+        return _info(0)\n+\n+    cam.control_device = MagicMock(side_effect=control_device)\n+    cam.get_property = MagicMock(side_effect=get_property)\n+    cam.set_save_media = MagicMock()\n+    cam._wait_for_property_value = MagicMock()\n+    cam._wait_for_liveview = MagicMock()\n+    cam.get_object_info = MagicMock()\n+    cam.get_object = MagicMock(return_value=b\"JPEG\")\n+    return state\n+\n+\n+class TestCaptureSaveMedia:\n+    def test_default_saves_to_host_and_downloads(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        _setup_capture(cam, lambda presses: 0x8001 if presses else 0)\n+        with patch(\"pysonycam.camera.time\", clock):\n+            data = cam.capture()\n+        assert data == b\"JPEG\"\n+        cam.set_save_media.assert_called_once_with(SaveMedia.HOST)\n+\n+    def test_save_to_camera_true_skips_download(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        _setup_capture(cam, lambda presses: 0)\n+        with patch(\"pysonycam.camera.time\", clock):\n+            data = cam.capture(save_to_camera=True)\n+        assert data == b\"\"\n+        cam.set_save_media.assert_called_once_with(SaveMedia.CAMERA)\n+        cam.get_object.assert_not_called()\n+\n+    def test_host_and_camera_downloads(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        _setup_capture(cam, lambda presses: 0x8001 if presses else 0)\n+        with patch(\"pysonycam.camera.time\", clock):\n+            data = cam.capture(save_to_camera=SaveMedia.HOST_AND_CAMERA)\n+        assert data == b\"JPEG\"\n+        cam.set_save_media.assert_called_once_with(SaveMedia.HOST_AND_CAMERA)\n+\n+\n+class TestCaptureFastMode:\n+    def test_fast_mode_holds_s2_long_enough(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        _setup_capture(cam, lambda presses: 0x8001 if presses else 0)\n+        sleeps = []\n+        clock_sleep = clock.sleep\n+\n+        def record(secs):\n+            sleeps.append(secs)\n+            clock_sleep(secs)\n+\n+        clock.sleep = record\n+        with patch(\"pysonycam.camera.time\", clock):\n+            cam.capture(fast_mode=True)\n+        assert SonyCamera._FAST_S2_HOLD in sleeps\n+        assert all(s < 1.5 for s in sleeps)\n+\n+    def test_fast_mode_retries_missed_shutter(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        # First press is ignored by the camera; the retry produces an image.\n+        state = _setup_capture(cam, lambda presses: 0x8001 if presses >= 2 else 0)\n+        with patch(\"pysonycam.camera.time\", clock):\n+            data = cam.capture(fast_mode=True, fast_retry_after=2.0)\n+        assert data == b\"JPEG\"\n+        assert state[\"s2_presses\"] == 2\n+\n+    def test_fast_mode_retries_only_once_then_times_out(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        state = _setup_capture(cam, lambda presses: 0)\n+        with patch(\"pysonycam.camera.time\", clock):\n+            with pytest.raises(SonyCameraError, match=\"fast_mode\"):\n+                cam.capture(fast_mode=True, timeout=10.0, fast_retry_after=2.0)\n+        assert state[\"s2_presses\"] == 2\n+\n+    def test_normal_mode_never_retries(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        state = _setup_capture(cam, lambda presses: 0)\n+        with patch(\"pysonycam.camera.time\", clock):\n+            with pytest.raises(SonyCameraError, match=\"timed out\"):\n+                cam.capture(timeout=10.0)\n+        assert state[\"s2_presses\"] == 1\n+\n+    def test_fast_mode_proceeds_without_af_lock(self):\n+        cam = _make_camera()\n+        clock = _FakeClock()\n+        _setup_capture(cam, lambda presses: 0x8001 if presses else 0, af_locked=False)\n+        with patch(\"pysonycam.camera.time\", clock):\n+            assert cam.capture(fast_mode=True) == b\"JPEG\""
+    }
+  ]
+}

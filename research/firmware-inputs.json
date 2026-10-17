@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-17",
+  "eula_accepted_by_user": true,
+  "inputs": [
+    {
+      "model": "ILCE-7CM2",
+      "version": "2.01",
+      "path": "research/firmware/ILCE-7CM2-2.01/BODYDATA.DAT",
+      "bytes": 1139929560,
+      "sha256": "eb4943e6099754d64deaef5047942e9bfe258f232d0b7bc39fa23b3cd10e1e31",
+      "download_url": "https://support.d-imaging.sony.co.jp/download/NEX/uua3b90658/BODYDATA.DAT?fm=am",
+      "support_page": "https://www.sony.com/electronics/support/e-mount-body-ilce-7-series/ilce-7cm2/software/00301105",
+      "sha256_source": "locally measured; not a Sony-published digest"
+    },
+    {
+      "model": "ILCE-1M2",
+      "version": "4.00",
+      "path": "research/firmware/ILCE-1M2-4.00/BODYDATA.DAT",
+      "bytes": 1194332648,
+      "sha256": "f6f8db5735fd15584dfc0118f84e537876c3aaeba72a9971388c21334ce34614",
+      "download_url": "https://support.d-imaging.sony.co.jp/download/NEX/lvb4f975ad/BODYDATA.DAT?fm=am",
+      "support_page": "https://www.sony.com/electronics/support/e-mount-body-ilce-1-series/ilce-1m2/software/00349486",
+      "sha256_source": "locally measured; not a Sony-published digest"
+    }
+  ]
+}

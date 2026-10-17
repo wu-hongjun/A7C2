@@ -1,0 +1,551 @@
+"""Sony's RGB2YCC stage — where the saturation and hue of a look actually live.
+
+After MainGamma the engine converts to YCbCr and straight back, and the pair is
+deliberately *not* an identity. The forward transform is the whole of a Creative
+Look's colour character; the return trip is plain BT.601.
+
+    Y  = (R*2432 + G*4864 + B*896) / 8192      luma weights, near but not BT.601
+    u  = R - G;  v = B - G                     green differences, not luma ones
+    v2 = cross[u >= 0 ? 1 : 3] * u + v         cross-coupled, each on the other's
+    u2 = cross[v >= 0 ? 0 : 2] * v + u         sign, both on the *unmodified* u/v
+    Cr = gain[u2 >= 0 ? 1 : 3] * u2            gain also branches on sign
+    Cb = gain[v2 >= 0 ? 0 : 2] * v2
+
+Gains that branch on sign give a hue-dependent gain; the cross terms give a hue
+rotation. Those are exactly the two effects measured against the in-camera JPEG
+long before this stage was found: gain 0.64..1.45 with a few degrees of rotation.
+
+Eight signed shorts drive it, and they are in the RAW: 0x7842 is the base and
+0x7843..0x7846 four illuminant deltas blended by weight (1024 = 1.0). Verified
+against the engine's own interpolated values, bit for bit.
+
+Black & White and Sepia need nothing extra: their eight values are all zero, so
+both gains are zero, Cb = Cr = 0, and R = G = B = Y falls out on its own.
+
+Verified pixel by pixel against the running engine on a whole frame: Y is
+bit-identical, Cb and Cr differ by at most 1 in 14 bits (rounding).
+"""
+
+from __future__ import annotations
+
+import sys
+from functools import lru_cache
+from pathlib import Path
+
+import numpy as np
+
+from .chromasuppres import ChromaSuppresTerms, chroma_suppres_gain
+from .lut3d import apply_lut3d_float
+from .sr2 import LUMA_LUT_FLAT, LUMA_LUT_KNEE, LookCalibration
+
+CHROMA_BASE_TAG = 0x7842
+CHROMA_ILLUMINANT_TAGS = (0x7843, 0x7844, 0x7845, 0x7846)
+
+LUMA_WEIGHTS = (2432, 4864, 896)   # at lv+0x218f6, right after the tone LUT
+LUMA_SHIFT = 8192
+ILLUMINANT_UNIT = 1024             # a weight of 1024 means 1.0
+CHROMA_LIMIT = 0.5                 # the engine clamps Cb/Cr to +-8192 of 16383
+
+# BT.601, in the engine's own fixed point (/10000).
+_R_CR, _G_CR, _G_CB, _B_CB = 1.4020, 0.7141, 0.3441, 1.7720
+
+# YGamma (RVA 0x36f030) sits between the two halves and touches Y alone — its
+# two chroma planes come out bit-identical. Its full form is
+#
+#     black = -((bl + (bl>>31 & 3)) >> 2) * (1/512) * 32767
+#     scale = 512 / ((0x200 - wl) - black_int)
+#     Y' = trunc(clamp(((max(0, lut[Y]) - black) * scale - pivot) * contrast
+#                      + pivot, 0, 16383))
+#
+# bl and wl are Edit's own 黑色 and 白色 sliders (settings +0x2ac and +0x2b0,
+# each -100..100, stored as typed — measured by moving the panel and reading the
+# settings struct, sony_repro/notes/panel-sliders.md). The camera has no such
+# setting, so both read 0 on every frame ever shot and the two terms sat unused
+# in this comment until the panel was matched; luma_levels turns them into the
+# (black, scale) pair. Pivot and contrast are the *Fade* setting, read out of
+# the RAW's two ten-entry tables (sr2.LUMA_PIVOT_TAG / LUMA_CONTRAST_TAG). At
+# Fade 0 the pivot is 0 and the whole thing is a plain gain, which is why Fade
+# looked absent for so long — every frame in the sample corpus was shot at Fade 0.
+#
+# Checked against the engine's own in/out on whole frames: 100.0000% bit-exact
+# over 2M pixels at Fade 0 *and* at Fade 5, where the pivot is 10624 and the
+# contrast 0.789 (sony_repro/tools/ygamma_verify.py). Rounding must be
+# truncation; round-to-nearest matches only half the pixels.
+#
+# The LUT is *not* droppable, which cost a while to find out. On the FL and VV2
+# frames the whole sample corpus was measured on it really is near identity — it
+# departs by at most 16 in 16383, in deep shadow — so it was left out. Standard
+# and Neutral get a different table: identity to Y=8192 and then slope 0.90625,
+# a highlight knee, so lut[12288] = 11904 and lut[16383] = 15614. Without it a
+# Standard frame's highlights came out 2-3% bright and clipped (measured at
+# export on DSC03036: the stage's transfer is x1.0545 up to 8192 but only
+# x1.009 by 15360, against the flat x1.0547 the pivot/contrast line alone gives).
+#
+# Which table applies is the shot's own choice, read from two per-look SR2 tags
+# — sr2.LUMA_LUT_C_TAG / LUMA_LUT_D_TAG and the note there.
+LUMA_FULL_SCALE = 16383.0          # the engine's luma range, and the pivot's units
+LUMA_CONTRAST_UNIT = 16384.0       # tag 0x780e's units: 16384 means x1.0
+
+# Edit's 色彩复制 = 高级 does not only add the 3-D LUT (lut3d.py) after this
+# stage: it swaps YGamma's table *and* its contrast as well, so the one switch
+# moves both. The contrast it swaps in is the same for both families — the eight
+# looks whose own 0x780e entry is 16384 get 17280 too, which is why an FL frame
+# rendered at its own 1.0 came out dark against Edit's own 高级 export. Verified
+# to 100.0000% bit-exactness on six export tiles per family (tests/test_ygamma.py
+# and the fixtures beside it).
+LUMA_CONTRAST_ADVANCED_UNITS = 17280
+LUMA_CONTRAST_ADVANCED = LUMA_CONTRAST_ADVANCED_UNITS / LUMA_CONTRAST_UNIT
+
+#: The engine's own tables, dumped from calib+0x318fc at export.
+LUMA_LUT_DATA = Path(__file__).resolve().parent / "data" / "ygamma_luts.npz"
+#: Why 32768 and not 16384: the engine's Y plane is int16 and overshoots at this
+#: point — a captured tile reaches 16531 — so the table has to be indexable past
+#: full scale. Only the first 16384 entries can ever be reached from a float
+#: pipeline whose y is clamped to 1.0, which is what ships to the browser.
+LUMA_LUT_SIZE = 32768
+LUMA_LUT_WIRE = 16384
+_LUMA_LUT_NAMES = {LUMA_LUT_KNEE: "c4096_d14848", LUMA_LUT_FLAT: "c1024_d16384"}
+#: 高级 has its own pair, dumped from the same address with the setting on. Same
+#: two families, same selector — only the entries differ, and they differ from
+#: Y=1 upward rather than only past a knee (adv[8192] is 8176, not 8192).
+_LUMA_LUT_ADVANCED = "adv_"
+#: Selectors already reported. One line per unknown pair, not one per frame.
+_LUMA_LUT_SEEN: set[tuple[int, int]] = set()
+
+
+@lru_cache(maxsize=1)
+def _luma_luts() -> dict[str, np.ndarray]:
+    """All four tables, loaded once and handed out read-only (they are shared)."""
+    names = [n for name in _LUMA_LUT_NAMES.values()
+             for n in (name, _LUMA_LUT_ADVANCED + name)]
+    with np.load(LUMA_LUT_DATA) as z:
+        tables = {name: z[name].astype(np.uint16) for name in names}
+    for table in tables.values():
+        table.flags.writeable = False
+    return tables
+
+
+@lru_cache(maxsize=4)
+def _luma_lut_dequantised(name: str) -> np.ndarray:
+    """luma_lut_dequantised of one shipped table, solved once and shared."""
+    table = luma_lut_dequantised(_luma_luts()[name])
+    table.flags.writeable = False
+    return table
+
+
+def luma_lut(cal: LookCalibration, advanced: bool = False, dequantised: bool = False) -> np.ndarray:
+    """The table YGamma indexes Y through for this look. uint16[32768].
+
+    `advanced` is Edit's 色彩复制 = 高级: the same family, the other dump. It is
+    the same switch that adds the 3-D LUT, so a caller that turns one on turns
+    both on — see apply_chroma.
+
+    `dequantised` is the smooth curve under that table rather than the table
+    itself (luma_lut_dequantised) — what the browser renders with.
+
+    An unseen selector falls back to the near-identity family rather than
+    raising: it is the eight-look majority, so a body writing a pair nobody has
+    dumped renders at worst like the looks that share its shape. The one stderr
+    line is how such a body gets noticed.
+    """
+    key = (int(cal.luma_lut_key[0]), int(cal.luma_lut_key[1]))
+    name = _LUMA_LUT_NAMES.get(key)
+    if name is None:
+        if key not in _LUMA_LUT_SEEN:
+            _LUMA_LUT_SEEN.add(key)
+            print(f"llr: unknown YGamma LUT selector (0x780c, 0x780d) = {key} for "
+                  f"look {cal.name!r}; falling back to {_LUMA_LUT_NAMES[LUMA_LUT_FLAT]}",
+                  file=sys.stderr)
+        name = _LUMA_LUT_NAMES[LUMA_LUT_FLAT]
+    key_name = _LUMA_LUT_ADVANCED + name if advanced else name
+    return _luma_lut_dequantised(key_name) if dequantised else _luma_luts()[key_name]
+
+
+#: What the YGamma tables are made of: every one of the four is a 2048-entry
+#: table with 10-bit outputs (every value a multiple of 16) that the engine
+#: expands to its 32768 entries by linear interpolation — read every 16th
+#: entry and the rest are the straight lines between them, exactly. See
+#: luma_lut_dequantised for what that costs and what the browser gets instead.
+LUMA_LUT_COARSE_STEP = 16
+#: The smoothing weight for luma_lut_dequantised: a second-difference penalty
+#: on the coarse samples, at the strength where the fit stops following the
+#: 0/16/32 block pattern and follows the curve under it. The residual it
+#: leaves is ~9 on the table's scale — the pattern's own size — and past 1e3
+#: the density is as even as the curve's own slope allows (the knee's
+#: roll-off legitimately puts 75 inputs on a code where the mid-tones put 64).
+LUMA_LUT_DEQUANT_LAMBDA = 1e3
+
+
+def _whittaker(y: np.ndarray, lam: float) -> np.ndarray:
+    """Solve (I + lam D2'D2) z = y, D2 the second-difference operator.
+
+    The matrix is symmetric pentadiagonal, so this is a banded Cholesky in
+    O(n) rather than a dense solve: the dense one went through OpenBLAS, which
+    on a 24-thread Windows box spent 0.5-1 s on 1025 unknowns — on the first
+    decode of every session — where any thread count up to 16 takes 20 ms.
+    """
+    n = y.size
+    # The three diagonals of I + lam D2'D2: each row of D2 is (1, -2, 1) at k..k+2.
+    a0 = np.ones(n)
+    a1 = np.zeros(max(n - 1, 0))
+    a2 = np.zeros(max(n - 2, 0))
+    if n >= 3:
+        k = np.arange(n - 2)
+        np.add.at(a0, k, lam)
+        np.add.at(a0, k + 1, 4 * lam)
+        np.add.at(a0, k + 2, lam)
+        np.add.at(a1, k, -2 * lam)
+        np.add.at(a1, k + 1, -2 * lam)
+        a2 += lam
+    a0, a1, a2 = a0.tolist(), a1.tolist(), a2.tolist()
+    # L's diagonal and its first two sub-diagonals: l1[i] = L[i, i-1], l2[i] = L[i, i-2].
+    d = [0.0] * n
+    l1 = [0.0] * n
+    l2 = [0.0] * n
+    for i in range(n):
+        if i >= 2:
+            l2[i] = a2[i - 2] / d[i - 2]
+        if i >= 1:
+            l1[i] = (a1[i - 1] - l2[i] * l1[i - 1]) / d[i - 1]
+        d[i] = (a0[i] - l1[i] * l1[i] - l2[i] * l2[i]) ** 0.5
+    w = [0.0] * n
+    for i, v in enumerate(np.asarray(y, np.float64).tolist()):
+        if i >= 1:
+            v -= l1[i] * w[i - 1]
+        if i >= 2:
+            v -= l2[i] * w[i - 2]
+        w[i] = v / d[i]
+    z = [0.0] * n
+    for i in range(n - 1, -1, -1):
+        v = w[i]
+        if i + 1 < n:
+            v -= l1[i + 1] * z[i + 1]
+        if i + 2 < n:
+            v -= l2[i + 2] * z[i + 2]
+        z[i] = v / d[i]
+    return np.array(z)
+
+
+def luma_lut_dequantised(lut: np.ndarray, lam: float = LUMA_LUT_DEQUANT_LAMBDA) -> np.ndarray:
+    """The smooth curve a YGamma table is the 10-bit quantisation of.
+
+    A coarse step of 16 is a quarter of an 8-bit output code, so a curve of
+    slope ~0.95 is written as a run of block slopes drawn from {0, 1, 2}, and
+    binned to 8-bit codes the input density goes 80, 64, 64, 56, 56 and
+    repeats: a comb of period five codes, at +-25%, in the histogram of any
+    frame rendered through the advanced tables (the standard ones are slope 1
+    through most of the range and their blocks come out even). Treating the
+    table as what it is — samples of a smooth curve rounded to multiples of
+    LUMA_LUT_COARSE_STEP — this estimates the curve with a Whittaker smoother
+    (least squares with a penalty on the second differences) and expands that
+    the way the engine expands its own. Not a running mean: no window to pick,
+    no smearing of the knee, and the estimate is of the thing that was
+    quantised rather than of the quantisation pattern's average. It stays
+    within 21/16383 of the table — a third of an 8-bit code at most, a tenth
+    on average — so what the 高级 export is measured against does not move.
+
+    What the browser renders the advanced stage with, under 高级 and under the
+    camera match that borrows the table for its highlight roll-off. The
+    integer stage here (ygamma_planes), which the tests hold to the engine's
+    own planes, keeps the raw table.
+    """
+    x = np.asarray(lut, np.float64)
+    step = LUMA_LUT_COARSE_STEP
+    # Only the half a float pipeline can reach (LUMA_LUT_WIRE): the tail past
+    # it stays the table's own, and the solve is a quarter of the size.
+    top = LUMA_LUT_WIRE
+    coarse = x[:top + 1:step]
+    z = _whittaker(coarse, lam)
+    fine = np.interp(np.arange(top + 1), np.arange(0, top + 1, step), z)
+    out = x.copy()
+    out[:top + 1] = np.maximum.accumulate(fine)   # the curve is monotone; the fit's last-bit dips are not
+    return np.rint(np.clip(out, 0, 65535)).astype(np.uint16)
+
+
+def blend_params(base: np.ndarray, deltas: np.ndarray, weights: np.ndarray) -> np.ndarray:
+    """Base plus illuminant deltas: p = base + (sum_k delta[k] * w[k]) >> 10."""
+    acc = (np.asarray(deltas, np.int64) * np.asarray(weights, np.int64)[:, None]).sum(0)
+    return np.asarray(base, np.int64) + (acc >> 10)
+
+
+def unpack_params(params: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Eight shorts -> four cross terms and four gains, as floats.
+
+    The bit layout is not the obvious one: the cross terms are 9-bit signed at
+    bit 2, and the gains 8-bit unsigned at bit 3 over 128 (the engine divides by
+    64 and then halves). Reading them as plain /1024 fixed point gives gains
+    below 1.0, which cannot produce the measured saturation — that mismatch is
+    what led to the right unpacking.
+    """
+    p = np.asarray(params, np.int64)
+    cross = (p[:4] >> 2) / 256.0
+    gain = ((p[4:] >> 3) & 0xFF) / 128.0
+    return cross.astype(np.float32), gain.astype(np.float32)
+
+
+# The in-camera Saturation slider, -9..+9, as the engine sees it: the settings
+# object holds 10 per step up to 2 and 5 per step after that, and both stages
+# that use it read `1 + value/100`. Measured by dumping the settings struct at
+# every setting (sony_repro/tools/settings_probe.py). That settings value is
+# also exactly what Edit's own 饱和度 slider writes — it runs -100..100 and lands
+# in the struct as typed — so the panel value is the engine value and the
+# camera's stops are just the ten entries of this table (profile.py converts).
+SATURATION_STEPS = (0, 10, 20, 25, 30, 35, 40, 45, 50, 55)
+SATURATION_PANEL_LIMIT = 100
+
+
+def saturation_factor(value: float) -> float:
+    """Edit panel -100..100 to a chroma multiplier; -100 removes chroma."""
+    v = max(-SATURATION_PANEL_LIMIT, min(SATURATION_PANEL_LIMIT, float(value)))
+    return 1.0 + v / 100.0
+
+
+def rgb_to_ycc(rgb: np.ndarray, cross: np.ndarray, gain: np.ndarray,
+               saturation: float = 1.0, saturation_reference: float = 1.0,
+               ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Display-encoded RGB in [0, 1] -> Y, Cb, Cr (chroma centred on zero).
+
+    Divide calibrated gains by the fixed capture `saturation_reference`, then
+    clamp and multiply by the edited `saturation`.
+    """
+    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    y = (r * LUMA_WEIGHTS[0] + g * LUMA_WEIGHTS[1] + b * LUMA_WEIGHTS[2]) / LUMA_SHIFT
+    if saturation <= 0.0:
+        # Saturation -100 removes both chroma planes.
+        z = np.zeros_like(y)
+        return y, z, z
+    if not np.isfinite(saturation_reference) or saturation_reference <= 0:
+        raise ValueError("capture saturation reference must be finite and positive")
+    u, v = r - g, b - g
+    v2 = np.where(u >= 0, cross[1], cross[3]) * u + v
+    u2 = np.where(v >= 0, cross[0], cross[2]) * v + u
+    cr = np.clip(np.where(u2 >= 0, gain[1], gain[3]) / saturation_reference * u2,
+                 -CHROMA_LIMIT, CHROMA_LIMIT) * saturation
+    cb = np.clip(np.where(v2 >= 0, gain[0], gain[2]) / saturation_reference * v2,
+                 -CHROMA_LIMIT, CHROMA_LIMIT) * saturation
+    return y, cb, cr
+
+
+# Edit's 色相 slider (settings +0x204, -100..100) is ZcTaskHueSaturation, read
+# out of Edit.exe (sony_repro/PIPELINE.md §7): the two chroma planes are turned
+# as a vector, by 0.7 degrees per unit above zero and 0.35 below it — the same
+# asymmetric convention as the in-camera tweaks — and the *output* angle is
+# snapped to the engine's 512-entry sine table, i.e. to steps of 360/512. The
+# stage is the identity at 0, which is why it was never on the measured path;
+# the rotation is implemented from the disassembly and has not been checked
+# against a live tile (the panel probe could not keep Edit alive long enough).
+HUE_DEGREES_PER_UNIT_POS = 0.7
+HUE_DEGREES_PER_UNIT_NEG = 0.35
+HUE_PANEL_LIMIT = 100
+HUE_TABLE_STEPS = 512
+
+
+def hue_degrees(value: float) -> float:
+    """One 色相 value on Edit's -100..100 scale -> the rotation in degrees."""
+    v = max(-HUE_PANEL_LIMIT, min(HUE_PANEL_LIMIT, float(value)))
+    return v * (HUE_DEGREES_PER_UNIT_POS if v >= 0 else HUE_DEGREES_PER_UNIT_NEG)
+
+
+def rotate_chroma(cb: np.ndarray, cr: np.ndarray, degrees: float,
+                  ) -> tuple[np.ndarray, np.ndarray]:
+    """ZcTaskHueSaturation's rotation: (Cb, Cr) turned by `degrees` and the
+    result's angle snapped to the sine table. Identity at 0, exactly."""
+    if degrees == 0.0:
+        return cb, cr
+    cb, cr = np.asarray(cb), np.asarray(cr)
+    mag = np.hypot(cb, cr)
+    ang = np.arctan2(cb, cr) + np.deg2rad(degrees)
+    step = 2.0 * np.pi / HUE_TABLE_STEPS
+    ang = np.round(ang / step) * step
+    return (mag * np.sin(ang)).astype(cb.dtype, copy=False), (mag * np.cos(ang)).astype(cr.dtype, copy=False)
+
+
+FADE_PANEL_PER_STOP = 10
+
+
+def luma_terms(cal: LookCalibration, fade: float = 0,
+               advanced: bool = False) -> tuple[float, float]:
+    """This shot's YGamma pivot and contrast, for its Fade setting.
+
+    `fade` is on Edit's 褪色 scale, 0..100, ten units per camera stop; the
+    camera's stops land exactly on the tables' entries. Between entries the
+    contrast is interpolated, and past the last entry it continues along the
+    last pair — panel 100 asks for entry 10 of a ten-entry table and the engine
+    answered 9472/16384, one step beyond entry 9's 10112. The pivot is not
+    interpolated: panel 5 (half way from entry 0 to 1) already reads entry 1's
+    10624, so it takes the entry above. Both measured on the running engine
+    (sony_repro/notes/panel-sliders.md); a whole-number index is unchanged.
+
+    `advanced` (高级 colour reproduction) changes nothing here. It used to
+    replace the contrast with 17280/16384, the one value 高级 had been seen
+    with — on two Fade 0 frames, where that is simply entry 0 of the table
+    (every look on every body read so far carries the same ten entries,
+    17280 first). Probed on the running engine at export, 高级 and 标准 read
+    the same pivot and contrast at every Fade: SH at Fade 6 gives 12160 in
+    both, FL patched to Fade 3 gives 14208 in both. Overriding the table threw
+    the fade away: every Fade 1 frame rendered 7 L* too dark in the shadows,
+    SH's Fade 6 frames 20 L*. The parameter stays so the two wire fields keep
+    their meaning; LUMA_CONTRAST_ADVANCED is what entry 0 is.
+    """
+    del advanced
+    x = max(0.0, float(fade)) / FADE_PANEL_PER_STOP
+    last = cal.luma_pivot.size - 1
+    pivot = float(cal.luma_pivot[min(last, int(np.ceil(x)))]) / LUMA_FULL_SCALE
+    table = cal.luma_contrast.astype(np.float64)
+    k = min(int(x), last - 1)
+    c = table[k] + (table[k + 1] - table[k]) * (x - k)
+    return pivot, float(c) / LUMA_CONTRAST_UNIT
+
+
+LEVEL_PANEL_LIMIT = 100
+LEVEL_UNIT = 0x200        # the engine's white point on the level scale
+LEVEL_TO_LUMA = 32767.0 / 512.0   # one level unit on the 16-bit luma plane
+
+
+def luma_levels(black: float = 0, white: float = 0) -> tuple[float, float]:
+    """Edit's 黑色 and 白色 sliders -> YGamma's (black, scale), the two terms
+    the header comment carries: both on the 0..16383 luma scale, normalised.
+
+        black_int = -trunc(bl / 4)         # the (bl + (bl>>31 & 3)) >> 2 dance
+        black     = black_int * 32767/512
+        scale     = 512 / ((512 - wl) - black_int)
+
+    Positive 黑色 makes `black` negative, which *lifts* the plane; positive 白色
+    shrinks the divisor and stretches it. Zero both is (0, 1). The arithmetic is
+    the disassembly's; the sliders' effect on a live tile has not been checked.
+    """
+    bl = int(max(-LEVEL_PANEL_LIMIT, min(LEVEL_PANEL_LIMIT, black)))
+    wl = int(max(-LEVEL_PANEL_LIMIT, min(LEVEL_PANEL_LIMIT, white)))
+    black_int = -int(bl / 4)          # int() truncates toward zero, as the shift pair does
+    black16 = black_int * LEVEL_TO_LUMA
+    scale = LEVEL_UNIT / ((LEVEL_UNIT - wl) - black_int)
+    return black16 / LUMA_FULL_SCALE, float(scale)
+
+
+def luma_gamma(y: np.ndarray, pivot: float, contrast: float,
+               lut: np.ndarray | None = None,
+               black: float = 0.0, scale: float = 1.0) -> np.ndarray:
+    """YGamma: table, levels, then pull luma toward `pivot` by `contrast`, and clip.
+
+    `black` and `scale` are luma_levels' pair: `(y - black) * scale` sits
+    between the table and the pivot line, exactly where the header comment has
+    it. Defaults are the identity, which is every camera-shot frame.
+
+    Chroma is untouched — the engine's own two chroma planes come out of this
+    stage bit-identical.
+
+    At Fade 0 the pivot is zero and the second half is the plain gain it was
+    first measured as; with Fade on, the pivot rises to about 0.65 and the
+    contrast drops below one, which lifts the shadows while pulling the
+    highlights down — the faded look, done in one stage on luma alone.
+
+    `lut` is this look's table (luma_lut). The index is the engine's own — Y
+    truncated onto 0..16383 — so the float path steps exactly where the integer
+    stage does instead of interpolating across a knee the engine has as a step.
+    None keeps the old identity behaviour, which is right only for a caller that
+    has no calibration to read the selector from.
+    """
+    y = np.asarray(y)
+    if lut is not None:
+        idx = np.clip(np.trunc(y * LUMA_FULL_SCALE), 0, len(lut) - 1).astype(np.intp)
+        y = (np.asarray(lut)[idx] / LUMA_FULL_SCALE).astype(y.dtype, copy=False)
+    if black != 0.0 or scale != 1.0:
+        y = (y - black) * scale
+    return np.clip((y - pivot) * contrast + pivot, 0.0, 1.0)
+
+
+def ygamma_planes(y16: np.ndarray, lut: np.ndarray,
+                  pivot16: int = 0, contrast: float = 1.0,
+                  black16: float = 0.0, scale: float = 1.0) -> np.ndarray:
+    """The exact integer stage on an engine plane: int16 Y in, int16 Y out.
+
+    Kept beside the float path for the same reason chromasuppres keeps one: it
+    is what the bit-exactness claim is checked against, on tiles captured out of
+    the running engine. `pivot16` is on the 0..16383 scale, not normalised.
+
+    The negatives are clamped at the *index* rather than after: the engine's own
+    `max(0, Y)` sits inside the table lookup (RVA 0x36f030), and its Y plane does
+    go negative. Rounding is truncation — round-to-nearest matches half the
+    pixels and no more.
+    """
+    y = np.asarray(y16, np.int16).astype(np.int64)
+    v = np.asarray(lut, np.int64)[np.maximum(y, 0)].astype(np.float64)
+    if black16 != 0.0 or scale != 1.0:
+        v = (v - black16) * scale
+    return np.trunc(np.clip((v - pivot16) * contrast + pivot16,
+                            0.0, LUMA_FULL_SCALE)).astype(np.int16)
+
+
+def ycc_to_rgb(y: np.ndarray, cb: np.ndarray, cr: np.ndarray) -> np.ndarray:
+    """Plain BT.601. All of the styling is in the forward direction."""
+    return np.clip(np.stack([
+        y + _R_CR * cr,
+        y - _G_CR * cr - _G_CB * cb,
+        y + _B_CB * cb,
+    ], -1), 0.0, 1.0)
+
+
+def apply_chroma(rgb: np.ndarray, cross: np.ndarray, gain: np.ndarray,
+                 pivot: float = 0.0, contrast: float = 1.0,
+                 saturation: float = 1.0,
+                 suppress: ChromaSuppresTerms | None = None,
+                 lut: np.ndarray | None = None,
+                 lut3d: bool = False,
+                 lut_advanced: np.ndarray | None = None,
+                 contrast_advanced: float | None = None,
+                 hue: float = 0.0,
+                 black: float = 0.0, scale: float = 1.0,
+                 saturation_reference: float = 1.0) -> np.ndarray:
+    """The whole YCC section: display-encoded RGB in, the same out.
+
+    `hue` is the 色相 rotation in degrees (hue_degrees), applied right after
+    the saturation multiply-back where ZcTaskHueSaturation sits; `black` and
+    `scale` are the 黑色/白色 pair (luma_levels) and go to YGamma.
+
+    Grey does not survive this unchanged — YGamma moves it. That is the engine's
+    behaviour, not a bug in the chroma maths: YGamma itself leaves both chroma
+    planes bit-identical, and only Y moves.
+
+    `suppress` adds ChromaSuppres, which the engine runs between RGB2YCC and
+    YGamma (chromasuppres.py). Without it the two chroma planes really do come
+    out of this section untouched; with it they lose 1/256 in the mid-tones and
+    fade out above the shot's `hiY`. Its gain reads the luma *before* YGamma,
+    because that is the plane the engine's own stage sees — before the table as
+    well as before the pivot/contrast line.
+
+    `lut` is YGamma's table for this look (luma_lut); without it the stage is
+    the pivot/contrast line alone, which is right only for the eight looks whose
+    table is near identity.
+
+    `lut3d` is Edit's 色彩复制 = 高级, "advanced colour reproduction", and it is
+    the one setting here the user chooses: Edit's own default is 标准. It is not
+    only the extra stage it was first taken for. 高级 changes two things at once,
+    and the flag drives both:
+
+      * YGamma runs off a different table and a different contrast —
+        `lut_advanced` and `contrast_advanced`, which a caller with a calibration
+        gets from `luma_lut(cal, advanced=True)` and `luma_terms(cal, fade,
+        advanced=True)`. Leave either None and that half is skipped, which is
+        right only for a caller that has no calibration to read them from;
+      * ZcTask3DLut then runs where the engine runs it (lut3d.py), after YGamma
+        and before the return trip. It works on the engine's integer planes, so
+        the float y/cb/cr are converted to them and back (apply_lut3d_float
+        documents the scale). Bright saturated pixels come down in luma and lose
+        chroma; near the top of the Y range colour goes fully neutral.
+
+    The pivot is shared between the two settings — see luma_terms for why.
+    """
+    y, cb, cr = rgb_to_ycc(rgb, cross, gain, saturation, saturation_reference)
+    cb, cr = rotate_chroma(cb, cr, hue)
+    if suppress is not None:
+        f = chroma_suppres_gain(y, suppress)
+        cb, cr = cb * f, cr * f
+    if lut3d:
+        if lut_advanced is not None:
+            lut = lut_advanced
+        if contrast_advanced is not None:
+            contrast = contrast_advanced
+    y = luma_gamma(y, pivot, contrast, lut, black, scale)
+    if lut3d:
+        y, cb, cr = apply_lut3d_float(y, cb, cr)
+    return ycc_to_rgb(y, cb, cr)

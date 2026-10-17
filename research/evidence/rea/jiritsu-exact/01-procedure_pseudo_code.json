@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_3b863799a6ad3cc732e2c621bef960c072be5c7f0b1dab0eb2af4a6d9d37d2ff\",\"subject\":{\"name\":\"libJiritsu.so\",\"digest\":{\"sha256\":\"87dc24912938be8dd59965e62306e79fdd8c672e10ed6f9734c88454b1d144a8\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libJiritsu.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\"},\"digest\":\"73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"file-offset:0x962c\"},\"raw_result\":{\"value\":\"\\nchar * get_access_filename(byte param_1,char *param_2,char *param_3,int param_4)\\n\\n{\\n  int iVar1;\\n  size_t __n;\\n  char *__format;\\n  char *__s2;\\n  size_t __n_00;\\n  \\n  __n_00 = (size_t)param_4;\\n  memset(param_3,0,__n_00);\\n  __s2 = DAT_001487e0;\\n  if (param_1 == 2) {\\n    __s2 = \\\"/tmp/jiritsu/libJit.so\\\";\\n  }\\n  else if (param_1 < 3) {\\n    if (param_1 == 0) {\\n      __s2 = \\\"/tmp/jiritsu/tmmc.jit\\\";\\n    }\\n    else {\\n      if (param_1 != 1) {\\n        return param_3;\\n      }\\n      __s2 = \\\"/tmp/jiritsu/DIAC.csv\\\";\\n    }\\n  }\\n  else if (param_1 == 4) {\\n    __s2 = \\\"/tmp/jiritsu/history.txt\\\";\\n  }\\n  else if (param_1 < 4) {\\n    __s2 = \\\"/tmp/jiritsu/jit.log\\\";\\n  }\\n  else {\\n    if (param_1 != 0xff) {\\n      return param_3;\\n    }\\n    if (DAT_001487e0 == (char *)0x0) {\\n      return param_3;\\n    }\\n    __n = strlen(param_2);\\n    iVar1 = strncmp(param_2,__s2,__n);\\n    if (iVar1 != 0) {\\n      if (*__s2 == '/') {\\n        __format = \\\"%s%s\\\";\\n      }\\n      else {\\n        __format = \\\"%s/%s\\\";\\n      }\\n      snprintf(param_3,__n_00,__format,param_2,__s2);\\n      return param_3;\\n    }\\n  }\\n  snprintf(param_3,__n_00,\\\"%s\\\",__s2);\\n  return param_3;\\n}\\n\\n\",\"limitations\":[],\"selection\":{\"file_offset\":38444,\"mapped_address\":\"0x10962c\",\"procedure_address\":\"0x10962c\"}},\"normalized_result\":\"\\nchar * get_access_filename(byte param_1,char *param_2,char *param_3,int param_4)\\n\\n{\\n  int iVar1;\\n  size_t __n;\\n  char *__format;\\n  char *__s2;\\n  size_t __n_00;\\n  \\n  __n_00 = (size_t)param_4;\\n  memset(param_3,0,__n_00);\\n  __s2 = DAT_001487e0;\\n  if (param_1 == 2) {\\n    __s2 = \\\"/tmp/jiritsu/libJit.so\\\";\\n  }\\n  else if (param_1 < 3) {\\n    if (param_1 == 0) {\\n      __s2 = \\\"/tmp/jiritsu/tmmc.jit\\\";\\n    }\\n    else {\\n      if (param_1 != 1) {\\n        return param_3;\\n      }\\n      __s2 = \\\"/tmp/jiritsu/DIAC.csv\\\";\\n    }\\n  }\\n  else if (param_1 == 4) {\\n    __s2 = \\\"/tmp/jiritsu/history.txt\\\";\\n  }\\n  else if (param_1 < 4) {\\n    __s2 = \\\"/tmp/jiritsu/jit.log\\\";\\n  }\\n  else {\\n    if (param_1 != 0xff) {\\n      return param_3;\\n    }\\n    if (DAT_001487e0 == (char *)0x0) {\\n      return param_3;\\n    }\\n    __n = strlen(param_2);\\n    iVar1 = strncmp(param_2,__s2,__n);\\n    if (iVar1 != 0) {\\n      if (*__s2 == '/') {\\n        __format = \\\"%s%s\\\";\\n      }\\n      else {\\n        __format = \\\"%s/%s\\\";\\n      }\\n      snprintf(param_3,__n_00,__format,param_2,__s2);\\n      return param_3;\\n    }\\n  }\\n  snprintf(param_3,__n_00,\\\"%s\\\",__s2);\\n  return param_3;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[{\"kind\":\"file-offset\",\"offset\":38444},{\"kind\":\"address\",\"address\":\"0x10962c\"},{\"kind\":\"address\",\"address\":\"0x10962c\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_3b863799a6ad3cc732e2c621bef960c072be5c7f0b1dab0eb2af4a6d9d37d2ff",
+    "subject": {
+      "name": "libJiritsu.so",
+      "digest": {
+        "sha256": "87dc24912938be8dd59965e62306e79fdd8c672e10ed6f9734c88454b1d144a8"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libJiritsu.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "arm64",
+        "available_architectures": [
+          "arm64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-v1",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default"
+      },
+      "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "file-offset:0x962c"
+    },
+    "raw_result": {
+      "value": "\nchar * get_access_filename(byte param_1,char *param_2,char *param_3,int param_4)\n\n{\n  int iVar1;\n  size_t __n;\n  char *__format;\n  char *__s2;\n  size_t __n_00;\n  \n  __n_00 = (size_t)param_4;\n  memset(param_3,0,__n_00);\n  __s2 = DAT_001487e0;\n  if (param_1 == 2) {\n    __s2 = \"/tmp/jiritsu/libJit.so\";\n  }\n  else if (param_1 < 3) {\n    if (param_1 == 0) {\n      __s2 = \"/tmp/jiritsu/tmmc.jit\";\n    }\n    else {\n      if (param_1 != 1) {\n        return param_3;\n      }\n      __s2 = \"/tmp/jiritsu/DIAC.csv\";\n    }\n  }\n  else if (param_1 == 4) {\n    __s2 = \"/tmp/jiritsu/history.txt\";\n  }\n  else if (param_1 < 4) {\n    __s2 = \"/tmp/jiritsu/jit.log\";\n  }\n  else {\n    if (param_1 != 0xff) {\n      return param_3;\n    }\n    if (DAT_001487e0 == (char *)0x0) {\n      return param_3;\n    }\n    __n = strlen(param_2);\n    iVar1 = strncmp(param_2,__s2,__n);\n    if (iVar1 != 0) {\n      if (*__s2 == '/') {\n        __format = \"%s%s\";\n      }\n      else {\n        __format = \"%s/%s\";\n      }\n      snprintf(param_3,__n_00,__format,param_2,__s2);\n      return param_3;\n    }\n  }\n  snprintf(param_3,__n_00,\"%s\",__s2);\n  return param_3;\n}\n\n",
+      "limitations": [],
+      "selection": {
+        "file_offset": 38444,
+        "mapped_address": "0x10962c",
+        "procedure_address": "0x10962c"
+      }
+    },
+    "normalized_result": "\nchar * get_access_filename(byte param_1,char *param_2,char *param_3,int param_4)\n\n{\n  int iVar1;\n  size_t __n;\n  char *__format;\n  char *__s2;\n  size_t __n_00;\n  \n  __n_00 = (size_t)param_4;\n  memset(param_3,0,__n_00);\n  __s2 = DAT_001487e0;\n  if (param_1 == 2) {\n    __s2 = \"/tmp/jiritsu/libJit.so\";\n  }\n  else if (param_1 < 3) {\n    if (param_1 == 0) {\n      __s2 = \"/tmp/jiritsu/tmmc.jit\";\n    }\n    else {\n      if (param_1 != 1) {\n        return param_3;\n      }\n      __s2 = \"/tmp/jiritsu/DIAC.csv\";\n    }\n  }\n  else if (param_1 == 4) {\n    __s2 = \"/tmp/jiritsu/history.txt\";\n  }\n  else if (param_1 < 4) {\n    __s2 = \"/tmp/jiritsu/jit.log\";\n  }\n  else {\n    if (param_1 != 0xff) {\n      return param_3;\n    }\n    if (DAT_001487e0 == (char *)0x0) {\n      return param_3;\n    }\n    __n = strlen(param_2);\n    iVar1 = strncmp(param_2,__s2,__n);\n    if (iVar1 != 0) {\n      if (*__s2 == '/') {\n        __format = \"%s%s\";\n      }\n      else {\n        __format = \"%s/%s\";\n      }\n      snprintf(param_3,__n_00,__format,param_2,__s2);\n      return param_3;\n    }\n  }\n  snprintf(param_3,__n_00,\"%s\",__s2);\n  return param_3;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [
+      {
+        "kind": "file-offset",
+        "offset": 38444
+      },
+      {
+        "kind": "address",
+        "address": "0x10962c"
+      },
+      {
+        "kind": "address",
+        "address": "0x10962c"
+      }
+    ],
+    "evidence_links": []
+  }
+}

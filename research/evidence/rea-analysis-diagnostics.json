@@ -1,0 +1,32 @@
+{
+  "captured_at_utc": "2026-10-17T22:16:00.419407+00:00",
+  "scope": "Partial host Ghidra analysis log captured while appFw analysis remained active; not a final analysis transcript.",
+  "camera_accessed": false,
+  "target_executed": false,
+  "snapshot": {
+    "path": "research/evidence/rea/appfw/ghidra-analysis-snapshot.log",
+    "bytes": 942228,
+    "sha256": "353cb4c45dc381224b236755206880aec4c11861d6faf7baa0e1a81ccd110ec9"
+  },
+  "error_logger_counts_in_snapshot": {
+    "LSDACallSiteTable": 1656,
+    "GccExceptionAnalyzer": 604,
+    "VarnodeContext": 48
+  },
+  "interpretation": "Analyzer errors limit inferred types, boundaries and control flow. Selected pseudocode must be checked against retained instructions; completion is recorded independently by actual REA query responses.",
+  "default_appfw_outcome": {
+    "analysis_completed": true,
+    "successful_results": [
+      "research/evidence/rea/appfw/00-binary_overview.json",
+      "research/evidence/rea/appfw/01-procedure_pseudo_code.json"
+    ],
+    "failed_query": "research/evidence/rea/appfw/02-procedure_pseudo_code.json",
+    "failure_scope": "Ghidra did not recognize a procedure at/containing file offset0x342863c. This is not evidence of absent bytes or disabled functionality. Later requests in that original fail-fast job were not issued.",
+    "closed_receipt": "research/evidence/rea/appfw/close.json"
+  },
+  "focused_appfw_outcome": {
+    "completed_analysis": false,
+    "reason": "Cancelled the redundant host profile after the default run completed and supplied the main selection-helper pseudocode. No focused-profile results are claimed.",
+    "closed_receipt": "research/evidence/rea/appfw-focused/close.json"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-17",
+  "baseline_commit": "370bf0b5b9b23d3d50dd381b562a736035c6690a",
+  "baseline_files_unchanged": 38,
+  "baseline_files_modified": [
+    {
+      "path": "README.md",
+      "baseline_sha256": "3777503154ae278f8f39424a78f4605382459a49ba3108a14679ef7cf0a957eb",
+      "current_sha256": "298476c43c1090175c2f8801cbd8aafda014c599387427036918b0899efc22ad"
+    },
+    {
+      "path": "README.zh-TW.md",
+      "baseline_sha256": "65cf2d020f449845fe893d1814de0dd3dfc9b72b98119dadc70ef521e76b4e96",
+      "current_sha256": "49ebd87a1f214f0cb8559de18fe2a064a4fca713f4bf860607c542d0fa1beb6b"
+    },
+    {
+      "path": "VALIDATION.json",
+      "baseline_sha256": "641204cdc0683ae541020139538d25c0d4d5d1a43cc0ae1ba5135830b1c026e1",
+      "current_sha256": "e2391627a32ab07fc802cf8a13242dfc31c12e9029aa1162d82dede376c1d947"
+    },
+    {
+      "path": "app.py",
+      "baseline_sha256": "5662b6ef9d79993895d2cfa2a7653363dd16ac3bb5a1db9d19fe4abda2549893",
+      "current_sha256": "18135b782f8d05cdfe83667412b07241d45a71f9eb6195b40e5091588f86d5a0"
+    },
+    {
+      "path": "assets/installer.so",
+      "baseline_sha256": "64ec3db50ab31a6492eb068d40c9a0ed32488ccb0faeebd02a625e469227e5b6",
+      "current_sha256": "575e9d34418ef47c8e6cb2202d249737f928aa18f4ea752409fc4da70016a423"
+    },
+    {
+      "path": "assets/manifest.json",
+      "baseline_sha256": "a1238386c79f504e29504d45ef165c9c8c1903a393cfe0feca87f06297e894d6",
+      "current_sha256": "bcafc740317487573c79429fd2b9a3f7d1d54c4192cdcf77878a35b425a57393"
+    },
+    {
+      "path": "assets/patches.json",
+      "baseline_sha256": "a297bdd1df6088adca4fe8de2323470354b4497ddc03fa4a5e2e48ee42272bb8",
+      "current_sha256": "b8c87a9439b95001a6e39a71b5ed43993355799ad6b00276e823725459a1b541"
+    },
+    {
+      "path": "core.py",
+      "baseline_sha256": "efa0896f0fd18c62d165d64f0cb4ffb4852ae1d2ca4b7c24e6d53331e7eb7b52",
+      "current_sha256": "a75ddbdece39f1756a88c592d6dcb823dd48d19c7b813357f7c39c3484292de3"
+    },
+    {
+      "path": "native/patch_manifest.h",
+      "baseline_sha256": "436c2d28cd4420e3c23536431988abbbfe1472d1ef166252fd69d60c80357386",
+      "current_sha256": "98eb3d3dff5cb007dfb930216f2fe940ad8adbaf44cddc4573fd16f4ddbe6c38"
+    }
+  ],
+  "vendored_files_match_pinned_upstream_after_newline_normalization": 19,
+  "vendored_files_with_newline_only_differences": [
+    "pmca/backup/__init__.py",
+    "pmca/io/__init__.py",
+    "pmca/usb/__init__.py",
+    "pmca/usb/constants.py",
+    "pmca/usb/crypto.py",
+    "pmca/usb/driver/__init__.py",
+    "pmca/usb/driver/generic/__init__.py",
+    "pmca/usb/driver/generic/libusb.py",
+    "pmca/usb/driver/generic/qemu.py",
+    "pmca/usb/driver/osx.py",
+    "pmca/usb/driver/windows/__init__.py",
+    "pmca/usb/driver/windows/driverless.py",
+    "pmca/usb/driver/windows/msc.py",
+    "pmca/usb/driver/windows/setupapi.py",
+    "pmca/usb/driver/windows/wpd.py",
+    "pmca/usb/sony.py",
+    "pmca/util/__init__.py",
+    "pmca/util/http.py"
+  ],
+  "deployment_assets_hash_verified": true,
+  "patches": [
+    {
+      "program": "appFw.so",
+      "windows": 8,
+      "covered_bytes": 134,
+      "changed_bytes": 111
+    },
+    {
+      "program": "cpapp-b.bin",
+      "windows": 32,
+      "covered_bytes": 4288,
+      "changed_bytes": 2047
+    }
+  ],
+  "native": {
+    "installer": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 80,
+      "program_sizes": [
+        99960744,
+        18090880
+      ],
+      "patch_windows_match_json": 40
+    },
+    "probe": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 0
+    },
+    "runtime": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 0
+    },
+    "wbi": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 0
+    },
+    "c_source_patch_windows_match_json": 40
+  },
+  "ap_converter": {
+    "cases_passed": 259,
+    "valid_look_mapping": [
+      0,
+      3,
+      2,
+      1,
+      16,
+      15,
+      17,
+      18,
+      5,
+      13,
+      19,
+      20
+    ],
+    "invalid_inputs_leave_output_unchanged_at_handoff": true,
+    "disassembly": [
+      "0x3528804: cmp w1, #0xb",
+      "0x3528808: b.hi #0x3528874",
+      "0x352880c: adr x0, #0x352881c",
+      "0x3528810: ldrb w0, [x0, w1, uxtw]",
+      "0x3528814: strb w0, [x2]",
+      "0x3528818: ret "
+    ],
+    "scope": "112-byte AP window only; no original out-of-window code or hardware"
+  },
+  "camera_accessed": false,
+  "complete_official_firmware_checked": false
+}

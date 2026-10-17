@@ -1,0 +1,289 @@
+{
+  "date": "2026-10-17",
+  "camera_accessed": false,
+  "programs": [
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+      "bytes": 99960744,
+      "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b",
+      "candidate_sha256": "1aaeb8fbe0297950cab454d498d1a5ba874f91542aa2737aae27a73971e324d7",
+      "expected_candidate_sha256": "1aaeb8fbe0297950cab454d498d1a5ba874f91542aa2737aae27a73971e324d7",
+      "reverse_restores_original_exactly": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha8_unpacked/cpapp-b.bin",
+      "bytes": 18090880,
+      "sha256": "f5a477588698ef965748903b8959a39ce4f59ffd4aee4d4234ef1670f56a1428",
+      "candidate_sha256": "60a9de1a0636c7f6b5b98607a4d25eeb48634e25294f632743a6d256e583b370",
+      "expected_candidate_sha256": "60a9de1a0636c7f6b5b98607a4d25eeb48634e25294f632743a6d256e583b370",
+      "reverse_restores_original_exactly": true
+    }
+  ],
+  "donor_programs": [
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+      "bytes": 94665016,
+      "sha256": "d04cc70b41382a147ef5c67d7e86ba706d66526aee17619767b07cbb416b77ca"
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha8_unpacked/cpapp-b.bin",
+      "bytes": 19190024,
+      "sha256": "96b41427958c1b412b3e15c5bd9b51e34657ae1e1246344438b8368031ca4859"
+    }
+  ],
+  "gamma_records": [
+    {
+      "payload_index": 0,
+      "donor_file_offset": "0xdbeef0",
+      "donor_record_bytes": 580,
+      "target_record_bytes": 576,
+      "curve_prefix_bytes_identical": 512,
+      "removed_zero_word_at": "0x23c",
+      "remaining_control_byte_difference": [
+        {
+          "offset": 540,
+          "donor": 3,
+          "target": 5
+        }
+      ],
+      "target_record_sha256": "05a2604247f977ec1f1300f6dad590e2a2f300cab6c30cd532b52c392ae505d3",
+      "limit": "Control-byte meaning and full CP dispatch semantics not established by byte comparison"
+    },
+    {
+      "payload_index": 1,
+      "donor_file_offset": "0xdbf800",
+      "donor_record_bytes": 580,
+      "target_record_bytes": 576,
+      "curve_prefix_bytes_identical": 512,
+      "removed_zero_word_at": "0x23c",
+      "remaining_control_byte_difference": [
+        {
+          "offset": 539,
+          "donor": 50,
+          "target": 48
+        }
+      ],
+      "target_record_sha256": "00831eb8582af0b9932bdc7426085ce92a8b7582903bac18c70b92437d3f8b95",
+      "limit": "Control-byte meaning and full CP dispatch semantics not established by byte comparison"
+    },
+    {
+      "payload_index": 2,
+      "donor_file_offset": "0xdbf378",
+      "donor_record_bytes": 580,
+      "target_record_bytes": 576,
+      "curve_prefix_bytes_identical": 512,
+      "removed_zero_word_at": "0x23c",
+      "remaining_control_byte_difference": [
+        {
+          "offset": 540,
+          "donor": 3,
+          "target": 5
+        }
+      ],
+      "target_record_sha256": "6e6a5d7cd83cf9d736663c7ae170aebce88c3008cca7cd89b6ddda426bb84437",
+      "limit": "Control-byte meaning and full CP dispatch semantics not established by byte comparison"
+    },
+    {
+      "payload_index": 3,
+      "donor_file_offset": "0xdbfa44",
+      "donor_record_bytes": 580,
+      "target_record_bytes": 576,
+      "curve_prefix_bytes_identical": 512,
+      "removed_zero_word_at": "0x23c",
+      "remaining_control_byte_difference": [
+        {
+          "offset": 539,
+          "donor": 51,
+          "target": 49
+        }
+      ],
+      "target_record_sha256": "f51f4c3b37f33435a1cb495abff94d0f241d758b60bf9c2450b1f22814415a00",
+      "limit": "Control-byte meaning and full CP dispatch semantics not established by byte comparison"
+    }
+  ],
+  "color_records": [
+    {
+      "target_parameter": 55,
+      "donor_parameter": 56,
+      "record_slot": 23,
+      "chroma_bytes": 64,
+      "matrix_bytes": 576,
+      "chroma_sha256": "f77414b51c1647d3984c4decff9222444c1dc05c9a97d29ddff5d146a7b36335",
+      "matrix_sha256": "fdd799d63ae8aba2574bc04bd64b2f8a9739cb39e107eb22145560c8211cd7f9"
+    },
+    {
+      "target_parameter": 56,
+      "donor_parameter": 57,
+      "record_slot": 25,
+      "chroma_bytes": 64,
+      "matrix_bytes": 576,
+      "chroma_sha256": "43bd63a50dd1324400d95eaeb2e2e1402c949b5808064cd427c4ce5de2eeffc4",
+      "matrix_sha256": "b7321db784a94cfeb59b83b43dd680c02e629bfdaa77d291f274049cf5a056ef"
+    }
+  ],
+  "target_factory_templates": [
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89700_ALLLANG.bin",
+      "bytes": 2390264,
+      "sha256": "98a4981d9090797c04d3290dca3c248056ebfc6673e2d1797255c8d9076e7f74",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89700_E38.bin",
+      "bytes": 2390264,
+      "sha256": "0e4c5f3626a0e3bdb5a40652c303d8b379b01f15145f7e95f5f98e3ecf4114c7",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89700_J1.bin",
+      "bytes": 2390264,
+      "sha256": "e02f7bba71d8fe9ecabfd8d0eb8b92cb8046e36d4783a70ad6e7a1c283edc811",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89700_KR2.bin",
+      "bytes": 2390264,
+      "sha256": "8c1e5caa31048e7cd601e6a4a30fa9b188cc92313419b9fe8256de6469181ed8",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89700_UC2.bin",
+      "bytes": 2390264,
+      "sha256": "7b5701e56c4a57ba60780c4c582968e2f3d4a35ab5acc931bbe6f6f4cb6a7500",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89701_AF1.bin",
+      "bytes": 2390264,
+      "sha256": "9fcf6787a4286e00f08c1afa7d468ca54b632f0537da3fec340ac95dc36eb878",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89701_ALLLANG.bin",
+      "bytes": 2390264,
+      "sha256": "3dab4f0d6b7790f4a7798034b57f43bfe3255c39dc6da2897fc288b3a218fe47",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89701_AP2.bin",
+      "bytes": 2390264,
+      "sha256": "670cbac7f7b80bee85765f7ef30ccc2419b7326353e86b9f73d64391b54467e1",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89701_CEC.bin",
+      "bytes": 2390264,
+      "sha256": "97d024c93cf3ebe3321add8d33954dcc670a5390e3f5870013dbb9738fa0581b",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89701_CN1.bin",
+      "bytes": 2390264,
+      "sha256": "b098e7b6147dc990e682411b02977c27260ddc2cde20ee11a949565808911d80",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89701_IN5.bin",
+      "bytes": 2390264,
+      "sha256": "490d02f2f898c8e441ef85efd54968e0455a486070ca9bcaa98e59638150f309",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/PP/CX89701_JE3.bin",
+      "bytes": 2390264,
+      "sha256": "7bed2d4f845133871652cea06d281abecd0afd346599385907e33d68978f46b7",
+      "merge_passed": true,
+      "all_bytes_outside_new_records_and_mappings_preserved": true
+    }
+  ],
+  "donor_factory_templates": [
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89900_ALLLANG.bin",
+      "bytes": 2614216,
+      "sha256": "4a26a3acdd7a373f1ec940a1cc6f08bc3aec6ff0cb436dfc82941b608b368522",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89900_E38.bin",
+      "bytes": 2614216,
+      "sha256": "dfc18cef629725c48081ed506dd6cf5d89ddeb4ef8d24671f82b08829c3f409b",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89900_J1.bin",
+      "bytes": 2614216,
+      "sha256": "3ed977da0ed6cf169236a32e8484b6d56f60358181b52e64d812015e327175ce",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89900_KR2.bin",
+      "bytes": 2614216,
+      "sha256": "2a5f9b2b314acfd22e2aee89baeeeb5c9fd23077665747650cae02fb5e8f2651",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89900_UC2.bin",
+      "bytes": 2614216,
+      "sha256": "9da4b9f3e17a3a709370a3282bc33d8d5bc224a84a81ba23e8da5454cb47ffc5",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89901_AF1.bin",
+      "bytes": 2614216,
+      "sha256": "883d5a4dced7e57bd227d56c2c8e7b25176dff66327b5a8b221c4e6ebbfdc81e",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89901_ALLLANG.bin",
+      "bytes": 2614216,
+      "sha256": "53a18f98e3b5b0f753a69188db5ddcf37b828c711a7e0c543057347148f0bded",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89901_AP2.bin",
+      "bytes": 2614216,
+      "sha256": "6d87cacb0f9289ee2e7555874682d5de0d67a4cfdefc9dd296d61964e72eda9a",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89901_CEC.bin",
+      "bytes": 2614216,
+      "sha256": "c7342b3a1e99691083fcb72101426049fa4543f14cf34b62e05cd1052fa455e7",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89901_CN2.bin",
+      "bytes": 2614216,
+      "sha256": "ec7390b97ec52d3fb1bc55b90fa0c18af2bef8d024a0817fa248318765a8ba97",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89901_IN5.bin",
+      "bytes": 2614216,
+      "sha256": "4e3e4acb693c8387ca090c181e19de983214441954b3cb0d2e98189e2f5e8cb8",
+      "both_color_records_match_payload": true
+    },
+    {
+      "path": "research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0110_backup/SYSIPSX-DSLR/HC/CX89901_JE3.bin",
+      "bytes": 2614216,
+      "sha256": "283af995fb77152e3aa3b96bbd2b161289f4286c6c503d5ecf34e022d80af916",
+      "both_color_records_match_payload": true
+    }
+  ],
+  "limits": [
+    "Factory templates are not a physical body's saved calibration",
+    "No CP or imaging hardware execution",
+    "No fresh photo, color accuracy, reset-value or recovery validation"
+  ]
+}

@@ -1,0 +1,355 @@
+Browser tab: 2, Title: "ILCE-1M2 System Software (Firmware) Update Ver. 4.00 | Sony USA", URL: "https://www.sony.com/electronics/support/e-mount-body-ilce-1-series/ilce-1m2/software/00349486".
+0 AXWebArea ILCE-1M2 System Software (Firmware) Update Ver. 4.00 | Sony USA, URL: sony.com/electronics/support/e-mount-body-ilce-1-series/ilce-1m2/software/00349486
+	1 container
+		2 container page-wrap-inner
+			3 container header
+				4 link Description: Skip to Content, Value: sony.com/electronics/support/e-mount-body-ilce-1-series/ilce-1m2/software/00349486#page-main-content, ID: SkipToContentLink
+				5 container Description: Group Primary Navigation, ID: nav-wrapper
+					6 container navbar-menu-wrapper
+						7 container Group Primary Navigation
+							8 menu
+								9 SONY, ID: accessible-megamenu-1792254441521-1
+									10 image
+									11 text SONY
+								12 Electronics, ID: accessible-megamenu-1792254441521-2
+								13 Support, ID: accessible-megamenu-1792254441521-3
+									14 text Support
+									15 image
+										16 image
+										17 image
+						18 menu Group Utility Navigation
+							19 Sign In
+								20 link Description: Sign In, Value: javascript:void(0), ID: nav-account-btn
+							21 Sony Sites, ID: nav-li-link-universal
+								22 text Sony Sites
+								23 image
+									24 image
+									25 image
+			26 container page-main-content
+				27 container search-container
+					28 container
+						29 link Description:  Sony Support, Value: sony.com/electronics/support
+						30 link Description: ILCE-1M2, Value: sony.com/electronics/support/e-mount-body-ilce-1-series/ilce-1m2
+						31 container
+							32 pop up button Context filter ILCE-1M2, ID: context-filter-btn
+								33 text ILCE-1M2
+							34 combo box (collapsed, settable) Description: Search another article, Secondary Actions: Expand
+							35 button Search
+						36 heading ILCE-1M2 System Software (Firmware) Update Ver. 4.00, Value: 1
+							37 text ILCE-1M2 System Software (Firmware) Update Ver. 4.00
+						38 button Download
+				39 container software_details-container
+					40 heading Applicable Model, Value: 2
+						41 text Applicable Model
+					42 text This information is for the following model(s):
+					43 content list
+						44 container
+							45 AXListMarker • 
+							46 text ILCE-1M2
+					47 container
+						48 heading About This Download, Value: 2
+							49 text About This Download
+						50 container Benefits
+							51 container
+								52 text Note on Sony account:  Before downloading the software, we recommend that you create a Sony account. After creating a Sony account or signing in with your Sony account, download the software (for customers in the USA and Canada). You also have the option to download the software without an account.
+							53 heading What to keep in Mind Before Performing the Update, Value: 3
+								54 text What to keep in Mind Before Performing the Update
+							55 content list
+								56 container
+									57 AXListMarker • 
+									58 text You can download the software update using the  Creators' App  available in the  App Store  and  Google Play .
+							59 heading Benefits and Improvements, Value: 3
+								60 text Benefits and Improvements
+							61 content list
+								62 container
+									63 AXListMarker • 
+									64 text Adds support for  Real-time Recognition AF+  with improved subject detection and tracking capabilities
+								65 container
+									66 AXListMarker • 
+									67 text Adds support for the  Preset Focus  function with lenses that do not have power zoom, including Sony's manual zoom E-mount lenses
+									68 content list
+										69 container
+											70 AXListMarker • 
+											71 text The registered positions of preset focus/zoom are incompatible before and after the camera software update. Please re-register the preset focus/zoom after the update.
+										72 container
+											73 AXListMarker • 
+											74 text Some zoom lenses without power zoom are not supported. For more details, please visit the following link: 
+											75 link Description: https://support.d-imaging.sony.co.jp/www/cscs/lens_body/, Value: support.d-imaging.sony.co.jp/www/cscs/lens_body/
+								76 container
+									77 AXListMarker • 
+									78 text Adds  FL2 (Film 2)  and  FL3 (Film 3)  to the  Creative Look  options
+								79 container
+									80 AXListMarker • 
+									81 text Improves the metering accuracy when using bounce flash
+								82 container
+									83 AXListMarker • 
+									84 text Optimizes the battery level display
+								85 container
+									86 AXListMarker • 
+									87 text Supports the  Write Digital Signature  function for movies as part of Sony's  Camera Authenticity Solution
+									88 content list
+										89 container
+											90 AXListMarker • 
+											91 text The timing for the provision of licenses (paid) to customers other than certain media outlets is yet to be determined.
+										92 container
+											93 AXListMarker • 
+											94 text Services may not be available in some countries or regions. For more information, please visit the 
+											95 link Description: Authenticity Catalog Page, Value: sony.net/cas/
+											96 text .
+								97 container
+									98 AXListMarker • 
+									99 text Improves the operational stability of the camera
+							100 text Notes:
+							101 content list
+								102 container
+									103 AXListMarker • 
+									104 text If you are using the  Camera Remote SDK  (Software Development Kit), please check the 
+									105 link Description: Camera Remote SDK website, Value: sony.net/CameraRemoteSDK/
+									106 text  for a list of supported devices, download instructions, and FAQs.
+									107 content list
+										108 container
+											109 AXListMarker • 
+											110 text The  Camera Remote SDK  may be unavailable in some countries or regions.
+								111 container
+									112 AXListMarker • 
+									113 text Please refer to the 
+									114 link Description: Help Guide, Value: helpguide.sony.net/ilc/2440/v1/h_zz/
+									115 text  for details on all updated functions.
+						116 heading + Previous Benefits and Improvements, Value: 3
+							117 link (collapsed) Description: + Previous Benefits and Improvements, Value: javascript:void(0), Secondary Actions: Expand
+						118 heading File Info, Value: 2
+							119 text File Info
+						120 content list
+							121 container
+								122 AXListMarker • 
+								123 text Name:  BODYDATA.DAT
+							124 container
+								125 AXListMarker • 
+								126 text Version:  4.00
+							127 container
+								128 AXListMarker • 
+								129 text Size:  1 194 332 648 bytes
+							130 container
+								131 AXListMarker • 
+								132 text Release Date:  10-30-2025
+						133 heading Preparation, Value: 2
+							134 text Preparation
+						135 heading Check the System Software Version, Value: 3
+							136 text Check the System Software Version
+						137 text Follow the instructions below to check the system software version.
+						138 content list
+							139 container
+								140 AXListMarker 1. 
+								141 text Select  Menu  →  Setup  →  Setup Option  →  Version  →  Body .
+							142 container
+								143 AXListMarker 2. 
+								144 text The system software version will be displayed.
+						145 text Notes:
+						146 content list
+							147 container
+								148 AXListMarker • 
+								149 text If the system software version is  Ver. 4.00 , the update is  not  required.
+							150 container
+								151 AXListMarker • 
+								152 text If the  Date / Time  setting screen appears when you turn on your camera, be sure to set the date and/or time to the correct values.
+						153 heading Saving the System Software Data to a Memory Card, Value: 3
+							154 text Saving the System Software Data to a Memory Card
+						155 container
+							156 text IMPORTANT: Make sure there is only one  BODYDATA.DAT  file on the memory card.
+						157 content list
+							158 container
+								159 AXListMarker 1. 
+								160 text Click the  Download  button.
+							161 container
+								162 AXListMarker 2. 
+								163 text After reading the disclaimer, click  Download .
+							164 container
+								165 AXListMarker 3. 
+								166 text Save the file to your computer.
+							167 container
+								168 AXListMarker 4. 
+								169 text Insert the formatted memory card into the computer.
+							170 container
+								171 AXListMarker 5. 
+								172 text Save the  BODYDATA.DAT  file in the root directory of the memory card.  Do not change the file name.
+						173 text Notes:
+						174 content list
+							175 container
+								176 AXListMarker • 
+								177 text Please format the memory card in advance using this camera.
+							178 container
+								179 AXListMarker • 
+								180 text Before formatting, copy the data to a computer or other device.
+								181 text Once you format the memory card, all the data recorded on the memory card will be deleted and cannot be restored.
+							182 container
+								183 AXListMarker • 
+								184 text Please refer to the instruction manual of the camera for compatible memory cards.
+						185 heading Other Hardware, Value: 3
+							186 text Other Hardware
+						187 content list
+							188 container
+								189 AXListMarker • 
+								190 text Power source for the camera: Use a fully charged rechargeable battery pack ( NP-FZ100 ).
+								191 text Note:  The update can only be performed when the battery power level is  51% or more . We recommend you use a fully charged battery.
+							192 container
+								193 AXListMarker • 
+								194 text Detach the vertical grip from the camera before updating the system software.
+						195 heading Updating the System Software Version, Value: 2
+							196 text Updating the System Software Version
+						197 heading Important Notice, Value: 3
+							198 text Important Notice
+						199 content list
+							200 container
+								201 AXListMarker • 
+								202 text Use a fully charged rechargeable battery pack ( NP-FZ100 ).
+							203 container
+								204 AXListMarker • 
+								205 text Do  not  remove the battery during the update as the sudden loss of power may render the camera inoperable.
+							206 container
+								207 AXListMarker • 
+								208 text It may  not  be possible to update if the camera temperature is high. Please wait to update until after the temperature drops.
+						209 heading Step 1: Update the System Software, Value: 3
+							210 text Step 1: Update the System Software
+						211 content list
+							212 container
+								213 AXListMarker 1. 
+								214 text Insert the memory card that contains the saved system software data into  slot 1  of the camera. Only  slot 1  will recognize the system software data.
+							215 container
+								216 AXListMarker 2. 
+								217 text Select  Menu  →  Setup  →  Setup Option  →  Version  →  Body .
+							218 container
+								219 AXListMarker 3. 
+								220 text Select  Software Update .
+							221 container
+								222 AXListMarker 4. 
+								223 text Select  Execute  on the system software update confirmation screen. The software version update will start.
+								224 text On-screen message:
+								225 content list
+									226 container
+										227 AXListMarker • 
+										228 text Update? X.XX → Y.YY
+										229 content list
+											230 container
+												231 AXListMarker • 
+												232 text X.XX : Current version number
+											233 container
+												234 AXListMarker • 
+												235 text Y.YY : Newest version number
+								236 text Notes:
+								237 content list
+									238 container
+										239 AXListMarker • 
+										240 text Do  not  remove the battery or memory card during the update.
+									241 container
+										242 AXListMarker • 
+										243 text After confirming the details, you may click  Execute .
+									244 container
+										245 AXListMarker • 
+										246 text Please scroll down the screen as necessary to view the full text.
+							247 container
+								248 AXListMarker 5. 
+								249 text When the system software update starts, a black screen will appear and the access lamp will flash  1 time  →  3 times  →  5 times  depending on the progress of the update. The update will take approximately  6 minutes  to complete.
+								250 image Location of the Access lamp: It's on the bottom right of Rear side.
+								251 text Notes:
+								252 content list
+									253 container
+										254 AXListMarker • 
+										255 text If the system software data copy is incorrect, the message  “The target model for the update file is incorrect”  will be displayed on the camera monitor.
+									256 container
+										257 AXListMarker • 
+										258 text If the access lamp repeats  5 long blinks  (0.5-second cycle) and  6 short blinks  (0.25-second cycle), or  7 long blinks  (0.5-second cycle) and  7 short blinks  (0.25-second cycle), the system software may have been incorrectly copied to the memory card.
+										259 content list
+											260 container
+												261 AXListMarker • 
+												262 text In this case, remove the battery and memory card from the camera, prepare another memory card, and then start over from the  Saving the System Software Data to a Memory Card  section of this article.
+							263 container
+								264 AXListMarker 6. 
+								265 text When the update is complete, the camera will automatically restart. After restarting, when the  Body update complete  screen appears, press  OK .
+						266 heading Step 2: Confirm the System Software Version of Your Camera, Value: 3
+							267 text Step 2: Confirm the System Software Version of Your Camera
+						268 content list
+							269 container
+								270 AXListMarker 1. 
+								271 text Select  Menu  →  Setup  →  Setup Option  →  Version  →  Body .
+							272 container
+								273 AXListMarker 2. 
+								274 text The system software version will be displayed.
+				275 container recently_viewed_swt-container
+					276 heading Description: Recently Viewed Products, Value: 2
+						277 text Recently Viewed Items
+					278 link Description: ILCE-7CM2, Value: sony.com/electronics/support/e-mount-body-ilce-7-series/ilce-7cm2?cpint=rvi
+				279 content list
+					280 container
+						281 link Description: Product Repair, Value: us.esupport.sony.com/support/s/service?language=en_US&cpint=spt-subfooter_prodrepair, ID: al-fonticon-repair-and-warranty-0
+						282 text Repair information and service assistance
+					283 container
+						284 link Description: Community, Value: us.community.sony.com/s/?language=en_US&cpint=spt-subfooter_community, ID: al-fonticon-community-upgrade-1
+						285 text Here you can ask questions and connect with other Sony users
+					286 container
+						287 link Description: Parts & Accessories, Value: us.esupport.sony.com/support/s/model-accessories?language=en_US&cpint=spt-subfooter_parts, ID: al-fonticon-spare-parts-distributor-2
+						288 text Product information and sales assistance
+					289 container
+						290 link Description: Register a Product, Value: us.esupport.sony.com/support/s/registerproduct?language=en_US?cpint=spt-subfooter_prodregistration, ID: al-fonticon-register-your-product-3
+						291 text Keep track of all your products in one location
+					292 container
+						293 link Description: Contact Support, Value: us.esupport.sony.com/support/s/support-contact?language=en_US&cpint=spt-subfooter_contactsupport, ID: al-fonticon-contact-support-4
+						294 text Product support & customer relations
+			295 button Back to Top
+				296 text 
+			297 container
+				298 container footer-wrapper
+					299 container Sony Rewards
+						300 text Sony Rewards
+						301 content list
+							302 link Description: Join Now, Value: rewards.sony.com/UID-Register
+							303 link Description: Learn More, Value: rewards.sony.com/
+							304 link Description: Manage Account, Value: rewards.sony.com/UID-Login
+					305 container Consumer Electronics
+						306 text Consumer Electronics
+						307 content list
+							308 link Description: Press Releases, Value: sony.com/en_us/SCA/company-news/press-releases.html
+							309 link Description: About Sony, Value: sony.com/en/
+							310 link Description: Accessibility, Value: sony.com/en_us/SCA/social-responsibility/accessibility-usability.html
+							311 link Description: Electronics Store, Value: electronics.sony.com/
+							312 link Description: Electronics Registration, Value: productregistration.sony.com/
+							313 link Description: Electronics Newsletter, Value: cloud.email.sel.sony.com/OptIn
+							314 link Description: Authorized Retailers, Value: sony.com/electronics/retailers
+							315 link Description: Product Support, Value: sony.com/electronics/support
+					316 container Professional Products & Solutions
+						317 text Professional Products & Solutions
+						318 content list
+							319 link Description: Technology, Value: pro.sony/ue_US/technology
+							320 link Description: Events, Value: pro.sony/ue_US/events
+							321 link Description: Insight, Value: pro.sony/ue_US/insight
+							322 link Description: Press Center, Value: pro.sony/ue_US/press
+							323 link Description: Recycling, Value: pro.sony/ue_US/support-services/product-recycling
+							324 link Description: Locate a Dealer, Value: pro.sony/ue_US/where-to-buy/products
+							325 link Description: Product Support, Value: pro.sony/ue_US/support-services/all-support-services
+					326 container Other Sites
+						327 text Other Sites
+						328 content list
+							329 link Description: PlayStation, Value: playstation.com/en-us/
+							330 link Description: Sony Pictures, Value: sonypictures.com/
+							331 link Description: Sony Music, Value: sonymusic.com/
+					332 link Description: United States, Value: sony.com/locale-selector, ID: currentCountryRegion
+					333 container
+						334 container Group Navigation
+							335 link Description: Careers, Value: sony.com/en_us/SCA/careers/overview.html
+							336 link Description: Contact Us, Value: sony.com/en_us/SCA/contacts/overview.html
+							337 link Description: Company Info, Value: sony.com/en_us/SCA/index.html
+							338 link Description: Voluntary Recall, Value: esupport.sony.com/US/perl/support-info.pl?info_id=377
+						339 container Group Social Links
+							340 button Facebook
+							341 button Twitter
+							342 button Instagram
+					343 container
+						344 text © 2023 SONY ELECTRONICS INC. (SEL)
+						345 link Description: SEL TERMS AND CONDITIONS, Value: sony.com/electronics/terms-conditions
+						346 link Description: PROFESSIONAL TERMS & CONDITIONS, Help: Professional Terms & Conditions, Value: pro.sony/ue_US/terms-and-conditions
+						347 link Description: SEL PRIVACY POLICY, Value: products.sel.sony.com/SEL/legal/privacy.html
+						348 link Description: CA PRIVACY NOTICE, Value: electronics.sony.com/privacy-policy#DataPractices
+						349 link Description: HEALTH DATA PRIVACY POLICY, Help: Health Data Privacy Policy, Value: electronics.sony.com/health-privacy-policy
+						350 link Description: YOUR PRIVACY CHOICES, Help: Your Privacy Choices, Value: products.sel.sony.com/SEL/legal/DNSRequest.html
+						351 link Description: MANAGE COOKIES, Value: sony.com/electronics/support/e-mount-body-ilce-1-series/ilce-1m2/software/00349486#, ID: ot-sdk-link
+
+The focused UI element is 0 AXWebArea ILCE-1M2 System Software (Firmware) Update Ver. 4.00 | Sony USA, URL: sony.com/electronics/support/e-mount-body-ilce-1-series/ilce-1m2/software/00349486

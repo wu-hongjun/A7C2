@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_159f5d292afed40aeb41f1e446418474af28b7832480b8a08fb9b10e5f57ae5d\",\"subject\":{\"name\":\"libmpr.so\",\"digest\":{\"sha256\":\"4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\"},\"digest\":\"73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"file-offset:0xd5e60\"},\"raw_result\":{\"value\":\"\\nundefined8 _ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE(long param_1)\\n\\n{\\n  undefined8 *puVar1;\\n  int iVar2;\\n  undefined8 uVar3;\\n  long *plVar4;\\n  undefined1 auStack_10 [4];\\n  undefined4 local_c;\\n  undefined2 local_8;\\n  undefined2 local_6;\\n  undefined1 local_4;\\n  undefined1 local_3;\\n  undefined1 local_2;\\n  undefined1 local_1;\\n  \\n  if (*(char *)(param_1 + 0x1f) == '\\\\0') {\\n    local_6 = 0x1107;\\n  }\\n  else {\\n    if (_ZN3mpr14sp_lutDataAddrE == (void *)0x0) {\\n      _ZN3mpr14sp_lutDataAddrE = malloc(0x6a1b9);\\n    }\\n    if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\\n      puVar1 = (undefined8 *)(param_1 + 0x1f);\\n      FUN_0027dc40(auStack_10);\\n      local_c = 0;\\n      iVar2 = FUN_0027e880(auStack_10,(undefined8 *)(param_1 + 5),puVar1,_ZN3mpr14sp_lutDataAddrE);\\n      if (iVar2 == 0) {\\n        FUN_0027dc48(auStack_10,_ZN3mpr14sp_lutDataAddrE,local_c);\\n        plVar4 = &DAT_00478c20;\\n        do {\\n          if (*plVar4 != 0) {\\n            FUN_00219de4(*plVar4,puVar1,_ZN3mpr14sp_lutDataAddrE,local_c);\\n          }\\n          plVar4 = plVar4 + 0x358;\\n        } while (plVar4 != (long *)0x47f720);\\n        DAT_00478aa0 = *(undefined8 *)(param_1 + 5);\\n        DAT_00478aa8 = *(undefined8 *)(param_1 + 0xd);\\n        DAT_00478ab0 = *(undefined8 *)(param_1 + 0x15);\\n        DAT_00478ab8 = *(undefined2 *)(param_1 + 0x1d);\\n        DAT_00478aba = *puVar1;\\n        DAT_00478ac2 = *(undefined8 *)(param_1 + 0x27);\\n        DAT_00478aca = *(undefined8 *)(param_1 + 0x2f);\\n        DAT_00478ad2 = *(undefined8 *)(param_1 + 0x37);\\n        DAT_00478ada = *(undefined8 *)(param_1 + 0x3f);\\n        DAT_00478ae2 = *(undefined8 *)(param_1 + 0x47);\\n        DAT_00478aea = *(undefined8 *)(param_1 + 0x4f);\\n        DAT_00478af2 = *(undefined8 *)(param_1 + 0x57);\\n        uVar3 = 0;\\n      }\\n      else {\\n        if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\\n          free(_ZN3mpr14sp_lutDataAddrE);\\n          _ZN3mpr14sp_lutDataAddrE = (void *)0x0;\\n        }\\n        uVar3 = 2;\\n        local_3 = 0;\\n        local_4 = 4;\\n        local_2 = 0;\\n        local_8 = 0x2110;\\n        local_1 = 0;\\n        local_6 = 0x110a;\\n        FUN_001ca0d0(&local_8,8);\\n      }\\n      FUN_0027dc44(auStack_10);\\n      return uVar3;\\n    }\\n    local_6 = 0x1108;\\n  }\\n  local_1 = 0;\\n  local_2 = 0;\\n  local_3 = 0;\\n  local_4 = 4;\\n  local_8 = 0x2290;\\n  FUN_001ca0d0(&local_8,8);\\n  return 2;\\n}\\n\\n\",\"limitations\":[],\"selection\":{\"file_offset\":876128,\"mapped_address\":\"0x1d5e60\",\"procedure_address\":\"0x1d5e60\"}},\"normalized_result\":\"\\nundefined8 _ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE(long param_1)\\n\\n{\\n  undefined8 *puVar1;\\n  int iVar2;\\n  undefined8 uVar3;\\n  long *plVar4;\\n  undefined1 auStack_10 [4];\\n  undefined4 local_c;\\n  undefined2 local_8;\\n  undefined2 local_6;\\n  undefined1 local_4;\\n  undefined1 local_3;\\n  undefined1 local_2;\\n  undefined1 local_1;\\n  \\n  if (*(char *)(param_1 + 0x1f) == '\\\\0') {\\n    local_6 = 0x1107;\\n  }\\n  else {\\n    if (_ZN3mpr14sp_lutDataAddrE == (void *)0x0) {\\n      _ZN3mpr14sp_lutDataAddrE = malloc(0x6a1b9);\\n    }\\n    if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\\n      puVar1 = (undefined8 *)(param_1 + 0x1f);\\n      FUN_0027dc40(auStack_10);\\n      local_c = 0;\\n      iVar2 = FUN_0027e880(auStack_10,(undefined8 *)(param_1 + 5),puVar1,_ZN3mpr14sp_lutDataAddrE);\\n      if (iVar2 == 0) {\\n        FUN_0027dc48(auStack_10,_ZN3mpr14sp_lutDataAddrE,local_c);\\n        plVar4 = &DAT_00478c20;\\n        do {\\n          if (*plVar4 != 0) {\\n            FUN_00219de4(*plVar4,puVar1,_ZN3mpr14sp_lutDataAddrE,local_c);\\n          }\\n          plVar4 = plVar4 + 0x358;\\n        } while (plVar4 != (long *)0x47f720);\\n        DAT_00478aa0 = *(undefined8 *)(param_1 + 5);\\n        DAT_00478aa8 = *(undefined8 *)(param_1 + 0xd);\\n        DAT_00478ab0 = *(undefined8 *)(param_1 + 0x15);\\n        DAT_00478ab8 = *(undefined2 *)(param_1 + 0x1d);\\n        DAT_00478aba = *puVar1;\\n        DAT_00478ac2 = *(undefined8 *)(param_1 + 0x27);\\n        DAT_00478aca = *(undefined8 *)(param_1 + 0x2f);\\n        DAT_00478ad2 = *(undefined8 *)(param_1 + 0x37);\\n        DAT_00478ada = *(undefined8 *)(param_1 + 0x3f);\\n        DAT_00478ae2 = *(undefined8 *)(param_1 + 0x47);\\n        DAT_00478aea = *(undefined8 *)(param_1 + 0x4f);\\n        DAT_00478af2 = *(undefined8 *)(param_1 + 0x57);\\n        uVar3 = 0;\\n      }\\n      else {\\n        if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\\n          free(_ZN3mpr14sp_lutDataAddrE);\\n          _ZN3mpr14sp_lutDataAddrE = (void *)0x0;\\n        }\\n        uVar3 = 2;\\n        local_3 = 0;\\n        local_4 = 4;\\n        local_2 = 0;\\n        local_8 = 0x2110;\\n        local_1 = 0;\\n        local_6 = 0x110a;\\n        FUN_001ca0d0(&local_8,8);\\n      }\\n      FUN_0027dc44(auStack_10);\\n      return uVar3;\\n    }\\n    local_6 = 0x1108;\\n  }\\n  local_1 = 0;\\n  local_2 = 0;\\n  local_3 = 0;\\n  local_4 = 4;\\n  local_8 = 0x2290;\\n  FUN_001ca0d0(&local_8,8);\\n  return 2;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[{\"kind\":\"file-offset\",\"offset\":876128},{\"kind\":\"address\",\"address\":\"0x1d5e60\"},{\"kind\":\"address\",\"address\":\"0x1d5e60\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_159f5d292afed40aeb41f1e446418474af28b7832480b8a08fb9b10e5f57ae5d",
+    "subject": {
+      "name": "libmpr.so",
+      "digest": {
+        "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "arm64",
+        "available_architectures": [
+          "arm64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-v1",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default"
+      },
+      "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "file-offset:0xd5e60"
+    },
+    "raw_result": {
+      "value": "\nundefined8 _ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE(long param_1)\n\n{\n  undefined8 *puVar1;\n  int iVar2;\n  undefined8 uVar3;\n  long *plVar4;\n  undefined1 auStack_10 [4];\n  undefined4 local_c;\n  undefined2 local_8;\n  undefined2 local_6;\n  undefined1 local_4;\n  undefined1 local_3;\n  undefined1 local_2;\n  undefined1 local_1;\n  \n  if (*(char *)(param_1 + 0x1f) == '\\0') {\n    local_6 = 0x1107;\n  }\n  else {\n    if (_ZN3mpr14sp_lutDataAddrE == (void *)0x0) {\n      _ZN3mpr14sp_lutDataAddrE = malloc(0x6a1b9);\n    }\n    if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\n      puVar1 = (undefined8 *)(param_1 + 0x1f);\n      FUN_0027dc40(auStack_10);\n      local_c = 0;\n      iVar2 = FUN_0027e880(auStack_10,(undefined8 *)(param_1 + 5),puVar1,_ZN3mpr14sp_lutDataAddrE);\n      if (iVar2 == 0) {\n        FUN_0027dc48(auStack_10,_ZN3mpr14sp_lutDataAddrE,local_c);\n        plVar4 = &DAT_00478c20;\n        do {\n          if (*plVar4 != 0) {\n            FUN_00219de4(*plVar4,puVar1,_ZN3mpr14sp_lutDataAddrE,local_c);\n          }\n          plVar4 = plVar4 + 0x358;\n        } while (plVar4 != (long *)0x47f720);\n        DAT_00478aa0 = *(undefined8 *)(param_1 + 5);\n        DAT_00478aa8 = *(undefined8 *)(param_1 + 0xd);\n        DAT_00478ab0 = *(undefined8 *)(param_1 + 0x15);\n        DAT_00478ab8 = *(undefined2 *)(param_1 + 0x1d);\n        DAT_00478aba = *puVar1;\n        DAT_00478ac2 = *(undefined8 *)(param_1 + 0x27);\n        DAT_00478aca = *(undefined8 *)(param_1 + 0x2f);\n        DAT_00478ad2 = *(undefined8 *)(param_1 + 0x37);\n        DAT_00478ada = *(undefined8 *)(param_1 + 0x3f);\n        DAT_00478ae2 = *(undefined8 *)(param_1 + 0x47);\n        DAT_00478aea = *(undefined8 *)(param_1 + 0x4f);\n        DAT_00478af2 = *(undefined8 *)(param_1 + 0x57);\n        uVar3 = 0;\n      }\n      else {\n        if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\n          free(_ZN3mpr14sp_lutDataAddrE);\n          _ZN3mpr14sp_lutDataAddrE = (void *)0x0;\n        }\n        uVar3 = 2;\n        local_3 = 0;\n        local_4 = 4;\n        local_2 = 0;\n        local_8 = 0x2110;\n        local_1 = 0;\n        local_6 = 0x110a;\n        FUN_001ca0d0(&local_8,8);\n      }\n      FUN_0027dc44(auStack_10);\n      return uVar3;\n    }\n    local_6 = 0x1108;\n  }\n  local_1 = 0;\n  local_2 = 0;\n  local_3 = 0;\n  local_4 = 4;\n  local_8 = 0x2290;\n  FUN_001ca0d0(&local_8,8);\n  return 2;\n}\n\n",
+      "limitations": [],
+      "selection": {
+        "file_offset": 876128,
+        "mapped_address": "0x1d5e60",
+        "procedure_address": "0x1d5e60"
+      }
+    },
+    "normalized_result": "\nundefined8 _ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE(long param_1)\n\n{\n  undefined8 *puVar1;\n  int iVar2;\n  undefined8 uVar3;\n  long *plVar4;\n  undefined1 auStack_10 [4];\n  undefined4 local_c;\n  undefined2 local_8;\n  undefined2 local_6;\n  undefined1 local_4;\n  undefined1 local_3;\n  undefined1 local_2;\n  undefined1 local_1;\n  \n  if (*(char *)(param_1 + 0x1f) == '\\0') {\n    local_6 = 0x1107;\n  }\n  else {\n    if (_ZN3mpr14sp_lutDataAddrE == (void *)0x0) {\n      _ZN3mpr14sp_lutDataAddrE = malloc(0x6a1b9);\n    }\n    if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\n      puVar1 = (undefined8 *)(param_1 + 0x1f);\n      FUN_0027dc40(auStack_10);\n      local_c = 0;\n      iVar2 = FUN_0027e880(auStack_10,(undefined8 *)(param_1 + 5),puVar1,_ZN3mpr14sp_lutDataAddrE);\n      if (iVar2 == 0) {\n        FUN_0027dc48(auStack_10,_ZN3mpr14sp_lutDataAddrE,local_c);\n        plVar4 = &DAT_00478c20;\n        do {\n          if (*plVar4 != 0) {\n            FUN_00219de4(*plVar4,puVar1,_ZN3mpr14sp_lutDataAddrE,local_c);\n          }\n          plVar4 = plVar4 + 0x358;\n        } while (plVar4 != (long *)0x47f720);\n        DAT_00478aa0 = *(undefined8 *)(param_1 + 5);\n        DAT_00478aa8 = *(undefined8 *)(param_1 + 0xd);\n        DAT_00478ab0 = *(undefined8 *)(param_1 + 0x15);\n        DAT_00478ab8 = *(undefined2 *)(param_1 + 0x1d);\n        DAT_00478aba = *puVar1;\n        DAT_00478ac2 = *(undefined8 *)(param_1 + 0x27);\n        DAT_00478aca = *(undefined8 *)(param_1 + 0x2f);\n        DAT_00478ad2 = *(undefined8 *)(param_1 + 0x37);\n        DAT_00478ada = *(undefined8 *)(param_1 + 0x3f);\n        DAT_00478ae2 = *(undefined8 *)(param_1 + 0x47);\n        DAT_00478aea = *(undefined8 *)(param_1 + 0x4f);\n        DAT_00478af2 = *(undefined8 *)(param_1 + 0x57);\n        uVar3 = 0;\n      }\n      else {\n        if (_ZN3mpr14sp_lutDataAddrE != (void *)0x0) {\n          free(_ZN3mpr14sp_lutDataAddrE);\n          _ZN3mpr14sp_lutDataAddrE = (void *)0x0;\n        }\n        uVar3 = 2;\n        local_3 = 0;\n        local_4 = 4;\n        local_2 = 0;\n        local_8 = 0x2110;\n        local_1 = 0;\n        local_6 = 0x110a;\n        FUN_001ca0d0(&local_8,8);\n      }\n      FUN_0027dc44(auStack_10);\n      return uVar3;\n    }\n    local_6 = 0x1108;\n  }\n  local_1 = 0;\n  local_2 = 0;\n  local_3 = 0;\n  local_4 = 4;\n  local_8 = 0x2290;\n  FUN_001ca0d0(&local_8,8);\n  return 2;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [
+      {
+        "kind": "file-offset",
+        "offset": 876128
+      },
+      {
+        "kind": "address",
+        "address": "0x1d5e60"
+      },
+      {
+        "kind": "address",
+        "address": "0x1d5e60"
+      }
+    ],
+    "evidence_links": []
+  }
+}

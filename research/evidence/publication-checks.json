@@ -1,0 +1,44 @@
+{
+  "preview_CP_cases": 9185,
+  "preview_AP_converter": {
+    "cases_passed": 259,
+    "valid_look_mapping": [
+      0,
+      3,
+      2,
+      1,
+      16,
+      15,
+      17,
+      18,
+      5,
+      13,
+      19,
+      20
+    ],
+    "invalid_inputs_leave_output_unchanged_at_handoff": true,
+    "disassembly": [
+      "0x3528804: cmp w1, #0xb",
+      "0x3528808: b.hi #0x3528874",
+      "0x352880c: adr x0, #0x352881c",
+      "0x3528810: ldrb w0, [x0, w1, uxtw]",
+      "0x3528814: strb w0, [x2]",
+      "0x3528818: ret "
+    ],
+    "scope": "112-byte AP window only; no original out-of-window code or hardware"
+  },
+  "preview_forward_reverse_hashes": true,
+  "preview_preservation_guards": true,
+  "host_unit_tests": 24,
+  "research_local_links_checked": 128,
+  "camera_accessed_for_publication_checks": false,
+  "repository": "https://github.com/wu-hongjun/A7C2",
+  "excluded_from_git": [
+    "research/firmware/",
+    "research/extracted/",
+    "research/build/",
+    ".venv-research/",
+    ".camera-backups/",
+    "*.private.bin"
+  ]
+}

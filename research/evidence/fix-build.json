@@ -1,0 +1,28 @@
+{
+  "compiler": "0.13.0",
+  "compiler_flags": [
+    "-target",
+    "aarch64-linux-gnu",
+    "-shared",
+    "-fPIC",
+    "-O2",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-stack-protector",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-nostdlib",
+    "-Wl,--no-undefined",
+    "-Wl,-Bsymbolic",
+    "-Wl,-z,noexecstack"
+  ],
+  "native_text_unchanged": true,
+  "source": "native/installer.c",
+  "manifest": "native/patch_manifest.h",
+  "installer_sha256": "575e9d34418ef47c8e6cb2202d249737f928aa18f4ea752409fc4da70016a423",
+  "program_candidates": {
+    "appFw.so": "1aaeb8fbe0297950cab454d498d1a5ba874f91542aa2737aae27a73971e324d7",
+    "cpapp-b.bin": "60b9dc9d974cf1e32ddc7e72099fda80c328a84a5e6bd89790d62e36f8ed58ab"
+  },
+  "camera_accessed": false
+}

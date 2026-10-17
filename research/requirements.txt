@@ -1,0 +1,5 @@
+capstone==5.0.7
+unicorn==2.1.4
+pyelftools==0.32
+pycryptodomex==3.23.0
+PyYAML==6.0.3

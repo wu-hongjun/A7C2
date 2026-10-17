@@ -1,0 +1,3720 @@
+@font-face {
+  font-family: "Berkeley Mono";
+  src: url("https://cdn.jannchie.com/fonts/variants/BerkeleyMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Darkroom shell: one flat tone, structure drawn with 1px lines rather than
+     floating cards. Surfaces step up only where something is interactive. */
+  --bg: #141416;
+  --card: #1a1a1c;          /* rail / filmstrip surface (a hair above bg) */
+  --card-hover: #202023;
+  --control: #26262a;       /* inputs, raised controls */
+  --control-hover: #303035;
+  --viewport-bg: #0a0a0b;   /* image stage: near-neutral for color */
+
+  /* Lines — opaque so they stay crisp over every surface. --line divides
+     regions and panels; --sep is the quieter rule inside a panel. */
+  --line: #2a2a2e;
+  --sep: rgba(255, 255, 255, 0.06);
+  --sep-strong: rgba(255, 255, 255, 0.14);
+
+  /* Segmented control: a rounded hairline box; the picked cell lifts a step
+     and its label takes the accent. */
+  --segment-on: rgba(255, 255, 255, 0.1);
+
+  /* Text. Every text tone clears WCAG AAA (7:1) on every surface it is used
+     on, --control included: --text-dim lands at ~7.3:1 on #26262a. --text-mute
+     is for disabled controls only (exempt from the contrast rule) — never for
+     content or placeholders. */
+  --text: #f5f5f7;
+  --text-dim: rgba(235, 235, 245, 0.72);
+  --text-mute: rgba(235, 235, 245, 0.42);
+
+  /* Accent, two tones. --accent is the light one: text, icons, slider fills,
+     indicators — AAA as text on the shell (7.4:1). --accent-fill is the deep
+     one behind white text on filled buttons (7.6:1); the old system blue only
+     managed 3.7:1 under white. */
+  --accent: #5eaeff;
+  --accent-strong: #86c3ff;
+  --accent-fill: #0050b0;
+  --accent-fill-hover: #0055b8;
+  --on-accent: #ffffff;
+  --accent-soft: rgba(94, 174, 255, 0.16);
+  --accent-ring: rgba(94, 174, 255, 0.42);  /* focus halo around a field */
+  --error: #ff8a80;                          /* 7.6:1 on the shell */
+  --danger: #a3231c;                         /* destructive fills, white text (7.5:1) */
+
+  /* Slider track (unfilled) */
+  --track-bg: rgba(255, 255, 255, 0.16);
+
+  /* Shape — the shell is square; anything you can press or type into is
+     rounded (--radius-sm), and a container of such controls (a segmented
+     track, a popup, a dialog) takes one step more so the corners nest. The
+     pill survives only for things that are actually round (knobs, dots, the
+     switch). Rule of thumb: what sits flush against a panel edge is square,
+     what floats inside one is rounded. */
+  --radius-card: 0;
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-pill: 999px;
+
+  /* Elevation — nothing lifts off the shell; only true overlays (popups,
+     dialogs, toasts) carry a shadow. */
+  --shadow-card: none;
+  --shadow-float: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --stage-inset: 0px;
+  --topbar-h: 38px;
+  --library-bar-h: 40px;    /* the library's own bar, above the grid */
+  --rail-w: 352px;
+  --left-w: 232px;          /* folder tree */
+  --tabbar-w: 36px;
+
+  /* Rail rhythm: rows breathe with the window instead of packing to the top
+     of a tall rail — ~3px of air per side at a 950px window, up to 5px on a
+     tall one, never below 1px on a short one. */
+  --row-pad: clamp(1px, calc(0.6vh - 3px), 5px);
+  --panel-pad: clamp(8px, calc(1.2vh - 1px), 14px);
+
+  /* Words in the sans; anything measured or named — values, sizes, file
+     names — and the small-caps wayfinding (captions, tabs, actions) in mono.
+     The mono stack names only Latin monospace faces and then falls back to
+     the sans, never to the generic `monospace`: that resolves CJK to a
+     bitmap-era mono (MS Gothic, NSimSun), so a Chinese file name or caption
+     reads in the normal UI face instead. */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    ui-sans-serif, "Inter", system-ui, sans-serif;
+  --font-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, var(--font-sans);
+
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* The UA's 1px 6px on <button> silently eats the content box of any fixed-size
+   icon button — an 18px round button is left 6px of room for a 10px glyph, so
+   the glyph lands off-centre. Every button here sizes itself explicitly. */
+button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: var(--radius-sm);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: var(--left-w) 1fr var(--rail-w);
+  grid-template-rows: var(--topbar-h) 1fr auto;
+  grid-template-areas:
+    "topbar topbar    topbar"
+    "left   center    right"
+    "left   filmstrip right";
+  height: 100vh;
+  background: var(--bg);
+}
+
+/* No filmstrip (empty folder, or the library grid is up): the stage owns the height. */
+.app.no-filmstrip {
+  grid-template-rows: var(--topbar-h) 1fr;
+  grid-template-areas:
+    "topbar topbar topbar"
+    "left   center right";
+}
+
+/* ---------- Topbar ---------- */
+
+.topbar {
+  grid-area: topbar;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 6px;
+}
+
+.brand-mark {
+  width: 18px;
+  height: 18px;
+  background: url(/logo-mark.svg) center / contain no-repeat;
+}
+
+.brand-name {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 2px;
+}
+
+/* Library / Develop: the two views of the centre pane (a segmented control,
+   styled with the others further down). */
+.view-tab {
+  padding: 3px 12px;
+}
+
+.view-tab:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  transition: color 130ms, background 130ms, transform 80ms;
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-btn:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--sep);
+}
+
+.icon-btn:active:not(:disabled) {
+  transform: scale(0.92);
+  background: var(--sep-strong);
+}
+
+.icon-btn:disabled {
+  color: var(--text-mute);
+  cursor: default;
+}
+
+.meta-summary {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+
+.meta-summary > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta-empty {
+  color: var(--text-mute);
+}
+
+/* ---------- Export button (primary action) ---------- */
+
+.export-btn {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 130ms, opacity 130ms;
+}
+
+.export-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.export-btn:hover:not(:disabled) {
+  background: var(--accent-fill-hover);
+}
+
+
+.export-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.export-spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: var(--on-accent);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Generic loading spinner (reuses the `spin` keyframes) */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+}
+
+.spinner-lg {
+  width: 26px;
+  height: 26px;
+  border-width: 2.5px;
+}
+
+/* ---------- Center: the image stage fills its cell edge to edge ---------- */
+
+.center {
+  grid-area: center;
+  position: relative;
+  background: var(--bg);
+  min-width: 0;
+  min-height: 0;
+}
+
+.viewport {
+  position: absolute;
+  inset: var(--stage-inset);
+  overflow: hidden;
+  background: var(--viewport-bg);
+  cursor: grab;
+}
+
+.viewport.is-grabbing {
+  cursor: grabbing;
+}
+
+.preview {
+  display: block;
+  position: absolute;
+  transform-origin: 0 0;
+  user-select: none;
+  transition: filter 200ms ease;
+}
+
+.preview-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--viewport-bg);
+  user-select: none;
+}
+
+/* Camera-JPEG hold-to-compare: covers the canvas box, with the full-frame JPEG
+   recomposed inside it by the edit's crop transform. Opaque so the edit
+   underneath never bleeds into the comparison, and clipped so the cropped-away
+   part of the JPEG stays out of the box. */
+.preview.compare-embedded {
+  overflow: hidden;
+  background: var(--viewport-bg);
+}
+
+.preview.compare-embedded img {
+  display: block;
+  position: absolute;
+  transform-origin: 0 0;
+}
+
+.preview-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  z-index: 1;
+  color: var(--text-dim);
+  background: var(--viewport-bg);
+  letter-spacing: 0.02em;
+}
+
+/* Non-blocking activity pill: shown while re-decoding / importing over an
+   already-visible image, so the current preview stays in view. */
+.viewport-busy {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 9px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  background: rgba(20, 20, 22, 0.86);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+
+.dropzone {
+  position: absolute;
+  inset: 24px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: 1px dashed var(--sep-strong);
+  border-radius: var(--radius);
+  transition: border-color 150ms, background 150ms;
+}
+
+.dropzone:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.dropzone-inner {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+
+.dropzone-icon {
+  width: 54px;
+  height: 54px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  transition: color 150ms;
+}
+
+.dropzone:hover .dropzone-icon {
+  color: var(--accent);
+}
+
+.dropzone-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.dropzone-sub {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.dropzone-hint {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+/* ---------- Status / zoom readout in the stage corner ---------- */
+
+.status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 2px;
+  /* Tucked into the stage's corner: the stage's own edges close the box, so
+     only the top and left rules are drawn. */
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: rgba(20, 20, 22, 0.9);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+.status-left,
+.status-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.status-cell .spinner {
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+}
+
+.status-right {
+  position: relative;
+}
+
+.status-left + .status-right::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--line);
+}
+
+.status-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.status-label {
+  display: none;
+}
+
+.status-value {
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-value[data-state="rendering"],
+.status-value[data-state="uploading"] {
+  color: var(--accent-strong);
+}
+
+.status-value[data-state="error"] {
+  color: var(--error);
+}
+
+/* ---------- Side rail: one surface + an outer tab strip ----------
+   The rail used to be nine always-open cards stacked 2400px tall — reaching the
+   curve meant scrolling two and a half screens. It now shows one group at a
+   time, picked from the icon strip on the outer edge; groups stack with a rule
+   between them, no gaps. */
+
+.rail {
+  grid-area: right;
+  display: grid;
+  /* Neither track may grow past the rail with its content: an auto column
+     would widen to a line the chat cannot wrap, an auto row would size to the
+     panels and leave the body nothing to scroll within. */
+  grid-template-columns: minmax(0, 1fr) var(--tabbar-w);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 0;
+  background: var(--card);
+  border-left: 1px solid var(--line);
+}
+
+.rail-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.rail-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.rail-panels {
+  /* Without this the stack is squeezed to the body's height and clipped
+     instead of overflowing it to scroll. */
+  flex-shrink: 0;
+}
+
+/* A group in the stack: rule-separated, no chrome of its own. */
+.panel {
+  padding: var(--panel-pad) 14px calc(var(--panel-pad) + 2px);
+}
+
+.panel + .panel {
+  border-top: 1px solid var(--line);
+}
+
+/* Section captions are wayfinding, not content — small and quiet, so the rows
+   they head stay the loudest thing in the rail. */
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: calc(var(--row-pad) + 4px);
+}
+
+/* The panel's on/off, Lightroom's little switch: a pill with a knob that sits
+   left (off, dim) or right (on, accent). Toggling it does not touch the
+   sliders below, which stay editable but read as inert. */
+.panel-switch {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--track-bg);
+  vertical-align: middle;
+  transition: background 120ms;
+}
+
+.panel-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-mute);
+  transition: transform 120ms, background 120ms;
+}
+
+.panel-switch.is-on {
+  background: var(--accent-fill);
+}
+
+.panel-switch.is-on::after {
+  transform: translateX(10px);
+  background: var(--on-accent);
+}
+
+.panel-switch:hover {
+  filter: brightness(1.2);
+}
+
+.panel.is-off > :not(.panel-head),
+.panel-head.crop-sub.is-off ~ * {
+  opacity: 0.4;
+}
+
+.panel-head:only-child {
+  margin-bottom: 0;
+}
+
+.panel-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Marks a group holding non-default values, so the rail can be scanned for
+   edits without reading every row. */
+.panel-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+}
+
+.panel-hint {
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-dim);
+}
+
+/* Inline text actions (Reset and the like): mono caps like the captions they
+   sit beside, accent because they act. */
+.ghost {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 2px 5px;
+  border-radius: var(--radius-sm);
+  transition: background 120ms;
+}
+
+/* Icon-only ghost: the label moves to title / aria-label. */
+.ghost-icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+}
+
+.ghost-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ghost:hover {
+  background: var(--accent-soft);
+}
+
+.ghost:disabled {
+  color: var(--text-mute);
+  cursor: default;
+}
+
+/* ---------- Rail tab strip ---------- */
+
+.rail-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+}
+
+/* Full-width cells: the active one takes the rail's surface and loses its
+   left rule, so it reads as a tab attached to the panel it opens. */
+.rail-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  color: var(--text-dim);
+  transition: color 130ms, background 130ms;
+}
+
+.rail-tab svg {
+  width: 18px;
+  height: 18px;
+}
+
+.rail-tab:hover:not(.is-on):not(:disabled) {
+  color: var(--text);
+  background: var(--card-hover);
+}
+
+/* Offered but not yet openable — a Sony decode still deciding whether the
+   Creative Look tab is this image's. */
+.rail-tab:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.rail-tab.is-on {
+  color: var(--accent);
+  background: var(--card);
+  border-left-color: var(--card);
+}
+
+.rail-tab.is-on::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+}
+
+/* Settings is the rail's own configuration, not a step in the edit — it sits
+   apart at the foot of the strip. */
+.rail-tab:last-child {
+  margin-top: auto;
+}
+
+.rail-tab-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+}
+
+/* ---------- Histogram ---------- */
+
+/* Sits bare at the head of the rail, ruled off from the panels below. */
+.histogram {
+  display: block;
+  width: 100%;
+  height: 80px;
+  flex-shrink: 0;
+  background: var(--viewport-bg);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Slider rows ---------- */
+
+/* Two tiers: the label and its value on a line, the range under them across
+   the rail's full width — twice the travel of a range squeezed between a
+   label column and a number column. */
+.slider {
+  display: block;
+  padding: var(--row-pad) 0;
+}
+
+.slider-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 16px;
+}
+
+.slider-head label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--text-dim);
+  font-size: 12.5px;
+  transition: color 120ms;
+}
+
+/* A row holding a non-default value reads brighter than an untouched one —
+   the panel becomes scannable without a per-row reset affordance. */
+.slider.is-modified label {
+  color: var(--text);
+}
+
+/* Shared range-input look — every slider variant: a thin track and a slim
+   bar for the knob, which turns accent while it is held or selected. */
+input[type="range"] {
+  appearance: none;
+  width: 100%;
+  /* UA margin sits outside the 100% width, pushing the track 2px past its grid
+     column on both sides — enough to misalign it against the number box. */
+  margin: 0;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ---------- SliderRow's range ----------
+   Drawn by hand over a transparent native input (SliderRow.vue): a hairline
+   rail, a fill from the origin to the value (the accent, or the row's own
+   colour on HSL rows), a tick at the reset value, and a ring for the thumb
+   that lets the rail show through. Under the pointer the rail thickens and
+   the ring swells; held, it takes the accent and a soft halo. The value
+   fraction is a registered property so jumps (double-click reset, wheel, a
+   typed number) glide, while a drag tracks the pointer 1:1. */
+
+@property --range-p {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.range-wrap {
+  /* The ring's diameter, and the native thumb's too: the input maps a pointer
+     to a value over the span between half a knob in from either end, so the
+     ring has to travel the same span to sit under the pointer. */
+  --knob: 12px;
+  --rail-h: 2px;
+  position: relative;
+  display: block;
+  height: 14px;
+  transition: --range-p 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.range-wrap.is-dragging {
+  transition: none;
+}
+
+.range-wrap:hover,
+.range-wrap.is-dragging {
+  --rail-h: 4px;
+}
+
+.range-rail,
+.range-fill {
+  position: absolute;
+  top: 50%;
+  height: var(--rail-h);
+  border-radius: var(--radius-pill);
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: height 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The rail spans exactly the thumb's travel, so a fill from the minimum
+   starts at the rail's end and a gradient track reads true under the ring. */
+.range-rail {
+  left: calc(var(--knob) / 2);
+  right: calc(var(--knob) / 2);
+  background: var(--track-bg);
+}
+
+.range-fill {
+  --range-a: min(var(--range-p), var(--range-o));
+  --range-b: max(var(--range-p), var(--range-o));
+  left: calc(var(--knob) / 2 + var(--range-a) * (100% - var(--knob)));
+  width: calc((var(--range-b) - var(--range-a)) * (100% - var(--knob)));
+  background: var(--fill, var(--accent));
+}
+
+.range-mark {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--knob) / 2 + var(--range-r) * (100% - var(--knob)));
+  width: 1px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  background: var(--text-dim);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.range-thumb {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--knob) / 2 + var(--range-p) * (100% - var(--knob)));
+  width: var(--knob);
+  height: var(--knob);
+  border: 2px solid #e6e6e8;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 160ms ease, box-shadow 200ms ease;
+}
+
+.range-wrap:hover .range-thumb {
+  border-color: #fff;
+  transform: translate(-50%, -50%) scale(1.17);
+}
+
+/* Selected (clicked or tabbed to — the wheel answers to it): accent ring. */
+.range-wrap:focus-within .range-thumb {
+  border-color: var(--accent-strong);
+}
+
+.range-wrap.is-dragging .range-thumb {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45), 0 0 0 5px var(--accent-soft);
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.range-input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  height: 100%;
+  opacity: 0;
+}
+
+.range-input::-webkit-slider-thumb { width: var(--knob); }
+.range-input::-moz-range-thumb { width: var(--knob); }
+
+/* The bare range inputs elsewhere (the curve's region splits) draw natively,
+   in the same ring-on-a-hairline language. */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 1px;
+  background: var(--track, var(--track-bg));
+}
+
+input[type="range"]::-moz-range-track {
+  height: 2px;
+  border-radius: 1px;
+  background: var(--track, var(--track-bg));
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  margin-top: -5px;
+  border: 2px solid #e6e6e8;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+  transition: border-color 160ms ease, transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #e6e6e8;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  transform: scale(1.17);
+}
+
+/* Scroll-to-nudge only answers to the selected slider, so selection has to be
+   legible: the knob turns accent once the row is clicked or tabbed to. The
+   global :focus-visible outline would box the whole 22px-tall track — far
+   louder than the knob it is reporting on. */
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:active::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
+  border-color: var(--accent-strong);
+}
+
+input[type="range"]:active::-moz-range-thumb,
+input[type="range"]:focus::-moz-range-thumb {
+  border-color: var(--accent-strong);
+}
+
+/* ---------- Number inputs ----------
+   Values read as text, not as a column of filled chips: a dozen boxed fields
+   out-weigh the sliders they annotate. The field surfaces on hover/focus, so
+   it still announces itself as editable at the moment you reach for it. */
+
+.slider-number {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  text-align: right;
+  padding: 3px 5px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  appearance: textfield;
+  transition: color 120ms, border-color 120ms, background 120ms;
+}
+
+.slider-head .slider-number {
+  flex: none;
+  width: 64px;
+  height: 16px;
+  padding: 0 4px;
+}
+
+.slider.is-modified .slider-number {
+  color: var(--text);
+}
+
+.slider-number::-webkit-outer-spin-button,
+.slider-number::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.slider-number:hover {
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.slider-number:focus {
+  outline: none;
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ---------- Select ---------- */
+
+/* Wider label column than a slider row: these labels are words, not the short
+   nouns the sliders use ("AI Denoise" wraps at the slider's 62px). */
+.control-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: var(--row-pad) 0;
+}
+
+.control-label {
+  color: var(--text-dim);
+  font-size: 12.5px;
+  line-height: 1.25;
+}
+
+/* Read-only counterpart to .control-select: a value the decode reports rather
+   than one the user picks. Sits on the same 1fr track, no control chrome. */
+.control-value {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 3px 0;
+}
+
+/* Full-width note under a control row, for when the decode did something other
+   than what the control asked for. */
+.control-note {
+  color: var(--text-dim);
+  font-size: 12.5px;
+  line-height: 1.4;
+  margin: -2px 0 2px;
+}
+
+/* DRO's Off / Auto / Lv1..Lv5 picker. A segmented control, but seven items
+   rather than four, so it wraps instead of splitting the track into slivers,
+   and each button sizes to its own label. */
+.dro-modes {
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.dro-mode {
+  flex: 1 0 auto;
+  padding: 3px 4px;
+}
+
+/* SelectMenu's trigger. A button, not a <select>: the popup below is ours, so
+   the whole control can follow the dark palette the native one ignores. */
+.control-select {
+  /* The trigger is sized by the 1fr track, never by its widest label —
+     "Full metadata" would otherwise push the box past the card's edge. */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  color: var(--text);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 120ms, border-color 120ms;
+}
+
+.control-select-value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.control-select-caret {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  color: var(--accent);
+  transition: transform 140ms ease;
+}
+
+.control-select.is-open .control-select-caret {
+  transform: rotate(180deg);
+}
+
+.control-select:hover:not(:disabled) {
+  background-color: var(--sep);
+  border-color: var(--sep-strong);
+}
+
+.control-select:focus-visible,
+.control-select.is-open {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.control-select:disabled {
+  color: var(--text-mute);
+  cursor: default;
+}
+
+/* The popup itself. Body-level and fixed, so no card's overflow can clip it;
+   the context menu floats the same way (its own rules are further down, and
+   both are in the scrollbar list at the end of the file). */
+.select-pop,
+.ctx-menu {
+  position: fixed;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  /* Opaque, and one step brighter than the panel it covers, so the popup reads
+     as floating rather than as part of the panel underneath. */
+  background: var(--control);
+  box-shadow: var(--shadow-float);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 110ms ease, transform 110ms ease;
+}
+
+.select-pop {
+  z-index: 12;
+}
+
+/* Set once the popup has been measured and positioned — before that it would
+   animate in from wherever the last one happened to sit. */
+.select-pop.is-placed,
+.ctx-menu.is-placed {
+  opacity: 1;
+  transform: none;
+}
+
+.select-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px 4px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.3;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* One highlight, driven by the keyboard cursor. Hover feeds the same state, so
+   pointer and keyboard can never disagree about which row Enter would take. */
+.select-option.is-active {
+  background: var(--accent-fill);
+  color: var(--on-accent);
+}
+
+.select-option.is-disabled {
+  color: var(--text-mute);
+  cursor: default;
+}
+
+.select-check {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  color: var(--accent);
+  visibility: hidden;
+}
+
+.select-option.is-selected .select-check {
+  visibility: visible;
+}
+
+.select-option.is-active .select-check {
+  color: var(--on-accent);
+}
+
+.select-option-label {
+  flex: 1;
+}
+
+/* The dim second half of an option row: a model's display name, "no key". */
+.select-option-hint {
+  flex: none;
+  color: var(--text-mute);
+  font-size: 12px;
+}
+
+.select-option.is-active .select-option-hint {
+  color: var(--on-accent);
+  opacity: 0.75;
+}
+
+/* Nothing in the list matched: says which text the field will keep instead of
+   an option, so a hand-typed id never reads as a typo. */
+.select-custom {
+  margin: 0;
+  padding: 4px 10px 4px 6px;
+  color: var(--text-dim);
+  font-size: 12.5px;
+}
+
+/* ComboField: a .control-select you can type in. Same box, with the caret on
+   the right saying a list drops out of it. */
+.combo-field {
+  position: relative;
+  min-width: 0;
+}
+
+.combo-input {
+  width: 100%;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--control);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  /* Right padding leaves room for the caret. */
+  padding: 4px 22px 4px 7px;
+}
+
+.combo-input::placeholder {
+  color: var(--text-dim);
+}
+
+.combo-input:focus {
+  outline: none;
+}
+
+.combo-input:focus,
+.combo-field.is-open .combo-input {
+  border-color: var(--accent);
+}
+
+.combo-input:disabled {
+  color: var(--text-mute);
+  cursor: default;
+}
+
+.combo-caret {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  color: var(--accent);
+  pointer-events: none;
+  transition: transform 140ms ease;
+}
+
+.combo-field.is-open .combo-caret {
+  transform: rotate(180deg);
+}
+
+.panel-hint {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* ---------- iOS-style toggle switch ---------- */
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  cursor: pointer;
+}
+
+.switch input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.switch-track {
+  display: inline-flex;
+  align-items: center;
+  width: 30px;
+  height: 16px;
+  padding: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--control-hover);
+  transition: background 160ms ease;
+}
+
+.switch input:checked + .switch-track {
+  background: var(--accent-fill);
+}
+
+.switch-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 160ms ease;
+}
+
+.switch input:checked + .switch-track .switch-thumb {
+  transform: translateX(14px);
+}
+
+/* ---------- Segmented control ----------
+   Every either/or strip — the view switch, HSL H/S/L, the curve channels, DRO,
+   the mask op — shares one look: a rounded hairline box of mono caps, the
+   picked cell a rounded step up whose label takes the accent (or, on the curve
+   channels, the channel's own colour). */
+
+.view-switch,
+.hsl-tabs,
+.curve-tabs,
+.dro-modes {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.view-tab,
+.hsl-tabs button,
+.curve-tab,
+.dro-mode {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: center;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+
+.view-tab:hover:not(:disabled),
+.hsl-tabs button:hover,
+.curve-tab:hover,
+.dro-mode:hover {
+  color: var(--text);
+}
+
+.view-tab.is-on,
+.hsl-tabs button.active,
+.curve-tab.active,
+.dro-mode.on {
+  color: var(--seg-mark, var(--accent));
+  background: var(--segment-on);
+}
+
+.hsl-tabs {
+  margin-bottom: 6px;
+}
+
+.hsl-tabs button {
+  flex: 1;
+  padding: 2px 0;
+}
+
+.hsl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12) inset;
+}
+
+/* ---------- Color Grading ---------- */
+
+.grading-group {
+  margin-bottom: 6px;
+}
+
+.grading-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.grading-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 0 1px var(--sep-strong) inset;
+  flex-shrink: 0;
+}
+
+/* H and S hang under their zone's swatch, on hue / saturation tracks. Their
+   one-letter labels need no line of their own, so these rows fold back to a
+   single tier: letter, range, value. */
+.grading-row {
+  display: grid;
+  grid-template-columns: 10px 1fr 56px;
+  align-items: center;
+  column-gap: 10px;
+  padding-left: 22px;
+}
+
+.grading-row .slider-head { display: contents; }
+.grading-row label { grid-area: 1 / 1; }
+.grading-row .range-wrap { grid-area: 1 / 2; }
+.grading-row .slider-number { grid-area: 1 / 3; width: 100%; }
+
+/* ---------- Tone Curve ---------- */
+
+.curve-canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--viewport-bg);
+  cursor: crosshair;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+/* Channel tabs (Param / RGB / R / G / B): a segmented control whose colour
+   channels underline in their own colour. */
+.curve-tabs {
+  margin-bottom: 8px;
+}
+
+.curve-tab {
+  flex: 1;
+  padding: 3px 0;
+}
+
+.curve-tab--red { --seg-mark: #ff6b5e; }
+.curve-tab--green { --seg-mark: #4fd06a; }
+.curve-tab--blue { --seg-mark: #6b9bff; }
+
+/* Parametric region sliders + range splits */
+.curve-params {
+  margin-top: 8px;
+}
+
+.curve-splits {
+  margin-top: 6px;
+  padding-top: calc(var(--row-pad) + 5px);
+  border-top: 1px solid var(--sep);
+}
+
+.curve-splits-label {
+  display: block;
+  height: 18px;
+  color: var(--text-dim);
+  font-size: 12.5px;
+}
+
+/* The rail is shaded in four steps, dark to light, so each stretch reads as
+   the tonal region it bounds; the stacked inputs only take the pointer on
+   their thumbs, so each thumb stays reachable wherever the others sit. */
+.split-rail {
+  --knob: 12px;
+  --at: calc(var(--knob) / 2);
+  position: relative;
+  height: 18px;
+}
+
+.split-rail::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: var(--at);
+  right: var(--at);
+  height: 4px;
+  border-radius: var(--radius-pill);
+  transform: translateY(-50%);
+  background: linear-gradient(to right,
+    #2c2c30 calc(var(--s1) * 100%),
+    #45454b 0 calc(var(--s2) * 100%),
+    #66666d 0 calc(var(--s3) * 100%),
+    #8e8e96 0);
+}
+
+.split-rail input[type="range"] {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
+.split-rail input[type="range"]::-webkit-slider-runnable-track { background: transparent; }
+.split-rail input[type="range"]::-moz-range-track { background: transparent; }
+.split-rail input[type="range"]::-webkit-slider-thumb { pointer-events: auto; cursor: ew-resize; }
+.split-rail input[type="range"]::-moz-range-thumb { pointer-events: auto; cursor: ew-resize; }
+
+/* Point-curve presets */
+.curve-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.curve-preset {
+  flex: 1;
+  min-width: max-content;
+  padding: 4px 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms, color 120ms;
+}
+
+.curve-preset:hover {
+  color: var(--text);
+  background: var(--segment-on);
+}
+
+/* ---------- Zoom controls (inside the floating pill) ---------- */
+
+.zoom-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.zoom-percent {
+  font-variant-numeric: tabular-nums;
+  min-width: 3.4em;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 5px;
+  color: var(--text-dim);
+  background: transparent;
+  font-size: 12px;
+  border-radius: var(--radius-sm);
+  transition: color 120ms, background 120ms, transform 80ms;
+}
+
+.zoom-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.zoom-btn:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--sep);
+}
+
+.zoom-btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.zoom-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ---------- Folder tree ---------- */
+
+.folder-tree {
+  grid-area: left;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  background: var(--card);
+  border-right: 1px solid var(--line);
+  min-height: 0;
+  user-select: none;
+}
+
+.tree-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  padding: 0 6px 0 12px;
+  border-bottom: 1px solid var(--sep);
+}
+
+.tree-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+
+.tree-actions {
+  display: flex;
+  gap: 1px;
+}
+
+.tree-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  transition: color 120ms, background 120ms;
+}
+
+.tree-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.tree-btn:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--control);
+}
+
+.tree-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.tree-btn-sm {
+  width: 20px;
+  height: 20px;
+}
+
+.tree-btn-sm svg {
+  width: 13px;
+  height: 13px;
+}
+
+.tree-list {
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+/* The library's group navigator, docked under the tree (GroupNav.vue). Capped
+   so a folder of many days leaves the tree room; the list scrolls on its own. */
+.group-nav {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  max-height: 45vh;
+  min-height: 0;
+  border-top: 1px solid var(--sep);
+}
+
+.group-nav-head {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+
+.group-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
+  overflow-y: auto;
+}
+
+.group-nav-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 26px;
+  padding: 0 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: left;
+  transition: background 120ms, color 120ms;
+}
+
+.group-nav-row:hover {
+  background: var(--card-hover);
+  color: var(--text);
+}
+
+.group-nav-row.is-current {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.group-nav-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.group-nav-count {
+  flex: none;
+  color: var(--text-mute);
+  font-size: 11px;
+}
+
+.tree-row {
+  --depth: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding-left: calc(6px + var(--depth) * 14px);
+  padding-right: 6px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.tree-row:hover {
+  background: var(--card-hover);
+  color: var(--text);
+}
+
+.tree-row.is-selected {
+  background: var(--control);
+  color: var(--text);
+}
+
+.tree-row.is-drop-target {
+  box-shadow: inset 0 0 0 1px var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.tree-row.is-blocked {
+  opacity: 0.4;
+}
+
+.tree-row:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.tree-twisty {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: var(--text-mute);
+  transition: transform 120ms;
+}
+
+.tree-twisty svg {
+  width: 11px;
+  height: 11px;
+}
+
+.tree-twisty.is-open {
+  transform: rotate(90deg);
+}
+
+.tree-twisty.is-leaf {
+  visibility: hidden;
+}
+
+.tree-icon {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  color: var(--text-mute);
+}
+
+.tree-row.is-selected .tree-icon,
+.tree-row.is-drop-target .tree-icon {
+  color: var(--accent);
+}
+
+.tree-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tree-count {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-mute);
+}
+
+.tree-row-actions {
+  display: none;
+  flex: none;
+  gap: 1px;
+}
+
+.tree-row:hover .tree-row-actions,
+.tree-row:focus-within .tree-row-actions {
+  display: flex;
+}
+
+.tree-row:hover .tree-count {
+  display: none;
+}
+
+/* A name being typed over something (InlineEdit.vue): one field, sized by the
+   row it lands in. */
+.inline-edit {
+  min-width: 0;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+.tree-edit {
+  flex: 1 1 auto;
+  height: 20px;
+  padding: 0 4px;
+  font-size: 12.5px;
+}
+
+/* ---------- Photo grid (library view) ---------- */
+
+/* ---------- Library bar (above the grid) ---------- */
+
+.library-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--library-bar-h);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.library-path {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.library-count {
+  flex: none;
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.library-gap {
+  flex: 1;
+}
+
+/* The library actions are intentionally icon-first: the folder path remains
+   the bar's only persistent text, while title and aria labels keep every tool
+   discoverable. */
+.library-tools {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.library-tools .control-select,
+.library-dir {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  justify-content: center;
+  border: 1px solid var(--line);
+  background: var(--control);
+}
+
+.library-tools .control-select {
+  gap: 0;
+}
+
+.control-select-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-dim);
+}
+
+.library-tools .control-select-caret {
+  display: none;
+}
+
+.library-tools .control-select:hover .control-select-icon,
+.library-tools .control-select.is-open .control-select-icon {
+  color: var(--text);
+}
+
+.library-dir svg {
+  width: 16px;
+  height: 16px;
+}
+
+.photo-grid {
+  position: absolute;
+  inset: var(--library-bar-h) 0 0 0;
+  overflow-y: auto;
+  padding: 12px;
+  outline: none;
+  /* Reserve the scrollbar so a folder that just crosses one screen does not
+     reflow the columns. */
+  scrollbar-gutter: stable;
+  /* A marquee drag would otherwise sweep a text selection over the labels. */
+  user-select: none;
+}
+
+.photo-grid:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--accent-ring);
+}
+
+.grid-inner {
+  position: relative;
+}
+
+.grid-empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-mute);
+  font-size: 13px;
+  text-align: center;
+  padding: 24px;
+}
+
+/* A band of cells. Cells are placed by their lane (gridRows.ts cellLeft), so
+   the row only owns the band's height and its own vertical position. */
+.grid-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+/* Geometry is fixed and mirrored in gridRows.ts GRID_CELL (176 × 140, gap 8). */
+.grid-cell {
+  position: absolute;
+  top: 0;
+  display: grid;
+  grid-template-rows: 112px 17px;
+  gap: 3px;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  cursor: default;
+  transition: background 120ms, box-shadow 120ms;
+}
+
+/* A group's heading: as tall as gridRows.ts GRID_HEADER_H, so the band it
+   reserves is the band it paints. */
+.grid-header {
+  position: absolute;
+  left: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 4px;
+  color: var(--text-dim);
+  font-size: 12.5px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.grid-header-count {
+  color: var(--text-mute);
+  font-weight: 500;
+}
+
+/* The marquee's rectangle, in the content box's coordinates. */
+.grid-marquee {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  background: var(--accent-fill);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.grid-cell:hover {
+  background: var(--card-hover);
+}
+
+.grid-cell.is-selected {
+  background: var(--control);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.grid-cell.is-active .grid-name {
+  color: var(--accent-strong);
+}
+
+.grid-cell.is-invalid img {
+  opacity: 0.4;
+}
+
+.grid-thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--viewport-bg);
+}
+
+.grid-thumb img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.grid-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 17px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.grid-cell.is-selected .grid-name {
+  color: var(--text);
+}
+
+/* Renaming in place: the cell's label becomes the field. */
+.grid-rename {
+  width: 100%;
+  height: 17px;
+  padding: 0 3px;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  user-select: text;
+}
+
+/* The drag image for a multi-photo drag: a count pill, rendered off-screen
+   for the one frame setDragImage needs it. */
+.grid-drag-badge {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.photo-grid::-webkit-scrollbar {
+  width: 10px;
+}
+
+.photo-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.photo-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+  background-clip: padding-box;
+}
+
+/* ---------- Context menu (right-click) ---------- */
+
+/* The menu itself: the shared floating box, sized to its labels and drawn over
+   the grid. */
+.ctx-menu {
+  z-index: 40;
+  min-width: 190px;
+  outline: none;
+}
+
+/* Teleported separately from the menu it hangs off, so a scrolling menu cannot
+   clip it. */
+.ctx-sub {
+  z-index: 41;
+}
+
+.ctx-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 8px 5px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.3;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* One highlight, driven by the keyboard cursor; hover feeds the same state, so
+   pointer and keyboard can never disagree about what Enter would take. */
+.ctx-item.is-active {
+  background: var(--accent-fill);
+  color: var(--on-accent);
+}
+
+.ctx-item.is-disabled {
+  color: var(--text-mute);
+  cursor: default;
+}
+
+/* A destructive row is only tinted when it is not the one under the cursor, so
+   the highlight stays one colour. --error, not --danger: that one is a fill
+   meant to carry white text and is unreadable as a label on the shell. */
+.ctx-item.is-danger:not(.is-active) {
+  color: var(--error);
+}
+
+.ctx-label {
+  flex: 1;
+}
+
+.ctx-arrow {
+  flex: none;
+  width: 12px;
+  height: 12px;
+}
+
+.ctx-sep {
+  height: 1px;
+  margin: 3px 6px;
+  background: var(--line);
+}
+
+/* ---------- Filmstrip ---------- */
+
+.filmstrip {
+  grid-area: filmstrip;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.filmstrip-import {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-right: 1px solid var(--line);
+  transition: background 120ms;
+}
+
+.filmstrip-import svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.filmstrip-import:hover {
+  background: var(--accent-soft);
+}
+
+.filmstrip-track {
+  padding: 6px 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Reserve the scrollbar row so the strip doesn't grow by 10px once the
+     library is wide enough to scroll. */
+  scrollbar-gutter: stable;
+}
+
+/* The strip is windowed (filmLayout.ts FILM_CELL: 108 × 96, gap 4): cells are
+   positioned absolutely inside a track as wide as the whole folder. */
+.filmstrip-inner {
+  position: relative;
+}
+
+.film-cell {
+  position: relative;
+  width: 108px;
+}
+
+/* A group's divider (filmLayout.ts FILM_HEADER_W: 22 wide): a rule with the
+   group's name running up it, so the strip reads day by day like the grid. */
+.film-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--line);
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.film-group-label {
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.film-cell-main {
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: start;
+  gap: 3px;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  text-align: left;
+  transition: background 120ms, box-shadow 120ms;
+}
+
+.film-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--viewport-bg);
+}
+
+/* Shimmer placeholder while a thumbnail is still being generated/cached. */
+.thumb-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,
+    rgba(255, 255, 255, 0.03) 20%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.03) 80%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  animation: shimmer 1.3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Spinner over the active cell's thumb while its pixels are decoding. */
+.thumb-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(13, 13, 14, 0.42);
+}
+
+.thumb-loading .spinner {
+  width: 18px;
+  height: 18px;
+}
+
+.film-cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.film-cell:hover .film-cell-main {
+  background: var(--card-hover);
+}
+
+.film-cell.is-active .film-cell-main {
+  background: var(--control);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+/* Hover-revealed "remove from library" control on the thumb's top-right. */
+.film-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  background: rgba(13, 13, 14, 0.72);
+  opacity: 0;
+  transition: opacity 120ms, background 120ms;
+}
+
+.film-remove svg {
+  width: 11px;
+  height: 11px;
+}
+
+.film-cell:hover .film-remove,
+.film-remove:focus-visible {
+  opacity: 1;
+}
+
+.film-remove:hover {
+  background: var(--danger);
+  color: var(--on-accent);
+}
+
+.film-cell.is-invalid img {
+  filter: grayscale(0.7) brightness(0.55);
+}
+
+.film-cell.is-invalid .film-name {
+  color: var(--text-dim);
+}
+
+.film-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  padding: 1px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--on-accent);
+  background: var(--danger);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Invalid source state ---------- */
+
+.invalid-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.invalid-state img {
+  max-width: 220px;
+  max-height: 40%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  filter: grayscale(0.6) brightness(0.6);
+  margin-bottom: 6px;
+}
+
+.invalid-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.invalid-sub {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+/* ---------- Error toast ---------- */
+
+.error-toast {
+  position: fixed;
+  bottom: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: min(560px, 80vw);
+  padding: 10px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--on-accent);
+  background: var(--danger);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-float);
+  cursor: pointer;
+  z-index: 11;
+}
+
+.film-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 17px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.film-cell.is-active .film-name {
+  color: var(--text);
+}
+
+/* ---------- Drag overlay ---------- */
+
+/* Leaves the folder tree uncovered: a file drag can land on a folder there,
+   and the row it is over has to stay visible to say so. */
+.drag-overlay {
+  position: fixed;
+  inset: var(--topbar-h) 0 0 var(--left-w);
+  display: grid;
+  place-items: center;
+  background: rgba(13, 13, 14, 0.66);
+  backdrop-filter: blur(8px);
+  border: 1px dashed var(--accent);
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.app.is-drag .preview {
+  filter: brightness(0.7);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 150ms ease;
+}
+
+/* ---------- Scrollbars ---------- */
+
+.rail-scroll::-webkit-scrollbar,
+.filmstrip-track::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+.rail-scroll::-webkit-scrollbar-thumb,
+.filmstrip-track::-webkit-scrollbar-thumb {
+  background: var(--sep-strong);
+  border-radius: var(--radius);
+  border: 2px solid var(--card);
+}
+
+.rail-scroll::-webkit-scrollbar-thumb:hover,
+.filmstrip-track::-webkit-scrollbar-thumb:hover {
+  background: var(--text-mute);
+}
+
+.rail-scroll::-webkit-scrollbar-track,
+.filmstrip-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Narrower, and gapped against the popup's own fill rather than the canvas. */
+.select-pop::-webkit-scrollbar,
+.ctx-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.select-pop::-webkit-scrollbar-thumb,
+.ctx-menu::-webkit-scrollbar-thumb {
+  background: var(--sep-strong);
+  border-radius: var(--radius);
+  border: 2px solid var(--control);
+}
+
+.select-pop::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ── Crop & Straighten ───────────────────────────────────────────────────── */
+
+.icon-btn.is-on {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.crop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.crop-catch {
+  fill: transparent;
+  pointer-events: all;
+  cursor: move;
+}
+
+/* Curved double arrow: a rotate cursor, which CSS has no keyword for. */
+.crop-catch-rotate {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M5 12a7 7 0 0 1 12-4.9M19 12a7 7 0 0 1-12 4.9' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round'/><path d='M5 12a7 7 0 0 1 12-4.9M19 12a7 7 0 0 1-12 4.9' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round'/><path d='M17 3v4.5h-4.5M7 21v-4.5h4.5' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M17 3v4.5h-4.5M7 21v-4.5h4.5' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>") 12 12, grab;
+}
+
+/* Space held: the viewport underneath takes the drag as a pan. */
+.crop-overlay.is-passthrough * { pointer-events: none; }
+.crop-overlay.is-straighten .crop-catch { cursor: crosshair; }
+
+.crop-grid-fine line { stroke: rgba(255, 255, 255, 0.22); }
+
+.crop-upright line {
+  stroke: var(--accent);
+  stroke-dasharray: 6 4;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.crop-upright circle {
+  fill: var(--accent);
+  stroke: #fff;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  pointer-events: all;
+  cursor: grab;
+}
+
+.crop-sub { margin-top: 10px; }
+
+.xf-guided {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.xf-guided-btn { gap: 7px; font-size: 13px; padding: 0 10px; }
+.xf-guided-count { gap: 4px; padding: 0 10px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.crop-tool.xf-guided-count svg { width: 13px; height: 13px; }
+.xf-guided-count:disabled { opacity: 0.4; cursor: default; }
+
+.crop-straighten-line {
+  stroke: var(--accent);
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.crop-readout {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(20, 20, 22, 0.86);
+  color: #fff;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.viewport.is-grab { cursor: grab; }
+
+.crop-dim {
+  fill: rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
+.crop-grid line,
+.crop-grid path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.crop-grid line { shape-rendering: crispEdges; }
+
+/* The crop edges: hairlines that run off the viewport, not a closed frame.
+   They brighten while a grip is held, and the lines that grip moves go accent. */
+.crop-edge {
+  stroke: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+  transition: stroke 120ms ease;
+}
+
+.is-dragging > .crop-edge { stroke: rgba(255, 255, 255, 0.75); }
+.crop-edge.is-hot { stroke: var(--accent); }
+
+.crop-edge-hit {
+  stroke: transparent;
+  fill: none;
+  pointer-events: stroke;
+}
+
+.crop-grip-hit {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.crop-grip {
+  fill: #fff;
+  pointer-events: none;
+  shape-rendering: crispEdges;
+  transition: fill 120ms ease;
+}
+
+.crop-grip-corner {
+  fill: rgba(12, 12, 14, 0.9);
+  stroke: #fff;
+  vector-effect: non-scaling-stroke;
+}
+
+.crop-grip.is-hot { fill: var(--accent); }
+.crop-grip-corner.is-hot { stroke: var(--accent); }
+
+.crop-size {
+  fill: rgba(255, 255, 255, 0.85);
+  stroke: rgba(0, 0, 0, 0.55);
+  paint-order: stroke;
+  text-anchor: end;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Crop panel controls */
+.crop-aspect {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+}
+
+.crop-aspect .control-select {
+  flex: 1;
+  min-width: 0;
+}
+
+.crop-custom {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+}
+
+.crop-custom .slider-number {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+}
+
+.crop-custom-x {
+  flex: none;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.icon-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  background: var(--control);
+  transition: color 130ms, background 130ms;
+}
+
+.icon-mini svg { width: 16px; height: 16px; }
+.icon-mini:hover { color: var(--text); background: var(--sep-strong); }
+
+.crop-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.crop-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  transition: color 130ms, background 130ms, transform 80ms;
+}
+
+.crop-tool svg { width: 18px; height: 18px; }
+.crop-tool:hover { color: var(--text); background: var(--sep); }
+.crop-tool:active { transform: scale(0.94); }
+.crop-tool.is-on { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
+
+.crop-done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 8px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 130ms;
+}
+
+.crop-done svg { width: 14px; height: 14px; }
+.crop-done:hover { background: var(--accent-fill-hover); }
+
+/* ---------- Assistant ----------
+   The chat is the whole rail when its tab is open: the log takes the height
+   and scrolls on its own, the composer stays pinned beneath it. The transcript
+   follows preferred-harness: messages are prose, everything the agent does
+   between them is one flat activity row, and only a state colours anything. */
+
+.chat {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-head {
+  padding: 9px 11px 0;
+  margin-bottom: 0;
+  gap: 8px;
+}
+
+.chat-head > :first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-gear {
+  width: 22px;
+  height: 22px;
+  color: var(--text-dim);
+}
+
+.chat-gear svg {
+  width: 14px;
+  height: 14px;
+}
+
+.chat-log {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 10px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+/* An empty log: a mark, a line, and a few starting points. The chips fill
+   the box rather than send — the send key stays where the words become the
+   user's own. */
+.chat-empty {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  color: var(--text-mute);
+  text-align: center;
+}
+
+.chat-empty p {
+  margin: 0;
+}
+
+.chat-empty-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--text-mute);
+  opacity: 0.6;
+}
+
+.chat-empty-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.chat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.chat-chip {
+  font: inherit;
+  font-size: 11.5px;
+  color: var(--text-dim);
+  background: var(--control);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+
+.chat-chip:hover {
+  background: var(--control-hover);
+  color: var(--text);
+}
+
+/* Messages get room around them; the rows between them sit close. */
+.chat-msg {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 85%;
+  margin: 4px 0;
+}
+
+/* The user's bubble is the one thing on the page that is theirs: a quiet
+   raised surface rather than the accent, which the log keeps for state. */
+.chat-user {
+  align-self: flex-end;
+  background: var(--control);
+  color: var(--text);
+  padding: 7px 12px;
+  border-radius: 14px;
+}
+
+/* Sent while the model was working: a note at the margin, not a bubble. */
+.chat-user.is-steered {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--accent-soft);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 6px 10px;
+}
+
+.chat-steer-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
+.chat-assistant {
+  align-self: flex-start;
+  max-width: 100%;
+  color: var(--text);
+  white-space: normal;   /* markdown brings its own block spacing */
+}
+
+/* fadedown's markdown, tightened to chat scale. */
+.chat-md {
+  --fadedown-animation-duration: 0.35s;
+  --fadedown-code-bg: var(--control);
+  --fadedown-code-radius: var(--radius-sm);
+  --fadedown-code-toolbar-bg: var(--control-hover);
+  --fadedown-code-toolbar-color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.chat-md > :first-child { margin-top: 0; }
+.chat-md > :last-child { margin-bottom: 0; }
+.chat-md p, .chat-md ul, .chat-md ol { margin: 0.35em 0; }
+.chat-md ul, .chat-md ol { padding-left: 1.3em; }
+.chat-md h1, .chat-md h2, .chat-md h3, .chat-md h4 { font-size: 1em; font-weight: 600; margin: 0.6em 0 0.2em; }
+.chat-md code { font-size: 0.92em; background: var(--control); padding: 0 4px; border-radius: 4px; }
+.chat-md pre code { background: none; padding: 0; }
+.chat-md a { color: var(--accent); }
+.chat-md table { border-collapse: collapse; font-size: 0.95em; }
+.chat-md th, .chat-md td { border: 1px solid var(--sep-strong); padding: 2px 6px; }
+
+.chat-typing {
+  color: var(--text-mute);
+}
+
+.chat-error {
+  display: block;
+  color: var(--error);
+  font-size: 11.5px;
+}
+
+/* Tokens and cost of the turn, under the reply, said once the pointer asks. */
+.chat-usage {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-mute);
+  opacity: 0;
+  transition: opacity 120ms;
+}
+
+.chat-assistant:hover .chat-usage,
+.chat-assistant:focus-within .chat-usage {
+  opacity: 1;
+}
+
+/* ---------- Activity rows ----------
+   Thinking, a tool call, a note about the run: each is one line in the shape
+   preferred-harness gives them — icon · label · detail · meta — so a reader
+   scanning a turn follows a single column of icons down the left edge. Only
+   the icon and the meta carry a state's colour; the row itself is flat. */
+
+.chat-row {
+  font-size: 11.5px;
+  color: var(--text-dim);
+}
+
+.chat-row-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 6px;
+  margin: 0 -6px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  list-style: none;
+}
+
+.chat-row-line::-webkit-details-marker {
+  display: none;
+}
+
+.chat-row-line:hover {
+  background: var(--card-hover);
+}
+
+/* A row that opens nothing is read, not pressed. */
+.chat-row-line.is-static {
+  cursor: default;
+}
+
+.chat-row-line.is-static:hover {
+  background: none;
+}
+
+.chat-row-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.chat-row-label {
+  flex-shrink: 0;
+  color: var(--text);
+}
+
+.chat-row-detail {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Open, the body shows the whole thing; the elided line would say it twice. */
+.chat-row[open] .chat-row-detail {
+  visibility: hidden;
+}
+
+.chat-row-meta {
+  flex-shrink: 0;
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Running is the accent, failed is the error colour, a note about the run
+   is muted; done wears no colour at all. */
+.chat-row.is-running .chat-row-icon {
+  color: var(--accent);
+  animation: chat-spin 1s linear infinite;
+}
+
+.chat-row.is-running .chat-row-meta {
+  color: var(--accent);
+}
+
+.chat-row.is-failed .chat-row-icon,
+.chat-row.is-failed .chat-row-meta {
+  color: var(--error);
+}
+
+.chat-status .chat-row-icon {
+  color: var(--text-mute);
+}
+
+/* Hung off a rule down the row's left edge: it belongs to the line above, not
+   to whatever happened next. */
+.chat-row-body {
+  margin: 4px 0 4px 7px;
+  padding-left: 12px;
+  border-left: 1px solid var(--sep-strong);
+}
+
+/* Reasoning: a size below the reply's and dimmed, so it reads as an aside
+   rather than a second voice in the conversation. */
+.chat-reasoning {
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+
+.chat-reasoning .chat-md {
+  line-height: inherit;
+}
+
+/* What the model sent or saw: the picture, the fields changed, the numbers. */
+.chat-tool-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.chat-tool-body img {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+.chat-tool-body table {
+  border-collapse: collapse;
+}
+
+.chat-tool-body td {
+  padding: 0 8px 0 0;
+  white-space: nowrap;
+}
+
+.chat-tool-body td + td {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* A failure in full and selectable: the next thing done with it is a paste. */
+.chat-tool-error {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 160px;
+  overflow: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--error);
+}
+
+@keyframes chat-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Composer ----------
+   One shell holding the field and the settings that describe it: which model
+   answers and how long it thinks are decided while writing, so they sit under
+   the words — settings left, send right. */
+
+.chat-compose {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 9px 9px;
+  padding: 6px;
+  background: var(--control);
+  border-radius: 14px;
+  transition: box-shadow 120ms;
+}
+
+.chat-compose:focus-within {
+  box-shadow: 0 0 0 2px var(--accent-ring);
+}
+
+.chat-input {
+  resize: none;
+  font: inherit;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 5px 8px;
+}
+
+.chat-input::placeholder {
+  color: var(--text-mute);
+}
+
+.chat-compose-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* The pickers are pills on the shell's ground; the shell is their box. */
+.chat-compose-row > .control-select {
+  width: auto;
+  flex: 0 1 auto;
+  background: transparent;
+  border-radius: var(--radius-pill);
+  padding: 4px 8px;
+  color: var(--text-dim);
+}
+
+.chat-compose-row > .control-select:hover:not(:disabled) {
+  background-color: var(--control-hover);
+  color: var(--text);
+}
+
+.chat-compose-row > .chat-send {
+  margin-left: auto;
+}
+
+.chat-send {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  transition: background 120ms, color 120ms, opacity 120ms;
+}
+
+.chat-send svg {
+  width: 15px;
+  height: 15px;
+}
+
+.chat-send:hover:not(:disabled) {
+  background: var(--accent-strong);
+}
+
+.chat-send:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Stop is a ghost beside the field, red only once the pointer asks. */
+.chat-send.is-stop {
+  background: transparent;
+  color: var(--text-dim);
+}
+
+.chat-send.is-stop:hover {
+  background: var(--control-hover);
+  color: var(--error);
+}
+
+/* ---------- History panel ----------
+   Newest step on top; the current one carries the accent, steps past it (the
+   redo branch) fade until a new edit prunes them. */
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.history-step {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: left;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-dim);
+  transition: background 120ms, color 120ms;
+}
+
+.history-step:hover {
+  background: var(--card-hover);
+  color: var(--text);
+}
+
+.history-step.is-current {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+/* The step drawn on the canvas while the pointer rests on it. */
+.history-step.is-previewing {
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.history-step.is-undone {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  text-decoration-color: var(--sep-strong);
+}
+
+.history-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-author {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+/* ---------- Recipes ---------- */
+
+.recipe-actions {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.recipe-save {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.recipe-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4px;
+}
+
+.recipe-list { margin-bottom: 8px; }
+
+/* ---------- Sheet (modal dialog) ----------
+   A native <dialog> in the card language: the backdrop dims the whole app,
+   the sheet floats over it. */
+
+.sheet {
+  border: 1px solid var(--line);
+  padding: 12px 14px 14px;
+  width: min(440px, calc(100vw - 32px));
+  background: var(--card);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-float);
+}
+
+.sheet::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.model-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.model-row {
+  display: grid;
+  /* The provider column is wide enough for the longest registry id to be
+     readable in part; the id column takes what is left. */
+  grid-template-columns: minmax(0, 116px) minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px;
+}
+
+.model-row.model-add {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--sep);
+  grid-template-columns: minmax(0, 116px) minmax(0, 1fr) auto;
+}
+
+.model-field {
+  min-width: 0;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--control);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 4px 7px;
+}
+
+.model-field::placeholder {
+  color: var(--text-dim);
+}
+
+.model-row.no-key .combo-input {
+  color: var(--text-dim);
+}
+
+.model-key {
+  width: 14px;
+  height: 14px;
+  color: var(--error);
+}
+
+.model-remove {
+  display: inline-flex;
+  color: var(--text-dim);
+}
+
+.model-remove svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Masks panel ----------
+   The group list reads like the history list (one quiet row per group, the
+   selected one on the accent); the selected group's selection components and
+   local sliders follow below it. */
+
+.mask-list {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.mask-row {
+  border-radius: var(--radius);
+  transition: background 120ms;
+}
+
+.mask-row.is-selected {
+  background: var(--control);
+  box-shadow: inset 0 0 0 0.5px var(--sep-strong);
+}
+
+/* The clickable header: chevron + name + per-group switches. */
+.mask-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px 3px 4px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+
+.mask-head:hover {
+  background: var(--card-hover);
+  color: var(--text);
+}
+
+.mask-row.is-selected .mask-head {
+  color: var(--text);
+}
+
+.mask-chevron {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: var(--text-mute);
+  transition: transform 160ms;
+}
+
+.mask-row.is-selected .mask-chevron {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+/* The name is text until you reach for it, like the slider values. */
+.mask-name {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 2px 5px;
+  cursor: text;
+  transition: border-color 120ms, background 120ms;
+}
+
+.mask-name:hover,
+.mask-name:focus {
+  border-color: var(--sep-strong);
+  background: var(--bg);
+  outline: none;
+}
+
+.mask-row.is-off .mask-name { color: var(--text-mute); }
+
+.mask-body {
+  padding: 2px 8px 10px;
+}
+
+.icon-mini.is-on { color: var(--accent); }
+
+.mask-sub-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.mask-comp { margin-top: 8px; }
+
+.mask-comp-head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+.mask-comp-type { flex: 1; }
+
+/* The op picker is the HSL segmented control, sized to its three short words. */
+.mask-ops { margin: 0; }
+.mask-ops button { flex: none; padding: 1px 7px; font-size: 11.5px; }
+
+.mask-overlay-row { margin-top: 12px; margin-bottom: 4px; }
+
+/* ---------- Mask gradient handles ----------
+   Same placement as the crop overlay; only the handles take the pointer. */
+
+.mask-overlay { z-index: 6; }
+
+.mask-ref {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.8);
+  stroke-dasharray: 6 4;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.mask-outline {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.95);
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+/* The gradient's own line is a wide transparent hit target for moving it. */
+.mask-axis {
+  stroke: rgba(255, 255, 255, 0.001);
+  pointer-events: all;
+  cursor: move;
+}
+
+.mask-handle {
+  fill: #fff;
+  stroke: rgba(0, 0, 0, 0.35);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: all;
+  cursor: grab;
+}
+
+/* The 0% end is a ring, so the two ends read apart at a glance. */
+.mask-handle-end { fill: rgba(0, 0, 0, 0.35); stroke: #fff; stroke-width: 2; }
+.mask-handle-sq { cursor: crosshair; }
+
+/* ---------- Erase brush ----------
+   The overlay itself takes the pointer (the brush paints anywhere on the
+   image); its own ring is the cursor. Space passes it through for panning. */
+
+.erase-overlay { z-index: 6; pointer-events: all; cursor: none; touch-action: none; }
+.erase-overlay.is-passthrough { pointer-events: none; }
+
+.erase-stroke {
+  fill: none;
+  stroke: rgba(255, 64, 48, 0.45);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.erase-stroke.is-hover { stroke: rgba(255, 64, 48, 0.6); }
+.erase-stroke.brush-live { stroke: rgba(80, 160, 255, 0.45); }
+.erase-stroke.brush-live.is-erasing { stroke: rgba(255, 255, 255, 0.35); }
+/* The fill being brushed: opaque lines in a translucent group, so overlaps
+   read as one region. Blue like a live selection, until Fill turns it red. */
+.erase-draft-layer { opacity: 0.45; }
+.erase-stroke.is-draft { stroke: rgb(80, 160, 255); }
+/* How far the fill reaches once grown and feathered: the same lines, wider and
+   fainter, under the brushed ones. */
+.erase-reach-layer { opacity: 0.16; }
+.erase-stroke.is-reach { stroke: rgba(255, 64, 48, 0.16); }
+
+.erase-draft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
+}
+.erase-draft-count {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.erase-draft .primary {
+  padding: 4px 14px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+}
+.erase-draft .primary:disabled { opacity: 0.5; cursor: default; }
+
+.erase-cursor {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
+  pointer-events: none;
+}
+
+.erase-head { cursor: default; }
+.erase-name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-align: left;
+  cursor: pointer;
+}
+.erase-tune { padding: 2px 0 6px; }
+
+/* ---------- Relight rig ---------- */
+.relight-overlay { z-index: 6; pointer-events: all; cursor: crosshair; touch-action: none; }
+.relight-overlay.is-passthrough { pointer-events: none; }
+.relight-handle {
+  stroke: rgba(0, 0, 0, 0.55);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  cursor: grab;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
+}
+.relight-handle.is-selected { stroke: #fff; stroke-width: 3; }
+.relight-handle.is-behind { stroke-dasharray: 3 2; }
+.relight-label { text-anchor: middle; fill: #111; font-weight: 700; pointer-events: none; user-select: none; }
+.relight-color { width: 22px; height: 18px; padding: 0; border: 1px solid var(--line); border-radius: 4px; background: none; cursor: pointer; }
+.mask-row.is-selected { outline: 1px solid var(--accent); outline-offset: -1px; }
+
+/* ---------- Copy Settings ---------- */
+.copy-dialog-backdrop {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+}
+.copy-dialog {
+  width: min(440px, calc(100vw - 32px)); padding: 14px 16px; border-radius: 10px;
+  background: var(--panel, #1b1b1e); border: 1px solid var(--line); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.copy-dialog-head { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+.copy-dialog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; }
+.copy-check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.copy-dialog-foot { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+.copy-dialog-foot .primary {
+  padding: 4px 14px; border-radius: 6px; border: 0; cursor: pointer;
+  background: var(--accent); color: #fff;
+}
+.copy-dialog-foot .primary:disabled { opacity: 0.5; cursor: default; }
+.copy-pill {
+  position: fixed; left: 50%; bottom: 120px; transform: translateX(-50%); z-index: 40;
+  padding: 6px 14px; border-radius: 999px; background: rgba(20, 20, 24, 0.92); border: 1px solid var(--line);
+  font-size: 12px; pointer-events: none;
+}
+
+/* ---------- Lens blur focus ---------- */
+.focus-overlay { z-index: 6; pointer-events: none; }
+.focus-overlay.is-picking { pointer-events: all; cursor: crosshair; }
+.focus-overlay.is-passthrough { pointer-events: none; }
+.focus-marker circle, .focus-marker line {
+  fill: none; stroke: #fff; stroke-width: 1.5; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
+}
+button.ghost.is-on { color: var(--accent); border-color: var(--accent); }
+.lb-actions { display: flex; gap: 8px; margin-top: 6px; }
+.lb-actions button { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.control-note.is-warn { color: var(--error); }
+.erase-progress { width: 100%; height: 4px; appearance: none; border: 0; border-radius: 2px; background: var(--line); overflow: hidden; }
+.erase-progress::-webkit-progress-bar { background: var(--line); }
+.erase-progress::-webkit-progress-value { background: var(--accent); }
+.erase-progress::-moz-progress-bar { background: var(--accent); }
+.mask-handle-rotate { fill: var(--accent); stroke: #fff; }

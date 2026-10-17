@@ -1,0 +1,31 @@
+{
+  "compiler": "Zig 0.16.0",
+  "reference_compiler_in_BUILD_md": "Zig 0.13.0",
+  "flags": "-target aarch64-linux-gnu -shared -fPIC -O2 -ffreestanding -fno-builtin -fno-stack-protector -fno-unwind-tables -fno-asynchronous-unwind-tables -nostdlib -Wl,--no-undefined -Wl,-Bsymbolic -Wl,-z,noexecstack",
+  "modules": [
+    {
+      "name": "installer.so",
+      "bytes": 55856,
+      "sha256": "b6286dcd50b9d801154febf33ed7b6f966f93bf4044b4813857d725a108914c3",
+      "matches_bundled": false
+    },
+    {
+      "name": "probe.so",
+      "bytes": 20952,
+      "sha256": "3dc0a1726a511460e2a92f9d5f2658602366663c81f0c9be455415c3018ac523",
+      "matches_bundled": false
+    },
+    {
+      "name": "runtime.so",
+      "bytes": 26560,
+      "sha256": "76e904a3f7fa6be7b0a54b89c18b6d5ab0de2bc7b2f83d126023523ea789f626",
+      "matches_bundled": false
+    },
+    {
+      "name": "wbi.so",
+      "bytes": 17856,
+      "sha256": "789f057f9a7bb5a68c70c3eb69dafdc9f19f299642aac789745dc9a00ad8d8c9",
+      "matches_bundled": false
+    }
+  ]
+}

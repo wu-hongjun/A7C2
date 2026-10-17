@@ -1,0 +1,241 @@
+{
+  "format": 1,
+  "baseline_commit": "370bf0b5b9b23d3d50dd381b562a736035c6690a",
+  "files": [
+    {
+      "path": "BUILD.md",
+      "bytes": 1262,
+      "sha256": "e257ff1f41973f97e99eb5812163b50bc399ba7cb30648d2c72b0c08c568f7f7"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1234,
+      "sha256": "c592870a8504689cbe03449c2ae582ba6517716c9e0cd2f880cea50c187d16e9"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 1249,
+      "sha256": "f64513f9d5949ed4aef9364475684f7745314250a97c3051c3b26bfa801dc103"
+    },
+    {
+      "path": "README.md",
+      "bytes": 24829,
+      "sha256": "3777503154ae278f8f39424a78f4605382459a49ba3108a14679ef7cf0a957eb"
+    },
+    {
+      "path": "README.zh-TW.md",
+      "bytes": 20531,
+      "sha256": "65cf2d020f449845fe893d1814de0dd3dfc9b72b98119dadc70ef521e76b4e96"
+    },
+    {
+      "path": "Start.cmd",
+      "bytes": 105,
+      "sha256": "33702d471928452b5f0515ba9607ccdcee4351cc3ea862293ae78b74c895d654"
+    },
+    {
+      "path": "Start.ps1",
+      "bytes": 1159,
+      "sha256": "63d05762642928ffa047d0521d442f7c156db6b840ae54c3f25831da7bac9456"
+    },
+    {
+      "path": "VALIDATION.json",
+      "bytes": 716,
+      "sha256": "641204cdc0683ae541020139538d25c0d4d5d1a43cc0ae1ba5135830b1c026e1"
+    },
+    {
+      "path": "app.py",
+      "bytes": 15575,
+      "sha256": "5662b6ef9d79993895d2cfa2a7653363dd16ac3bb5a1db9d19fe4abda2549893"
+    },
+    {
+      "path": "assets/colors.json",
+      "bytes": 2737,
+      "sha256": "1259a47bca2b4fc29882121a647746fceafd16c8de3b6df85324cd84f083871e"
+    },
+    {
+      "path": "assets/installer.so",
+      "bytes": 56864,
+      "sha256": "64ec3db50ab31a6492eb068d40c9a0ed32488ccb0faeebd02a625e469227e5b6"
+    },
+    {
+      "path": "assets/manifest.json",
+      "bytes": 848,
+      "sha256": "a1238386c79f504e29504d45ef165c9c8c1903a393cfe0feca87f06297e894d6"
+    },
+    {
+      "path": "assets/patches.json",
+      "bytes": 25075,
+      "sha256": "a297bdd1df6088adca4fe8de2323470354b4497ddc03fa4a5e2e48ee42272bb8"
+    },
+    {
+      "path": "assets/probe.so",
+      "bytes": 20968,
+      "sha256": "fea02971a2d7ad2e1661fef924de99624fd4182ed6283e8037499f60bbc8de30"
+    },
+    {
+      "path": "assets/runtime.so",
+      "bytes": 26552,
+      "sha256": "e8a5efa72a6c6f3126247e838a65001ea2c6987f97cf4fb25d896e8de79b7700"
+    },
+    {
+      "path": "assets/wbi.so",
+      "bytes": 17608,
+      "sha256": "8d73d55bf89a8400b1c00130b514405d850553536f222fca0eb3959eb0a0be25"
+    },
+    {
+      "path": "core.py",
+      "bytes": 8774,
+      "sha256": "efa0896f0fd18c62d165d64f0cb4ffb4852ae1d2ca4b7c24e6d53331e7eb7b52"
+    },
+    {
+      "path": "gui.py",
+      "bytes": 5108,
+      "sha256": "9f48b18fe5747c289c6bc6fef32adb9ea96b368ac8d90f3a7e1bc83001c958e8"
+    },
+    {
+      "path": "licenses/Sony-PMCA-RE-MIT.txt",
+      "bytes": 1093,
+      "sha256": "f40fa84ebd3c1329fc6f4b75c11af9df6b19ae9a0485a02e85a5eeb476fcd94e"
+    },
+    {
+      "path": "native/installer.c",
+      "bytes": 7645,
+      "sha256": "62925a0461b896eb25ad6c7abbff908a7bfe27593526a9ace01cfb1f0770f945"
+    },
+    {
+      "path": "native/patch_manifest.h",
+      "bytes": 25293,
+      "sha256": "436c2d28cd4420e3c23536431988abbbfe1472d1ef166252fd69d60c80357386"
+    },
+    {
+      "path": "native/probe.c",
+      "bytes": 4915,
+      "sha256": "ce7ec941bdd622b706873f08f499968af65750fe82354967167059df1c5d3232"
+    },
+    {
+      "path": "native/runtime.c",
+      "bytes": 1969,
+      "sha256": "f976ac7190ea25bdce571811adcdc59c69325a0364cb33d1d95b14cc5c190f49"
+    },
+    {
+      "path": "native/sha256.h",
+      "bytes": 2514,
+      "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+    },
+    {
+      "path": "native/wbi.c",
+      "bytes": 4035,
+      "sha256": "f35ce9b4d22d86534664ebc3d0492e6e3bd0ee7234d58bdfad2488192e090585"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 74,
+      "sha256": "e4df8f4ca1ce06d8e324ea90b54a7cd68e2dd35ea482539d7a9fd205c7dbd4e3"
+    },
+    {
+      "path": "tests/test_offline.py",
+      "bytes": 4895,
+      "sha256": "1274edc2a78e475d407a6c74c6626f80a434ba0d9f3534644381e79608dfd697"
+    },
+    {
+      "path": "transport.py",
+      "bytes": 5830,
+      "sha256": "1c10d080dd5b67bb0f78eaefec2328deefc51a1b0673ed141eaa64a9ec74add4"
+    },
+    {
+      "path": "vendor/pmca/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vendor/pmca/backup/__init__.py",
+      "bytes": 5945,
+      "sha256": "b53359bc42b51af0ed42f2e4879554cf104df587e82730af0b4f8ebe925a6c6e"
+    },
+    {
+      "path": "vendor/pmca/io/__init__.py",
+      "bytes": 779,
+      "sha256": "0149f50ffb20fc59e366881d4c6c8472c148ed6bbdf210680c23707c0a9b662f"
+    },
+    {
+      "path": "vendor/pmca/usb/__init__.py",
+      "bytes": 4235,
+      "sha256": "f4c856b505a6c62bf841bb6f662990ba1ea12b46e7984430463bea4dca60eae6"
+    },
+    {
+      "path": "vendor/pmca/usb/constants.py",
+      "bytes": 12380,
+      "sha256": "345f0184fe0127b61cd8ef6f861c513e43468b6f8f926304eda960450870a912"
+    },
+    {
+      "path": "vendor/pmca/usb/crypto.py",
+      "bytes": 1468,
+      "sha256": "4cae5195d85d20142f674c7073c7c5ae34c10b39fb834a6851f0b77fc55236b5"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/__init__.py",
+      "bytes": 1395,
+      "sha256": "bd855bc35a812e56e2ce9810390e75d5444890a47825d11ae6a51090b97bdbec"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/generic/__init__.py",
+      "bytes": 7019,
+      "sha256": "4a521b34a320e2dc062977e81811b5f277faf87f5f4a928532ecc370a1ba167a"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/generic/libusb.py",
+      "bytes": 3126,
+      "sha256": "ed9dc95d5ae76e579f74e44d3ee29c77f822a890a21dfff4533dd47545a88ea3"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/generic/qemu.py",
+      "bytes": 5748,
+      "sha256": "d92c06961e3548877004f2394787beecf454bb1efabe1f8c465b3075a19c9ed6"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/osx.py",
+      "bytes": 6854,
+      "sha256": "d970eb9ab76f0af64078d068376f06f6fc5d95be9391330dab347acd0966a5c2"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/windows/__init__.py",
+      "bytes": 203,
+      "sha256": "6b1a46f814c2c8ede7d79217781e6a1c25ac311191038ff4ef4bc21cf1ca43c7"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/windows/driverless.py",
+      "bytes": 655,
+      "sha256": "5021554f430019bb2073fd7c335fc25f46c4b67031839373a1c7e49cc92ffdfc"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/windows/msc.py",
+      "bytes": 4684,
+      "sha256": "5d4f114eff7fd87d8017f001a15dffb136414f0ee29493be66cc6ce134735b98"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/windows/setupapi.py",
+      "bytes": 4577,
+      "sha256": "553e0a9694cdaff6fa3e94ee82931e1ecf32bc39c7fb6e469619e293bff906e4"
+    },
+    {
+      "path": "vendor/pmca/usb/driver/windows/wpd.py",
+      "bytes": 7048,
+      "sha256": "c94aaf7aed158729581c2365052ab15d1c5855ce815ad1955a22e0dce36ee801"
+    },
+    {
+      "path": "vendor/pmca/usb/sony.py",
+      "bytes": 37090,
+      "sha256": "4ac3abcd796f5ca6bcf18179065bddef1cc0e2d7201fc6a458fc6c53bdaf541c"
+    },
+    {
+      "path": "vendor/pmca/util/__init__.py",
+      "bytes": 1548,
+      "sha256": "26b5d9bfb2155197edb949ec25f39fc62a87c6318f6a0057ad159331480ca493"
+    },
+    {
+      "path": "vendor/pmca/util/http.py",
+      "bytes": 1331,
+      "sha256": "e4a2ea7f6b2aba30213f9b80292a65c99a0c9558a48a86923a60d9bfea7bc6da"
+    }
+  ]
+}

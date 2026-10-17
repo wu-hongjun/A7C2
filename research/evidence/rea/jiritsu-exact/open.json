@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libJiritsu.so\",\"format\":\"elf\",\"kind\":\"executable\",\"sha256\":\"87dc24912938be8dd59965e62306e79fdd8c672e10ed6f9734c88454b1d144a8\",\"architecture\":\"arm64\"}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libJiritsu.so",
+      "format": "elf",
+      "kind": "executable",
+      "sha256": "87dc24912938be8dd59965e62306e79fdd8c672e10ed6f9734c88454b1d144a8",
+      "architecture": "arm64"
+    }
+  }
+}

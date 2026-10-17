@@ -1,0 +1,101 @@
+{
+  "sha": "3955d7890fc38daf942bb52827599bfe35de4a14",
+  "node_id": "C_kwDOArlPTtoAKDM5NTVkNzg5MGZjMzhkYWY5NDJiYjUyODI3NTk5YmZlMzVkZTRhMTQ",
+  "commit": {
+    "author": {
+      "name": "David Buchanan",
+      "email": "d@vidbuchanan.co.uk",
+      "date": "2026-10-09T16:07:38Z"
+    },
+    "committer": {
+      "name": "David Buchanan",
+      "email": "d@vidbuchanan.co.uk",
+      "date": "2026-10-09T16:13:06Z"
+    },
+    "message": "improve ext2 detection",
+    "tree": {
+      "sha": "63801fd484c6e089f2363095b1c90968c6ee9c0d",
+      "url": "https://api.github.com/repos/ma1co/fwtool.py/git/trees/63801fd484c6e089f2363095b1c90968c6ee9c0d"
+    },
+    "url": "https://api.github.com/repos/ma1co/fwtool.py/git/commits/3955d7890fc38daf942bb52827599bfe35de4a14",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/ma1co/fwtool.py/commits/3955d7890fc38daf942bb52827599bfe35de4a14",
+  "html_url": "https://github.com/ma1co/fwtool.py/commit/3955d7890fc38daf942bb52827599bfe35de4a14",
+  "comments_url": "https://api.github.com/repos/ma1co/fwtool.py/commits/3955d7890fc38daf942bb52827599bfe35de4a14/comments",
+  "author": {
+    "login": "DavidBuchanan314",
+    "id": 13520633,
+    "node_id": "MDQ6VXNlcjEzNTIwNjMz",
+    "avatar_url": "https://avatars.githubusercontent.com/u/13520633?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/DavidBuchanan314",
+    "html_url": "https://github.com/DavidBuchanan314",
+    "followers_url": "https://api.github.com/users/DavidBuchanan314/followers",
+    "following_url": "https://api.github.com/users/DavidBuchanan314/following{/other_user}",
+    "gists_url": "https://api.github.com/users/DavidBuchanan314/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/DavidBuchanan314/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/DavidBuchanan314/subscriptions",
+    "organizations_url": "https://api.github.com/users/DavidBuchanan314/orgs",
+    "repos_url": "https://api.github.com/users/DavidBuchanan314/repos",
+    "events_url": "https://api.github.com/users/DavidBuchanan314/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/DavidBuchanan314/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "DavidBuchanan314",
+    "id": 13520633,
+    "node_id": "MDQ6VXNlcjEzNTIwNjMz",
+    "avatar_url": "https://avatars.githubusercontent.com/u/13520633?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/DavidBuchanan314",
+    "html_url": "https://github.com/DavidBuchanan314",
+    "followers_url": "https://api.github.com/users/DavidBuchanan314/followers",
+    "following_url": "https://api.github.com/users/DavidBuchanan314/following{/other_user}",
+    "gists_url": "https://api.github.com/users/DavidBuchanan314/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/DavidBuchanan314/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/DavidBuchanan314/subscriptions",
+    "organizations_url": "https://api.github.com/users/DavidBuchanan314/orgs",
+    "repos_url": "https://api.github.com/users/DavidBuchanan314/repos",
+    "events_url": "https://api.github.com/users/DavidBuchanan314/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/DavidBuchanan314/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "08f5f304d111edd92b1fb7c102383a8de49d6671",
+      "url": "https://api.github.com/repos/ma1co/fwtool.py/commits/08f5f304d111edd92b1fb7c102383a8de49d6671",
+      "html_url": "https://github.com/ma1co/fwtool.py/commit/08f5f304d111edd92b1fb7c102383a8de49d6671"
+    }
+  ],
+  "stats": {
+    "total": 8,
+    "additions": 7,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "de2180a837cf1929af3fb1c7a2dab775016944b3",
+      "filename": "fwtool/archive/ext2.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "blob_url": "https://github.com/ma1co/fwtool.py/blob/3955d7890fc38daf942bb52827599bfe35de4a14/fwtool%2Farchive%2Fext2.py",
+      "raw_url": "https://github.com/ma1co/fwtool.py/raw/3955d7890fc38daf942bb52827599bfe35de4a14/fwtool%2Farchive%2Fext2.py",
+      "contents_url": "https://api.github.com/repos/ma1co/fwtool.py/contents/fwtool%2Farchive%2Fext2.py?ref=3955d7890fc38daf942bb52827599bfe35de4a14",
+      "patch": "@@ -1,5 +1,6 @@\n \"\"\"A parser for ext2 file system images\"\"\"\n \n+import os\n from stat import *\n \n from . import *\n@@ -53,7 +54,12 @@\n \n def isExt2(file):\n  header = Ext2Header.unpack(file)\n- return header and header.magic == ext2HeaderMagic\n+ if not header or header.magic != ext2HeaderMagic:\n+  return False\n+ if header.blockSize > 6 or not (header.blocksCount and header.blocksPerGroup and header.inodesPerGroup):\n+  return False\n+ file.seek(0, os.SEEK_END)\n+ return file.tell() >= (1024 << header.blockSize) * header.blocksCount\n \n def readExt2(file):\n  header = Ext2Header.unpack(file)"
+    }
+  ]
+}

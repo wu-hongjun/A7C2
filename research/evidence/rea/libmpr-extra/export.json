@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/hongjunwu/Git/A7C2/research/evidence/rea/libmpr-extra/evidence-bundle.json\",\"bytes\":192322,\"records\":5,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/libmpr-extra/evidence-bundle.json",
+      "bytes": 192322,
+      "records": 5,
+      "unknowns": 0
+    }
+  }
+}

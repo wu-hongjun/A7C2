@@ -1,0 +1,23 @@
+{
+  "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libIMDB.so",
+  "output_directory": "research/build/rea-rerun/imdb",
+  "queries": [
+    {
+      "name": "binary_overview",
+      "arguments": {}
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xa1f0"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "IMDB_get_entries"
+      }
+    }
+  ],
+  "export_bundle": true
+}

@@ -1,0 +1,343 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_fd0dc9ef8dc889aa31cbe8602b6a3c8caa3663c6852b34f668ed900877af3805\",\"subject\":{\"name\":\"appFw.so\",\"digest\":{\"sha256\":\"2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"rea-workflow\",\"name\":\"REA composed investigation workflow\",\"version\":\"1\"},\"analysis_profile\":{\"provider\":{\"id\":\"rea-workflow\",\"name\":\"REA composed investigation workflow\",\"version\":\"1\"},\"parameters\":{\"upstream_analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\"},\"digest\":\"73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5\"},\"workflow_revision\":3},\"digest\":\"a193598226d48189c6c6616dc5d69d99483383709221f7b521046d9a0d551e0a\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"binary_overview\",\"parameters\":{},\"raw_result\":null,\"normalized_result\":{\"document\":\"target-2ea02f7ecbc5.so\",\"image_base\":\"0x100000\",\"segments\":[{\"name\":\"segment_0.1\",\"start\":\"0x100000\",\"end\":\"0x100190\",\"length\":400,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".gnu.hash\",\"start\":\"0x100190\",\"end\":\"0x1001b4\",\"length\":36,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".dynsym\",\"start\":\"0x1001b8\",\"end\":\"0x105ac8\",\"length\":22800,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".dynstr\",\"start\":\"0x105ac8\",\"end\":\"0x10f058\",\"length\":38288,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".gnu.version\",\"start\":\"0x10f058\",\"end\":\"0x10f7c4\",\"length\":1900,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".gnu.version_r\",\"start\":\"0x10f7c8\",\"end\":\"0x10f958\",\"length\":400,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".rela.dyn\",\"start\":\"0x10f958\",\"end\":\"0x1757de0\",\"length\":23364744,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".rela.plt\",\"start\":\"0x1757de0\",\"end\":\"0x175cfb8\",\"length\":20952,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".init\",\"start\":\"0x175cfb8\",\"end\":\"0x175cfcc\",\"length\":20,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".plt\",\"start\":\"0x175cfd0\",\"end\":\"0x1760680\",\"length\":14000,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".text\",\"start\":\"0x1760680\",\"end\":\"0x38041a0\",\"length\":34224928,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".fini\",\"start\":\"0x38041a0\",\"end\":\"0x38041b0\",\"length\":16,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".rodata\",\"start\":\"0x38041b0\",\"end\":\"0x52a09e4\",\"length\":27904052,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".eh_frame_hdr\",\"start\":\"0x52a09e4\",\"end\":\"0x52a14b8\",\"length\":2772,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".eh_frame\",\"start\":\"0x52a14b8\",\"end\":\"0x52a57ac\",\"length\":17140,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".gcc_except_table\",\"start\":\"0x52a57ac\",\"end\":\"0x52a6cff\",\"length\":5459,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".init_array\",\"start\":\"0x52b7718\",\"end\":\"0x52b8290\",\"length\":2936,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".fini_array\",\"start\":\"0x52b8290\",\"end\":\"0x52b8298\",\"length\":8,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".jcr\",\"start\":\"0x52b8298\",\"end\":\"0x52b82a0\",\"length\":8,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".data.rel.ro\",\"start\":\"0x52b82a0\",\"end\":\"0x5c4bb60\",\"length\":10041536,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".dynamic\",\"start\":\"0x5c4bb60\",\"end\":\"0x5c4be70\",\"length\":784,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".got\",\"start\":\"0x5c4be70\",\"end\":\"0x5cc0fe8\",\"length\":479608,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".got.plt\",\"start\":\"0x5cc0fe8\",\"end\":\"0x5cc2b58\",\"length\":7024,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".data\",\"start\":\"0x5cc2b58\",\"end\":\"0x6063fb8\",\"length\":3806304,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".bss\",\"start\":\"0x6063fb8\",\"end\":\"0x99a1cd0\",\"length\":60022040,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\"EXTERNAL\",\"start\":\"0x99a2000\",\"end\":\"0x99a3d80\",\"length\":7552,\"image_base\":\"0x100000\",\"address_space\":\"ram\"},{\"name\":\".comment\",\"start\":\".comment:0x0\",\"end\":\".comment:0x40\",\"length\":64,\"image_base\":\"0x100000\",\"address_space\":\".comment\"},{\"name\":\".shstrtab\",\"start\":\".shstrtab:0x0\",\"end\":\".shstrtab:0xee\",\"length\":238,\"image_base\":\"0x100000\",\"address_space\":\".shstrtab\"},{\"name\":\"_elfSectionHeaders\",\"start\":\"_elfSectionHeaders:0x0\",\"end\":\"_elfSectionHeaders:0x6c0\",\"length\":1728,\"image_base\":\"0x100000\",\"address_space\":\"_elfSectionHeaders\"}],\"segment_count\":29,\"procedure_count\":195621,\"string_count\":112029},\"confidence\":\"derived\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"Derived by an REA composed workflow.\",\"A headless Ghidra session contains exactly one imported Program, unlike Hopper's multi-document GUI session.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Charset is reported, while a non-missing terminator cannot distinguish a present terminator from a fixed or Pascal layout.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"External functions and local thunks are distinct; procedure metadata identifies both and preserves a thunk target when Ghidra resolves one.\",\"Memory-block end addresses are exclusive; permissions come from Ghidra MemoryBlock flags rather than inference from section names.\",\"Only Ghidra-defined string Data is observed; packed or undefined string bytes may be absent. Completeness applies to that inventory, and an empty search does not establish that text is absent from the artifact. If an address is known, use read_bytes and xrefs to inspect bytes and references.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_fd0dc9ef8dc889aa31cbe8602b6a3c8caa3663c6852b34f668ed900877af3805",
+    "subject": {
+      "name": "appFw.so",
+      "digest": {
+        "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "rea-workflow",
+      "name": "REA composed investigation workflow",
+      "version": "1"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "rea-workflow",
+        "name": "REA composed investigation workflow",
+        "version": "1"
+      },
+      "parameters": {
+        "upstream_analysis_profile": {
+          "provider": {
+            "id": "ghidra",
+            "name": "Ghidra",
+            "version": "12.1.4"
+          },
+          "parameters": {
+            "target_kind": "executable",
+            "target_format": "elf",
+            "architecture": "arm64",
+            "available_architectures": [
+              "arm64"
+            ],
+            "import_mode": "ephemeral-source-immutable",
+            "annotation_policy": "atomic-function-entry-metadata-v1",
+            "load_image_observations": "source-mappings-entry-context-v2",
+            "function_body_evidence": "complete-inclusive-ranges-v1",
+            "function_references": "complete-body-and-entry-reference-manager-v2",
+            "call_relationship_coverage": "function-body-call-coverage-v5",
+            "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+            "string_inventory_evidence": "defined-data-coverage-v1",
+            "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+            "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+            "instruction_flow_evidence": "decoded-return-pcode-v1",
+            "instruction_references": "exact-address-incoming-v1",
+            "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+            "no_return_repair": "returning-imports-decoded-return-v2",
+            "process_launch": "inspected-jvm-launch-support-v1",
+            "jump_table_evidence": "typed-case-default-blocks-v1",
+            "decompiler_jump_loads": true,
+            "loader": "auto-from-header",
+            "language_id": "auto-from-header",
+            "compiler_spec_id": "auto-default",
+            "analyzer_preset": "ghidra-default"
+          },
+          "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+        },
+        "workflow_revision": 3
+      },
+      "digest": "a193598226d48189c6c6616dc5d69d99483383709221f7b521046d9a0d551e0a"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "binary_overview",
+    "parameters": {},
+    "raw_result": null,
+    "normalized_result": {
+      "document": "target-2ea02f7ecbc5.so",
+      "image_base": "0x100000",
+      "segments": [
+        {
+          "name": "segment_0.1",
+          "start": "0x100000",
+          "end": "0x100190",
+          "length": 400,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".gnu.hash",
+          "start": "0x100190",
+          "end": "0x1001b4",
+          "length": 36,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".dynsym",
+          "start": "0x1001b8",
+          "end": "0x105ac8",
+          "length": 22800,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".dynstr",
+          "start": "0x105ac8",
+          "end": "0x10f058",
+          "length": 38288,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".gnu.version",
+          "start": "0x10f058",
+          "end": "0x10f7c4",
+          "length": 1900,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".gnu.version_r",
+          "start": "0x10f7c8",
+          "end": "0x10f958",
+          "length": 400,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".rela.dyn",
+          "start": "0x10f958",
+          "end": "0x1757de0",
+          "length": 23364744,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".rela.plt",
+          "start": "0x1757de0",
+          "end": "0x175cfb8",
+          "length": 20952,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".init",
+          "start": "0x175cfb8",
+          "end": "0x175cfcc",
+          "length": 20,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".plt",
+          "start": "0x175cfd0",
+          "end": "0x1760680",
+          "length": 14000,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".text",
+          "start": "0x1760680",
+          "end": "0x38041a0",
+          "length": 34224928,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".fini",
+          "start": "0x38041a0",
+          "end": "0x38041b0",
+          "length": 16,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".rodata",
+          "start": "0x38041b0",
+          "end": "0x52a09e4",
+          "length": 27904052,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".eh_frame_hdr",
+          "start": "0x52a09e4",
+          "end": "0x52a14b8",
+          "length": 2772,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".eh_frame",
+          "start": "0x52a14b8",
+          "end": "0x52a57ac",
+          "length": 17140,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".gcc_except_table",
+          "start": "0x52a57ac",
+          "end": "0x52a6cff",
+          "length": 5459,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".init_array",
+          "start": "0x52b7718",
+          "end": "0x52b8290",
+          "length": 2936,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".fini_array",
+          "start": "0x52b8290",
+          "end": "0x52b8298",
+          "length": 8,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".jcr",
+          "start": "0x52b8298",
+          "end": "0x52b82a0",
+          "length": 8,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".data.rel.ro",
+          "start": "0x52b82a0",
+          "end": "0x5c4bb60",
+          "length": 10041536,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".dynamic",
+          "start": "0x5c4bb60",
+          "end": "0x5c4be70",
+          "length": 784,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".got",
+          "start": "0x5c4be70",
+          "end": "0x5cc0fe8",
+          "length": 479608,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".got.plt",
+          "start": "0x5cc0fe8",
+          "end": "0x5cc2b58",
+          "length": 7024,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".data",
+          "start": "0x5cc2b58",
+          "end": "0x6063fb8",
+          "length": 3806304,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".bss",
+          "start": "0x6063fb8",
+          "end": "0x99a1cd0",
+          "length": 60022040,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": "EXTERNAL",
+          "start": "0x99a2000",
+          "end": "0x99a3d80",
+          "length": 7552,
+          "image_base": "0x100000",
+          "address_space": "ram"
+        },
+        {
+          "name": ".comment",
+          "start": ".comment:0x0",
+          "end": ".comment:0x40",
+          "length": 64,
+          "image_base": "0x100000",
+          "address_space": ".comment"
+        },
+        {
+          "name": ".shstrtab",
+          "start": ".shstrtab:0x0",
+          "end": ".shstrtab:0xee",
+          "length": 238,
+          "image_base": "0x100000",
+          "address_space": ".shstrtab"
+        },
+        {
+          "name": "_elfSectionHeaders",
+          "start": "_elfSectionHeaders:0x0",
+          "end": "_elfSectionHeaders:0x6c0",
+          "length": 1728,
+          "image_base": "0x100000",
+          "address_space": "_elfSectionHeaders"
+        }
+      ],
+      "segment_count": 29,
+      "procedure_count": 195621,
+      "string_count": 112029
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Derived by an REA composed workflow.",
+      "A headless Ghidra session contains exactly one imported Program, unlike Hopper's multi-document GUI session.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Charset is reported, while a non-missing terminator cannot distinguish a present terminator from a fixed or Pascal layout.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "External functions and local thunks are distinct; procedure metadata identifies both and preserves a thunk target when Ghidra resolves one.",
+      "Memory-block end addresses are exclusive; permissions come from Ghidra MemoryBlock flags rather than inference from section names.",
+      "Only Ghidra-defined string Data is observed; packed or undefined string bytes may be absent. Completeness applies to that inventory, and an empty search does not establish that text is absent from the artifact. If an address is known, use read_bytes and xrefs to inspect bytes and references.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

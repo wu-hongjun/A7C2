@@ -124,8 +124,11 @@ class Job:
         originals,merged=self.units();target=originals if restore else merged
         desired=dict(zip(core.AP_KEYS,[b'\0',b'\0'] if restore else [b'\x0a',b'\x0b']))
         before_raw=session.call(session.camera.getBackupPresetData,True);before=core.backup_records(before_raw)
+        stored_before_raw=session.call(session.camera.getBackupPresetData,False)
+        stored_before=core.backup_records(stored_before_raw)
         folder=self.root/'evidence';folder.mkdir(exist_ok=True)
         (folder/f'{datetime.now():%Y%m%d-%H%M%S-%f}-settings-before.private.bin').write_bytes(before_raw)
+        (folder/f'{datetime.now():%Y%m%d-%H%M%S-%f}-settings-stored-before.private.bin').write_bytes(stored_before_raw)
         current_cp={k:session.cp_read(k) for k in core.CP_KEYS}
         current_ap={k:session.call(session.camera.readBackup,k) for k in core.AP_KEYS}
         for key in core.CP_KEYS:
@@ -134,6 +137,11 @@ class Job:
         for i,key in enumerate(core.AP_KEYS):
             accepted=[b'\0',bytes([10+i])] if restore else [b'\0']
             if current_ap[key] not in accepted or before[0][key].data!=current_ap[key]:raise ValueError('AP 設定狀態未知，拒絕寫入')
+        expected={(0,k):v for k,v in desired.items()};expected.update({(1,k):v for k,v in target.items()})
+        saves=set()
+        if any(current_cp[k]!=target[k] for k in core.CP_KEYS):saves.add(0x02a4)
+        if any(current_ap[k]!=desired[k] for k in core.AP_KEYS):saves.add(0x02cf)
+        core.verify_save_baseline(before,stored_before,expected,saves)
         for key in core.CP_KEYS:
             if current_cp[key]==target[key]:continue
             self.audit('about_to_write_cp',key=hex(key));session.cp_write(key,target[key])
@@ -150,12 +158,11 @@ class Job:
         stored_raw=session.call(session.camera.getBackupPresetData,False)
         (folder/f'{datetime.now():%Y%m%d-%H%M%S-%f}-settings-after.private.bin').write_bytes(after_raw)
         (folder/f'{datetime.now():%Y%m%d-%H%M%S-%f}-settings-stored.private.bin').write_bytes(stored_raw)
-        expected={(0,k):v for k,v in desired.items()};expected.update({(1,k):v for k,v in target.items()})
         preservation=core.verify_preservation(before,core.backup_records(after_raw),expected)
         stored=core.backup_records(stored_raw)
-        for (chip,key),value in expected.items():
-            if stored[chip][key].data!=value:raise ValueError('儲存後讀回不符')
-        self.audit('settings_storage_verified',restore=restore,**preservation)
+        stored_preservation=core.verify_preservation(stored_before,stored,expected)
+        self.audit('settings_storage_verified',restore=restore,**preservation,
+                   stored_preservation=stored_preservation)
     def install(self,battery):
         from transport import Session
         self.load()

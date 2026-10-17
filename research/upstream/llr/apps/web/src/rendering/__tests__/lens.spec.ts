@@ -1,0 +1,159 @@
+import { describe, expect, it } from "vitest";
+import { LENS_IDENTITY, LENS_KNOTS, LENS_KNOT_SPAN, lensCaFillScale, lensFillScale, lensInterp, mixLensTable, parseLensCorr } from "../lens";
+
+// Worker output for samples/DSC01157.ARW (FE 50-150mm F2 GM @150mm) — Sony
+// int16 tables through the fixed-point maps (distortion p*2^-14+1, vignetting
+// 1/2^(0.5-2^(p*2^-13-1))), knots i/15.2. A real pincushion + falloff case.
+const SONY_DIST_RAW = [0, 3, 12, 26, 48, 74, 107, 145, 190, 240, 295, 358, 427, 502, 586, 677];
+const SONY_VIG_RAW = [0, 96, 96, 128, 352, 960, 1792, 2816, 3968, 5088, 6208, 7360, 8512, 9632, 10688, 11456];
+const KNOTS = Array.from({ length: 16 }, (_, i) => i / LENS_KNOT_SPAN);
+const SONY_DIST = SONY_DIST_RAW.map(p => p * 2 ** -14 + 1);
+const SONY_VIG = SONY_VIG_RAW.map(p => 1 / 2 ** (0.5 - 2 ** (p * 2 ** -13 - 1)));
+const sonyMeta = { knots: KNOTS, distortion: SONY_DIST, vignetting: SONY_VIG };
+
+// Same lens at 50mm (10960725/DSC02976.ARW) — barrel, the direction the fill
+// scale used to skip. 3:2, so the short edge's midpoint sits at 2/sqrt(13).
+const BARREL_RAW = [0, -3, -10, -22, -40, -61, -87, -118, -153, -192, -236, -285, -339, -396, -459, -527];
+const BARREL = BARREL_RAW.map(p => p * 2 ** -14 + 1);
+// And at 104mm (DSC02961) — pincushion, measured the same way as the barrel one.
+const PINCUSHION_RAW = [0, 2, 7, 17, 31, 47, 67, 92, 119, 149, 183, 219, 260, 302, 345, 390];
+const PINCUSHION = PINCUSHION_RAW.map(p => p * 2 ** -14 + 1);
+const SHORT_EDGE_3x2 = 2 / Math.hypot(3, 2);
+
+describe("lensInterp", () => {
+  it("hits knot values exactly at knot positions", () => {
+    for (let i = 0; i < LENS_KNOTS; i++) {
+      expect(lensInterp(SONY_DIST, KNOTS[i])).toBeCloseTo(SONY_DIST[i], 12);
+    }
+  });
+
+  it("starts at the centre, where the first knot always sits", () => {
+    expect(KNOTS[0]).toBe(0);
+    expect(lensInterp(SONY_DIST, 0)).toBe(SONY_DIST[0]);
+    expect(lensInterp(SONY_DIST, -1)).toBe(SONY_DIST[0]);
+  });
+
+  it("continues the last segment past the last knot, then holds", () => {
+    // The last knot is at 15/15.2 = 0.987 — the corner (r = 1) and the barrel
+    // fill scale's reach past it (~1.01) both land on the extension.
+    const slope = (SONY_DIST[15] - SONY_DIST[14]) / (KNOTS[15] - KNOTS[14]);
+    expect(KNOTS[15]).toBeLessThan(1);
+    expect(lensInterp(SONY_DIST, 1)).toBeCloseTo(SONY_DIST[15] + slope * (1 - KNOTS[15]), 12);
+    expect(lensInterp(SONY_DIST, 1.01)).toBeCloseTo(SONY_DIST[15] + slope * (1.01 - KNOTS[15]), 12);
+    // One knot past the end the extension stops — a wild radius cannot run away.
+    expect(lensInterp(SONY_DIST, 2)).toBeCloseTo(SONY_DIST[15] + slope * (KNOTS[15] - KNOTS[14]), 12);
+  });
+
+  it("interpolates linearly between knots", () => {
+    const mid = (KNOTS[3] + KNOTS[4]) / 2;
+    expect(lensInterp(SONY_DIST, mid)).toBeCloseTo((SONY_DIST[3] + SONY_DIST[4]) / 2, 12);
+  });
+});
+
+describe("parseLensCorr", () => {
+  it("is an identity resample when the source already sits on canonical knots", () => {
+    const corr = parseLensCorr(sonyMeta)!;
+    for (let i = 0; i < LENS_KNOTS; i++) {
+      expect(corr.distortion[i]).toBeCloseTo(SONY_DIST[i], 12);
+      expect(corr.vignetting[i]).toBeCloseTo(SONY_VIG[i], 12);
+    }
+  });
+
+  it("resamples a coarser knot layout onto the canonical grid", () => {
+    // 2 knots spanning [0, 1]: values interpolate linearly in radius.
+    const corr = parseLensCorr({ knots: [0, 1], distortion: [1, 1.1], vignetting: [1, 2] })!;
+    expect(corr.distortion[0]).toBeCloseTo(1, 12);
+    expect(corr.distortion[15]).toBeCloseTo(1 + 0.1 * (15 / LENS_KNOT_SPAN), 12);
+    expect(corr.vignetting[7]).toBeCloseTo(1 + (7 / LENS_KNOT_SPAN), 12);
+  });
+
+  it("rejects malformed metadata", () => {
+    expect(parseLensCorr(null)).toBeNull();
+    expect(parseLensCorr({})).toBeNull();
+    expect(parseLensCorr({ knots: [0, 1], distortion: [1], vignetting: [1, 1] })).toBeNull();
+    expect(parseLensCorr({ knots: [0, 1], distortion: [1, Number.NaN], vignetting: [1, 1] })).toBeNull();
+  });
+});
+
+describe("mixLensTable", () => {
+  it("is identity at 0 and the full table at 1", () => {
+    expect(mixLensTable(SONY_VIG, 0)).toEqual([...LENS_IDENTITY]);
+    expect(mixLensTable(SONY_VIG, 1)).toEqual(SONY_VIG);
+  });
+
+  it("halves the correction at 0.5", () => {
+    const half = mixLensTable(SONY_DIST, 0.5);
+    expect(half[15]).toBeCloseTo(1 + (SONY_DIST[15] - 1) / 2, 12);
+  });
+});
+
+describe("lensFillScale", () => {
+  it("is 1 for an identity table", () => {
+    expect(lensFillScale([...LENS_IDENTITY], SHORT_EDGE_3x2)).toBeCloseTo(1, 12);
+  });
+
+  it("anchors pincushion at the corner: s*f(s)=1, and s < 1", () => {
+    const s = lensFillScale(SONY_DIST, SHORT_EDGE_3x2);
+    expect(s).toBeLessThan(1);
+    expect(s * lensInterp(SONY_DIST, s)).toBeCloseTo(1, 9);
+  });
+
+  it("anchors barrel at the short edge, and s > 1", () => {
+    const s = lensFillScale(BARREL, SHORT_EDGE_3x2);
+    expect(s).toBeGreaterThan(1);
+    expect(s * lensInterp(BARREL, s * SHORT_EDGE_3x2)).toBeCloseTo(1, 9);
+    // Anchoring at the corner instead would overshoot and push the short edge
+    // past the recorded border — the bug this replaced.
+    expect(s).toBeLessThan(1 / lensInterp(BARREL, 1));
+  });
+
+  it("matches the scale Sony applied, measured off the in-camera JPEG", () => {
+    // The uncorrected decode warped with this table and scale, block-matched
+    // against the in-camera JPEG on a 7x11 grid: radial residual flat to
+    // <= 0.2 px from centre to r = 0.93 on both frames (DSC02976 @50mm,
+    // DSC02961 @104mm). A scale off by 1e-3 would show as ~4 px at the edge.
+    expect(lensFillScale(BARREL, SHORT_EDGE_3x2)).toBeCloseTo(1.0107, 3);
+    expect(lensFillScale(PINCUSHION, SHORT_EDGE_3x2)).toBeCloseTo(0.9771, 3);
+  });
+
+  it("keeps every border point of the output frame inside the recorded frame", () => {
+    for (const table of [SONY_DIST, BARREL, PINCUSHION]) {
+      const s = lensFillScale(table, SHORT_EDGE_3x2);
+      for (let r = SHORT_EDGE_3x2; r <= 1.0001; r += 0.005) {
+        expect(s * lensInterp(table, s * Math.min(r, 1))).toBeLessThanOrEqual(1 + 1e-6);
+      }
+    }
+  });
+});
+
+// Lateral CA, DSC01143.ARW (E 28-200mm F2.8-5.6 A071 @57mm, ILCE-7CM2):
+// Sony's ChromaticAberrationCorrParams through p*2^-21+1, red then blue.
+const CA_R_RAW = [-768, -640, -640, -640, -640, -512, -512, -512, -512, -512, -512, -512, -384, -384, -128, 128];
+const CA_B_RAW = [1024, 1024, 1152, 1152, 1152, 1152, 1280, 1280, 1280, 1280, 1152, 1152, 1152, 896, 640, 512];
+const CA_R = CA_R_RAW.map(p => p * 2 ** -21 + 1);
+const CA_B = CA_B_RAW.map(p => p * 2 ** -21 + 1);
+
+describe("lateral CA", () => {
+  it("parses the two planes' tables when the worker sends them, and only then", () => {
+    const withCa = parseLensCorr({ ...sonyMeta, caR: CA_R, caB: CA_B })!;
+    expect(withCa.caR).toHaveLength(LENS_KNOTS);
+    expect(withCa.caB).toHaveLength(LENS_KNOTS);
+    expect(withCa.caR![0]).toBeCloseTo(CA_R[0], 12);
+    expect(withCa.caB![6]).toBeCloseTo(CA_B[6], 12);
+    expect(parseLensCorr(sonyMeta)!.caR).toBeUndefined();
+    // One plane without the other, or a short table, is not a correction.
+    expect(parseLensCorr({ ...sonyMeta, caR: CA_R })!.caR).toBeUndefined();
+    expect(parseLensCorr({ ...sonyMeta, caR: CA_R, caB: CA_B.slice(0, 8) })!.caB).toBeUndefined();
+  });
+
+  it("fills by the largest factor anywhere in the tables, as the engine does", () => {
+    // Edit.exe's own geometric stage on this frame resampled green at
+    // 1/(1 + 1280 * 2^-21) — the peak of blue's table, not its corner value.
+    const s = lensCaFillScale(CA_R, CA_B);
+    expect(s).toBeCloseTo(1 / (1 + 1280 * 2 ** -21), 12);
+    expect(s - 1).toBeCloseTo(-6.10e-4, 6);
+    // Identity tables, or none, leave the scale alone.
+    expect(lensCaFillScale(LENS_IDENTITY, LENS_IDENTITY)).toBe(1);
+    expect(lensCaFillScale(undefined, undefined)).toBe(1);
+  });
+});

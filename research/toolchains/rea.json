@@ -1,0 +1,58 @@
+{
+  "rea": {
+    "version": "6.5.0",
+    "source_repository": "https://github.com/morluto/rea",
+    "inspected_source_commit": "4f7b5fb6023ce2ec449561782d09e3c7e5ac7c7b",
+    "package_url": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.5.0.tgz",
+    "package_integrity": "sha512-C6BG7LyrAdR74mSjertM6PrxJkcNZ2bfQNOJornPo9erDEp2tyPRVYPnV5Yodr+1RqewCQla68WulXlVnveD+A==",
+    "source_package_identity_note": "Source checkout and npm package are independently pinned; matching version text alone does not prove source-to-package equivalence.",
+    "skill": "research/build/tooling/rea/.agents/skills/reverse-engineer-anything/SKILL.md"
+  },
+  "ghidra": {
+    "release": "Ghidra_12.1.4_build",
+    "archive_url": "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip",
+    "archive_sha256": "ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db",
+    "native_component": "Built mac_arm_64 decompiler from the same archive using make -j4 ghidra_opt ARCH_TYPE=-arch arm64 OSDIR=mac_arm_64; copied into local installation.",
+    "bytes": 569649598
+  },
+  "jdk": {
+    "release": "jdk-21.0.12.1+1",
+    "archive_sha256": "3623232f33a9c3baadf304480b2535f9a3cba8a58d42ecbb438ba267315d9998",
+    "archive_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.12.1_1.tar.gz",
+    "bytes": 200073404
+  },
+  "host": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "node": "26.5.0"
+  },
+  "files": [
+    {
+      "path": "research/build/tooling/rea-runtime/node_modules/rea-agents/scripts/rea.mjs",
+      "bytes": 4385,
+      "sha256": "526105418604cc6e5a202a6275b700814e27450bfaffd45e7510530ba669de8d"
+    },
+    {
+      "path": "research/build/tooling/rea-runtime/node_modules/rea-agents/bridge/ghidra/ReaGhidraBridge.java",
+      "bytes": 240778,
+      "sha256": "db16aed4d16ab94da883843281ef7a8a33a244cd8379bd4013e8dee479c0a105"
+    },
+    {
+      "path": "research/build/tooling/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/os/mac_arm_64/decompile",
+      "bytes": 3273480,
+      "sha256": "7434284fc5a6b46b3cb27ef2e8d3c4ea7f801ac1f0cca30e95eb27732c0c62f0"
+    }
+  ],
+  "effects": {
+    "camera_accessed": false,
+    "target_firmware_executed": false,
+    "agent_registration_changed": false,
+    "global_tool_installation": false
+  },
+  "startup_notes": [
+    "System Homebrew JDK26 stalled in macOS AWT native-library loading before Ghidra analysis. Those owned sessions were stopped and cleaned up.",
+    "A project-local checksum-verified Temurin21 runtime completed REA/Ghidra analysis. No Gatekeeper or OS security settings were changed.",
+    "Firmware-region Binwalk/Unblob adapters are Linux-only in this REA release. Existing pinned fwtool extraction plus local parsers were used for Sony containers.",
+    "Mixed ARM/Thumb CP was decoded explicitly using Capstone and the recovered load map; no ordinary-ELF or raw-ARM REA import claim is made."
+  ]
+}

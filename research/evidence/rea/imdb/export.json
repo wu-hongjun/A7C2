@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/hongjunwu/Git/A7C2/research/evidence/rea/imdb/evidence-bundle.json\",\"bytes\":15376,\"records\":3,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/imdb/evidence-bundle.json",
+      "bytes": 15376,
+      "records": 3,
+      "unknowns": 0
+    }
+  }
+}

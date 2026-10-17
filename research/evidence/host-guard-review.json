@@ -1,0 +1,7 @@
+{
+  "camera_accessed": false,
+  "reset_data_change_accepted_as_preserved": true,
+  "unrelated_stored_cp_unit_change_accepted_as_storage_verified": true,
+  "unrelated_stored_unit": "0x2a40002",
+  "interpretation": "Guard counterexamples, not observations of actual camera corruption"
+}

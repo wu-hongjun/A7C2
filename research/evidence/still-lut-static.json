@@ -1,0 +1,1217 @@
+{
+  "date": "2026-10-17",
+  "mode": "offline_static_research",
+  "camera_accessed": false,
+  "camera_uploads": 0,
+  "camera_writes": 0,
+  "deployable_lut_program_built": false,
+  "files": {
+    "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so": {
+      "bytes": 99960744,
+      "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+    },
+    "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha8_unpacked/cpapp-b.bin": {
+      "bytes": 18090880,
+      "sha256": "f5a477588698ef965748903b8959a39ce4f59ffd4aee4d4234ef1670f56a1428"
+    },
+    "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so": {
+      "bytes": 3528576,
+      "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+    }
+  },
+  "ap_literals": {
+    "model_user_lut_files read3DLUTFile!!": [
+      {
+        "match_file_offset": "0x4bfa222",
+        "string_file_offset": "0x4bfa222",
+        "text": "model_user_lut_files read3DLUTFile!! line[%d] lutNo[%d]"
+      },
+      {
+        "match_file_offset": "0x4bfa25a",
+        "string_file_offset": "0x4bfa25a",
+        "text": "model_user_lut_files read3DLUTFile!! line[%d] read_size[%d]"
+      }
+    ],
+    "LUT_3D_SIZE": [
+      {
+        "match_file_offset": "0x4bfa1f0",
+        "string_file_offset": "0x4bfa1f0",
+        "text": "LUT_3D_SIZE"
+      }
+    ],
+    "/usr/data/lut": [
+      {
+        "match_file_offset": "0x4bfa3c1",
+        "string_file_offset": "0x4bfa3c1",
+        "text": "/usr/data/lut/AAA"
+      },
+      {
+        "match_file_offset": "0x4bfa3d3",
+        "string_file_offset": "0x4bfa3d3",
+        "text": "/usr/data/lut"
+      }
+    ],
+    "read3DLUTFileForCube": [
+      {
+        "match_file_offset": "0x4c1f424",
+        "string_file_offset": "0x4c1f424",
+        "text": "read3DLUTFileForCube result[%x]"
+      }
+    ],
+    "sequence_select_lut::send_lut_procam(": [
+      {
+        "match_file_offset": "0x4c4b213",
+        "string_file_offset": "0x4c4b200",
+        "text": "static bool model::sequence_select_lut::send_lut_procam(model::setting_select_lut_t, model::setting_select_lut_sdr_t, model::setting_select_lut_hdr_t, model::setting_shooting_mode_base_setting_t, model::setting_target_display_t, model::is_exist_user_lut_t, uint32_t*, uint32_t*)"
+      }
+    ],
+    "sequence_select_lut::send_lut(": [
+      {
+        "match_file_offset": "0x4c4b32b",
+        "string_file_offset": "0x4c4b318",
+        "text": "static bool model::sequence_select_lut::send_lut(model::setting_select_lut_t, model::is_exist_user_lut_t, uint32_t*, uint32_t*)"
+      }
+    ],
+    "set_user_lut_binary_data": [
+      {
+        "match_file_offset": "0x4feac25",
+        "string_file_offset": "0x4feac25",
+        "text": "set_user_lut_binary_data"
+      },
+      {
+        "match_file_offset": "0x4fead49",
+        "string_file_offset": "0x4fead49",
+        "text": "set_user_lut_binary_data_procam"
+      }
+    ],
+    "SELECT_LUT_SDR_STILL": [
+      {
+        "match_file_offset": "0x4facb97",
+        "string_file_offset": "0x4facb97",
+        "text": "SELECT_LUT_SDR_STILL"
+      }
+    ],
+    "m_user_lut_binary_data_msg": [
+      {
+        "match_file_offset": "0x4f5fe30",
+        "string_file_offset": "0x4f5fe30",
+        "text": "m_user_lut_binary_data_msg"
+      }
+    ]
+  },
+  "cp_literals": {
+    "init_cc_3DLUT": [
+      {
+        "match_file_offset": "0x1352c8",
+        "string_file_offset": "0x1352c8",
+        "text": "init_cc_3DLUT"
+      }
+    ],
+    "CC: CamCore 3D-Lut table Write Start": [
+      {
+        "match_file_offset": "0x324f1c",
+        "string_file_offset": "0x324f1b",
+        "text": "�CC: CamCore 3D-Lut table Write Start"
+      }
+    ],
+    "CC: Create3DLUT": [
+      {
+        "match_file_offset": "0xe5680d",
+        "string_file_offset": "0xe5680d",
+        "text": "CC: Create3DLUT 0x%X > 0x%X Level:%d ConvSD:%d"
+      },
+      {
+        "match_file_offset": "0xe5683c",
+        "string_file_offset": "0xe5683c",
+        "text": "CC: Create3DLUT uc_SRAM=[%d], SRAM addr=0x[%X] "
+      },
+      {
+        "match_file_offset": "0xe5686c",
+        "string_file_offset": "0xe5686c",
+        "text": "CC: Create3DLUT  NullError RefAdr:0x%X BufAdr:0x%X"
+      }
+    ],
+    "FW: SET_USER_LUT_BINARY_DATA": [
+      {
+        "match_file_offset": "0xe73789",
+        "string_file_offset": "0xe73789",
+        "text": "FW: SET_USER_LUT_BINARY_DATA addr:0x%016llx size:%d regAddr:0x%016llx regSize:%d cnt:%d"
+      }
+    ],
+    "CC: CamCore 3D-Lut table Write End": [
+      {
+        "match_file_offset": "0xe88620",
+        "string_file_offset": "0xe88620",
+        "text": "CC: CamCore 3D-Lut table Write End, 3D-Lut %X, GetBaseAddress %X"
+      }
+    ],
+    "MLUT_MODE_FLOW_3DLUT": [
+      {
+        "match_file_offset": "0xed25f9",
+        "string_file_offset": "0xed25c9",
+        "text": "ddl_mlut_set_mode_flow [IPTYPE][MLUT_MODE_FLOW][MLUT_MODE_FLOW_3DLUT]"
+      }
+    ],
+    "MLUT_L3D_REG_USER_LUT_17": [
+      {
+        "match_file_offset": "0x10b9c84",
+        "string_file_offset": "0x10b9c84",
+        "text": "MLUT_L3D_REG_USER_LUT_17"
+      }
+    ]
+  },
+  "ap_elf": {
+    "elf_class": 64,
+    "machine": "EM_AARCH64",
+    "symbols": [
+      {
+        "name": "_ZN3mpr11RecordStillERKNS_18recordStillInParamEPNS_19recordStillOutParamE",
+        "value": "0x0",
+        "bytes": 0,
+        "defined": false
+      },
+      {
+        "name": "_ZN3mpr14ReadStillImageERKNS_21readStillImageInParamE",
+        "value": "0x0",
+        "bytes": 0,
+        "defined": false
+      },
+      {
+        "name": "_ZN3mpr10SetLutDataERKNS_17setLutDataInParamE",
+        "value": "0x0",
+        "bytes": 0,
+        "defined": false
+      },
+      {
+        "name": "_ZN3mpr20CancelReadStillImageERKNS_27cancelReadStillImageInParamE",
+        "value": "0x0",
+        "bytes": 0,
+        "defined": false
+      }
+    ],
+    "direct_calls_to_lut_imports": [
+      {
+        "elf_virtual_address": "0x3561018",
+        "destination": "0x165ff70",
+        "target_symbol": "_ZN3mpr10SetLutDataERKNS_17setLutDataInParamE@plt"
+      }
+    ],
+    "disassembled_functions": []
+  },
+  "mpr_elf": {
+    "elf_class": 64,
+    "machine": "EM_AARCH64",
+    "symbols": [
+      {
+        "name": "_ZN3mpr11RecordStillERKNS_18recordStillInParamEPNS_19recordStillOutParamE",
+        "value": "0xeb260",
+        "bytes": 1012,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr12ResetLutDataEv",
+        "value": "0xd5dcc",
+        "bytes": 148,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr5aging35aging_evtReadStillImageFinishedFuncERNS_30evtReadStillImageFinishedParamE",
+        "value": "0xa2730",
+        "bytes": 328,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr9stillplay13GetLutNrtInfoER14NrtMetaWrapperPNS0_10nrt_info_tE",
+        "value": "0xc6448",
+        "bytes": 216,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr20CancelReadStillImageERKNS_27cancelReadStillImageInParamE",
+        "value": "0xc4fb0",
+        "bytes": 108,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr3dbg33tmp_evtReadStillImageFinishedFuncERNS_30evtReadStillImageFinishedParamE",
+        "value": "0x97328",
+        "bytes": 328,
+        "defined": true
+      },
+      {
+        "name": "_ZNK3mpr27cancelReadStillImageInParam8DbgPrintEv",
+        "value": "0xa5a40",
+        "bytes": 4,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr9stillplay26_set_raw_main_decode_paramEPNS_30evtReadStillImageFinishedParamEPN5still8get_if_tE",
+        "value": "0xc666c",
+        "bytes": 636,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr3dbg24opt_cancelReadStillImageE",
+        "value": "0x305590",
+        "bytes": 128,
+        "defined": true
+      },
+      {
+        "name": "_ZNK3mpr30evtReadStillImageFinishedParam8DbgPrintEb",
+        "value": "0xa5b28",
+        "bytes": 48,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr30evtReadStillImageFinishedParamC1Ev",
+        "value": "0xc4c1c",
+        "bytes": 312,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE",
+        "value": "0xd5e60",
+        "bytes": 484,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr14ReadStillImageERKNS_21readStillImageInParamE",
+        "value": "0xc72c8",
+        "bytes": 940,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr10SetLutDataERKNS_17setLutDataInParamE",
+        "value": "0xd6044",
+        "bytes": 164,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr20IntegRecordStillInitEv",
+        "value": "0xf23b4",
+        "bytes": 1376,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr13GetLutNrtInfoER14NrtMetaWrapperjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE",
+        "value": "0xab640",
+        "bytes": 496,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr32IssueEventReadStillImageFinishedERKNS_39evtReadStillImageFinishedIncludeFpParamE",
+        "value": "0xb4864",
+        "bytes": 120,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr3dbg11RecordStillEiPPc",
+        "value": "0x9ecd8",
+        "bytes": 1980,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr30evtReadStillImageFinishedParamC2Ev",
+        "value": "0xc4c1c",
+        "bytes": 312,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr3dbg14ReadStillImageEiPPc",
+        "value": "0xa1020",
+        "bytes": 432,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr32gp_evtReadStillImageFinishedFuncE",
+        "value": "0x375eb0",
+        "bytes": 8,
+        "defined": true
+      },
+      {
+        "name": "_ZN3mpr3dbg20CancelReadStillImageEiPPc",
+        "value": "0xa11d0",
+        "bytes": 212,
+        "defined": true
+      }
+    ],
+    "direct_calls_to_lut_imports": [
+      {
+        "elf_virtual_address": "0xd60c0",
+        "destination": "0x7b1c0",
+        "target_symbol": "_ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE@plt"
+      }
+    ],
+    "disassembled_functions": [
+      {
+        "name": "_ZN3mpr10SetLutDataERKNS_17setLutDataInParamE",
+        "instructions": [
+          {
+            "elf_virtual_address": "0xd6044",
+            "operation": "stp",
+            "operands": "x29, x30, [sp, #-0x40]!"
+          },
+          {
+            "elf_virtual_address": "0xd6048",
+            "operation": "mov",
+            "operands": "w1, #0x60"
+          },
+          {
+            "elf_virtual_address": "0xd604c",
+            "operation": "mov",
+            "operands": "x29, sp"
+          },
+          {
+            "elf_virtual_address": "0xd6050",
+            "operation": "stp",
+            "operands": "x19, x20, [sp, #0x10]"
+          },
+          {
+            "elf_virtual_address": "0xd6054",
+            "operation": "mov",
+            "operands": "x20, x0"
+          },
+          {
+            "elf_virtual_address": "0xd6058",
+            "operation": "str",
+            "operands": "x21, [sp, #0x20]"
+          },
+          {
+            "elf_virtual_address": "0xd605c",
+            "operation": "adrp",
+            "operands": "x19, #0x2fc000"
+          },
+          {
+            "elf_virtual_address": "0xd6060",
+            "operation": "bl",
+            "operands": "#0xca0d0"
+          },
+          {
+            "elf_virtual_address": "0xd6064",
+            "operation": "add",
+            "operands": "x21, x29, #0x38"
+          },
+          {
+            "elf_virtual_address": "0xd6068",
+            "operation": "mov",
+            "operands": "x0, x20"
+          },
+          {
+            "elf_virtual_address": "0xd606c",
+            "operation": "bl",
+            "operands": "#0x7fce0",
+            "target_symbol": "_ZNK3mpr17setLutDataInParam8DbgPrintEv@plt"
+          },
+          {
+            "elf_virtual_address": "0xd6070",
+            "operation": "ldr",
+            "operands": "x19, [x19, #0x3f0]"
+          },
+          {
+            "elf_virtual_address": "0xd6074",
+            "operation": "mov",
+            "operands": "x0, x19"
+          },
+          {
+            "elf_virtual_address": "0xd6078",
+            "operation": "bl",
+            "operands": "#0x7c0d0",
+            "target_symbol": "pthread_mutex_lock@plt"
+          },
+          {
+            "elf_virtual_address": "0xd607c",
+            "operation": "ldrb",
+            "operands": "w0, [x20, #4]"
+          },
+          {
+            "elf_virtual_address": "0xd6080",
+            "operation": "cbnz",
+            "operands": "w0, #0xd60bc"
+          },
+          {
+            "elf_virtual_address": "0xd6084",
+            "operation": "bl",
+            "operands": "#0x80a60",
+            "target_symbol": "_ZN3mpr12ResetLutDataEv@plt"
+          },
+          {
+            "elf_virtual_address": "0xd6088",
+            "operation": "mov",
+            "operands": "w20, #0"
+          },
+          {
+            "elf_virtual_address": "0xd608c",
+            "operation": "mov",
+            "operands": "x0, x19"
+          },
+          {
+            "elf_virtual_address": "0xd6090",
+            "operation": "bl",
+            "operands": "#0x7d430",
+            "target_symbol": "pthread_mutex_unlock@plt"
+          },
+          {
+            "elf_virtual_address": "0xd6094",
+            "operation": "mov",
+            "operands": "w0, #0x6f"
+          },
+          {
+            "elf_virtual_address": "0xd6098",
+            "operation": "mov",
+            "operands": "w1, #8"
+          },
+          {
+            "elf_virtual_address": "0xd609c",
+            "operation": "stp",
+            "operands": "w0, wzr, [x29, #0x38]"
+          },
+          {
+            "elf_virtual_address": "0xd60a0",
+            "operation": "mov",
+            "operands": "x0, x21"
+          },
+          {
+            "elf_virtual_address": "0xd60a4",
+            "operation": "bl",
+            "operands": "#0xca0d0"
+          },
+          {
+            "elf_virtual_address": "0xd60a8",
+            "operation": "mov",
+            "operands": "w0, w20"
+          },
+          {
+            "elf_virtual_address": "0xd60ac",
+            "operation": "ldr",
+            "operands": "x21, [sp, #0x20]"
+          },
+          {
+            "elf_virtual_address": "0xd60b0",
+            "operation": "ldp",
+            "operands": "x19, x20, [sp, #0x10]"
+          },
+          {
+            "elf_virtual_address": "0xd60b4",
+            "operation": "ldp",
+            "operands": "x29, x30, [sp], #0x40"
+          },
+          {
+            "elf_virtual_address": "0xd60b8",
+            "operation": "ret",
+            "operands": ""
+          },
+          {
+            "elf_virtual_address": "0xd60bc",
+            "operation": "mov",
+            "operands": "x0, x20"
+          },
+          {
+            "elf_virtual_address": "0xd60c0",
+            "operation": "bl",
+            "operands": "#0x7b1c0",
+            "target_symbol": "_ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE@plt"
+          },
+          {
+            "elf_virtual_address": "0xd60c4",
+            "operation": "mov",
+            "operands": "w20, w0"
+          },
+          {
+            "elf_virtual_address": "0xd60c8",
+            "operation": "mov",
+            "operands": "x0, x19"
+          },
+          {
+            "elf_virtual_address": "0xd60cc",
+            "operation": "bl",
+            "operands": "#0x7d430",
+            "target_symbol": "pthread_mutex_unlock@plt"
+          },
+          {
+            "elf_virtual_address": "0xd60d0",
+            "operation": "mov",
+            "operands": "w0, #0x6f"
+          },
+          {
+            "elf_virtual_address": "0xd60d4",
+            "operation": "mov",
+            "operands": "w1, #8"
+          },
+          {
+            "elf_virtual_address": "0xd60d8",
+            "operation": "stp",
+            "operands": "w0, w20, [x29, #0x38]"
+          },
+          {
+            "elf_virtual_address": "0xd60dc",
+            "operation": "mov",
+            "operands": "x0, x21"
+          },
+          {
+            "elf_virtual_address": "0xd60e0",
+            "operation": "bl",
+            "operands": "#0xca0d0"
+          },
+          {
+            "elf_virtual_address": "0xd60e4",
+            "operation": "b",
+            "operands": "#0xd60a8"
+          }
+        ]
+      },
+      {
+        "name": "_ZN3mpr17ExecuteSetLutDataERKNS_17setLutDataInParamE",
+        "instructions": [
+          {
+            "elf_virtual_address": "0xd5e60",
+            "operation": "stp",
+            "operands": "x29, x30, [sp, #-0x60]!"
+          },
+          {
+            "elf_virtual_address": "0xd5e64",
+            "operation": "mov",
+            "operands": "x29, sp"
+          },
+          {
+            "elf_virtual_address": "0xd5e68",
+            "operation": "stp",
+            "operands": "x19, x20, [sp, #0x10]"
+          },
+          {
+            "elf_virtual_address": "0xd5e6c",
+            "operation": "mov",
+            "operands": "x20, x0"
+          },
+          {
+            "elf_virtual_address": "0xd5e70",
+            "operation": "stp",
+            "operands": "x21, x22, [sp, #0x20]"
+          },
+          {
+            "elf_virtual_address": "0xd5e74",
+            "operation": "stp",
+            "operands": "x23, x24, [sp, #0x30]"
+          },
+          {
+            "elf_virtual_address": "0xd5e78",
+            "operation": "stp",
+            "operands": "x25, x26, [sp, #0x40]"
+          },
+          {
+            "elf_virtual_address": "0xd5e7c",
+            "operation": "ldrb",
+            "operands": "w0, [x0, #0x1f]"
+          },
+          {
+            "elf_virtual_address": "0xd5e80",
+            "operation": "cbnz",
+            "operands": "w0, #0xd5ed4"
+          },
+          {
+            "elf_virtual_address": "0xd5e84",
+            "operation": "mov",
+            "operands": "w0, #4"
+          },
+          {
+            "elf_virtual_address": "0xd5e88",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5d]"
+          },
+          {
+            "elf_virtual_address": "0xd5e8c",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5e]"
+          },
+          {
+            "elf_virtual_address": "0xd5e90",
+            "operation": "strb",
+            "operands": "w0, [x29, #0x5c]"
+          },
+          {
+            "elf_virtual_address": "0xd5e94",
+            "operation": "mov",
+            "operands": "w0, #0x2290"
+          },
+          {
+            "elf_virtual_address": "0xd5e98",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5f]"
+          },
+          {
+            "elf_virtual_address": "0xd5e9c",
+            "operation": "strh",
+            "operands": "w0, [x29, #0x58]"
+          },
+          {
+            "elf_virtual_address": "0xd5ea0",
+            "operation": "mov",
+            "operands": "w0, #0x1107"
+          },
+          {
+            "elf_virtual_address": "0xd5ea4",
+            "operation": "strh",
+            "operands": "w0, [x29, #0x5a]"
+          },
+          {
+            "elf_virtual_address": "0xd5ea8",
+            "operation": "add",
+            "operands": "x0, x29, #0x58"
+          },
+          {
+            "elf_virtual_address": "0xd5eac",
+            "operation": "mov",
+            "operands": "w1, #8"
+          },
+          {
+            "elf_virtual_address": "0xd5eb0",
+            "operation": "mov",
+            "operands": "w24, #2"
+          },
+          {
+            "elf_virtual_address": "0xd5eb4",
+            "operation": "bl",
+            "operands": "#0xca0d0"
+          },
+          {
+            "elf_virtual_address": "0xd5eb8",
+            "operation": "mov",
+            "operands": "w0, w24"
+          },
+          {
+            "elf_virtual_address": "0xd5ebc",
+            "operation": "ldp",
+            "operands": "x19, x20, [sp, #0x10]"
+          },
+          {
+            "elf_virtual_address": "0xd5ec0",
+            "operation": "ldp",
+            "operands": "x21, x22, [sp, #0x20]"
+          },
+          {
+            "elf_virtual_address": "0xd5ec4",
+            "operation": "ldp",
+            "operands": "x23, x24, [sp, #0x30]"
+          },
+          {
+            "elf_virtual_address": "0xd5ec8",
+            "operation": "ldp",
+            "operands": "x25, x26, [sp, #0x40]"
+          },
+          {
+            "elf_virtual_address": "0xd5ecc",
+            "operation": "ldp",
+            "operands": "x29, x30, [sp], #0x60"
+          },
+          {
+            "elf_virtual_address": "0xd5ed0",
+            "operation": "ret",
+            "operands": ""
+          },
+          {
+            "elf_virtual_address": "0xd5ed4",
+            "operation": "adrp",
+            "operands": "x19, #0x2fd000"
+          },
+          {
+            "elf_virtual_address": "0xd5ed8",
+            "operation": "ldr",
+            "operands": "x21, [x19, #0xad0]"
+          },
+          {
+            "elf_virtual_address": "0xd5edc",
+            "operation": "ldr",
+            "operands": "x0, [x21]"
+          },
+          {
+            "elf_virtual_address": "0xd5ee0",
+            "operation": "cbnz",
+            "operands": "x0, #0xd5ef4"
+          },
+          {
+            "elf_virtual_address": "0xd5ee4",
+            "operation": "mov",
+            "operands": "x0, #0xa1b9"
+          },
+          {
+            "elf_virtual_address": "0xd5ee8",
+            "operation": "movk",
+            "operands": "x0, #6, lsl #16"
+          },
+          {
+            "elf_virtual_address": "0xd5eec",
+            "operation": "bl",
+            "operands": "#0x81590",
+            "target_symbol": "malloc@plt"
+          },
+          {
+            "elf_virtual_address": "0xd5ef0",
+            "operation": "str",
+            "operands": "x0, [x21]"
+          },
+          {
+            "elf_virtual_address": "0xd5ef4",
+            "operation": "ldr",
+            "operands": "x19, [x19, #0xad0]"
+          },
+          {
+            "elf_virtual_address": "0xd5ef8",
+            "operation": "ldr",
+            "operands": "x0, [x19]"
+          },
+          {
+            "elf_virtual_address": "0xd5efc",
+            "operation": "cbnz",
+            "operands": "x0, #0xd5f24"
+          },
+          {
+            "elf_virtual_address": "0xd5f00",
+            "operation": "mov",
+            "operands": "w0, #4"
+          },
+          {
+            "elf_virtual_address": "0xd5f04",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5d]"
+          },
+          {
+            "elf_virtual_address": "0xd5f08",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5e]"
+          },
+          {
+            "elf_virtual_address": "0xd5f0c",
+            "operation": "strb",
+            "operands": "w0, [x29, #0x5c]"
+          },
+          {
+            "elf_virtual_address": "0xd5f10",
+            "operation": "mov",
+            "operands": "w0, #0x2290"
+          },
+          {
+            "elf_virtual_address": "0xd5f14",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5f]"
+          },
+          {
+            "elf_virtual_address": "0xd5f18",
+            "operation": "strh",
+            "operands": "w0, [x29, #0x58]"
+          },
+          {
+            "elf_virtual_address": "0xd5f1c",
+            "operation": "mov",
+            "operands": "w0, #0x1108"
+          },
+          {
+            "elf_virtual_address": "0xd5f20",
+            "operation": "b",
+            "operands": "#0xd5ea4"
+          },
+          {
+            "elf_virtual_address": "0xd5f24",
+            "operation": "add",
+            "operands": "x22, x29, #0x50"
+          },
+          {
+            "elf_virtual_address": "0xd5f28",
+            "operation": "add",
+            "operands": "x21, x20, #0x1f"
+          },
+          {
+            "elf_virtual_address": "0xd5f2c",
+            "operation": "mov",
+            "operands": "x0, x22"
+          },
+          {
+            "elf_virtual_address": "0xd5f30",
+            "operation": "add",
+            "operands": "x20, x20, #5"
+          },
+          {
+            "elf_virtual_address": "0xd5f34",
+            "operation": "bl",
+            "operands": "#0x17dc40"
+          },
+          {
+            "elf_virtual_address": "0xd5f38",
+            "operation": "add",
+            "operands": "x4, x29, #0x60"
+          },
+          {
+            "elf_virtual_address": "0xd5f3c",
+            "operation": "ldr",
+            "operands": "x3, [x19]"
+          },
+          {
+            "elf_virtual_address": "0xd5f40",
+            "operation": "mov",
+            "operands": "x2, x21"
+          },
+          {
+            "elf_virtual_address": "0xd5f44",
+            "operation": "mov",
+            "operands": "x1, x20"
+          },
+          {
+            "elf_virtual_address": "0xd5f48",
+            "operation": "mov",
+            "operands": "x0, x22"
+          },
+          {
+            "elf_virtual_address": "0xd5f4c",
+            "operation": "str",
+            "operands": "wzr, [x4, #-0xc]!"
+          },
+          {
+            "elf_virtual_address": "0xd5f50",
+            "operation": "bl",
+            "operands": "#0x17e880"
+          },
+          {
+            "elf_virtual_address": "0xd5f54",
+            "operation": "mov",
+            "operands": "w24, w0"
+          },
+          {
+            "elf_virtual_address": "0xd5f58",
+            "operation": "cbz",
+            "operands": "w0, #0xd5fac"
+          },
+          {
+            "elf_virtual_address": "0xd5f5c",
+            "operation": "ldr",
+            "operands": "x0, [x19]"
+          },
+          {
+            "elf_virtual_address": "0xd5f60",
+            "operation": "cbz",
+            "operands": "x0, #0xd5f6c"
+          },
+          {
+            "elf_virtual_address": "0xd5f64",
+            "operation": "bl",
+            "operands": "#0x7d1b0",
+            "target_symbol": "free@plt"
+          },
+          {
+            "elf_virtual_address": "0xd5f68",
+            "operation": "str",
+            "operands": "xzr, [x19]"
+          },
+          {
+            "elf_virtual_address": "0xd5f6c",
+            "operation": "mov",
+            "operands": "w0, #4"
+          },
+          {
+            "elf_virtual_address": "0xd5f70",
+            "operation": "mov",
+            "operands": "w1, #8"
+          },
+          {
+            "elf_virtual_address": "0xd5f74",
+            "operation": "mov",
+            "operands": "w24, #2"
+          },
+          {
+            "elf_virtual_address": "0xd5f78",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5d]"
+          },
+          {
+            "elf_virtual_address": "0xd5f7c",
+            "operation": "strb",
+            "operands": "w0, [x29, #0x5c]"
+          },
+          {
+            "elf_virtual_address": "0xd5f80",
+            "operation": "mov",
+            "operands": "w0, #0x2110"
+          },
+          {
+            "elf_virtual_address": "0xd5f84",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5e]"
+          },
+          {
+            "elf_virtual_address": "0xd5f88",
+            "operation": "strh",
+            "operands": "w0, [x29, #0x58]"
+          },
+          {
+            "elf_virtual_address": "0xd5f8c",
+            "operation": "mov",
+            "operands": "w0, #0x110a"
+          },
+          {
+            "elf_virtual_address": "0xd5f90",
+            "operation": "strb",
+            "operands": "wzr, [x29, #0x5f]"
+          },
+          {
+            "elf_virtual_address": "0xd5f94",
+            "operation": "strh",
+            "operands": "w0, [x29, #0x5a]"
+          },
+          {
+            "elf_virtual_address": "0xd5f98",
+            "operation": "add",
+            "operands": "x0, x29, #0x58"
+          },
+          {
+            "elf_virtual_address": "0xd5f9c",
+            "operation": "bl",
+            "operands": "#0xca0d0"
+          },
+          {
+            "elf_virtual_address": "0xd5fa0",
+            "operation": "mov",
+            "operands": "x0, x22"
+          },
+          {
+            "elf_virtual_address": "0xd5fa4",
+            "operation": "bl",
+            "operands": "#0x17dc44"
+          },
+          {
+            "elf_virtual_address": "0xd5fa8",
+            "operation": "b",
+            "operands": "#0xd5eb8"
+          },
+          {
+            "elf_virtual_address": "0xd5fac",
+            "operation": "ldr",
+            "operands": "x1, [x19]"
+          },
+          {
+            "elf_virtual_address": "0xd5fb0",
+            "operation": "mov",
+            "operands": "x0, x22"
+          },
+          {
+            "elf_virtual_address": "0xd5fb4",
+            "operation": "ldr",
+            "operands": "w2, [x29, #0x54]"
+          },
+          {
+            "elf_virtual_address": "0xd5fb8",
+            "operation": "mov",
+            "operands": "x26, #0x1ac0"
+          },
+          {
+            "elf_virtual_address": "0xd5fbc",
+            "operation": "bl",
+            "operands": "#0x17dc48"
+          },
+          {
+            "elf_virtual_address": "0xd5fc0",
+            "operation": "adrp",
+            "operands": "x0, #0x2fc000"
+          },
+          {
+            "elf_virtual_address": "0xd5fc4",
+            "operation": "mov",
+            "operands": "x1, #0x6b18"
+          },
+          {
+            "elf_virtual_address": "0xd5fc8",
+            "operation": "ldr",
+            "operands": "x0, [x0, #0x9a0]"
+          },
+          {
+            "elf_virtual_address": "0xd5fcc",
+            "operation": "add",
+            "operands": "x25, x0, #0x18"
+          },
+          {
+            "elf_virtual_address": "0xd5fd0",
+            "operation": "add",
+            "operands": "x23, x0, x1"
+          },
+          {
+            "elf_virtual_address": "0xd5fd4",
+            "operation": "ldr",
+            "operands": "x0, [x25]"
+          },
+          {
+            "elf_virtual_address": "0xd5fd8",
+            "operation": "cbz",
+            "operands": "x0, #0xd5fec"
+          },
+          {
+            "elf_virtual_address": "0xd5fdc",
+            "operation": "ldr",
+            "operands": "w3, [x29, #0x54]"
+          },
+          {
+            "elf_virtual_address": "0xd5fe0",
+            "operation": "mov",
+            "operands": "x1, x21"
+          },
+          {
+            "elf_virtual_address": "0xd5fe4",
+            "operation": "ldr",
+            "operands": "x2, [x19]"
+          },
+          {
+            "elf_virtual_address": "0xd5fe8",
+            "operation": "bl",
+            "operands": "#0x119de4"
+          },
+          {
+            "elf_virtual_address": "0xd5fec",
+            "operation": "add",
+            "operands": "x25, x25, x26"
+          },
+          {
+            "elf_virtual_address": "0xd5ff0",
+            "operation": "cmp",
+            "operands": "x25, x23"
+          },
+          {
+            "elf_virtual_address": "0xd5ff4",
+            "operation": "b.ne",
+            "operands": "#0xd5fd4"
+          },
+          {
+            "elf_virtual_address": "0xd5ff8",
+            "operation": "adrp",
+            "operands": "x0, #0x2fc000"
+          },
+          {
+            "elf_virtual_address": "0xd5ffc",
+            "operation": "ldp",
+            "operands": "x2, x3, [x20]"
+          },
+          {
+            "elf_virtual_address": "0xd6000",
+            "operation": "ldr",
+            "operands": "x0, [x0, #0x648]"
+          },
+          {
+            "elf_virtual_address": "0xd6004",
+            "operation": "add",
+            "operands": "x1, x0, #0xab0"
+          },
+          {
+            "elf_virtual_address": "0xd6008",
+            "operation": "add",
+            "operands": "x0, x0, #0xaca"
+          },
+          {
+            "elf_virtual_address": "0xd600c",
+            "operation": "stp",
+            "operands": "x2, x3, [x1]"
+          },
+          {
+            "elf_virtual_address": "0xd6010",
+            "operation": "ldr",
+            "operands": "x2, [x20, #0x10]"
+          },
+          {
+            "elf_virtual_address": "0xd6014",
+            "operation": "stur",
+            "operands": "x2, [x0, #-0xa]"
+          },
+          {
+            "elf_virtual_address": "0xd6018",
+            "operation": "ldrh",
+            "operands": "w2, [x20, #0x18]"
+          },
+          {
+            "elf_virtual_address": "0xd601c",
+            "operation": "sturh",
+            "operands": "w2, [x0, #-2]"
+          },
+          {
+            "elf_virtual_address": "0xd6020",
+            "operation": "ldp",
+            "operands": "x2, x3, [x21]"
+          },
+          {
+            "elf_virtual_address": "0xd6024",
+            "operation": "stp",
+            "operands": "x2, x3, [x0]"
+          },
+          {
+            "elf_virtual_address": "0xd6028",
+            "operation": "ldp",
+            "operands": "x2, x3, [x21, #0x10]"
+          },
+          {
+            "elf_virtual_address": "0xd602c",
+            "operation": "stp",
+            "operands": "x2, x3, [x0, #0x10]"
+          },
+          {
+            "elf_virtual_address": "0xd6030",
+            "operation": "ldp",
+            "operands": "x2, x3, [x21, #0x20]"
+          },
+          {
+            "elf_virtual_address": "0xd6034",
+            "operation": "stp",
+            "operands": "x2, x3, [x0, #0x20]"
+          },
+          {
+            "elf_virtual_address": "0xd6038",
+            "operation": "ldp",
+            "operands": "x2, x3, [x21, #0x30]"
+          },
+          {
+            "elf_virtual_address": "0xd603c",
+            "operation": "stp",
+            "operands": "x2, x3, [x0, #0x30]"
+          },
+          {
+            "elf_virtual_address": "0xd6040",
+            "operation": "b",
+            "operands": "#0xd5fa0"
+          }
+        ]
+      }
+    ]
+  },
+  "calculated_storage_not_camera_ram_measurements": {
+    "image_dimensions": [
+      7008,
+      4672
+    ],
+    "pixels": 32741376,
+    "one_rgb8_buffer_bytes": 98224128,
+    "one_rgb16_buffer_bytes": 196448256,
+    "one_rgb_float32_buffer_bytes": 392896512,
+    "lut_payloads": {
+      "17": {
+        "rgb_uint16_bytes": 29478,
+        "rgb_float32_bytes": 58956
+      },
+      "33": {
+        "rgb_uint16_bytes": 215622,
+        "rgb_float32_bytes": 431244
+      },
+      "65": {
+        "rgb_uint16_bytes": 1647750,
+        "rgb_float32_bytes": 3295500
+      }
+    }
+  },
+  "interpretation": [
+    "Official firmware includes LUT import, selection and CP table-programming vocabulary.",
+    "AP imports SetLutData; libmpr defines it and ExecuteSetLutData.",
+    "SetLutData disassembly includes mutex locking and reset/execute dispatch.",
+    "Names containing STILL or stillplay do not establish a full-resolution capture LUT path.",
+    "C++ parameter layouts, execution context, buffer ownership and still restrictions remain unresolved.",
+    "Imaging Edge desktop ZcTask3DLut research is not an A7C II firmware entry point.",
+    "No runtime RAM, throughput, CPU/GPU/ISP availability or image-quality measurement is implied."
+  ],
+  "deployment_assets_unchanged": {
+    "colors.json": "1259a47bca2b4fc29882121a647746fceafd16c8de3b6df85324cd84f083871e",
+    "installer.so": "575e9d34418ef47c8e6cb2202d249737f928aa18f4ea752409fc4da70016a423",
+    "patches.json": "b8c87a9439b95001a6e39a71b5ed43993355799ad6b00276e823725459a1b541",
+    "probe.so": "fea02971a2d7ad2e1661fef924de99624fd4182ed6283e8037499f60bbc8de30",
+    "runtime.so": "e8a5efa72a6c6f3126247e838a65001ea2c6987f97cf4fb25d896e8de79b7700",
+    "wbi.so": "8d73d55bf89a8400b1c00130b514405d850553536f222fca0eb3959eb0a0be25"
+  }
+}

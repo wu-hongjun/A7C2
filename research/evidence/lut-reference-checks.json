@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "computer_only": true,
+  "camera_access": false,
+  "target_execution": false,
+  "tests_run": 8,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "counts": {
+    "scalar_oracle_rgb_cases": 4016,
+    "analytic_rgb_cases": 4040,
+    "opencolorio_rgb_cases": 8016,
+    "malformed_cases": 22
+  },
+  "max_absolute_errors": {
+    "scalar_oracle_max_abs": 4.440892098500626e-16,
+    "analytic_max_abs": 1.1102230246251565e-16,
+    "ocio_max_abs": 2.3315752439856396e-07
+  },
+  "opencolorio": {
+    "performed": true,
+    "version": "2.6.0",
+    "interpolation": "INTERP_LINEAR",
+    "processor": "Config.CreateRaw + FileTransform, default CPU processor"
+  },
+  "pillow_version": "12.1.0",
+  "limits": "Host math/reference checks only; no camera performance, loader integration, still-pipeline routing or photo-quality equivalence established.",
+  "sources": [
+    {
+      "path": "research/check_lut_reference.py",
+      "sha256": "2bc92e29875039b496b980ef9b428ac6c409dffb3662388202d7f983733e290b"
+    },
+    {
+      "path": "research/lut_reference.py",
+      "sha256": "f91f5e29f8a5f57405784339b36668ac1f5df17964971c93f62f8f6a35241c83"
+    }
+  ],
+  "synthetic_outputs": [
+    {
+      "path": "research/build/lut-reference/alpha-input.png",
+      "bytes": 634,
+      "sha256": "7999f1ae3cccf0a39d34d700bdfba18fabcf26b518108560239bdb051dd5915a"
+    },
+    {
+      "path": "research/build/lut-reference/alpha-output.png",
+      "bytes": 1007,
+      "sha256": "51bbf1a754244d1f9be9aa966a2bae24f70d860ea10441da252090c795dffa09"
+    },
+    {
+      "path": "research/build/lut-reference/cli-proof.png",
+      "bytes": 902,
+      "sha256": "8120b91bbaf3fe004fef3e7f1d530dce5c1e96dacc25637c485359cdaff3dc2e"
+    },
+    {
+      "path": "research/build/lut-reference/graded.jpg",
+      "bytes": 2782,
+      "sha256": "13c5c59af4d89d91986ded4585d94af936e825687a17699e4aa2482f95695483"
+    },
+    {
+      "path": "research/build/lut-reference/identity-17.cube",
+      "bytes": 85094,
+      "sha256": "ac2de527954885be1d803f850af5f1fac49c51edcce2d149baa004f9e505a1c4"
+    },
+    {
+      "path": "research/build/lut-reference/identity.png",
+      "bytes": 903,
+      "sha256": "a3b057d64727f1ea7f11c279dd2759017419cd507523ba2663897c3cd5325a0c"
+    },
+    {
+      "path": "research/build/lut-reference/input-srgb.png",
+      "bytes": 516,
+      "sha256": "dd25fde9e3715f65a2a8ee701114799b324a6f62862c2ff0e50477f17bc203b6"
+    },
+    {
+      "path": "research/build/lut-reference/invalid-icc.png",
+      "bytes": 567,
+      "sha256": "2d0dee67692d0742c00e7cc09300f5a419b9e46a9a36822aafdb68c7df6d1e2c"
+    },
+    {
+      "path": "research/build/lut-reference/ocio-17-domain--0.2.cube",
+      "bytes": 284011,
+      "sha256": "de6cbff082b7d75dfb835a7d58909f138f2556e228e6782c423cf05fdc1399b5"
+    },
+    {
+      "path": "research/build/lut-reference/ocio-17-domain-0.0.cube",
+      "bytes": 284010,
+      "sha256": "0ab5c2f63296d1b5dc2f5ad051ff5089cb19636d62c3ab7d7abff92b829c860c"
+    },
+    {
+      "path": "research/build/lut-reference/ocio-33-domain--0.2.cube",
+      "bytes": 2094784,
+      "sha256": "8a624762ee924b539bdf0e4773a8a830ab6e0ac34061b10b4eb61704ad9f3a61"
+    },
+    {
+      "path": "research/build/lut-reference/ocio-33-domain-0.0.cube",
+      "bytes": 2094783,
+      "sha256": "7432769e2bc61079d5e8c8064783231486dc88effd97cf77e167effcc4f1471e"
+    },
+    {
+      "path": "research/build/lut-reference/oriented-input.jpg",
+      "bytes": 1165,
+      "sha256": "23f595408500399d95d9cd84faa6d7a1a0bfcd1fd647bc8242ad055fe588fae0"
+    },
+    {
+      "path": "research/build/lut-reference/oriented.png",
+      "bytes": 6413,
+      "sha256": "d750fd19d5cdc8876cb67b4150e801c51717c34ae2ddc72188b1b18131bad625"
+    },
+    {
+      "path": "research/build/lut-reference/permuted.png",
+      "bytes": 907,
+      "sha256": "922e318c61183079a6b07461d6ec95f485882a9eecca4fb26c37bb784cef27df"
+    },
+    {
+      "path": "research/build/lut-reference/tagged-output.png",
+      "bytes": 902,
+      "sha256": "56bf627c952ec8b0790a2c16f41d544980a0ab150cf74f88b5d1333002ffc528"
+    },
+    {
+      "path": "research/build/lut-reference/tagged.png",
+      "bytes": 902,
+      "sha256": "56bf627c952ec8b0790a2c16f41d544980a0ab150cf74f88b5d1333002ffc528"
+    }
+  ]
+}

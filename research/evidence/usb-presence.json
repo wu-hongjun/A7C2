@@ -1,0 +1,12 @@
+{
+  "profile": "SPUSBHostDataType",
+  "sony_devices": [
+    {
+      "model": "ILCE-7CM2",
+      "vendor_id": "0x054c",
+      "product_id": "0x0e8a",
+      "link_speed": "480 Mb/s"
+    }
+  ],
+  "service_commands_sent": false
+}

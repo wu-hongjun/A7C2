@@ -14,7 +14,7 @@ VERSION='2.01'
 ORIGINAL=['2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b',
           'f5a477588698ef965748903b8959a39ce4f59ffd4aee4d4234ef1670f56a1428']
 FINAL=['1aaeb8fbe0297950cab454d498d1a5ba874f91542aa2737aae27a73971e324d7',
-       '60a9de1a0636c7f6b5b98607a4d25eeb48634e25294f632743a6d256e583b370']
+       '60b9dc9d974cf1e32ddc7e72099fda80c328a84a5e6bd89790d62e36f8ed58ab']
 PROGRAMS=['appFw.so','cpapp-b.bin']
 CP_KEYS=[0x02a40001,0x02a4000d]
 AP_KEYS=[0x02cf1287,0x02cf1289]
@@ -92,7 +92,7 @@ def merge_colors(unit01,unit0d):
     return bytes(a),bytes(b)
 
 def runtime_counter(chip,key,a,b):
-    if chip or a.attr!=b.attr:return False
+    if chip or a.attr!=b.attr or a.resetData!=b.resetData:return False
     if key==0x01070000 and len(a.data)==len(b.data)==8:
         return 0<=int.from_bytes(b.data,'little')-int.from_bytes(a.data,'little')<=1000000
     if key==0x02780000 and len(a.data)==len(b.data)==256:
@@ -102,16 +102,34 @@ def runtime_counter(chip,key,a,b):
 
 def verify_preservation(before,after,expected):
     kept=0;telemetry=[]
+    if any(key not in before[chip] or key not in after[chip] for chip,key in expected):
+        raise ValueError('缺少目標設定項目')
     for chip in [0,1]:
         if set(before[chip])!=set(after[chip]):raise ValueError('設定項目集合改變')
         for key,a in before[chip].items():
             b=after[chip][key]
             if (chip,key) in expected:
-                if b.data!=expected[chip,key] or b.attr!=a.attr:raise ValueError('目標設定讀回不符')
-            elif (a.data,a.attr)==(b.data,b.attr):kept+=1
+                if b.data!=expected[chip,key] or b.attr!=a.attr or b.resetData!=a.resetData:raise ValueError('目標設定讀回不符')
+            elif (a.data,a.attr,a.resetData)==(b.data,b.attr,b.resetData):kept+=1
             elif runtime_counter(chip,key,a,b):telemetry.append(hex(key))
             else:raise ValueError(f'發現額外設定變動：chip{chip}/{key:#x}，請保存紀錄後檢查')
     return {'preserved_properties':kept,'runtime_counters':telemetry}
+
+def verify_save_baseline(live,stored,expected,subsystems):
+    """Reject unrelated pending edits that a whole-subsystem SAVE would persist.
+
+    Unrelated memory/storage differences outside subsystems actually being
+    saved are allowed, and each view is later checked against its own baseline.
+    """
+    for chip in [0,1]:
+        live_keys={k for k in live[chip] if k>>16 in subsystems}
+        stored_keys={k for k in stored[chip] if k>>16 in subsystems}
+        if live_keys!=stored_keys:raise ValueError('待保存子系統的設定項目集合不符')
+        for key in live_keys:
+            if (chip,key) in expected:continue
+            a,b=stored[chip][key],live[chip][key]
+            if (a.data,a.attr,a.resetData)!=(b.data,b.attr,b.resetData):
+                raise ValueError(f'待保存子系統有其他尚未保存的設定：chip{chip}/{key:#x}')
 
 def parse_native(name,raw,mode=None):
     if name=='installer':

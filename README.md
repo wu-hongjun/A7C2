@@ -2,6 +2,10 @@
 
 English | [繁體中文](./README.zh-TW.md)
 
+The [offline firmware architecture atlas](research/A7C2_FIRMWARE_ATLAS.md) maps the downloaded 2.01 image using REA/Ghidra, Capstone and bounded host emulation. It now includes a recovered ordinary native LUT format, producer, MLUT register layout and deeper sequence tracing. Full-resolution saved-still LUT integration remains unproven. No camera access or installation was used for that investigation.
+
+**Local revision 0.1.1-preview:** the three [CP review findings](research/CP_REVIEW.md) are fixed. This revision passes 24 host tests, 9,185 isolated CP cases, 259 AP converter cases, and full forward/reverse program hash checks. It has **zero hardware installation trials**; the one-body reports below describe the earlier 0.1.0 candidate. See [fixes and current evidence](research/FIXES.md). The historical ZIP below does not contain these fixes.
+
 This repository documents an experimental port of the FL2 and FL3 still-photo Creative Looks to the **Sony ILCE-7CM2 (A7C II), firmware 2.01**. It covers the implementation, the observed results on one camera, and installation without an AI assistant.
 
 **This is an experimental preview with basic functionality confirmed on one camera. It is not a fully validated stable release or an official Sony memory-card firmware update.**
@@ -232,7 +236,7 @@ The native installer requires matching complete original SHA-256 hashes, origina
 | `appFw.so` | Original 2.01 | `2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b` |
 | `appFw.so` | Preview candidate | `1aaeb8fbe0297950cab454d498d1a5ba874f91542aa2737aae27a73971e324d7` |
 | `cpapp-b.bin` | Original 2.01 | `f5a477588698ef965748903b8959a39ce4f59ffd4aee4d4234ef1670f56a1428` |
-| `cpapp-b.bin` | Preview candidate | `60a9de1a0636c7f6b5b98607a4d25eeb48634e25294f632743a6d256e583b370` |
+| `cpapp-b.bin` | Revised 0.1.1 candidate | `60b9dc9d974cf1e32ddc7e72099fda80c328a84a5e6bd89790d62e36f8ed58ab` |
 
 These identify the two program files, not an entire official update container. A matching model or displayed version is not a substitute for matching original-file hashes.
 
@@ -283,5 +287,6 @@ The following public work informed this A7C II-specific implementation and analy
 - [ma1co/Sony-PMCA-RE](https://github.com/ma1co/Sony-PMCA-RE/tree/a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0): USB/Senser communication, native Backup operations, and backup parsing, under MIT. The bundled source retains the full license.
 - [ma1co/fwtool.py PR52](https://github.com/ma1co/fwtool.py/pull/52), pinned commit `3955d7890fc38daf942bb52827599bfe35de4a14`: reference tooling for offline analysis of official firmware.
 - Official Sony A7C II 2.01 and Alpha 1 II 4.00 firmware: sources for program and color-data analysis. Sony trademarks and firmware-data rights remain with their respective rights holders.
+- [morluto/rea](https://github.com/morluto/rea), version 6.5.0, with Ghidra 12.1.4: offline native analysis for the firmware atlas. Exact tool identities and analysis limitations are retained in [research/toolchains](research/toolchains/README.md).
 
-This README is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See `LICENSE`, `NOTICE.md`, and `licenses/` inside the ZIP for the preview toolkit's new code and upstream licenses. These licenses do not claim to cover Sony firmware data. This repository does not publish the tested camera's serial number, complete settings backup, private calibration data, private login credentials, or personal computer paths.
+This README is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See `LICENSE`, `NOTICE.md`, and `licenses/` inside the ZIP for the preview toolkit's new code and upstream licenses. These licenses do not claim to cover Sony firmware data. This repository does not publish the tested camera's serial number, complete settings backup, private calibration data or private login credentials. Local research Evidence records retain analysis paths for provenance.

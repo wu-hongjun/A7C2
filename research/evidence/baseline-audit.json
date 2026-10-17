@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-17",
+  "baseline_commit": "370bf0b5b9b23d3d50dd381b562a736035c6690a",
+  "baseline_files_unchanged": 47,
+  "vendored_files_match_pinned_upstream_after_newline_normalization": 19,
+  "vendored_files_with_newline_only_differences": [
+    "pmca/backup/__init__.py",
+    "pmca/io/__init__.py",
+    "pmca/usb/__init__.py",
+    "pmca/usb/constants.py",
+    "pmca/usb/crypto.py",
+    "pmca/usb/driver/__init__.py",
+    "pmca/usb/driver/generic/__init__.py",
+    "pmca/usb/driver/generic/libusb.py",
+    "pmca/usb/driver/generic/qemu.py",
+    "pmca/usb/driver/osx.py",
+    "pmca/usb/driver/windows/__init__.py",
+    "pmca/usb/driver/windows/driverless.py",
+    "pmca/usb/driver/windows/msc.py",
+    "pmca/usb/driver/windows/setupapi.py",
+    "pmca/usb/driver/windows/wpd.py",
+    "pmca/usb/sony.py",
+    "pmca/util/__init__.py",
+    "pmca/util/http.py"
+  ],
+  "deployment_assets_hash_verified": true,
+  "patches": [
+    {
+      "program": "appFw.so",
+      "windows": 8,
+      "covered_bytes": 134,
+      "changed_bytes": 111
+    },
+    {
+      "program": "cpapp-b.bin",
+      "windows": 32,
+      "covered_bytes": 4288,
+      "changed_bytes": 2047
+    }
+  ],
+  "native": {
+    "installer": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 80,
+      "program_sizes": [
+        99960744,
+        18090880
+      ],
+      "patch_windows_match_json": 40
+    },
+    "probe": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 0
+    },
+    "runtime": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 0
+    },
+    "wbi": {
+      "architecture": "AArch64",
+      "needed_libraries": [],
+      "relative_relocations": 0
+    },
+    "c_source_patch_windows_match_json": 40
+  },
+  "ap_converter": {
+    "cases_passed": 259,
+    "valid_look_mapping": [
+      0,
+      3,
+      2,
+      1,
+      16,
+      15,
+      17,
+      18,
+      5,
+      13,
+      19,
+      20
+    ],
+    "invalid_inputs_leave_output_unchanged_at_handoff": true,
+    "disassembly": [
+      "0x3528804: cmp w1, #0xb",
+      "0x3528808: b.hi #0x3528874",
+      "0x352880c: adr x0, #0x352881c",
+      "0x3528810: ldrb w0, [x0, w1, uxtw]",
+      "0x3528814: strb w0, [x2]",
+      "0x3528818: ret "
+    ],
+    "scope": "112-byte AP window only; no original out-of-window code or hardware"
+  },
+  "camera_accessed": false,
+  "complete_official_firmware_checked": false
+}

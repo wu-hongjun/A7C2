@@ -1,0 +1,101 @@
+{
+  "sha": "a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0",
+  "node_id": "C_kwDOAh3ZFNoAKGE4MmY1YmFhYThlOWMzZDlmMjhmOTQ2OTllODYwZmIyZTQ4Y2M4ZTA",
+  "commit": {
+    "author": {
+      "name": "ma1co",
+      "email": "ma1co@users.noreply.github.com",
+      "date": "2022-08-18T12:46:04Z"
+    },
+    "committer": {
+      "name": "ma1co",
+      "email": "ma1co@users.noreply.github.com",
+      "date": "2022-08-18T12:46:04Z"
+    },
+    "message": "Improve error messages",
+    "tree": {
+      "sha": "83544ef94ce2c1a05b6028ae2ce58ef8acfb6fa8",
+      "url": "https://api.github.com/repos/ma1co/Sony-PMCA-RE/git/trees/83544ef94ce2c1a05b6028ae2ce58ef8acfb6fa8"
+    },
+    "url": "https://api.github.com/repos/ma1co/Sony-PMCA-RE/git/commits/a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/ma1co/Sony-PMCA-RE/commits/a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0",
+  "html_url": "https://github.com/ma1co/Sony-PMCA-RE/commit/a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0",
+  "comments_url": "https://api.github.com/repos/ma1co/Sony-PMCA-RE/commits/a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0/comments",
+  "author": {
+    "login": "ma1co",
+    "id": 12417797,
+    "node_id": "MDQ6VXNlcjEyNDE3Nzk3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/12417797?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ma1co",
+    "html_url": "https://github.com/ma1co",
+    "followers_url": "https://api.github.com/users/ma1co/followers",
+    "following_url": "https://api.github.com/users/ma1co/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ma1co/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ma1co/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ma1co/subscriptions",
+    "organizations_url": "https://api.github.com/users/ma1co/orgs",
+    "repos_url": "https://api.github.com/users/ma1co/repos",
+    "events_url": "https://api.github.com/users/ma1co/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ma1co/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "ma1co",
+    "id": 12417797,
+    "node_id": "MDQ6VXNlcjEyNDE3Nzk3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/12417797?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ma1co",
+    "html_url": "https://github.com/ma1co",
+    "followers_url": "https://api.github.com/users/ma1co/followers",
+    "following_url": "https://api.github.com/users/ma1co/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ma1co/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ma1co/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ma1co/subscriptions",
+    "organizations_url": "https://api.github.com/users/ma1co/orgs",
+    "repos_url": "https://api.github.com/users/ma1co/repos",
+    "events_url": "https://api.github.com/users/ma1co/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ma1co/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "203bdd321782082771f1d9801927636ecd8134c2",
+      "url": "https://api.github.com/repos/ma1co/Sony-PMCA-RE/commits/203bdd321782082771f1d9801927636ecd8134c2",
+      "html_url": "https://github.com/ma1co/Sony-PMCA-RE/commit/203bdd321782082771f1d9801927636ecd8134c2"
+    }
+  ],
+  "stats": {
+    "total": 24,
+    "additions": 14,
+    "deletions": 10
+  },
+  "files": [
+    {
+      "sha": "43443f54f2363eb772cbaf9e7925309a9306f832",
+      "filename": "pmca/commands/usb.py",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 10,
+      "changes": 24,
+      "blob_url": "https://github.com/ma1co/Sony-PMCA-RE/blob/a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0/pmca%2Fcommands%2Fusb.py",
+      "raw_url": "https://github.com/ma1co/Sony-PMCA-RE/raw/a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0/pmca%2Fcommands%2Fusb.py",
+      "contents_url": "https://api.github.com/repos/ma1co/Sony-PMCA-RE/contents/pmca%2Fcommands%2Fusb.py?ref=a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0",
+      "patch": "@@ -221,9 +221,9 @@ def getDevice(driver):\n  \"\"\"Check for exactly one Sony usb device\"\"\"\n  devices = list(listDevices(driver))\n  if not devices:\n-  print('No devices found. Ensure your camera is connected.')\n+  print('No devices found. Please make sure that the camera is connected.')\n  elif len(devices) != 1:\n-  print('Too many devices found. Only one camera is supported')\n+  print('Error: Too many Sony devices found. Only one camera is supported.')\n  else:\n   return devices[0]\n \n@@ -266,7 +266,7 @@ def infoCommand(driverName=None):\n     except (InvalidCommandException, UnknownMscException):\n      pass\n    else:\n-    print('Error: Cannot use camera in this mode.')\n+    print('Error: Cannot use camera in this mode. Please switch to MTP or mass storage mode.')\n     return\n    for k, v in props:\n     print('%-20s%s' % (k + ': ', v))\n@@ -281,7 +281,7 @@ def installCommand(driverName=None, apkFile=None, appPackage=None, outFile=None)\n    try:\n     SonyExtCmdCamera(device).switchToAppInstaller()\n    except InvalidCommandException:\n-    print('Error: This device does not support apps')\n+    print('Error: This camera does not support apps. Please check the compatibility list.')\n     return\n    device = None\n \n@@ -301,7 +301,7 @@ def installCommand(driverName=None, apkFile=None, appPackage=None, outFile=None)\n   if device and isinstance(device, SonyAppInstallDevice):\n    installApp(device, apkFile, appPackage, outFile)\n   elif device:\n-   print('Error: Cannot use camera in this mode.')\n+   print('Error: Cannot use camera in this mode. Please switch to MTP or mass storage mode.')\n \n \n def appSelectionCommand():\n@@ -366,7 +366,7 @@ def updaterShellCommand(model=None, fdatFile=None, driverName=None, complete=Non\n \n     fdat = getFdat(model)\n     if not fdat:\n-     print('Unknown device: %s' % model)\n+     print('Error: Model \"%s\" does not support custom firmware updates. Please check the compatibility list.' % model)\n      return\n \n    if not complete:\n@@ -379,7 +379,7 @@ def complete(device):\n \n def firmwareUpdateCommandInternal(driver, device, file, offset, size, complete=None):\n  if not isinstance(device, SonyUpdaterDevice) and not isinstance(device, SonyExtCmdDevice):\n-  print('Error: Cannot use camera in this mode.')\n+  print('Error: Cannot use camera in this mode. Please switch to MTP or mass storage mode.')\n   return\n \n  dev = SonyUpdaterCamera(device)\n@@ -660,7 +660,9 @@ def senserShellCommand(driverName=None, complete=None):\n   device = getDevice(driver)\n   if device and isinstance(device, SonyMscExtCmdDevice):\n    if not isinstance(device.driver, GenericUsbDriver):\n-    print('Error: Only libusb drivers are supported for service mode')\n+    print('Error: Only libusb drivers are supported for switching to service mode.')\n+    if sys.platform == 'win32':\n+     print('Please use Zadig to install the libusb-win32 driver for the mass storage device.')\n     return\n \n    print('Switching to service mode')\n@@ -685,7 +687,9 @@ def senserShellCommand(driverName=None, complete=None):\n \n   if device and isinstance(device, SonySenserDevice):\n    if not isinstance(device.driver, GenericUsbDriver):\n-    print('Error: Only libusb drivers are supported for service mode')\n+    print('Error: Only libusb drivers are supported for service mode.')\n+    if sys.platform == 'win32':\n+     print('Please use Zadig to install the libusb-win32 driver for the service mode device.')\n     return\n \n    print('Authenticating')\n@@ -703,4 +707,4 @@ def senserShellCommand(driverName=None, complete=None):\n     dev.stop()\n    print('Done')\n   elif device:\n-   print('Error: Cannot use camera in this mode.')\n+   print('Error: Cannot use camera in this mode. Please switch to mass storage mode.')"
+    }
+  ]
+}

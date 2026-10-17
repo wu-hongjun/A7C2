@@ -94,8 +94,8 @@
         "file_offset": "0x138832",
         "bytes": 26,
         "before_hex": "0c2048700520887043f6b030c0f2791090f858014871ff208871",
-        "after_hex": "002c04d1132802d3142898bf002049f6f811c0f22011704700bf",
-        "purpose": "movie-only gamma mode normalization"
+        "after_hex": "002c04d1132802d3142898bf0f2049f6f811c0f22011704700bf",
+        "purpose": "movie-only FL gamma fallback for FL2/FL3"
       },
       {
         "file_offset": "0x323172",

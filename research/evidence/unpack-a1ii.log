@@ -1,0 +1,19 @@
+/Users/hongjunwu/Git/A7C2/research/upstream/fwtool.py/fwtool/sony/dat.py:60: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+  return [path for path in paths if re.search('/FirmwareData_([^/]+)\.dat$', path)][0]
+/Users/hongjunwu/Git/A7C2/research/upstream/fwtool.py/fwtool/sony/fdat.py:315: SyntaxWarning: "\d" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\d"? A raw string is also an option.
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+/Users/hongjunwu/Git/A7C2/research/upstream/fwtool.py/fwtool/sony/msfirm.py:70: SyntaxWarning: "\[" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\["? A raw string is also an option.
+  hm = re.match('^\[(.+)\]$', l)
+/Users/hongjunwu/Git/A7C2/research/upstream/fwtool.py/fwtool/sony/msfirm.py:206: SyntaxWarning: "\d" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\d"? A raw string is also an option.
+  version = re.match('^(\d)\.(\d{2})$', msfirm.version)
+Decrypting firmware image
+Extracting files
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha15
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/bin/udtrbody.bin
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha3
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha3_unpacked/initrd.img
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha7
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0700_part_image/dev/nflasha8
+Unpacking research/extracted/ILCE-1M2-4.00/firmware.tar_unpacked/0750_nor_loader/loader_nor.tar
+Unpacking research/extracted/ILCE-1M2-4.00/updater.img

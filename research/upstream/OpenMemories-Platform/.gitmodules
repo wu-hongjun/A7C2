@@ -1,0 +1,4 @@
+[submodule "stlport"]
+	path = stlport
+	url = https://gitorious.org/stlport/mainline.git
+	ignore = untracked

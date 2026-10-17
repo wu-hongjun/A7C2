@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-17",
+  "status": "usb_interface_claim_blocked",
+  "model_from_os_inventory": "ILCE-7CM2",
+  "usb_vid_pid": "054c:0e8a",
+  "interface_class": "08",
+  "interface_subclass": "06",
+  "interface_protocol": "50",
+  "usb_bcd_device": "0x0200",
+  "firmware_version": null,
+  "firmware_version_confirmed": false,
+  "blocked_stack": [
+    "libusb_claim_interface",
+    "darwin_claim_interface",
+    "IOCreatePlugInInterfaceForService",
+    "IOUSBInterfaceClass::start",
+    "IOServiceOpen",
+    "io_service_open_extended",
+    "mach_msg2_trap"
+  ],
+  "query_process_terminated": true,
+  "service_authentication_started": false,
+  "native_modules_uploaded": 0,
+  "program_writes": 0,
+  "settings_writes": 0,
+  "backup_files_created": 0,
+  "backup_complete": false,
+  "next_action": "Reconnect camera USB, confirm displayed firmware revision, then retry normal metadata query with a host process timeout before backup access."
+}

@@ -1,0 +1,78 @@
+{
+  "camera_accessed": false,
+  "target_execution_requested": false,
+  "operations": [
+    {
+      "operation": "open_binary",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "provider_id": "ghidra"
+      },
+      "result_file": "open.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:02:31.965Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x19e638"
+      },
+      "result_file": "00-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:03:55.763Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x1211c8"
+      },
+      "result_file": "01-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:04:04.317Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x17e3ac"
+      },
+      "result_file": "02-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:04:04.326Z"
+    },
+    {
+      "operation": "procedure_callers",
+      "arguments": {
+        "procedure": "0x1d6044"
+      },
+      "result_file": "03-procedure_callers.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:04:04.331Z"
+    },
+    {
+      "operation": "procedure_callees",
+      "arguments": {
+        "procedure": "0x27e880"
+      },
+      "result_file": "04-procedure_callees.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:04:04.335Z"
+    },
+    {
+      "operation": "export_evidence_bundle",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/libmpr-extra/evidence-bundle.json"
+      },
+      "result_file": "export.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:04:04.344Z"
+    },
+    {
+      "operation": "close_binary",
+      "arguments": {},
+      "result_file": "close.json",
+      "isError": false,
+      "elapsed_at": "2026-10-17T22:04:04.830Z"
+    }
+  ],
+  "diagnostic": ""
+}

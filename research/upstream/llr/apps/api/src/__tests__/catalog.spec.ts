@@ -1,0 +1,207 @@
+import { mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { DatabaseSync } from "node:sqlite";
+
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+
+import { Catalog, CatalogError, ROOT_FOLDER_ID } from "../catalog.js";
+
+let catalog: Catalog;
+
+beforeEach(() => { catalog = new Catalog(":memory:"); });
+afterEach(() => { catalog.close(); });
+
+function addPhoto(id: string, folderId = ROOT_FOLDER_ID, importedAt = 1000, modifiedAt?: number) {
+  return catalog.insertPhoto({ id, folderId, name: `${id}.arw`, ext: ".arw", size: 10, modifiedAt }, importedAt);
+}
+
+describe("folders", () => {
+  it("starts with only the root", () => {
+    expect(catalog.tree()).toEqual([{ id: ROOT_FOLDER_ID, parentId: null, name: "Library", count: 0 }]);
+  });
+
+  it("creates, renames and moves", () => {
+    const a = catalog.createFolder(ROOT_FOLDER_ID, "A");
+    const b = catalog.createFolder(ROOT_FOLDER_ID, "B");
+    catalog.renameFolder(a.id, "A2");
+    catalog.moveFolder(a.id, b.id);
+    expect(catalog.getFolder(a.id)).toEqual({ id: a.id, parentId: b.id, name: "A2", count: 0 });
+  });
+
+  it("refuses a same-name sibling unless existingOk, which returns the existing one", () => {
+    const a = catalog.createFolder(ROOT_FOLDER_ID, "Trip");
+    expect(() => catalog.createFolder(ROOT_FOLDER_ID, "Trip")).toThrow(CatalogError);
+    expect(catalog.createFolder(ROOT_FOLDER_ID, "Trip", { existingOk: true }).id).toBe(a.id);
+  });
+
+  it("refuses to move a folder into itself or its subtree", () => {
+    const a = catalog.createFolder(ROOT_FOLDER_ID, "A");
+    const b = catalog.createFolder(a.id, "B");
+    expect(() => catalog.moveFolder(a.id, a.id)).toThrow(/into itself/);
+    expect(() => catalog.moveFolder(a.id, b.id)).toThrow(/into itself/);
+  });
+
+  it("protects the root", () => {
+    expect(() => catalog.renameFolder(ROOT_FOLDER_ID, "x")).toThrow(CatalogError);
+    expect(() => catalog.moveFolder(ROOT_FOLDER_ID, ROOT_FOLDER_ID)).toThrow(CatalogError);
+    expect(() => catalog.deleteFolder(ROOT_FOLDER_ID)).toThrow(CatalogError);
+  });
+
+  it("deletes a subtree, returning every photo id in it and dropping their edits", () => {
+    const a = catalog.createFolder(ROOT_FOLDER_ID, "A");
+    const b = catalog.createFolder(a.id, "B");
+    addPhoto("p1", a.id);
+    addPhoto("p2", b.id);
+    addPhoto("p3");
+    catalog.putEdit("p2", { snapshot: { x: 1 }, history: [{ x: 1 }], historyIndex: 0 });
+
+    expect(catalog.deleteFolder(a.id).sort()).toEqual(["p1", "p2"]);
+    expect(catalog.tree().map(f => f.id)).toEqual([ROOT_FOLDER_ID]);
+    expect(catalog.getPhoto("p3")).not.toBeNull();
+    expect(catalog.getPhoto("p2")).toBeNull();
+    expect(catalog.getEdit("p2")).toBeNull();
+  });
+
+  it("counts direct photos only", () => {
+    const a = catalog.createFolder(ROOT_FOLDER_ID, "A");
+    addPhoto("p1", a.id);
+    addPhoto("p2");
+    expect(catalog.tree().map(f => [f.name, f.count])).toEqual([["A", 1], ["Library", 1]]);
+  });
+});
+
+describe("photos", () => {
+  it("lists by capture time, unknown capture times last by import order", () => {
+    addPhoto("late", ROOT_FOLDER_ID, 3);
+    addPhoto("none-b", ROOT_FOLDER_ID, 2);
+    addPhoto("early", ROOT_FOLDER_ID, 1);
+    addPhoto("none-a", ROOT_FOLDER_ID, 1);
+    catalog.setPhotoMeta("late", { capturedAt: "2024-06-01T00:00:00" }, "ready");
+    catalog.setPhotoMeta("early", { capturedAt: "2024-01-01T00:00:00" }, "ready");
+    expect(catalog.listPhotos(ROOT_FOLDER_ID).map(p => p.id)).toEqual(["early", "late", "none-a", "none-b"]);
+  });
+
+  it("stores metadata, leaving absent keys alone", () => {
+    addPhoto("p");
+    catalog.setPhotoMeta("p", { width: 6000, height: 4000, make: "SONY", iso: 100 }, "ready");
+    catalog.setPhotoMeta("p", { model: "ILCE-7CM2" }, "ready");
+    expect(catalog.getPhoto("p")).toMatchObject({
+      width: 6000, height: 4000, make: "SONY", model: "ILCE-7CM2", iso: 100, lens: null, thumbState: "ready",
+    });
+  });
+
+  it("moves and deletes in bulk, reporting what was there", () => {
+    const a = catalog.createFolder(ROOT_FOLDER_ID, "A");
+    addPhoto("p1");
+    addPhoto("p2");
+    expect(catalog.movePhotos(["p1", "p2", "ghost"], a.id)).toBe(2);
+    expect(catalog.listPhotos(a.id).map(p => p.id)).toEqual(["p1", "p2"]);
+    expect(catalog.deletePhotos(["p1", "ghost"])).toEqual(["p1"]);
+    expect(catalog.photoIds()).toEqual(new Set(["p2"]));
+  });
+
+  it("rejects an unknown folder", () => {
+    expect(() => addPhoto("p", 999)).toThrow(CatalogError);
+    addPhoto("q");
+    expect(() => catalog.movePhotos(["q"], 999)).toThrow(CatalogError);
+  });
+
+  it("keeps the file's own modified time, falling back to the import's", () => {
+    addPhoto("shot", ROOT_FOLDER_ID, 1000, 500);
+    addPhoto("scan", ROOT_FOLDER_ID, 2000);
+    expect(catalog.getPhoto("shot")).toMatchObject({ importedAt: 1000, modifiedAt: 500 });
+    expect(catalog.getPhoto("scan")).toMatchObject({ importedAt: 2000, modifiedAt: 2000 });
+    expect(() => addPhoto("bad", ROOT_FOLDER_ID, 3000, Number.NaN)).toThrow(CatalogError);
+  });
+
+  it("renames within the folder, refusing a sibling's name", () => {
+    const a = catalog.createFolder(ROOT_FOLDER_ID, "A");
+    addPhoto("p1", a.id);
+    addPhoto("p2", a.id);
+    addPhoto("elsewhere");
+
+    expect(catalog.renamePhoto("p1", "sunset.arw").name).toBe("sunset.arw");
+    // A photo in another folder is not a sibling, so its name is free here.
+    expect(catalog.renamePhoto("p2", "elsewhere.arw").name).toBe("elsewhere.arw");
+    // Renaming to its own name is not a clash with itself.
+    expect(catalog.renamePhoto("p2", "elsewhere.arw").name).toBe("elsewhere.arw");
+    expect(() => catalog.renamePhoto("p2", "sunset.arw")).toThrow(/already exists/);
+    expect(() => catalog.renamePhoto("ghost", "x.arw")).toThrow(CatalogError);
+    // The file on disk is named after the id, so nothing moved.
+    expect(catalog.listPhotos(a.id).map(p => p.name).sort()).toEqual(["elsewhere.arw", "sunset.arw"]);
+  });
+});
+
+describe("edits", () => {
+  it("round-trips and upserts", () => {
+    addPhoto("p");
+    expect(catalog.getEdit("p")).toBeNull();
+    catalog.putEdit("p", { snapshot: { a: 1 }, history: [{ a: 0 }, { a: 1 }], historyIndex: 1 }, 5);
+    expect(catalog.getEdit("p")).toEqual({ snapshot: { a: 1 }, history: [{ a: 0 }, { a: 1 }], historyIndex: 1, updatedAt: 5 });
+    catalog.putEdit("p", { snapshot: { a: 2 }, history: [{ a: 2 }], historyIndex: 0 }, 6);
+    expect(catalog.getEdit("p")).toMatchObject({ snapshot: { a: 2 }, updatedAt: 6 });
+  });
+
+  it("refuses an edit for a photo that is not in the catalog", () => {
+    expect(() => catalog.putEdit("nope", { snapshot: {}, history: [], historyIndex: 0 })).toThrow(CatalogError);
+  });
+});
+
+describe("meta", () => {
+  it("stores flags", () => {
+    expect(catalog.get("legacy_adopted")).toBeNull();
+    catalog.set("legacy_adopted", "1");
+    catalog.set("legacy_adopted", "2");
+    expect(catalog.get("legacy_adopted")).toBe("2");
+  });
+});
+
+describe("migration", () => {
+  // A library written by the build before `modified_at` existed: the column is
+  // dropped and the version rolled back, which is exactly what opening a v1
+  // catalog file looks like.
+  it("backfills the modified time from the import time", () => {
+    const dir = mkdtempSync(join(tmpdir(), "llr-catalog-"));
+    const path = join(dir, "catalog.db");
+    try {
+      const v2 = new Catalog(path);
+      v2.insertPhoto({ id: "p", folderId: ROOT_FOLDER_ID, name: "p.arw", ext: ".arw", size: 1 }, 4242);
+      v2.close();
+
+      const raw = new DatabaseSync(path);
+      raw.exec("ALTER TABLE photos DROP COLUMN modified_at");
+      raw.exec("ALTER TABLE photos DROP COLUMN preview_at");
+      raw.exec("PRAGMA user_version = 1");
+      raw.close();
+
+      const migrated = new Catalog(path);
+      expect(migrated.getPhoto("p")).toMatchObject({ importedAt: 4242, modifiedAt: 4242, previewAt: null });
+      migrated.close();
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it("adds the edited-preview version to a v2 library", () => {
+    const dir = mkdtempSync(join(tmpdir(), "llr-catalog-"));
+    const path = join(dir, "catalog.db");
+    try {
+      const v3 = new Catalog(path);
+      v3.insertPhoto({ id: "p", folderId: ROOT_FOLDER_ID, name: "p.arw", ext: ".arw", size: 1 }, 4242);
+      v3.close();
+
+      const raw = new DatabaseSync(path);
+      raw.exec("ALTER TABLE photos DROP COLUMN preview_at");
+      raw.exec("PRAGMA user_version = 2");
+      raw.close();
+
+      const migrated = new Catalog(path);
+      expect(migrated.getPhoto("p")).toMatchObject({ previewAt: null });
+      expect(migrated.setPreviewAt("p", 99)).toMatchObject({ previewAt: 99 });
+      migrated.close();
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
