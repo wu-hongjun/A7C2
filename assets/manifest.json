@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "release": "0.1.0-preview",
+  "model": "ILCE-7CM2",
+  "firmware": "2.01",
+  "files": {
+    "colors.json": "1259a47bca2b4fc29882121a647746fceafd16c8de3b6df85324cd84f083871e",
+    "installer.so": "64ec3db50ab31a6492eb068d40c9a0ed32488ccb0faeebd02a625e469227e5b6",
+    "patches.json": "a297bdd1df6088adca4fe8de2323470354b4497ddc03fa4a5e2e48ee42272bb8",
+    "probe.so": "fea02971a2d7ad2e1661fef924de99624fd4182ed6283e8037499f60bbc8de30",
+    "runtime.so": "e8a5efa72a6c6f3126247e838a65001ea2c6987f97cf4fb25d896e8de79b7700",
+    "wbi.so": "8d73d55bf89a8400b1c00130b514405d850553536f222fca0eb3959eb0a0be25"
+  },
+  "hardware_scope": "One body; user confirmed FL2, FL3, ST photography and playback after battery removal. Portable frontend not independently hardware-tested.",
+  "normal_signed_memory_card_updater": false
+}
