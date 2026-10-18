@@ -14,8 +14,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 26819,
-      "sha256": "2ad93ff6ef66822604839048bbe017139c77a756807503f0a35f6e03d1f63114"
+      "bytes": 26915,
+      "sha256": "9cc47f9857b0aea5d7e254ff17ab8050ef2644be1a2fbd8506e17f2deb55ec2b"
     },
     {
       "path": "README.zh-TW.md",
@@ -79,8 +79,8 @@
     },
     {
       "path": "research/FIXES.md",
-      "bytes": 5433,
-      "sha256": "6967ecf1f608a6ed52d783193d32f1b9ad1a0a8bba423667fb75ca484ab577ff"
+      "bytes": 5547,
+      "sha256": "be8a19f5a4e67a031648e72ee315d42758da0bd1839aaf148fe8035272e63288"
     },
     {
       "path": "research/HEIF_BINDING.md",
@@ -404,8 +404,8 @@
     },
     {
       "path": "research/evidence/macos-installation-review.json",
-      "bytes": 3043,
-      "sha256": "84b24ec7ee80462d2e540aa9ef859067dee58987487019a1204769e9ca3f89b2"
+      "bytes": 3451,
+      "sha256": "06d0876f8b08c5d8a203772673387220e8c86510a0a3b5862ab806072cc5034b"
     },
     {
       "path": "research/evidence/mlut-allocation.json",

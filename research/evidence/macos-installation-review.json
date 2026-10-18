@@ -62,8 +62,17 @@
     "raw_runtime_report_independently_rechecked_offline": true
   },
   "computer_verification_complete": true,
-  "photo_verification_complete": false,
-  "next_step": "manual_ST_FL2_FL3_capture_and_playback_check",
+  "basic_capture_user_reported_passed": true,
+  "manual_capture_report": {
+    "source": "user_report",
+    "reported_working": ["FL1", "FL2", "FL3", "Auto"],
+    "description": "they seem to work, I took a photo with FL1, FL2, FL3, and auto mode",
+    "playback_separately_confirmed": false,
+    "image_files_independently_analyzed": false,
+    "format_and_fixed_exposure_white_balance_confirmed": false
+  },
+  "detailed_photo_validation_complete": false,
+  "next_step": "no_additional_installation_required",
   "finish_only_recovery_executed_on_one_body": true,
   "general_finish_only_recovery_hardware_validated": false,
   "raw_backups_settings_identity_and_operation_logs": "private_local_only"

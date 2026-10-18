@@ -1,5 +1,5 @@
 {
-  "status": "EXPERIMENTAL_INSTALLED_VERIFIED_PENDING_SHOOTING_CHECK",
+  "status": "EXPERIMENTAL_INSTALLED_VERIFIED_BASIC_CAPTURE_USER_REPORTED",
   "release": "0.1.1-preview",
   "bodies_tested": 1,
   "model": "ILCE-7CM2",
@@ -28,12 +28,17 @@
     "all_six_runtime_memory_and_disk_regions_match_candidate": true,
     "post_cold_start_service_exit_sent": true,
     "post_cold_start_normal_usb_return_confirmed": false,
-    "photo_function_verified": false,
+    "photo_function_verified": true,
+    "photo_verification_basis": "user_reported_basic_capture_only",
+    "capture_user_reported_working": ["FL1", "FL2", "FL3", "Auto"],
+    "playback_separately_confirmed": false,
+    "image_files_independently_analyzed": false,
     "evidence": "research/evidence/macos-installation-review.json"
   },
   "evidence": "research/FIXES.md",
   "not_validated": [
-    "Basic ST/FL2/FL3 shooting and playback check of revised candidate",
+    "Separate playback confirmation and analysis of newly captured images",
+    "Capture format, look resets, fixed-exposure/white-balance comparisons and exact color matching",
     "Full photographic, reset/import, video and CP runtime behavior",
     "Native-worker fault and power-loss recovery"
   ],
