@@ -1,0 +1,70 @@
+{
+  "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+  "output_directory": "research/evidence/rea/hq-lut",
+  "queries": [
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f6900"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36fcfb0"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f7c34"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f9d00"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36fc5a4"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f3d30"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f0b8c"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x3702404"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f8990"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f8578"
+      }
+    }
+  ],
+  "export_bundle": true,
+  "disabled_analyzers": [
+    "Decompiler Switch Analysis"
+  ]
+}

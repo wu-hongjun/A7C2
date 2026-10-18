@@ -1,5 +1,7 @@
 # Custom LUT processing for A7C II still photos
 
+**Latest offline follow-up:** [HQ conversion](HQ_LUT_FORMAT.md) now runs through the original serializer. [CP JPEG processing](STILL_ENCODER_ROUTE.md) reaches a start/wait/result boundary, and [AP JPEG/HEIF finalization](STILL_SINK.md) reaches the asynchronous file writer. The two missing joins remain MLUT output → JPEG input and encoded result → AP saved-image area. No camera experiment or installation was performed.
+
 Research date: October 17, 2026. Target software: the downloaded, pinned A7C II 2.01 firmware.
 
 The follow-up [firmware atlas](A7C2_FIRMWARE_ATLAS.md) distinguishes recording metadata from imaging control. `mpr::SetLutData` packages ELUT/KLV/SONYBCUB recording data. A separate AP command `0x4155` registers user-LUT payloads in CP state. The [ordinary native format](NATIVE_LUT_FORMAT.md) and [stock MLUT bank/register layout](MLUT_LAYOUT.md) are now recovered. One [callback context](STILL_MLUT_ROUTE.md) is structurally joined, but its selector gate and unclassified selected alternative prevent a live still-route claim. These findings supersede the ambiguous string-only leads below.
@@ -68,7 +70,7 @@ Decoder/encoder workspace, extra frames, metadata and process overhead add to th
 
 Continue from the recovered AP command `0x4155`, CP snapshots and VFX/MLUT records, keeping the separate `mpr::SetLutData` recording-data branch distinct. Classify the selected sequence alternative and follow its runtime geometry, resource allocation and image buffers to a saved-frame encoder. One callback context's structural identity is established, but that variant is not chosen by the recovered selector for the tested mode domain. Removing a menu restriction alone would not establish a usable still path.
 
-The ordinary table's packing, output quantization, 17 active nodes per axis and 33-point decimation are established. Complete the alternate vendor conversion and the color/ownership contract: shaper curves, range, gamut, input/output stage, allocation/alignment, DMA ownership and cache synchronization. Determine whether full-resolution still pixels pass through that LUT stage before encoding and whether the same resource is already occupied by another correction. Preview, recorded stills and movie/HDMI paths must be distinguished.
+The ordinary table's packing, output quantization, 17 active nodes per axis and 33-point decimation are established. Complete upstream HQ resampling semantics and the color/ownership contract: shaper curves, range, gamut, input/output stage, allocation/alignment, DMA ownership and cache synchronization. Determine whether full-resolution still pixels pass through that LUT stage before encoding and whether the same resource is already occupied by another correction. Preview, recorded stills and movie/HDMI paths must be distinguished.
 
 The essential proof is a known transform affecting the full-resolution saved image in the expected way. An identity LUT, channel permutation and diagnostic color grid should be compared with independent host references. JPEG comparisons need tolerances for compression. Changes confined to the LCD, histogram, thumbnail or embedded LUT metadata would not satisfy that proof.
 

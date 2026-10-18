@@ -1,5 +1,7 @@
 # AP native LUT resource path: bounded static follow-up
 
+**Later follow-up:** [HQ LUT format](HQ_LUT_FORMAT.md) resolves the serializer's 48,000 + 128-byte output boundary; [LUT transfer](LUT_TRANSFER.md) identifies distinct staging/destination resources and tests the handoff. The observations below retain their earlier scope.
+
 Later [producer tracing](NATIVE_LUT_FORMAT.md) recovers the ordinary 48,000-byte format, parser and paired writer, and narrows the alternate converter's output boundary. The read/mapping observations below retain their original scope; they do not establish full-resolution still routing.
 
 This investigation follows the immediate application-side helpers called by the previously identified LUT selection path. It uses the exact official A7C II 2.01 `appFw.so` with SHA-256 `2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b`.

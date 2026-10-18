@@ -1,5 +1,7 @@
 # Native `.LUT` producer and the ordinary 48,000-byte format
 
+**Later follow-up:** [HQ_LUT_FORMAT.md](HQ_LUT_FORMAT.md) adds original-instruction evidence beyond the bounded pass below. Earlier unresolved statements here describe that earlier evidence scope.
+
 The ordinary application-side LUT conversion path is now recovered at the byte-layout level. Original ARM64 instructions produce exactly the same 48,000 bytes as a separately written Python packer, for both supported input grid sizes. This is an offline result; it does not establish a usable still-photo route or camera-side performance.
 
 [trace_native_lut.py](trace_native_lut.py) reproduces the trace and checks. [native-lut-format.json](evidence/native-lut-format.json) retains exact instruction bytes, source hashes, direct callers, constants and test results. The source is official A7C II 2.01 `appFw.so`, SHA-256 `2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b`. Addresses below are ELF-relative virtual addresses, equal to file offsets for the examined ranges.

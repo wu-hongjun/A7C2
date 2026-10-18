@@ -6,6 +6,8 @@ The [firmware architecture atlas](A7C2_FIRMWARE_ATLAS.md) adds a deeper REA/Ghid
 
 The next pass recovers the [ordinary native LUT format and producer](NATIVE_LUT_FORMAT.md), independently matches [CP SRAM/register layout](MLUT_LAYOUT.md), and deepens [still-sequence routing](STILL_MLUT_ROUTE.md) plus the [AP recording boundary](STILL_RECORDING_BOUNDARY.md). Full-resolution saved-still processing through MLUT remains unproven; all new execution tests use isolated host emulation.
 
+A further offline pass executes the [HQ converter](HQ_LUT_FORMAT.md), maps the [two-resource LUT transfer](LUT_TRANSFER.md), and resolves both a [CP JPEG request boundary](STILL_ENCODER_ROUTE.md) and the [AP JPEG/HEIF file-write sink](STILL_SINK.md). The MLUT-to-encoder buffer join remains unresolved. Research findings are committed and published separately from ignored official firmware and private backups; publication is the only network activity in this pass.
+
 Follow-up: [CP review before the next hardware trial](CP_REVIEW.md) records 9,153 additional isolated CP checks, an inconsistent movie fallback, two host preservation-check counterexamples, and the distinction between this port and arbitrary LUT support for still photos.
 
 Those three findings are now fixed in local revision 0.1.1-preview. [Fixes and rerun evidence](FIXES.md) records 24 passing host tests, 9,185 CP cases, 259 AP converter cases, synchronized native assets, and the separate status of the connected-camera read attempt. The baseline hashes and results below describe the original candidate unless explicitly marked otherwise.
@@ -156,4 +158,4 @@ The extraction commands used were:
   -o research/extracted/ILCE-1M2-4.00
 ```
 
-Upstream files retain their original notices and licenses. The starting MIT license does not relicense the snapshots or Sony data. Some research snapshots have no repository-wide license file. No Git commit, push, firmware installation, driver change, or camera access was performed by this research work.
+Upstream files retain their original notices and licenses. The starting MIT license does not relicense the snapshots or Sony data. Some research snapshots have no repository-wide license file. Firmware installation, driver changes and camera access were not performed by this research work. Findings and reproducible evidence are committed and pushed when requested; official firmware and per-camera data remain excluded.

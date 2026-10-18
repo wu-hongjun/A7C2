@@ -1,8 +1,8 @@
 {
   "mode": "offline_REA_Ghidra_analysis",
   "camera_accessed": false,
-  "successful_evidence_records": 42,
-  "pseudocode_records": 35,
+  "successful_evidence_records": 71,
+  "pseudocode_records": 64,
   "subjects_by_sha256": [
     "14f3cd439bf27a6878b97d155c3cd97cc534a57395f922aed56e59a5b8b32f31",
     "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b",
@@ -438,6 +438,730 @@
       "relationship_coverage": null,
       "readable_pseudocode": "research/evidence/rea/readable/bootin-launch-01-procedure_pseudo_code.c",
       "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/00-procedure_pseudo_code.json",
+      "sha256": "02bd86fc1665b1b224c719a0a69ae2445904f75fb96799b67e0f9ead0020c6d8",
+      "evidence_id": "ev_0aa1c369bc9807ba3e4e1121118a2c3824d91604af6e9c8560908c7683aa9917",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36f6900"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-00-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/01-procedure_pseudo_code.json",
+      "sha256": "1681c72ec552ec2c365d3bb8d760bba580d812450cfe2a2d6fe8ae077fc982a9",
+      "evidence_id": "ev_af5b4de1a8823d10db49971d872cca98f479d4634e3a1beb378ca8e2c00e790e",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36fcfb0"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-01-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/02-procedure_pseudo_code.json",
+      "sha256": "e1ef780d898b779a824b38d69cd4696235ab77464d83648571ade4023f679cb9",
+      "evidence_id": "ev_b8f34bf016b037487997ad8e1b6f62ba862c9e176f82dc5d9a44a0922da7a3d3",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36f7c34"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-02-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/03-procedure_pseudo_code.json",
+      "sha256": "70ece1d0fc1c76abd4cd28d9a04886b47bad3e68885988a0b2bde685dcffdfb2",
+      "evidence_id": "ev_6bbace4c374e9ee25126761fa24e43f574778f9017ee50de98a3ecf0d516a358",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36f9d00"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-03-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/04-procedure_pseudo_code.json",
+      "sha256": "cec69bfd043d37c273cbbbf582781429995f6ca95f7db1f73318a5a9d077315e",
+      "evidence_id": "ev_4afcf105b8223d8a526e2d1e49cd046320e6a8d66b95247512023cb6283dc887",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36fc5a4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-04-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/05-procedure_pseudo_code.json",
+      "sha256": "830fac4f87f8e9c481737557430f9c088f9d9ee2774aa6f20d4c34741ae89fe7",
+      "evidence_id": "ev_0ff7de2c20f1f0daf4c082b1849d833d029ff82957361d1fd366db94059cb469",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36f3d30"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Ghidra Listing reports a terminal call at 0x37f3f14 to 0x175ec50 <EXTERNAL>::_ZdlPvm (external=false, thunk=true, hasNoReturn=false); fallthrough is excluded by Ghidra's flow model. The reason for the terminal flow is not established by this observation.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-05-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/06-procedure_pseudo_code.json",
+      "sha256": "832f5e9a8ca99c5b4a20899f2f154844582fd13fc8e3a16a694980c434736252",
+      "evidence_id": "ev_c715d1797185e86729974e9633ddd0f9fda81d203cb876db7e75e764f71eae50",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36f0b8c"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-06-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/07-procedure_pseudo_code.json",
+      "sha256": "b6d140a1518b3e8f5e3e47d1822ef6ae50448657701e1e02e728cb261c932cda",
+      "evidence_id": "ev_4494cd5e027c7d2daf1c2e1c351b746add3e1bdc02013fde3a1de06b0eadc4dd",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x3702404"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-07-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/08-procedure_pseudo_code.json",
+      "sha256": "0bae579d212bbbd5ea3b121acbc05168c9f434fc8ae070602c972d97e547e704",
+      "evidence_id": "ev_4fcdff2ccac82926b7d3dd61c04a9d8b81ccb8c63da315024359b3f4e9274630",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36f8990"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-08-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/09-procedure_pseudo_code.json",
+      "sha256": "3fc9b57fb646dd965a662409f8607c000e2b8a3c9d8843cafed2ba64cda84df2",
+      "evidence_id": "ev_55fcabaa6f0c7d793f5ddaaeb86a74e48e66914b8f3002f1b9523f024696c2b7",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "appFw.so",
+        "digest": {
+          "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x36f8578"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Ghidra Listing reports a terminal call at 0x37f8694 to 0x175f1f0 <EXTERNAL>::_Unwind_Resume (external=false, thunk=true, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/hq-lut-09-procedure_pseudo_code.c",
+      "pseudocode_warnings": [
+        "/* WARNING: Subroutine does not return */"
+      ]
     },
     {
       "path": "research/evidence/rea/im/00-procedure_pseudo_code.json",
@@ -2904,6 +3628,1288 @@
       "relationship_coverage": null,
       "readable_pseudocode": "research/evidence/rea/readable/libmpr-still-sink-03-procedure_pseudo_code.c",
       "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/00-procedure_pseudo_code.json",
+      "sha256": "1a95974b7fba607f3338f05d8c2a13678f1eaabec820434c7dcb964502e45cb0",
+      "evidence_id": "ev_83b1e4b89f0c8fd6fdbf127c1b90d7ff23f177603538018afde286e12279f892",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x26e898"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-finalizers-00-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/01-procedure_pseudo_code.json",
+      "sha256": "919b595b33c5933e822c44d9395b8c5818207aafc77d849aec1010f2fc126a54",
+      "evidence_id": "ev_ce615c5d9093908a2626437863bce040911f862049f8b72ef6e9573496755e64",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x268f5c"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-finalizers-01-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/02-procedure_pseudo_code.json",
+      "sha256": "ee5dc52b3555cac990a177f90128286f42e07bb3c1f1fd450bc92ddd373735aa",
+      "evidence_id": "ev_e550f03e68df80982f83223e8554c0500c5eb9d4e11e208b99e8bdcbde131b49",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x26a424"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-finalizers-02-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/03-procedure_pseudo_code.json",
+      "sha256": "aaf7b1daef03e0f8fa6ab1219576f3228d97db798668562f6617bdaa67f21a24",
+      "evidence_id": "ev_3515dac0e2a7c2e44f6afac617b3c43f5975ddf91f83e58dd264f07b0bee9870",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x270f9c"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-finalizers-03-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/04-procedure_pseudo_code.json",
+      "sha256": "a58354c7db758ff0d2c7732ee4931d7347ed6dc2d556c61741a59591d4019f55",
+      "evidence_id": "ev_06ba83e65e6627e15cc6666fae414ba2e6ca0c50d3840687ce494bbb450243fc",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xf09cc"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-finalizers-04-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/05-procedure_pseudo_code.json",
+      "sha256": "d43da8a8f98db15d4a2fc5b0f1fe99a2ddf67a11e198dd90f59e312c5e2c4a36",
+      "evidence_id": "ev_21113704a8d86633eeae5e53bb1e0c80e459b2f15fadc5afd10f418c7aa861b3",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x2659ac"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Ghidra Listing reports a terminal call at 0x365b94 to 0x17d070 <EXTERNAL>::__assert_fail (external=false, thunk=true, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-finalizers-05-procedure_pseudo_code.c",
+      "pseudocode_warnings": [
+        "/* WARNING: Subroutine does not return */"
+      ]
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/06-procedure_pseudo_code.json",
+      "sha256": "906e9216e84344bb8a8ef0e00680192bf4530acf1108514539ed9bd05c9e4639",
+      "evidence_id": "ev_1bf0766470c216fe7766405746246a2facf6f3e3120414aa38c54c598478a256",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x2653f4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-finalizers-06-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/00-procedure_pseudo_code.json",
+      "sha256": "363348385fea8a62bb1407e725db0c2d9ebd5f7a82498f9395931b75b33c9e5d",
+      "evidence_id": "ev_adabf6ef75f1327374412f4d3131125242884d5ecc6d00bae9cf3c86f2722686",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x26f24c"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-00-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/01-procedure_pseudo_code.json",
+      "sha256": "50c5adf75e38e55a7cb0c0e3b7fcbd9c0ec5459998b3e59fd6404b26952b99fc",
+      "evidence_id": "ev_d5cdb362f54685506aad20e8c691edc6a5972abec51143a30192567045381b18",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x26ac20"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-01-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/02-procedure_pseudo_code.json",
+      "sha256": "570a5c8f23a5ab04cb806dd4702e4179486fed23f3d5548f64e73ce2a0075250",
+      "evidence_id": "ev_930e9508eaed0c49c140c1a0725f3c4e5ea2090b3f9512eb38b3e6a7ab65956e",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x2796b0"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-02-procedure_pseudo_code.c",
+      "pseudocode_warnings": [
+        "/* WARNING: Could not recover jumptable at 0x00379708. Too many branches */",
+        "/* WARNING: Treating indirect jump as call */"
+      ]
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/03-procedure_pseudo_code.json",
+      "sha256": "96c99ef4c67010d525a0405fcfbeba4a2523a3bdad1ee9cbcc6dc85d94551ba7",
+      "evidence_id": "ev_f8404b6f1960ed97690e79f3f493a5faeecc2c94bb94e94f8ef1c857b51ff101",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x25c3ac"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-03-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/04-procedure_pseudo_code.json",
+      "sha256": "efd9c30bd957ca9b8baa6abd522ac0dc6fc1b79d6a1bc186cf22b0945a2e7705",
+      "evidence_id": "ev_d69f88319e76a52d79574122a78d7141a4d298be3a7a1ee2527eeb9cb514a7e6",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x25c118"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-04-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/05-procedure_pseudo_code.json",
+      "sha256": "f90b7b5e60ab336b4883a0f2c5f2f11a491153dd4266261455b7380ac4e971cc",
+      "evidence_id": "ev_8dcec464385e3426507da1382fc4302d132ec32c619b023c7d791ef68882af19",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x25bd78"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-05-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/06-procedure_pseudo_code.json",
+      "sha256": "52dc411726b4a1b62f8562e7f5837a1197165058385f99d5b7ba92a422556f05",
+      "evidence_id": "ev_3de9c2a8388089c0443c6e23a5eccbb8538dc13e2386f82df448a7e1b01d5694",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x25caf4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-06-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/07-procedure_pseudo_code.json",
+      "sha256": "e717a9254ada977d659e9fdb4c3e8137ff91d60fb35e28adfdf7ed7b6a2f1559",
+      "evidence_id": "ev_7cdf39dbfed3a206642fded178cb5a045d0bd855b2a5a38cc875ae623a9223a8",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xee528"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-07-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/08-procedure_pseudo_code.json",
+      "sha256": "fda14af234cffe12ce0b40e509b9d0ad67ba80c5dad25a9c4796cabbff0fefb0",
+      "evidence_id": "ev_6694f94d96df226bfc4fd0f977cd040dbfcf8d291f37c236f9e54f489d250c3a",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xf183c"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Ghidra Listing reports a terminal call at 0x1f1bc0 to 0x17d070 <EXTERNAL>::__assert_fail (external=false, thunk=true, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-08-procedure_pseudo_code.c",
+      "pseudocode_warnings": [
+        "/* WARNING: Subroutine does not return */"
+      ]
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/09-procedure_pseudo_code.json",
+      "sha256": "9a193839747ae308422be8df77fde66f482c224bd38fa7b7f780edb5151066e3",
+      "evidence_id": "ev_9e950c358e2e08b59752799069fc49350f003b4bdb55a45be25ba346905640c4",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xe81ac"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-09-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/10-procedure_pseudo_code.json",
+      "sha256": "2e439fc2e86957462008fa626af5b0cfb0dc543b29c1168e946f88606466cdb9",
+      "evidence_id": "ev_b2458ea857f333a209f7720b586a0b7423ff752f6f7e5aef454e914811e59597",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x26d540"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-10-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/11-procedure_pseudo_code.json",
+      "sha256": "32571e19763c9c0e96a94c980e8c393461abcead104ad5de3045da0af55201cf",
+      "evidence_id": "ev_7f2467b9e9ae298652da5ef78151627a377a277a2b8a4215187f65f6a1047637",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0x26b4f0"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/still-sink-virtual-r2-11-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
     }
   ],
   "failed_requests": [
@@ -2967,6 +4973,12 @@
       "operations": 5
     },
     {
+      "session": "hq-lut",
+      "closed": true,
+      "exported_bundle": true,
+      "operations": 13
+    },
+    {
       "session": "im",
       "closed": true,
       "exported_bundle": true,
@@ -3013,6 +5025,18 @@
       "closed": true,
       "exported_bundle": true,
       "operations": 7
+    },
+    {
+      "session": "still-sink-finalizers",
+      "closed": true,
+      "exported_bundle": true,
+      "operations": 10
+    },
+    {
+      "session": "still-sink-virtual-r2",
+      "closed": true,
+      "exported_bundle": true,
+      "operations": 15
     }
   ],
   "lifecycle_results": [
@@ -3087,6 +5111,29 @@
         "format": "elf",
         "kind": "executable",
         "sha256": "dab3ce4b6c28a6c9ffd9f0b893dce1d08f3ee7302a09df87e518409e728be2f2",
+        "architecture": "arm64"
+      }
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/close.json",
+      "result": null
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/export.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/hq-lut/evidence-bundle.json",
+        "bytes": 96154,
+        "records": 10,
+        "unknowns": 0
+      }
+    },
+    {
+      "path": "research/evidence/rea/hq-lut/open.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "format": "elf",
+        "kind": "executable",
+        "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b",
         "architecture": "arm64"
       }
     },
@@ -3248,6 +5295,52 @@
     },
     {
       "path": "research/evidence/rea/libmpr-still-sink/open.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "kind": "executable",
+        "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9",
+        "architecture": "arm64"
+      }
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/close.json",
+      "result": null
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/export.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/still-sink-finalizers/evidence-bundle.json",
+        "bytes": 173440,
+        "records": 7,
+        "unknowns": 0
+      }
+    },
+    {
+      "path": "research/evidence/rea/still-sink-finalizers/open.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "kind": "executable",
+        "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9",
+        "architecture": "arm64"
+      }
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/close.json",
+      "result": null
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/export.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/still-sink-virtual-r2/evidence-bundle.json",
+        "bytes": 200306,
+        "records": 12,
+        "unknowns": 0
+      }
+    },
+    {
+      "path": "research/evidence/rea/still-sink-virtual-r2/open.json",
       "result": {
         "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
         "format": "elf",

@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/hongjunwu/Git/A7C2/research/evidence/rea/still-sink-virtual-r2/evidence-bundle.json\",\"bytes\":200306,\"records\":12,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/still-sink-virtual-r2/evidence-bundle.json",
+      "bytes": 200306,
+      "records": 12,
+      "unknowns": 0
+    }
+  }
+}

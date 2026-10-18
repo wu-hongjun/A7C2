@@ -1,0 +1,116 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_af5b4de1a8823d10db49971d872cca98f479d4634e3a1beb378ca8e2c00e790e\",\"subject\":{\"name\":\"appFw.so\",\"digest\":{\"sha256\":\"2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default+disabled:Decompiler Switch Analysis\",\"analysis_options\":{\"disabled_analyzers\":[\"Decompiler Switch Analysis\"]}},\"digest\":\"8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"file-offset:0x36fcfb0\"},\"raw_result\":{\"value\":\"\\nvoid FUN_037fcfb0(long param_1,undefined1 param_2,undefined1 param_3,int param_4,undefined4 param_5,\\n                 undefined8 param_6,undefined8 param_7,undefined8 param_8,undefined8 param_9,\\n                 undefined8 param_10)\\n\\n{\\n  int iVar1;\\n  int iVar2;\\n  undefined1 auStack_10 [2];\\n  undefined1 local_e;\\n  undefined1 local_d;\\n  undefined1 local_8;\\n  undefined1 local_7;\\n  undefined1 local_6;\\n  undefined1 local_5;\\n  undefined1 local_4;\\n  \\n  FUN_037f8af8(&local_8);\\n  FUN_037f8b74(auStack_10);\\n  local_7 = 0;\\n  local_6 = 1;\\n  local_5 = param_3;\\n  local_4 = param_2;\\n  if (param_4 == 9) {\\n    iVar1 = *(int *)(param_1 + 0x28);\\n    local_8 = 0;\\n    local_e = 4;\\n    local_d = 0;\\n    for (iVar2 = 0; iVar2 < iVar1; iVar2 = iVar2 + 1) {\\n      FUN_037fcf94(param_1,9,iVar2,param_5,&local_8,auStack_10,param_6,param_7,param_8,param_9,\\n                   param_10);\\n      *(int *)(param_1 + 0xc) = *(int *)(param_1 + 0xc) + 1;\\n      *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + 1;\\n    }\\n  }\\n  FUN_037f8b88(auStack_10);\\n  return;\\n}\\n\\n\",\"limitations\":[],\"selection\":{\"file_offset\":57659312,\"mapped_address\":\"0x37fcfb0\",\"procedure_address\":\"0x37fcfb0\"}},\"normalized_result\":\"\\nvoid FUN_037fcfb0(long param_1,undefined1 param_2,undefined1 param_3,int param_4,undefined4 param_5,\\n                 undefined8 param_6,undefined8 param_7,undefined8 param_8,undefined8 param_9,\\n                 undefined8 param_10)\\n\\n{\\n  int iVar1;\\n  int iVar2;\\n  undefined1 auStack_10 [2];\\n  undefined1 local_e;\\n  undefined1 local_d;\\n  undefined1 local_8;\\n  undefined1 local_7;\\n  undefined1 local_6;\\n  undefined1 local_5;\\n  undefined1 local_4;\\n  \\n  FUN_037f8af8(&local_8);\\n  FUN_037f8b74(auStack_10);\\n  local_7 = 0;\\n  local_6 = 1;\\n  local_5 = param_3;\\n  local_4 = param_2;\\n  if (param_4 == 9) {\\n    iVar1 = *(int *)(param_1 + 0x28);\\n    local_8 = 0;\\n    local_e = 4;\\n    local_d = 0;\\n    for (iVar2 = 0; iVar2 < iVar1; iVar2 = iVar2 + 1) {\\n      FUN_037fcf94(param_1,9,iVar2,param_5,&local_8,auStack_10,param_6,param_7,param_8,param_9,\\n                   param_10);\\n      *(int *)(param_1 + 0xc) = *(int *)(param_1 + 0xc) + 1;\\n      *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + 1;\\n    }\\n  }\\n  FUN_037f8b88(auStack_10);\\n  return;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[{\"kind\":\"file-offset\",\"offset\":57659312},{\"kind\":\"address\",\"address\":\"0x37fcfb0\"},{\"kind\":\"address\",\"address\":\"0x37fcfb0\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_af5b4de1a8823d10db49971d872cca98f479d4634e3a1beb378ca8e2c00e790e",
+    "subject": {
+      "name": "appFw.so",
+      "digest": {
+        "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "arm64",
+        "available_architectures": [
+          "arm64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-v1",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+        "analysis_options": {
+          "disabled_analyzers": [
+            "Decompiler Switch Analysis"
+          ]
+        }
+      },
+      "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "file-offset:0x36fcfb0"
+    },
+    "raw_result": {
+      "value": "\nvoid FUN_037fcfb0(long param_1,undefined1 param_2,undefined1 param_3,int param_4,undefined4 param_5,\n                 undefined8 param_6,undefined8 param_7,undefined8 param_8,undefined8 param_9,\n                 undefined8 param_10)\n\n{\n  int iVar1;\n  int iVar2;\n  undefined1 auStack_10 [2];\n  undefined1 local_e;\n  undefined1 local_d;\n  undefined1 local_8;\n  undefined1 local_7;\n  undefined1 local_6;\n  undefined1 local_5;\n  undefined1 local_4;\n  \n  FUN_037f8af8(&local_8);\n  FUN_037f8b74(auStack_10);\n  local_7 = 0;\n  local_6 = 1;\n  local_5 = param_3;\n  local_4 = param_2;\n  if (param_4 == 9) {\n    iVar1 = *(int *)(param_1 + 0x28);\n    local_8 = 0;\n    local_e = 4;\n    local_d = 0;\n    for (iVar2 = 0; iVar2 < iVar1; iVar2 = iVar2 + 1) {\n      FUN_037fcf94(param_1,9,iVar2,param_5,&local_8,auStack_10,param_6,param_7,param_8,param_9,\n                   param_10);\n      *(int *)(param_1 + 0xc) = *(int *)(param_1 + 0xc) + 1;\n      *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + 1;\n    }\n  }\n  FUN_037f8b88(auStack_10);\n  return;\n}\n\n",
+      "limitations": [],
+      "selection": {
+        "file_offset": 57659312,
+        "mapped_address": "0x37fcfb0",
+        "procedure_address": "0x37fcfb0"
+      }
+    },
+    "normalized_result": "\nvoid FUN_037fcfb0(long param_1,undefined1 param_2,undefined1 param_3,int param_4,undefined4 param_5,\n                 undefined8 param_6,undefined8 param_7,undefined8 param_8,undefined8 param_9,\n                 undefined8 param_10)\n\n{\n  int iVar1;\n  int iVar2;\n  undefined1 auStack_10 [2];\n  undefined1 local_e;\n  undefined1 local_d;\n  undefined1 local_8;\n  undefined1 local_7;\n  undefined1 local_6;\n  undefined1 local_5;\n  undefined1 local_4;\n  \n  FUN_037f8af8(&local_8);\n  FUN_037f8b74(auStack_10);\n  local_7 = 0;\n  local_6 = 1;\n  local_5 = param_3;\n  local_4 = param_2;\n  if (param_4 == 9) {\n    iVar1 = *(int *)(param_1 + 0x28);\n    local_8 = 0;\n    local_e = 4;\n    local_d = 0;\n    for (iVar2 = 0; iVar2 < iVar1; iVar2 = iVar2 + 1) {\n      FUN_037fcf94(param_1,9,iVar2,param_5,&local_8,auStack_10,param_6,param_7,param_8,param_9,\n                   param_10);\n      *(int *)(param_1 + 0xc) = *(int *)(param_1 + 0xc) + 1;\n      *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + 1;\n    }\n  }\n  FUN_037f8b88(auStack_10);\n  return;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [
+      {
+        "kind": "file-offset",
+        "offset": 57659312
+      },
+      {
+        "kind": "address",
+        "address": "0x37fcfb0"
+      },
+      {
+        "kind": "address",
+        "address": "0x37fcfb0"
+      }
+    ],
+    "evidence_links": []
+  }
+}

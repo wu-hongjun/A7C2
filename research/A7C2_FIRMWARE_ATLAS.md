@@ -1,8 +1,8 @@
 # A7C II firmware architecture and LUT investigation
 
-October 17, 2026. Input: the pinned official ILCE-7CM2 firmware 2.01 already downloaded for this project. No camera connection, module upload, on-camera execution or camera installation was performed for this investigation. Selected CP metadata builders were exercised only in bounded host emulation, with external operations stubbed.
+October 17, 2026. Input: the pinned official ILCE-7CM2 firmware 2.01 already downloaded for this project. No camera connection, module upload, on-camera execution or camera installation was performed for this investigation. Selected AP conversion and CP metadata/descriptor routines were exercised only in bounded host emulation, with external operations stubbed.
 
-The firmware has two principal software environments: an ARM64 Linux application system and a separate mixed ARM/Thumb imaging system with TOPPERS-FMP/SOLID build evidence. The application is assembled through an initialization registry and dynamically loaded modules. LUT-related code separates into recording metadata, Creative Look color processing, and MLUT hardware configuration. **The ordinary native LUT format and its producer are now recovered. Full-resolution saved-still routing through MLUT remains unproven.** A callback context can be followed through one structurally present sequence, but its recovered selector does not choose that variant for the tested mode domain; a selected alternative still needs classification.
+The firmware has two principal software environments: an ARM64 Linux application system and a separate mixed ARM/Thumb imaging system with TOPPERS-FMP/SOLID build evidence. The application is assembled through an initialization registry and dynamically loaded modules. LUT-related code separates into recording metadata, Creative Look color processing, and MLUT hardware configuration. **The ordinary native LUT format is recovered, and the HQ converter now executes offline through its actual serializer. Full-resolution saved-still routing through MLUT remains unproven.** A callback context can be followed through one structurally present sequence, but its recovered selector does not choose that variant for the tested mode domain; a selected alternative still needs classification.
 
 This is a map of inspected bytes and code relationships. Installed firmware, running privileges, usable memory and actual frame behavior on this camera remain unmeasured.
 
@@ -15,6 +15,10 @@ This is a map of inspected bytes and code relationships. Installed firmware, run
 | [AP native LUT resources](AP_LUT_RESOURCES.md) | Numbered native files, bounded reader, mapped-memory copy and payload-request fields |
 | [CP architecture](CP_ARCHITECTURE.md) | Startup and memory map, RTOS clues, message handler, snapshots, VFX records, MLUT drivers and registers |
 | [Native LUT format](NATIVE_LUT_FORMAT.md) | Actual CUBE producer, reversible ordinary packing, quantization, parser behavior and alternate-converter boundary |
+| [HQ LUT format](HQ_LUT_FORMAT.md) | Original vendor conversion, populated grid, numeric packing and 128-byte register serialization |
+| [Native LUT transfer](LUT_TRANSFER.md) | AP staging/destination resources, kernel DMA descriptor construction and a bounded fragmented-allocation counterexample |
+| [CP JPEG encoder boundary](STILL_ENCODER_ROUTE.md) | Named request descriptors, image geometry, work-buffer validation and unresolved MLUT join |
+| [AP saved-file sink](STILL_SINK.md) | Resolved JPEG/HEIF methods, finalization, area lists, asynchronous filesystem submission and callback |
 | [MLUT SRAM/register layout](MLUT_LAYOUT.md) | Named stock tables, exhaustive bank-layout comparisons and register-payload fields |
 | [Still MLUT route](STILL_MLUT_ROUTE.md) | Callback identity, selector gate, fallback sequence, resource groups, geometry sources and dimension limits |
 | [AP still-recording boundary](STILL_RECORDING_BOUNDARY.md) | Additional REA recording/parameter/virtual-interface evidence and the missing capture-buffer connection |
@@ -125,7 +129,9 @@ The ordinary CUBE path quantizes each finite output channel with Float64 fused `
 
 Ten original-packer cases matched **480,000 bytes**, and inverse checks recovered **147,390 retained samples**. Eighteen parser/writer/boundary checks additionally expose compatibility differences: tested `DOMAIN_MIN/MAX` lines are ignored, nondefault `LUT_3D_INPUT_RANGE` is rejected, and extra complete rows are ignored. These are bounded original-instruction tests with explicit libc stubs, not a general parser-conformance claim.
 
-The branch selector is model parameter **`0x1a5d`, `import_lut_hq_conversion`**: OFF selects ordinary packing and ON selects the alternate vendor converter. The runtime value and product defaults remain unmeasured. The alternate branch prepares blue-fastest float4 input, passes separate output pointers at buffer offsets 0 and 48,000 to that converter, and returns a 48,128-byte descriptor. Its converter was intercepted at entry, so complete alternate serialization and the remaining four bytes are unresolved. Both examined normal import paths remove existing native/text files before writing replacements; the low-level writer's missing `O_TRUNC` does not establish a retained-tail bug in that workflow. The correct color domain for a still-image stage is still unresolved.
+The branch selector is model parameter **`0x1a5d`, `import_lut_hq_conversion`**: OFF selects ordinary packing and ON selects the HQ vendor converter. The runtime value and product defaults remain unmeasured. The HQ branch prepares blue-fastest float4 input. The newer host harness executes its original conversion and serializer rather than intercepting the converter entry: it emits 48,000 SRAM bytes and **128 register bytes**, comprising 124 content bytes plus four zero bytes from the original 32-byte alignment loop. CP consumes the 124 content bytes. A separate [section trace](evidence/hq-sections.json) captures the actual 124→128 emitter call, all four original padding stores, and 28 isolated alignment checks. Identity and channel-permutation fixtures establish a fully populated **20³ grid** with narrower-range thresholds in the tested identities, instead of ordinary conversion's padded 17³ grid. The independent quantizer check and exact byte-layout coverage are recorded in [HQ LUT format](HQ_LUT_FORMAT.md). A separate [coordinate check](evidence/hq-coordinates.json) recovers fixed Float64 endpoint constants near 0.092864 and 0.868998 and a Float32 affine mapping that exactly matches all 24,000 captured identity samples and all 20 register thresholds. These coordinate anchors are not identified as clipping levels or a color standard; upstream nonlinear resampling and the general color-domain contract remain unresolved.
+
+Both examined normal import paths remove existing native/text files before writing replacements; the low-level writer's missing `O_TRUNC` does not establish a retained-tail bug in that workflow. [Transfer tracing](LUT_TRANSFER.md) now proves that AP copies to a staging resource, transfers with source/destination offsets zero, and forwards the destination ID into LUT registration inputs. A kernel descriptor-builder counterexample with synthetic fragmented resources emits 54,939 bytes for 48,000/48,128-byte requests. Single-segment fixtures emit exactly the requested length. This is a bounded warning about a proposed custom resource contract, not a demonstrated overrun during normal camera LUT import; neither DMA nor a camera was exercised.
 
 The register work independently recovers the overall-enable, CPU-access, bank/channel, pre/post-black and RGB switch fields. All **128** isolated switch-builder cases pass. Input threshold meaning and silicon interpolation remain distinct from the AP output quantizer. [Native format](NATIVE_LUT_FORMAT.md), [stock tables and register fields](MLUT_LAYOUT.md).
 
@@ -133,7 +139,25 @@ The register work independently recovers the overall-enable, CPU-access, bank/ch
 
 The resource lookup maps four ownership slots into seven single/combined indices. The dimension validation and register setters accept 7008 × 4672 in host memory and use 15-bit fields. **That establishes API representability, not supported hardware dimensions, throughput or saved-still routing.** The new CP pass covers 32 decoded regions and 65,621 bounded host cases, including exhaustive mode-gate checks; it does not process an image.
 
-The AP recording pass adds ten real REA records and eight complete instruction ranges. It follows descriptor copying, media-object adapters, metadata and worker queues. Unresolved virtual operations and buffer ownership prevent treating `mpr::RecordStill` as a ready-made pre-encode pixel hook. The decisive missing connection is still a real full-resolution development buffer routed through the selected MLUT resource into the saved-frame encoder. [CP route](STILL_MLUT_ROUTE.md), [AP recording boundary](STILL_RECORDING_BOUNDARY.md).
+The newer CP pass recovers a native JPEG request with firmware-named `inputYcSdsUnitType/Handle/DataOffset`, stream descriptors, `jpegImageSizeX/Y`, and an optional work-buffer extent of `2*w*h` using 32-bit arithmetic. A synthetic 7008 × 4672 request produces 65,482,752 bytes at that check. Geometry transport and capacity checks execute as isolated host cases, with descriptor resolution and common initialization stubbed. The processing chain reaches `ModuleEncodeJpeg`, `WrapJpegEncode`, a start/wait boundary and result getters. A scalar propagates into a later notification header; its relationship to a two-byte SOI addition makes encoded length a supported inference. Generic delivery occurs **after** processing and must not be described as the encoder invocation. These are software contracts and static relationships, not successful hardware encoding or a hardware-resolution claim. [CP JPEG boundary](STILL_ENCODER_ROUTE.md).
+
+The AP pass resolves JPEG/ARW/HEIF vtables and separates normal finalization at virtual slot `+0x18` from a conversion branch at `+0x40`. Both construct area records consumed by the asynchronous file writer. The normal JPEG finalizer copies a supplied area descriptor rather than providing a demonstrated RGB hook. The writer consumes object `+0x11f0` / `+0x11f8`, builds pointer/length vectors and calls `Fsys_WriteDirectFileAsyncV2`, with a separate callback into a write-finished queue. The preceding AP queue handler also classifies two 0x2fc-byte result records and forwards JPEG/RAW/HEIF pointers into `RecordStill`; its event producer and CP message correspondence remain unknown. These file-side endpoints are now explicit, but their encoded-image areas have not been joined to the CP JPEG result or selected MLUT frame buffer. [AP recording boundary](STILL_RECORDING_BOUNDARY.md), [resolved saved-file sink](STILL_SINK.md).
+
+```mermaid
+flowchart LR
+  A[Selected CP MLUT sequence] -. missing input buffer join .-> B[CP JPEG processing]
+  B -. missing result handoff .-> C[AP JPEG image areas]
+  A -. unresolved .-> H[HEIF encoder unresolved]
+  H -. missing result handoff .-> I[AP HEIF image areas]
+  C --> D[JPEG finalizer]
+  I --> J[HEIF finalizer]
+  D --> E[Media object area list]
+  J --> E
+  E --> F[Asynchronous filesystem writer]
+  F --> G[Completion callback and queue]
+```
+
+The dashed edges remain unresolved. No captured or encoded image was produced during the investigation.
 
 ### Creative Look and CamCore tables
 
@@ -145,7 +169,7 @@ The FL2/FL3 port modifies native look dispatch, tone curves, chroma and matrices
 
 [Toolchain identities](toolchains/rea.json), [the static-query driver](run_rea.mjs), and [the evidence index](evidence/rea/index.json) retain the boundaries. The REA firmware-region adapters require Linux tooling in this release; Sony container decoding used the already-pinned fwtool instead. Mixed ARM/Thumb CP analysis used an explicit recovered map and Capstone rather than claiming unsupported raw-Thumb REA results.
 
-The retained results comprise **42 successful REA Evidence records, including 35 pseudocode records, across six binary identities**. Default Ghidra analysis completed for the large `appFw.so`; its main LUT selection helper corroborates the instruction map. The separate procam helper was not recognized as a procedure by that database, so its failed query is retained and its instructions remain separately labeled Capstone evidence. The alternate profile without automatic switch recovery was stopped after the default run completed; no results are claimed from it. All twelve sessions in the retained REA index have explicit successful close receipts, including unsuccessful/cancelled attempts. Earlier JDK setup failures are documented separately in the toolchain record.
+The retained results comprise **71 successful REA Evidence records, including 64 pseudocode records, across six binary identities**. Default Ghidra analysis completed for the large `appFw.so`; its main LUT selection helper corroborates the instruction map. The separate procam helper was not recognized as a procedure by that database, so its failed query is retained and its instructions remain separately labeled Capstone evidence. The alternate profile without automatic switch recovery was stopped after the default run completed; no results are claimed from it. All fifteen sessions in the retained REA index have explicit successful close receipts. The new HQ session explicitly disables `Decompiler Switch Analysis` and has a distinct analysis-profile digest; its focused coverage is not equivalent to the earlier default-analysis run. Two preliminary HQ attempts were stopped before any successful function result and their diagnostics remain in ignored build storage. Earlier JDK setup failures are documented separately in the toolchain record.
 
 Pseudocode was checked against instruction-level evidence. In particular, missing output-pointer effects can make the CUBE prefix length appear zero, and an incompletely modeled virtual call can make metadata branches appear unreachable. These are decompiler-model limitations, not proof that the firmware lacks those effects. Failed selector requests are retained separately and excluded from successful Evidence counts.
 
@@ -162,6 +186,15 @@ The [verification record](evidence/deep-dive-verification.json) checks concrete 
 .venv-research/bin/python research/trace_mlut_layout.py
 .venv-research/bin/python research/trace_still_mlut.py
 .venv-research/bin/python research/trace_still_recording.py
+.venv-research/bin/python research/trace_hq_lut.py --grid 17 --pattern identity
+.venv-research/bin/python research/trace_hq_lut.py --grid 17 --pattern permutation
+.venv-research/bin/python research/trace_hq_lut.py --grid 33 --pattern identity
+.venv-research/bin/python research/trace_hq_lut.py --summarize
+.venv-research/bin/python research/trace_hq_coordinates.py
+.venv-research/bin/python research/trace_hq_sections.py
+.venv-research/bin/python research/trace_lut_transfer.py
+.venv-research/bin/python research/trace_still_encoder.py
+.venv-research/bin/python research/trace_still_sink.py
 .venv-research/bin/python research/check_lut_reference.py
 .venv-research/bin/python research/summarize_rea.py
 .venv-research/bin/python research/verify_deep_dive.py
@@ -179,10 +212,10 @@ The CP mapper includes its bounded host-emulation cases. The retained REA result
 | How does the application load? | Init scripts, boot supervisor, loader code and structured initialization registry recovered |
 | Why can a temporary native module execute? | SET_FILE2's designated-path `dlopen` special case corroborated; this body's privileges unmeasured |
 | What do AP LUT APIs do? | Recording metadata and a separate CP control message identified and mapped |
-| What is the native LUT payload? | Ordinary 48,000-byte format, producer, quantization and inverse recovered; alternate converter's full serialization remains unresolved |
+| What is the native LUT payload? | Ordinary packing recovered; HQ executes offline and serializes a populated 20³ grid plus 128 register bytes; upstream resampling remains partial |
 | Does supplied LUT state reach imaging-control code? | Snapshot/builder and callback identity structurally joined for one variant; its selector gate and the selected alternative prevent a live-frame claim |
 | Can arbitrary LUTs be baked into full-resolution stills? | Unresolved: actual selected still route, buffer/color domain and ownership/completion contract |
 | Can the official update be repacked and accepted? | Not established; decryptability and CRC checks do not prove authenticity/signature acceptance |
 | Can a damaged camera always be recovered? | Not established; neither a complete flash backup nor a verified power-loss recovery procedure exists |
 
-The next firmware work is to classify the selected alternative sequence, follow its runtime geometry and pixel buffers into a saved-frame encoder, complete alternate LUT serialization, and recover completion/cancellation and DMA ownership. The [host reference LUT processor](LUT_REFERENCE.md) is implemented separately: its 17/33-point CUBE evaluation passed 8,016 OpenColorIO comparisons, plus independent analytic/scalar and image-output checks. It is a computer-only numerical reference, with full-frame Pillow allocations and no camera performance claim. No installer or live camera experiment follows automatically from this map.
+The next firmware work is to classify the selected alternative sequence, follow its image resource into the now-named JPEG input descriptor, join the encoded result to AP saved-file areas, and recover completion/cancellation, color domain and DMA ownership. HQ resampling coverage must remain separate from serialization recovery. The [host reference LUT processor](LUT_REFERENCE.md) is implemented separately: its 17/33-point CUBE evaluation passed 8,016 OpenColorIO comparisons, plus independent analytic/scalar and image-output checks. It is a computer-only numerical reference, with full-frame Pillow allocations and no camera performance claim. No installer or live camera experiment follows automatically from this map.

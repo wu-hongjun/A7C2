@@ -1,0 +1,123 @@
+{
+  "camera_accessed": false,
+  "target_execution_requested": false,
+  "operations": [
+    {
+      "operation": "open_binary",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/appFw.so",
+        "provider_id": "ghidra"
+      },
+      "result_file": "open.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:21:40.717Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f6900"
+      },
+      "result_file": "00-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.496Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36fcfb0"
+      },
+      "result_file": "01-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.506Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f7c34"
+      },
+      "result_file": "02-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.523Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f9d00"
+      },
+      "result_file": "03-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.535Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36fc5a4"
+      },
+      "result_file": "04-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.564Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f3d30"
+      },
+      "result_file": "05-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.579Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f0b8c"
+      },
+      "result_file": "06-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.584Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x3702404"
+      },
+      "result_file": "07-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.606Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f8990"
+      },
+      "result_file": "08-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.617Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x36f8578"
+      },
+      "result_file": "09-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.644Z"
+    },
+    {
+      "operation": "export_evidence_bundle",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/hq-lut/evidence-bundle.json"
+      },
+      "result_file": "export.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:03.654Z"
+    },
+    {
+      "operation": "close_binary",
+      "arguments": {},
+      "result_file": "close.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:31:04.391Z"
+    }
+  ],
+  "diagnostic": ""
+}

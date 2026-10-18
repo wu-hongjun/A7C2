@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_3de9c2a8388089c0443c6e23a5eccbb8538dc13e2386f82df448a7e1b01d5694\",\"subject\":{\"name\":\"libmpr.so\",\"digest\":{\"sha256\":\"4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\"},\"digest\":\"73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"file-offset:0x25caf4\"},\"raw_result\":{\"value\":\"\\nundefined8\\n_ZN7HEIFLib3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\\n          (undefined8 *param_1,uint *param_2,undefined1 param_3,undefined8 param_4)\\n\\n{\\n  long lVar1;\\n  uint uVar2;\\n  long lVar3;\\n  int iVar4;\\n  undefined2 local_10;\\n  undefined2 local_e;\\n  undefined1 local_c;\\n  undefined1 local_b;\\n  undefined1 local_a;\\n  undefined1 local_9;\\n  undefined4 local_8;\\n  undefined4 uStack_4;\\n  \\n  local_c = 2;\\n  local_10 = 0x2261;\\n  local_e = 0x2001;\\n  local_b = 0;\\n  local_a = 0;\\n  local_9 = 0;\\n  local_8 = 0;\\n  uStack_4 = 0;\\n  FUN_0035b938(&local_10,0x10);\\n  FUN_0035e790(0,0,3,0x22d,0,0);\\n  FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x22e,&DAT_003dc0a8);\\n  FUN_0035e7a8(1,\\\"start  ------------------------\\\\n\\\");\\n  iVar4 = 0;\\n  _ZN10HEIFCoreIf3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\\n            (*param_1,param_2,param_3,param_4);\\n  FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x231,&DAT_003dc0a8);\\n  FUN_0035e7a8(1,\\\"WriteList\\\\n\\\");\\n  for (uVar2 = 0; uVar2 < *param_2; uVar2 = uVar2 + 1) {\\n    FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x235,&DAT_003dc0a8);\\n    lVar3 = (ulong)uVar2 * 0x18;\\n    lVar1 = *(long *)(param_2 + 2) + lVar3;\\n    FUN_0035e7a8(1,\\\"%d p:%08X l:%08X %d\\\\n\\\",uVar2,*(undefined8 *)(*(long *)(param_2 + 2) + lVar3),\\n                 *(undefined8 *)(lVar1 + 8),*(undefined4 *)(lVar1 + 0x10));\\n    iVar4 = iVar4 + *(int *)(*(long *)(param_2 + 2) + lVar3 + 0x10);\\n  }\\n  FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x238,&DAT_003dc0a8);\\n  FUN_0035e7a8(1,\\\"WriteSize Total %08X\\\\n\\\",iVar4);\\n  FUN_0035e790(0,1,3,0x23a,0,0);\\n  return 0;\\n}\\n\\n\",\"limitations\":[],\"selection\":{\"file_offset\":2476788,\"mapped_address\":\"0x35caf4\",\"procedure_address\":\"0x35caf4\"}},\"normalized_result\":\"\\nundefined8\\n_ZN7HEIFLib3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\\n          (undefined8 *param_1,uint *param_2,undefined1 param_3,undefined8 param_4)\\n\\n{\\n  long lVar1;\\n  uint uVar2;\\n  long lVar3;\\n  int iVar4;\\n  undefined2 local_10;\\n  undefined2 local_e;\\n  undefined1 local_c;\\n  undefined1 local_b;\\n  undefined1 local_a;\\n  undefined1 local_9;\\n  undefined4 local_8;\\n  undefined4 uStack_4;\\n  \\n  local_c = 2;\\n  local_10 = 0x2261;\\n  local_e = 0x2001;\\n  local_b = 0;\\n  local_a = 0;\\n  local_9 = 0;\\n  local_8 = 0;\\n  uStack_4 = 0;\\n  FUN_0035b938(&local_10,0x10);\\n  FUN_0035e790(0,0,3,0x22d,0,0);\\n  FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x22e,&DAT_003dc0a8);\\n  FUN_0035e7a8(1,\\\"start  ------------------------\\\\n\\\");\\n  iVar4 = 0;\\n  _ZN10HEIFCoreIf3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\\n            (*param_1,param_2,param_3,param_4);\\n  FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x231,&DAT_003dc0a8);\\n  FUN_0035e7a8(1,\\\"WriteList\\\\n\\\");\\n  for (uVar2 = 0; uVar2 < *param_2; uVar2 = uVar2 + 1) {\\n    FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x235,&DAT_003dc0a8);\\n    lVar3 = (ulong)uVar2 * 0x18;\\n    lVar1 = *(long *)(param_2 + 2) + lVar3;\\n    FUN_0035e7a8(1,\\\"%d p:%08X l:%08X %d\\\\n\\\",uVar2,*(undefined8 *)(*(long *)(param_2 + 2) + lVar3),\\n                 *(undefined8 *)(lVar1 + 8),*(undefined4 *)(lVar1 + 0x10));\\n    iVar4 = iVar4 + *(int *)(*(long *)(param_2 + 2) + lVar3 + 0x10);\\n  }\\n  FUN_0035e7a8(1,\\\"HEIFLib LIB :%4d %s \\\",0x238,&DAT_003dc0a8);\\n  FUN_0035e7a8(1,\\\"WriteSize Total %08X\\\\n\\\",iVar4);\\n  FUN_0035e790(0,1,3,0x23a,0,0);\\n  return 0;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[{\"kind\":\"file-offset\",\"offset\":2476788},{\"kind\":\"address\",\"address\":\"0x35caf4\"},{\"kind\":\"address\",\"address\":\"0x35caf4\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_3de9c2a8388089c0443c6e23a5eccbb8538dc13e2386f82df448a7e1b01d5694",
+    "subject": {
+      "name": "libmpr.so",
+      "digest": {
+        "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "arm64",
+        "available_architectures": [
+          "arm64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-v1",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default"
+      },
+      "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "file-offset:0x25caf4"
+    },
+    "raw_result": {
+      "value": "\nundefined8\n_ZN7HEIFLib3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\n          (undefined8 *param_1,uint *param_2,undefined1 param_3,undefined8 param_4)\n\n{\n  long lVar1;\n  uint uVar2;\n  long lVar3;\n  int iVar4;\n  undefined2 local_10;\n  undefined2 local_e;\n  undefined1 local_c;\n  undefined1 local_b;\n  undefined1 local_a;\n  undefined1 local_9;\n  undefined4 local_8;\n  undefined4 uStack_4;\n  \n  local_c = 2;\n  local_10 = 0x2261;\n  local_e = 0x2001;\n  local_b = 0;\n  local_a = 0;\n  local_9 = 0;\n  local_8 = 0;\n  uStack_4 = 0;\n  FUN_0035b938(&local_10,0x10);\n  FUN_0035e790(0,0,3,0x22d,0,0);\n  FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x22e,&DAT_003dc0a8);\n  FUN_0035e7a8(1,\"start  ------------------------\\n\");\n  iVar4 = 0;\n  _ZN10HEIFCoreIf3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\n            (*param_1,param_2,param_3,param_4);\n  FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x231,&DAT_003dc0a8);\n  FUN_0035e7a8(1,\"WriteList\\n\");\n  for (uVar2 = 0; uVar2 < *param_2; uVar2 = uVar2 + 1) {\n    FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x235,&DAT_003dc0a8);\n    lVar3 = (ulong)uVar2 * 0x18;\n    lVar1 = *(long *)(param_2 + 2) + lVar3;\n    FUN_0035e7a8(1,\"%d p:%08X l:%08X %d\\n\",uVar2,*(undefined8 *)(*(long *)(param_2 + 2) + lVar3),\n                 *(undefined8 *)(lVar1 + 8),*(undefined4 *)(lVar1 + 0x10));\n    iVar4 = iVar4 + *(int *)(*(long *)(param_2 + 2) + lVar3 + 0x10);\n  }\n  FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x238,&DAT_003dc0a8);\n  FUN_0035e7a8(1,\"WriteSize Total %08X\\n\",iVar4);\n  FUN_0035e790(0,1,3,0x23a,0,0);\n  return 0;\n}\n\n",
+      "limitations": [],
+      "selection": {
+        "file_offset": 2476788,
+        "mapped_address": "0x35caf4",
+        "procedure_address": "0x35caf4"
+      }
+    },
+    "normalized_result": "\nundefined8\n_ZN7HEIFLib3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\n          (undefined8 *param_1,uint *param_2,undefined1 param_3,undefined8 param_4)\n\n{\n  long lVar1;\n  uint uVar2;\n  long lVar3;\n  int iVar4;\n  undefined2 local_10;\n  undefined2 local_e;\n  undefined1 local_c;\n  undefined1 local_b;\n  undefined1 local_a;\n  undefined1 local_9;\n  undefined4 local_8;\n  undefined4 uStack_4;\n  \n  local_c = 2;\n  local_10 = 0x2261;\n  local_e = 0x2001;\n  local_b = 0;\n  local_a = 0;\n  local_9 = 0;\n  local_8 = 0;\n  uStack_4 = 0;\n  FUN_0035b938(&local_10,0x10);\n  FUN_0035e790(0,0,3,0x22d,0,0);\n  FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x22e,&DAT_003dc0a8);\n  FUN_0035e7a8(1,\"start  ------------------------\\n\");\n  iVar4 = 0;\n  _ZN10HEIFCoreIf3FinEPN10HEIFCommon17AREA_MULTI_LIST_TEbPN3mpr8libcrypt10assetParamE\n            (*param_1,param_2,param_3,param_4);\n  FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x231,&DAT_003dc0a8);\n  FUN_0035e7a8(1,\"WriteList\\n\");\n  for (uVar2 = 0; uVar2 < *param_2; uVar2 = uVar2 + 1) {\n    FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x235,&DAT_003dc0a8);\n    lVar3 = (ulong)uVar2 * 0x18;\n    lVar1 = *(long *)(param_2 + 2) + lVar3;\n    FUN_0035e7a8(1,\"%d p:%08X l:%08X %d\\n\",uVar2,*(undefined8 *)(*(long *)(param_2 + 2) + lVar3),\n                 *(undefined8 *)(lVar1 + 8),*(undefined4 *)(lVar1 + 0x10));\n    iVar4 = iVar4 + *(int *)(*(long *)(param_2 + 2) + lVar3 + 0x10);\n  }\n  FUN_0035e7a8(1,\"HEIFLib LIB :%4d %s \",0x238,&DAT_003dc0a8);\n  FUN_0035e7a8(1,\"WriteSize Total %08X\\n\",iVar4);\n  FUN_0035e790(0,1,3,0x23a,0,0);\n  return 0;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [
+      {
+        "kind": "file-offset",
+        "offset": 2476788
+      },
+      {
+        "kind": "address",
+        "address": "0x35caf4"
+      },
+      {
+        "kind": "address",
+        "address": "0x35caf4"
+      }
+    ],
+    "evidence_links": []
+  }
+}

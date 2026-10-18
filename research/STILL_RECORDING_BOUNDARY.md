@@ -1,5 +1,7 @@
 # AP still-recording boundary and the MLUT question
 
+**Later follow-up:** [STILL_SINK.md](STILL_SINK.md) adds original-instruction evidence beyond the bounded pass below. Earlier unresolved statements here describe that earlier evidence scope.
+
 The additional REA/Ghidra pass follows `mpr::RecordStill`, its implementation, parameter storage and media-object adapters in the original A7C II 2.01 `libmpr.so`. It identifies recording queues and deferred object operations, but **does not connect a full-resolution capture buffer to MLUT**. The name `RecordStill` is not itself a pre-encode pixel interface.
 
 No camera connection was opened and no camera was accessed. No firmware code ran on the camera. REA performed native static analysis; this pass did not emulate these media operations or invoke any virtual method.

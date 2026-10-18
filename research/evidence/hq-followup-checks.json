@@ -1,0 +1,37 @@
+{
+  "date_utc": "2026-10-18T01:39:30.932127+00:00",
+  "starting_commit": "b58bedffe228c5d11c09f4cfab4b0a06b7b5d9fa",
+  "camera_session_opened": false,
+  "camera_commands_sent": false,
+  "camera_upload_or_installation": false,
+  "research_network_requests": false,
+  "publication_network_scope": "User-authorized git publication to existing GitHub origin only",
+  "checks": {
+    "regression_unit_tests": 24,
+    "package_check_passed": true,
+    "pinned_source_archives": 9,
+    "pinned_source_files": 4132,
+    "new_instruction_records_verified_against_original_bytes": 11619,
+    "HQ_quantizer_samples_compared": 72000,
+    "HQ_fixed_affine_identity_samples_compared": 24000,
+    "HQ_alignment_cases": 28,
+    "fresh_HQ_permutation_output_reproduced": true,
+    "AP_saved_file_cases": 95,
+    "CP_JPEG_boundary_cases": 1311,
+    "LUT_transfer_characterizations": 15,
+    "included_fragmented_transfer_counterexamples": 4,
+    "REA_successful_records": 71,
+    "REA_closed_sessions": 15,
+    "local_Markdown_links_existing": 176,
+    "preexisting_missing_historical_ZIP_link": true,
+    "high_confidence_credential_patterns_found": 0,
+    "deployment_assets_unchanged": true
+  },
+  "full_resolution_saved_still_MLUT_route_proven": false,
+  "official_firmware_and_private_backups_excluded_from_publication": true,
+  "limits": [
+    "No camera or hardware imaging validation; external host-emulation operations are explicitly stubbed.",
+    "HQ nonlinear resampling/color-domain behavior and MLUT-to-saved-frame dataflow remain unresolved.",
+    "Four synthetic transfer cases intentionally retain excess descriptor lengths; passing characterization is not a correct-length transfer claim."
+  ]
+}

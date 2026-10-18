@@ -1,0 +1,32 @@
+test_backup_paths_are_separate_and_not_overwritten (test_backup_only.BackupTests.test_backup_paths_are_separate_and_not_overwritten) ... ok
+test_backup_workflow_uses_only_reads_and_verifies_two_copies (test_backup_only.BackupTests.test_backup_workflow_uses_only_reads_and_verifies_two_copies) ... Reading complete cpapp-b.bin
+Reading complete appFw.so
+Two complete backup copies verified; no installation performed.
+ok
+test_wrong_firmware_does_not_open_service (test_backup_only.BackupTests.test_wrong_firmware_does_not_open_service) ... ok
+test_asset_integrity (test_offline.OfflineTests.test_asset_integrity) ... ok
+test_each_body_keeps_own_calibration (test_offline.OfflineTests.test_each_body_keeps_own_calibration) ... ok
+test_native_frame_rejects_failure_and_foreign_model (test_offline.OfflineTests.test_native_frame_rejects_failure_and_foreign_model) ... ok
+test_occupied_slots_are_rejected (test_offline.OfflineTests.test_occupied_slots_are_rejected) ... ok
+test_preexisting_temp_is_not_overwritten (test_offline.OfflineTests.test_preexisting_temp_is_not_overwritten) ... ok
+test_unknown_native_result_sends_no_cleanup (test_offline.OfflineTests.test_unknown_native_result_sends_no_cleanup) ... ok
+test_unrelated_values_are_not_ignored (test_offline.OfflineTests.test_unrelated_values_are_not_ignored) ... ok
+test_wrong_image_and_fixed_window_guards (test_offline.OfflineTests.test_wrong_image_and_fixed_window_guards) ... ok
+test_counter_reset_change_rejected (test_preservation.PreservationTests.test_counter_reset_change_rejected) ... ok
+test_existing_counter_allowance_retained (test_preservation.PreservationTests.test_existing_counter_allowance_retained) ... ok
+test_missing_target_rejected (test_preservation.PreservationTests.test_missing_target_rejected) ... ok
+test_target_reset_change_rejected (test_preservation.PreservationTests.test_target_reset_change_rejected) ... ok
+test_unrelated_reset_change_rejected (test_preservation.PreservationTests.test_unrelated_reset_change_rejected) ... ok
+test_install_preserves_independent_memory_storage_baselines (test_preservation.SettingsTests.test_install_preserves_independent_memory_storage_baselines) ... ok
+test_outside_subsystem_storage_change_is_still_rejected (test_preservation.SettingsTests.test_outside_subsystem_storage_change_is_still_rejected) ... ok
+test_pending_reset_difference_rejected_before_writes (test_preservation.SettingsTests.test_pending_reset_difference_rejected_before_writes) ... ok
+test_restore_preserves_independent_memory_storage_baselines (test_preservation.SettingsTests.test_restore_preserves_independent_memory_storage_baselines) ... ok
+test_target_stored_reset_change_rejected (test_preservation.SettingsTests.test_target_stored_reset_change_rejected) ... ok
+test_unrelated_pending_saved_subsystem_edit_rejected_before_writes (test_preservation.SettingsTests.test_unrelated_pending_saved_subsystem_edit_rejected_before_writes) ... ok
+test_unrelated_stored_attribute_change_rejected (test_preservation.SettingsTests.test_unrelated_stored_attribute_change_rejected) ... ok
+test_unrelated_stored_change_rejected_install_and_restore (test_preservation.SettingsTests.test_unrelated_stored_change_rejected_install_and_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.038s
+
+OK

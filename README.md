@@ -2,7 +2,7 @@
 
 English | [繁體中文](./README.zh-TW.md)
 
-The [offline firmware architecture atlas](research/A7C2_FIRMWARE_ATLAS.md) maps the downloaded 2.01 image using REA/Ghidra, Capstone and bounded host emulation. It now includes a recovered ordinary native LUT format, producer, MLUT register layout and deeper sequence tracing. Full-resolution saved-still LUT integration remains unproven. No camera access or installation was used for that investigation.
+The [offline firmware architecture atlas](research/A7C2_FIRMWARE_ATLAS.md) maps the downloaded 2.01 image using REA/Ghidra, Capstone and bounded host emulation. It now includes ordinary and HQ native LUT conversion analysis, the MLUT register layout, interchip transfer checks, and concrete JPEG encoder and JPEG/HEIF saved-file boundaries. Full-resolution saved-still LUT integration remains unproven. No camera access or installation was used for that investigation.
 
 **Local revision 0.1.1-preview:** the three [CP review findings](research/CP_REVIEW.md) are fixed. This revision passes 24 host tests, 9,185 isolated CP cases, 259 AP converter cases, and full forward/reverse program hash checks. It has **zero hardware installation trials**; the one-body reports below describe the earlier 0.1.0 candidate. See [fixes and current evidence](research/FIXES.md). The historical ZIP below does not contain these fixes.
 

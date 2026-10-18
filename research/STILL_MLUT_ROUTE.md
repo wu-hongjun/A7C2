@@ -1,5 +1,7 @@
 # A7C II CP: LUT callback lifecycle and still-image routing
 
+**Later follow-up:** [STILL_ENCODER_ROUTE.md](STILL_ENCODER_ROUTE.md) adds original-instruction evidence beyond the bounded pass below. Earlier unresolved statements here describe that earlier evidence scope.
+
 Research date: October 17, 2026. Target: official A7C II 2.01 `cpapp-b.bin`, SHA-256 `f5a477588698ef965748903b8959a39ce4f59ffd4aee4d4234ef1670f56a1428`.
 
 **The previously unresolved context-instance edge can now be explained for one structurally present sequence path:** the parameter builder's context pointer is stored as callback userdata, and the actual list dispatcher, adapter and wrapper forward that same pointer to the MLUT consumer. However, the recovered upstream selector does not choose this particular sequence variant for any of the 65,536 tested 16-bit modes. **Full-resolution saved-still routing through MLUT remains unproven.** A separate result establishes that the MLUT dimension interface accepts 7008 × 4672; register representability is therefore not the barrier visible in this layer.

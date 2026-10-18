@@ -1,0 +1,141 @@
+{
+  "camera_accessed": false,
+  "target_execution_requested": false,
+  "operations": [
+    {
+      "operation": "open_binary",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "provider_id": "ghidra"
+      },
+      "result_file": "open.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:13:04.281Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26f24c"
+      },
+      "result_file": "00-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.408Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26ac20"
+      },
+      "result_file": "01-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.511Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x2796b0"
+      },
+      "result_file": "02-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.518Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x25c3ac"
+      },
+      "result_file": "03-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.572Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x25c118"
+      },
+      "result_file": "04-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.592Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x25bd78"
+      },
+      "result_file": "05-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.614Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x25caf4"
+      },
+      "result_file": "06-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.625Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xee528"
+      },
+      "result_file": "07-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.657Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xf183c"
+      },
+      "result_file": "08-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.772Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe81ac"
+      },
+      "result_file": "09-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.780Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26d540"
+      },
+      "result_file": "10-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.792Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26b4f0"
+      },
+      "result_file": "11-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.815Z"
+    },
+    {
+      "operation": "export_evidence_bundle",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/still-sink-virtual-r2/evidence-bundle.json"
+      },
+      "result_file": "export.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:15.827Z"
+    },
+    {
+      "operation": "close_binary",
+      "arguments": {},
+      "result_file": "close.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T01:14:16.285Z"
+    }
+  ],
+  "diagnostic": ""
+}
