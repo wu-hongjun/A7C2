@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-18",
+  "model": "ILCE-7CM2",
+  "queried_firmware_version": "2.01",
+  "revision": "0.1.1-preview",
+  "installation_complete": false,
+  "original_backup_files_verified": 8,
+  "native_prechecks_verified": ["probe", "installer mode 0", "WBI mode 0"],
+  "native_installer_mode_1_verified": true,
+  "native_window_writes": 40,
+  "independent_complete_readback_hashes": {
+    "appFw.so": "1aaeb8fbe0297950cab454d498d1a5ba874f91542aa2737aae27a73971e324d7",
+    "cpapp-b.bin": "60b9dc9d974cf1e32ddc7e72099fda80c328a84a5e6bd89790d62e36f8ed58ab"
+  },
+  "target_direct_readbacks_and_saves_ran": true,
+  "target_live_and_stored_data_verified_offline": true,
+  "failure_stage": "writing_settings",
+  "scoped_offline_review": {
+    "unrelated_live_properties_preserved": 53239,
+    "unrelated_stored_properties_preserved": 53241,
+    "attributes_and_reset_bytes_checked": true,
+    "existing_live_runtime_allowances": ["0x01070000", "0x02780000"],
+    "extra_live_delta": {"key": "0x02770015", "bytes": 4, "attribute": 2, "little_endian_delta": 60},
+    "extra_stored_delta": false,
+    "proven_duplicate_parser_byte": {
+      "array_key": "0x02cf1288",
+      "reported_reset_byte_index": 1,
+      "overlaps_property_data": "0x02cf1289",
+      "overlap_data_byte_index": 0,
+      "property_layouts_unchanged": true,
+      "other_array_data_and_reported_reset_bytes_unchanged": true
+    },
+    "global_preservation_whitelist_changed": false
+  },
+  "wbi_mode_1_ran": false,
+  "service_exit_sent": true,
+  "normal_msc_return_observed": true,
+  "cold_start_performed": false,
+  "runtime_or_photo_verification_complete": false,
+  "next_step": "explicitly_opted_in_finish_only_recovery_after_fresh_guards",
+  "finish_only_recovery_hardware_validated": false,
+  "raw_backups_settings_identity_and_operation_logs": "private_local_only"
+}

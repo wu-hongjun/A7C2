@@ -169,20 +169,23 @@ class Job:
         if self.state['phase']!='prepared':raise ValueError('需先完成準備；狀態未知時不允許重跑')
         if not 50<=battery<=100:raise ValueError('請確認電量至少50%，並保持連線')
         with Session(self.state['identity']) as session:
-            # Recheck every per-body target before any program-file write.
-            originals,_=self.units();current=core.backup_records(session.call(session.camera.getBackupPresetData,True))
-            if any(current[1][k].data!=v for k,v in originals.items()) or any(current[0][k].data!=b'\0' for k in core.AP_KEYS):
-                raise ValueError('準備後機身目標設定已變；請勿覆蓋')
-            self.module(session,'wbi',0)
-            self.save('writing_programs');event('正在寫入固定窗口；請勿拔線或關機。')
-            self.module(session,'installer',1)
-            self.save('programs_written');self.files(session,core.FINAL)
-            self.save('writing_settings');self.settings(session)
-            self.save('settings_verified');event('程式及保存設定已驗證，正在處理舊開機快照。')
-            self.module(session,'wbi',1)
+            self._install_body(session)
         self.save('installed_pending_cold_start')
         event('安裝及讀回完成。拔線、正常關機，等存取燈熄滅後取出電池10秒，再裝回開機。')
         event('請分別重設FL2/FL3、拍新照片及回放；目前是實驗預覽版。')
+    def _install_body(self,session):
+        # Caller owns phase/battery authorization and the identity-bound session.
+        # Recheck every per-body target before any program-file write.
+        originals,_=self.units();current=core.backup_records(session.call(session.camera.getBackupPresetData,True))
+        if any(current[1][k].data!=v for k,v in originals.items()) or any(current[0][k].data!=b'\0' for k in core.AP_KEYS):
+            raise ValueError('準備後機身目標設定已變；請勿覆蓋')
+        self.module(session,'wbi',0)
+        self.save('writing_programs');event('正在寫入固定窗口；請勿拔線或關機。')
+        self.module(session,'installer',1)
+        self.save('programs_written');self.files(session,core.FINAL)
+        self.save('writing_settings');self.settings(session)
+        self.save('settings_verified');event('程式及保存設定已驗證，正在處理舊開機快照。')
+        self.module(session,'wbi',1)
     def verify(self):
         from transport import Session
         self.load()

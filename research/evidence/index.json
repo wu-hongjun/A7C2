@@ -14,8 +14,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 26398,
-      "sha256": "e709c686a71977847ccd7c3c516dce4de64fb767b80fd90aeefd4d52b2871158"
+      "bytes": 26764,
+      "sha256": "3dbf8c3c7d5338972851ee20c3b6cb6ed45fb06a46d74b9c0304a6692b07769a"
     },
     {
       "path": "README.zh-TW.md",
@@ -79,8 +79,8 @@
     },
     {
       "path": "research/FIXES.md",
-      "bytes": 4711,
-      "sha256": "ebbd255c6f66bfee31ef0a73970ab2e61a7019c906d4a47d42aed75198495305"
+      "bytes": 5153,
+      "sha256": "8d55acf42bc77f74fd8909f8786ac95f5bdca2c021047e9ac785cd3cf1da469a"
     },
     {
       "path": "research/HEIF_BINDING.md",
@@ -401,6 +401,11 @@
       "path": "research/evidence/lut-transfer.json",
       "bytes": 242199,
       "sha256": "8b027b485289cbe2e8aff0626c62a8187ebcf0316ac78fc8866ff424d32a6040"
+    },
+    {
+      "path": "research/evidence/macos-installation-review.json",
+      "bytes": 1836,
+      "sha256": "fd0413fc7310bb617021964bebf82d100320b89140486785960440fae78fac6a"
     },
     {
       "path": "research/evidence/mlut-allocation.json",
@@ -2638,6 +2643,11 @@
       "sha256": "e7648de67f66a4a8e2531a7d394d4f89681d9950ab6665f9f67bbd8eb82e815b"
     },
     {
+      "path": "research/settings_snapshot_review.py",
+      "bytes": 3484,
+      "sha256": "e09858a2775c2b4e3e1a1d973e4c86f5c761301e86df66b7f6d7aaa75cef4d39"
+    },
+    {
       "path": "research/sources.lock.json",
       "bytes": 893396,
       "sha256": "e3b58f58ab1221e7ae6eabfb56cfcc208f53f635f5f21ad205dc7247ba893352"
@@ -2651,6 +2661,11 @@
       "path": "research/toolchains/README.md",
       "bytes": 4982,
       "sha256": "81b077731b99109235d7e56fff49179b35e9a60dbb256395687330fae77cff48"
+    },
+    {
+      "path": "research/toolchains/macos-adapter.json",
+      "bytes": 2070,
+      "sha256": "32fba899e17d395e030c7d30b39a465b3a250626bb1d4aa5ae9be8b0740416fb"
     },
     {
       "path": "research/toolchains/rea-package-lock.json",

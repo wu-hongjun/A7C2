@@ -2,9 +2,11 @@
 
 English | [繁體中文](./README.zh-TW.md)
 
+For macOS, see the [Mac installation workflow](MACOS.md), which uses MDHan's pinned USB adapter with this repository's fixed payload.
+
 The [offline firmware architecture atlas](research/A7C2_FIRMWARE_ATLAS.md) maps the downloaded 2.01 image using REA/Ghidra, Capstone and bounded host emulation. It now includes ordinary/HQ LUT conversion, MLUT pixel parameters, cross-decoded AP/CP SDYC metadata, JPEG/HEIF command boundaries, and the still-info notification producer in `av-cam.bin`. The latest pass traces conditional MLUT allocations, resize-to-encoder input handles, and native capture HEIF completion/output handoff through AP share-before-free. That native capture route bypasses the separate AP HEIF conversion-table gap. Live MLUT-to-encoder allocation lineage and final shared-reference reclamation remain unresolved, so full-resolution saved-still LUT integration is unproven. No camera access or installation was used for that investigation.
 
-**Local revision 0.1.1-preview:** the three [CP review findings](research/CP_REVIEW.md) are fixed. This revision passes 24 host tests, 9,185 isolated CP cases, 259 AP converter cases, and full forward/reverse program hash checks. It has **zero hardware installation trials**; the one-body reports below describe the earlier 0.1.0 candidate. See [fixes and current evidence](research/FIXES.md). The historical ZIP below does not contain these fixes.
+**Local revision 0.1.1-preview:** the three [CP review findings](research/CP_REVIEW.md) are fixed. This revision passes 41 host tests, 9,185 isolated CP cases, 259 AP converter cases, and full forward/reverse program hash checks. One hardware trial has verified both patched program files and the saved target settings, but stopped at a settings-preservation check **before WBI completion or cold-start/photo verification**. It is not a completed installation. See [Mac attempt and limitations](MACOS.md) and [fixes and current evidence](research/FIXES.md). The one-body success reports below describe the earlier 0.1.0 candidate; the historical ZIP does not contain these fixes.
 
 This repository documents an experimental port of the FL2 and FL3 still-photo Creative Looks to the **Sony ILCE-7CM2 (A7C II), firmware 2.01**. It covers the implementation, the observed results on one camera, and installation without an AI assistant.
 

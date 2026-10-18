@@ -1,6 +1,6 @@
 # Three fixes before a new camera trial
 
-Local revision: `0.1.1-preview`, October 17, 2026. No installation of this revision has been performed. The earlier one-body reports belong to the original candidate.
+Local revision: `0.1.1-preview`, October 17, 2026. A subsequent October 18 hardware trial wrote and verified the revised AP/CP programs and saved target settings, then stopped during preservation checking before WBI completion. Cold-start and photo verification remain pending. See [the current Mac attempt](../MACOS.md) and [sanitized review](evidence/macos-installation-review.json). The earlier complete one-body reports belong to the original candidate.
 
 ## Changes
 
@@ -46,4 +46,4 @@ The camera enumerates as `054c:0e8a`, with interface class08/subclass06/protocol
 
 `backup_camera.py` provides a separate backup-only workflow. Unlike installer preparation, it does not upload diagnostic/native modules or create installation state. After model/version checks, it uses service authentication only to read full live/saved settings, complete AP/CP program files, two CP units, and two AP bindings. It writes eight files and a private manifest into each of two independent local directories, verifies SHA-256 readback of both copies, and records whether the directories reside on distinct filesystems. An unexpected firmware revision stops before service access. An incomplete backup is marked incomplete rather than usable for installation.
 
-The backup workflow's simulated tests passed; this does not mean this camera has been backed up. Camera-specific version and backup results must be recorded separately after USB access succeeds. Keep these backups private and outside shared Git history.
+The paragraph above describes the earlier backup-only workflow and initial USB failure. The later Mac-adapter preparation confirmed firmware 2.01, completed eight hash-verified original backups and all three native prechecks, and verified reversible candidates. The subsequent partial installation and preservation stop are documented in [MACOS.md](../MACOS.md); those private backups remain outside Git.

@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/MDHan/a7c2-fl23-macos",
+  "commit": "d9eac5a3f805a65a894722d9a4b8800ac6b8df15",
+  "profile": "Use unchanged Mac adapter with local 0.1.1-preview app/core/transport and checksum-verified fixed assets; FL2/FL3 only.",
+  "files": {
+    "ACKNOWLEDGEMENTS.md": "8c0bd978d8769fe8f0be4eb7eb31791d03539aedf2ba8aba07c2b7cfec630872",
+    "LICENSE": "4a99d78c5a839e62af4835eaab77c6657ee206581a495b38ea9a1afa11c539fc",
+    "NOTICE.md": "24ac7a4aaeaeb8d331d30a11acb4d71847053f5a281a71c0cf1527df27f50e72",
+    "a7c2-mac": "82920bf1a00190616e63830bafb64d6226eb2cf44a93515bdad57ba924e96ed5",
+    "macfl23/__init__.py": "e33d0a17fcecaa2db6dce33383d8b538e07476024f0a4e47b964dced4d2cd58a",
+    "macfl23/__main__.py": "f8f01e1b771331cebd9bc77e03f3ff0822a396d79dcf9d5298754cac15fea535",
+    "macfl23/assets/ntsc-installer.so": "f5c848e48eefda88311c90f97c0d708388af41022999960086853980c55aaf04",
+    "macfl23/assets/ntsc-manifest.json": "6a4192ac35b39fa2074d457285cad64700d8e7ec0c7f068f08b45f3a1ff100ab",
+    "macfl23/assets/ntsc-runtime.so": "a4d46c0b89bb47e618ca09858b613586167e73c5309e7a441c8580a000673947",
+    "macfl23/cli.py": "58cd042a2ce87e0a774384a3b82f0d10181c033da1de24b57d97a5ac0a12ca47",
+    "macfl23/diagnostic.py": "68640515d54489f147c0280efea4fcaf3f5c9e296316118455bbcac6e65033bd",
+    "macfl23/engine.py": "5febfb79a6061004b991d581630845da15e7549738eae2dcda9afbe61ab8733a",
+    "macfl23/host.py": "bc32d69a2d9f8b9d84276c34a9d62ee0a80aec0eff73034ff78263d328617974",
+    "macfl23/messages.py": "5337776e17055e7933053e8b6f1bfa92616cb44dbdc3f55dcb7aeab3ba0a2456",
+    "macfl23/ntsc.py": "e990208fe7cc1ca1ce7b4d3593bdfe2244db60542e87283aed34318bf7cf4517",
+    "macfl23/ntsc_module.py": "d3357736721f60b7dd883ebf324333d30026a112855b01b96eda4f5041bd4544",
+    "macfl23/session.py": "e6b56eaccd20d81fc4cd6e480b4d507fd4016a04f1c23e315f460f77c89cee89",
+    "macfl23/workflow.py": "a08fa238d895aa5717d26e3d6cac600da833a32860ddcf4dd1817290cd6b3a66",
+    "upstream.lock.json": "8e5467b6f853918fb6d90b8589fc7b2b21466848531a13b1c634ab4bd9429e71"
+  }
+}
