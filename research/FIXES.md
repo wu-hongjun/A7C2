@@ -1,6 +1,6 @@
 # Three fixes before a new camera trial
 
-Local revision: `0.1.1-preview`, October 17, 2026. A subsequent October 18 hardware trial wrote and verified the revised AP/CP programs and saved target settings, then stopped during preservation checking. A reviewed finish-only procedure subsequently verified WBI completion. The user reports FL2/FL3 visible; post-cold-start computer verification and shooting tests remain pending. See [the current Mac attempt](../MACOS.md) and [sanitized review](evidence/macos-installation-review.json). The earlier complete one-body reports belong to the original candidate.
+Local revision: `0.1.1-preview`, October 17, 2026. A subsequent October 18 hardware trial wrote and verified the revised AP/CP programs and saved target settings, then stopped during preservation checking. A reviewed finish-only procedure subsequently verified WBI completion. After confirmed battery removal/cold start, both complete programs, target parameters and all six runtime memory/disk regions passed verification. The user reports FL2/FL3 visible; shooting tests remain pending. Only final MSC return was unconfirmed after successful service exit. See [the current Mac attempt](../MACOS.md) and [sanitized review](evidence/macos-installation-review.json). The earlier complete one-body reports belong to the original candidate.
 
 ## Changes
 

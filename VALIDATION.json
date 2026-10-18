@@ -1,5 +1,5 @@
 {
-  "status": "EXPERIMENTAL_INSTALLED_PENDING_RESTART_VERIFICATION",
+  "status": "EXPERIMENTAL_INSTALLED_VERIFIED_PENDING_SHOOTING_CHECK",
   "release": "0.1.1-preview",
   "bodies_tested": 1,
   "model": "ILCE-7CM2",
@@ -10,7 +10,7 @@
   "full_forward_reverse_program_hashes_verified": true,
   "native_executable_text_unchanged": true,
   "hardware_installation_performed_this_session": true,
-  "hardware_installation_completed": false,
+  "hardware_installation_completed": true,
   "hardware_installation_body_completed": true,
   "connected_camera_firmware_version": "2.01",
   "connected_camera_backup_complete": true,
@@ -24,13 +24,16 @@
     "finish_service_exit_sent": true,
     "finish_normal_usb_return_confirmed": false,
     "menu_visibility_user_reported": true,
-    "cold_start_verified": false,
+    "cold_start_verified": true,
+    "all_six_runtime_memory_and_disk_regions_match_candidate": true,
+    "post_cold_start_service_exit_sent": true,
+    "post_cold_start_normal_usb_return_confirmed": false,
     "photo_function_verified": false,
     "evidence": "research/evidence/macos-installation-review.json"
   },
   "evidence": "research/FIXES.md",
   "not_validated": [
-    "Post-cold-start computer and photographic verification of revised candidate",
+    "Basic ST/FL2/FL3 shooting and playback check of revised candidate",
     "Full photographic, reset/import, video and CP runtime behavior",
     "Native-worker fault and power-loss recovery"
   ],
