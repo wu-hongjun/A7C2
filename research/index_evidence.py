@@ -16,6 +16,10 @@ def main():
         paths.update(research.glob(pattern))
     for directory in ('evidence', 'toolchains', 'rea-jobs'):
         paths.update(p for p in (research/directory).rglob('*') if p.is_file())
+    worker = ROOT/'photo_worker'
+    for pattern in ('*.py', '*.md', 'requirements*.txt', '*.example.json'):
+        paths.update(worker.glob(pattern))
+    paths.update((worker/'tests').glob('test_*.py'))
     paths.discard(output)
     data['artifacts'] = []
     for path in sorted(paths):

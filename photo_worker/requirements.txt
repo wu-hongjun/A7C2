@@ -1,0 +1,2 @@
+Pillow==12.1.0
+opencolorio==2.6.0

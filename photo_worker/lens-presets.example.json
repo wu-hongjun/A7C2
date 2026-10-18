@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "lenses": [
+    {
+      "id": "example-helios-58",
+      "name": "Example: Helios 44-2 58mm f/2",
+      "make": "Helios",
+      "model": "44-2 58mm f/2",
+      "focal_length_mm": 58,
+      "max_aperture": 2
+    },
+    {
+      "id": "example-takumar-50",
+      "name": "Example: Super-Takumar 50mm f/1.4",
+      "make": "Asahi Optical Co.",
+      "model": "Super-Takumar 50mm f/1.4",
+      "focal_length_mm": 50,
+      "max_aperture": 1.4
+    }
+  ]
+}

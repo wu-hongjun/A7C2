@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "host_only": true,
+  "camera_accessed": false,
+  "network_accessed": false,
+  "camera_installation": false,
+  "worker_tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "fast_backend_vs_scalar_RGB8_samples": 1024,
+  "limitations": "Host prototype; Pillow retains full images. No camera ABI/build, native menu, shutter hook, streaming JPEG codec or Adobe RAW renderer.",
+  "sources": [
+    {
+      "path": "photo_worker/README.md",
+      "sha256": "4c5f625fa549fa2ae70597bfec32bf3fa89cd9aa6bf186c9c8dce3883ac9ae48"
+    },
+    {
+      "path": "photo_worker/__init__.py",
+      "sha256": "fb844d0ed139c3fcd935ad7ce62c37c1f70053f3a1194abfab4fdf374fae1ba2"
+    },
+    {
+      "path": "photo_worker/__main__.py",
+      "sha256": "6730a8716fda2bcb9c9c5ef2fe8f8c629af85006e33269960d113d5c4ff6f6d2"
+    },
+    {
+      "path": "photo_worker/lens-presets.example.json",
+      "sha256": "292e6eddef010cc5f3d70d9150438ac0b3c5415cd1cdb48c41aaf6bd2a1fb674"
+    },
+    {
+      "path": "photo_worker/profiles.py",
+      "sha256": "e530dbe4389331c3087eadac49fd8a3a28b4d937054efb150c4905f2b15fa514"
+    },
+    {
+      "path": "photo_worker/requirements.txt",
+      "sha256": "37f2a311108883eab45b20778dfc259f1980a7df802751fbde57ca973edd0e53"
+    },
+    {
+      "path": "photo_worker/tests/test_worker.py",
+      "sha256": "e8b8bfc3b88e909508aa342f656abc0f94538d869bf9b35df6e3e0188ea26b68"
+    },
+    {
+      "path": "photo_worker/worker.py",
+      "sha256": "9615dae8a67f2dc044eb40a5ec8669fd090a9269edea752be5d36875c5d9985e"
+    },
+    {
+      "path": "research/check_jpeg_worker.py",
+      "sha256": "dc4e96e79c2687c17dd57e26f4a4be61b36448672f14bcc03a2b136e25c53307"
+    }
+  ],
+  "environment": {
+    "python": "3.14.6",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "Pillow": "12.1.0",
+    "OpenColorIO": "2.6.0"
+  },
+  "independent_reader_source": {
+    "path": "research/upstream/exiftool/exiftool",
+    "sha256": "a6b8018093845ac93011307bac4ab630d6604b2365fc7f66bb88c88d7dedb5ed"
+  },
+  "full_resolution_proof": {
+    "dimensions": [
+      7008,
+      4672
+    ],
+    "sampled_flat_patch_centers": 64,
+    "max_RGB8_error_including_JPEG_recompression": 1,
+    "source_unchanged": true,
+    "independent_reader": "pinned vendored ExifTool via local Perl",
+    "independently_read_EXIF": {
+      "ExifIFD:LensModel": "44-2 58mm f/2",
+      "ExifIFD:LensMake": "Helios",
+      "ExifIFD:FocalLength": 58,
+      "ExifIFD:FNumber": 4,
+      "ExifIFD:MaxApertureValue": 2,
+      "ExifIFD:LensInfo": "58 58 2 2",
+      "ExifIFD:ISO": 320,
+      "ExifIFD:DateTimeOriginal": "2026:10:18 12:34:56",
+      "ExifIFD:ExposureTime": 0.008,
+      "IFD0:Orientation": 1
+    },
+    "elapsed_seconds": 13.914814124815166,
+    "peak_rss_raw": 460111872,
+    "peak_rss_units": "bytes",
+    "camera_measurement": false,
+    "fixture_directory": "research/build/jpeg-worker/proof-4srjk5f_",
+    "fixture_files": [
+      {
+        "path": "research/build/jpeg-worker/proof-4srjk5f_/synthetic-input.jpg",
+        "bytes": 998869,
+        "sha256": "d0b4938d14023a24cbf3dfc7d8f4935ca5563266085abe0d35eec9d061a10f58"
+      },
+      {
+        "path": "research/build/jpeg-worker/proof-4srjk5f_/channel-permutation.cube",
+        "bytes": 88483,
+        "sha256": "793ff830de35a85920e188a7eb02d75d0944b586d50df859c436cf274afbfa25"
+      },
+      {
+        "path": "research/build/jpeg-worker/proof-4srjk5f_/graded-lens-copy.jpg",
+        "bytes": 966749,
+        "sha256": "5da7c7c98bf3346e3b422f6f9702b23ae673573e8cad47ab11b25f11f75f7471"
+      }
+    ]
+  },
+  "Fujifilm_pack": {
+    "inventory": "research/evidence/fujifilm-profile-pack.json",
+    "files_hashed": 1500,
+    "XMP_profiles": 11,
+    "XMP_wrappers": 11,
+    "DCP_summary_independently_crosschecked": true,
+    "JPEG_compatible_Fujifilm_looks": 0,
+    "source_profile_bytes_republished": false
+  }
+}

@@ -4,6 +4,8 @@
 
 This completes the first host prototype proposed in [STILL_LUT_FEASIBILITY.md](STILL_LUT_FEASIBILITY.md). It does not yet supply an ARM64 camera worker, camera JPEG codecs, automatic capture detection or native still-pipeline integration.
 
+The later [completed-JPEG worker](../photo_worker/README.md) adds job snapshots, a faster OCIO backend, selected capture-EXIF preservation and manual-lens preset tags, including a full-resolution host proof. This smaller scalar reference remains the independent numerical oracle. Neither implementation installs or executes on the camera.
+
 ## Color contract
 
 The LUT must expect **encoded sRGB input and produce encoded sRGB output**. It operates directly on those encoded RGB channel values; it does not silently linearize, apply a display transform or convert to S-Log3. The CUBE file does not reliably identify the intended color spaces, so the operator must know that the selected LUT satisfies this contract.

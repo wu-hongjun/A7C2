@@ -4,6 +4,8 @@
 
 The [prototype plan](STILL_PROTOTYPE_PLAN.md) addresses Creative Looks in AUTO, custom Fujifilm profiles, camera-native InstantLink and manual-lens EXIF. A [computer-only CUBE reference](lut_reference.py) already works with independent checks; no camera-installed LUT worker exists.
 
+Follow-up implementation: the [host JPEG worker](../photo_worker/README.md) now snapshots jobs and lens presets, applies sRGB CUBE LUTs and writes independently checked EXIF on new full-size JPEG copies. The supplied Fujifilm pack is now inventoried and identified as Adobe RAW DCP/XMP, requiring a separate validated JPEG bake. No camera build or installation is included.
+
 Research date: October 17, 2026. Target software: the downloaded, pinned A7C II 2.01 firmware.
 
 The follow-up [firmware atlas](A7C2_FIRMWARE_ATLAS.md) distinguishes recording metadata from imaging control. `mpr::SetLutData` packages ELUT/KLV/SONYBCUB recording data. A separate AP command `0x4155` registers user-LUT payloads in CP state. The [ordinary native format](NATIVE_LUT_FORMAT.md) and [stock MLUT bank/register layout](MLUT_LAYOUT.md) are now recovered. One [callback context](STILL_MLUT_ROUTE.md) is structurally joined, but its selector gate and unclassified selected alternative prevent a live still-route claim. These findings supersede the ambiguous string-only leads below.

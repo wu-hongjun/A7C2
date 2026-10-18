@@ -2,7 +2,7 @@
 
 October 18, 2026. This pass used the local original A7C II 2.01 firmware and the existing local InstantLink checkout. No camera, printer or external service was accessed. Git publication is separate from the offline investigation.
 
-**The practical next build is a manually invoked, completed-JPEG worker.** It can share image decoding, color conversion and job handling between LUT processing and printing. Neither requires the still-unresolved MLUT-to-encoder link. Native capture LUTs and AUTO menu changes need separate firmware evidence; they should not delay a useful software prototype.
+**The manually invoked host completed-JPEG worker is now implemented:** [usage and limits](../photo_worker/README.md), [checks](evidence/jpeg-worker-checks.json). It snapshots custom sRGB CUBE and manual-lens selections, processes a separate JPEG copy and preserves allowlisted capture EXIF. A full 7008×4672 synthetic test and independent ExifTool readback pass. It remains a host prototype; printing and a camera-compatible build are separate work. These features do not require the still-unresolved MLUT-to-encoder link.
 
 The repository already has a [working computer-only CUBE reference](lut_reference.py), with [independent numerical/image checks](evidence/lut-reference-checks.json). It accepts 17³/33³ 3D-only CUBE grids, uses red-fastest trilinear interpolation, handles domain limits and ICC/orientation, and writes a separate JPEG/PNG. It is a correctness reference, **not an installed camera program**: Pillow holds whole images, metadata is deliberately not preserved, and no camera-side memory/time or playback integration is established.
 
@@ -11,9 +11,9 @@ The repository already has a [working computer-only CUBE reference](lut_referenc
 | Requested feature | Current evidence | Smallest useful next result | Main gap |
 | --- | --- | --- | --- |
 | Creative Looks in AUTO | FL2/FL3 installation verified on one body; user reported captures with FL1, FL2, FL3 and Auto. An AUTO Creative Look icon translator exists. | Establish whether a selected look is accepted and retained specifically in Intelligent AUTO, then identify the governing gate if blocked. | Existing report does not prove simultaneous AUTO + chosen look; model producers/setting acceptance remain untraced. |
-| Custom Fujifilm looks | Native look records/curves and a host CUBE evaluator exist. Cached native-slider recipes offer approximations. | Classify an actual requested profile, define its input/output color contract, produce a host-verified rendered JPEG or quantified native-look fit. | Requested repository is not locally available; actual format, calibration, license and transforms unexamined. |
+| Custom Fujifilm looks | Supplied pack inventoried: camera DCPs plus scene-referred XMP film profiles; host sRGB CUBE worker implemented. | Validate an sRGB JPEG bake or a calibrated RAW rendering of the actual profiles. | Embedded Adobe RAW tables cannot be treated as direct JPEG transforms. |
 | Camera-native InstantLink printing | Local core has protocol/image code and a transport abstraction; firmware contains real BLE client request producers. | Reuse core protocol with an independently validated Sony transport adapter. | BLE initialization/ABI/callbacks, camera-compatible executable and launch/UI lifecycle. |
-| Manual-lens EXIF presets | Standard metadata tag definitions and native metadata pipeline exist. Cached PTP LensModel is read-only. | Persistent named presets; capture-time preset snapshot; correct tags on a separate host JPEG copy. | A functioning pre-header native metadata hook and quick-switch UI. Two promising named EXIF exports are no-op stubs. |
+| Manual-lens EXIF presets | Host worker snapshots named presets and writes independently verified standard lens tags on JPEG copies. | Camera shutter-time association and native quick-switch integration. | A functioning pre-header native metadata hook and UI. Cached PTP LensModel is read-only; two named EXIF exports are no-op stubs. |
 
 ### 1. Creative Looks in AUTO
 
@@ -27,7 +27,7 @@ Future acceptance needs an explicitly selected look while Intelligent AUTO is ac
 
 ### 2. Importing Fujifilm profiles
 
-The requested source is [TingfengLuo/Camera-Profile-for-Fujifilm-Film-Simulation](https://github.com/TingfengLuo/Camera-Profile-for-Fujifilm-Film-Simulation). A bounded local Git-directory inventory found no matching checkout or available `.dcp`/`.cube` asset outside excluded build/extracted content. **It was not fetched under the offline instruction.** No claim is made about that repository's actual file formats or contents.
+The requested source is [TingfengLuo/Camera-Profile-for-Fujifilm-Film-Simulation](https://github.com/TingfengLuo/Camera-Profile-for-Fujifilm-Film-Simulation). It was unavailable in the initial bounded Git-directory inventory and was not fetched. The user then supplied a local Downloads copy. [The new inventory](evidence/fujifilm-profile-pack.json) hashes 1,500 files: 1,464 DCPs, 22 XMPs, 12 JPEGs and two READMEs. Eleven film XMP profiles carry embedded RGB tables and explicitly disable output-referred use; eleven wrappers select those profiles. The A7C II DCP has camera-specific calibration, an identity tone curve and HueSatMap dimensions 90×30×1. This is an Adobe RAW-profile workflow, not a directly usable sRGB JPEG LUT. The worker rejects XMP/DCP as LUT inputs; a validated JPEG bake remains necessary. No original profile bytes are republished.
 
 Keep three different inputs distinct:
 
@@ -37,7 +37,7 @@ Keep three different inputs distinct:
 | RGB 3D CUBE | A transform in a specified rendered color encoding | Host reference, then software JPEG worker; native MLUT still route remains open |
 | Camera/DNG profile, if supplied | May combine camera matrices, illuminants, hue/saturation maps, look tables and tone curve | Format-aware calibrated RAW-development pipeline or carefully baked approximation; not a rename to `.cube` |
 
-The cached [llr DCP parser](upstream/llr/apps/worker/src/llr_worker/dcp.py) illustrates why a camera profile is not inherently a rendered sRGB LUT. Its existence does not identify the missing Fujifilm files as DCP. The cached [pysonycam recipes](upstream/pysonycam/docs/creative_recipes.json) and [recipe example](upstream/pysonycam/examples/creative_look_recipes.py) are a separate source of native-slider approximations, not those requested assets or measured film matches.
+The cached [llr DCP parser](upstream/llr/apps/worker/src/llr_worker/dcp.py) illustrates why a camera profile is not inherently a rendered sRGB LUT. The supplied A7C II profile was summarized with a bounded first-IFD reader and independently cross-checked with ExifTool; no RAW rendering ran. The cached [pysonycam recipes](upstream/pysonycam/docs/creative_recipes.json) and [recipe example](upstream/pysonycam/examples/creative_look_recipes.py) are a separate source of native-slider approximations, not those requested assets or measured film matches.
 
 First import deliverable: inventory exact files/hash/license; identify format, camera calibration and expected input/output; generate test charts and a color-managed host rendering. For a CUBE, begin with an explicitly sRGB-to-sRGB contract. For a RAW profile, identify an appropriate RAW developer and camera transform before baking. A log LUT cannot simply grade an already rendered JPEG without the correct transform; clipped data cannot be recovered.
 
@@ -93,7 +93,7 @@ For the software-copy prototype, write verified standard EXIF into a new JPEG an
 | Stage | Concrete output | Must pass before advancing |
 | --- | --- | --- |
 | A: host reference (exists) | Separate color-managed JPEG/PNG from selected CUBE and image | Independent interpolation oracle, channel permutation, domain/malformed-input and orientation/ICC checks |
-| B: host integration | Selected completed JPEG + immutable look/lens job → separate graded JPEG; optional correctly prepared Square image | Originals unchanged, color contract enforced, metadata/orientation verified, no-overwrite/low-space/interruption handling; printer protocol tests use mock transport in InstantLink |
+| B: host integration (JPEG/lens implemented) | [Worker](../photo_worker/README.md): selected completed JPEG + snapshotted look/lens job → separate graded JPEG; Square preparation remains separate | Originals unchanged, color contract enforced, metadata/orientation verified, no-overwrite/low-space/interruption tests and full-size proof pass; no printer integration claimed |
 | C: camera-compatible build | Isolated ARM64 Linux executable with pinned codec/runtime; no shared-library constructor doing long image work | Match loader/libc/kernel or use a compatible static build; host tests/emulation first; bounded image/metadata memory; no deploy/install in this task |
 | D: temporary manual camera worker | One explicitly selected completed JPEG → new output; clean start/stop/status | Separately authorized experiment, measured RAM/time/thermal impact and capture coexistence; originals and ARW untouched; playback/database registration assessed separately |
 | E: native extensions | AUTO setting path, capture-time lens hook, BLE transport and eventual native MLUT capture | Each has its own source-bound ABI/ownership proof and independent acceptance tests |

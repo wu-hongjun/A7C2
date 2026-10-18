@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "generated_at_utc": "2026-10-18T22:06:28.311956+00:00",
+  "starting_commit": "69e7d461ef309a18c9aa5f31cbeb20ab3ec9ea1c",
+  "scope": "Host completed-JPEG worker with custom sRGB CUBE LUTs and manual-lens EXIF preset snapshots",
+  "camera_accessed": false,
+  "camera_installation": false,
+  "network_for_research_or_tests": false,
+  "packages_installed": false,
+  "network_exception": "User-authorized Git push and remote ref verification after offline implementation/testing",
+  "checks": {
+    "worker_tests": 15,
+    "repository_regression_tests": 41,
+    "independent_LUT_reference_tests": 8,
+    "total_test_groups": 64,
+    "fast_backend_reference_RGB8_samples": 1024,
+    "full_resolution": [
+      7008,
+      4672
+    ],
+    "full_resolution_color_samples": 64,
+    "max_RGB8_error_including_JPEG": 1,
+    "independent_ExifTool_lens_and_capture_tags": "passed",
+    "original_image_preservation": "passed",
+    "local_profile_files_inventoried": 1500,
+    "scene_referred_XMP_looks": 11,
+    "output_referred_XMP_looks": 0,
+    "DCP_summary_ExifTool_crosscheck": "passed",
+    "local_document_links": 125,
+    "py_compile": "passed for new package, tests and checker"
+  },
+  "evidence": [
+    "research/evidence/jpeg-worker-checks.json",
+    "research/evidence/fujifilm-profile-pack.json",
+    "research/evidence/lut-reference-checks.json"
+  ],
+  "commands": [
+    ".venv-research/bin/python -m research.check_jpeg_worker --full-resolution --profiles /path/to/local/profile-pack",
+    ".venv-research/bin/python -m unittest discover -s tests -v",
+    ".venv-research/bin/python research/check_lut_reference.py"
+  ],
+  "delivered": [
+    "Explicit completed-file prepare/run CLI",
+    "Hashed JPEG/LUT/preset job snapshots",
+    "Native OCIO float-strip interpolation",
+    "Separate validated JPEG publication with exclusive atomic creation",
+    "Allowlisted capture EXIF plus manual lens tags",
+    "Fujifilm Adobe RAW profile inventory/compatibility inspection"
+  ],
+  "not_delivered": [
+    "Camera ARM64 build/installation or native menu/shutter integration",
+    "Streaming low-memory JPEG codec",
+    "Adobe RAW renderer or validated Fujifilm sRGB JPEG LUT bake"
+  ],
+  "publication_excludes": [
+    "User-supplied DCP/XMP/demo-image bytes",
+    "Job snapshots and generated JPEGs",
+    "Unrelated pre-existing firmware atlas edit"
+  ]
+}
