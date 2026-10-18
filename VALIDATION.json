@@ -1,5 +1,5 @@
 {
-  "status": "EXPERIMENTAL_PARTIAL_INSTALLATION",
+  "status": "EXPERIMENTAL_INSTALLED_PENDING_RESTART_VERIFICATION",
   "release": "0.1.1-preview",
   "bodies_tested": 1,
   "model": "ILCE-7CM2",
@@ -11,6 +11,7 @@
   "native_executable_text_unchanged": true,
   "hardware_installation_performed_this_session": true,
   "hardware_installation_completed": false,
+  "hardware_installation_body_completed": true,
   "connected_camera_firmware_version": "2.01",
   "connected_camera_backup_complete": true,
   "hardware_trial": {
@@ -19,14 +20,17 @@
     "stopped_during": "writing_settings",
     "unexpected_live_key": "0x02770015",
     "observed_live_delta": 60,
-    "wbi_finish_completed": false,
+    "wbi_finish_completed": true,
+    "finish_service_exit_sent": true,
+    "finish_normal_usb_return_confirmed": false,
+    "menu_visibility_user_reported": true,
     "cold_start_verified": false,
     "photo_function_verified": false,
     "evidence": "research/evidence/macos-installation-review.json"
   },
   "evidence": "research/FIXES.md",
   "not_validated": [
-    "Completion of hardware installation and WBI recovery of revised candidate",
+    "Post-cold-start computer and photographic verification of revised candidate",
     "Full photographic, reset/import, video and CP runtime behavior",
     "Native-worker fault and power-loss recovery"
   ],
