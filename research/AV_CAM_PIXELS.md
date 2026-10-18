@@ -4,6 +4,8 @@ The normal JPEG and HEIF prepare paths select their input from the same capture-
 
 **This does not yet link a particular MLUT-processed allocation to an encoder input.** The context can receive pixels through several paths. The CP MLUT pool token, returned DMM handle, CPU alias and hardware address are different values that must be joined through actual construction and conversion edges. No such complete cross-processor identity is asserted here.
 
+Follow-up: [capture handoff](CAPTURE_HANDOFF.md) now traces one context-mode-1 request's source handle through `ChipTransfer`, a separate destination allocation and a PCIe DMA request into `+0x41c`, then into JPEG target 3's input reader. The upstream writer tying that request to MLUT remains missing. This is separate from the normal-path cases below; live mode and full-resolution target selection remain unknown.
+
 ## Evidence and coordinate model
 
 Run `.venv-research/bin/python research/trace_av_cam_pixels.py`. The generator verifies the full source hash and retains 20 code regions, 1,464 AArch64 instructions, the literal address conversion table, and eight host cases in [av-cam-pixels.json](evidence/av-cam-pixels.json). These are ordinary raw-binary Capstone/Unicorn results, not REA Evidence.

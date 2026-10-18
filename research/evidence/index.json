@@ -29,13 +29,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 28665,
-      "sha256": "6844a21c2640ea3df5538da44a89c580ca1a068bdf532cf3c53353944baf334c"
+      "bytes": 29150,
+      "sha256": "5b5deb597303b3d848b49477e237b0c9e5ce0cd825866250c16448258e5d3ae0"
     },
     {
       "path": "README.zh-TW.md",
-      "bytes": 22394,
-      "sha256": "cfd429585f599ac0b58ef9eef6635cefb3dec4852e6bff75b0a622591227965a"
+      "bytes": 22718,
+      "sha256": "35b1656b09fd8aa3e513c4dd8fca2b89c4a0876eef6dc94b6c2444a2966c2ff8"
     },
     {
       "path": "VALIDATION.json",
@@ -89,8 +89,13 @@
     },
     {
       "path": "research/AV_CAM_PIXELS.md",
-      "bytes": 9227,
-      "sha256": "38675f6f2b162294aaad94fb662eba73ade6c6e06ec97868cb4af7f27a1021d8"
+      "bytes": 9645,
+      "sha256": "47c175442fcab225faf010f0b7c7751ade0858457eacde88af2b243aca8c4cd2"
+    },
+    {
+      "path": "research/CAPTURE_HANDOFF.md",
+      "bytes": 8829,
+      "sha256": "cfc07d6e0ece49036323b661bc8b6244086851cda9056fa9f5a2923a21a785d5"
     },
     {
       "path": "research/CP_ARCHITECTURE.md",
@@ -154,8 +159,8 @@
     },
     {
       "path": "research/MLUT_ALLOCATION.md",
-      "bytes": 8489,
-      "sha256": "d33cd3bb82f187080992568be5f984a96d4ae2f1b2c095f8c5bbbafd4dab903e"
+      "bytes": 8860,
+      "sha256": "34166ca98aeb499bfa6e5170dc762a16e7b4550d2b440ba045893997939d90ae"
     },
     {
       "path": "research/MLUT_ENCODER_LINK.md",
@@ -174,8 +179,8 @@
     },
     {
       "path": "research/README.md",
-      "bytes": 20571,
-      "sha256": "2910dc238ab4d49208ba469076ef96bbecd1c3eccd1e1bcdce10acc63b874da7"
+      "bytes": 21661,
+      "sha256": "090dc5599fd34043efd6f774a7b012770ca57dbcd0a21618eab51d34760ede91"
     },
     {
       "path": "research/RECORDING_BUFFER_OWNERSHIP.md",
@@ -204,13 +209,18 @@
     },
     {
       "path": "research/STILL_LUT_FEASIBILITY.md",
-      "bytes": 13734,
-      "sha256": "dd6e227f3f661ebcf4b821a39b408a75f2777602b3be119515f618985d2911a9"
+      "bytes": 14507,
+      "sha256": "9d6a7f0dd0be00e2c0d94842f7ee73ca23712e213d4057c7b72f66e95468a3c8"
     },
     {
       "path": "research/STILL_MLUT_ROUTE.md",
       "bytes": 15868,
       "sha256": "f6d78d463215ef7afcdd86678f43b43ed2b3ae04961996cae6df27f50eaac9ee"
+    },
+    {
+      "path": "research/STILL_PROTOTYPE_PLAN.md",
+      "bytes": 15395,
+      "sha256": "8d69ac21af2493a526c4533be4fa1ebcc7778cff21103956e8b8173ed5d22dc6"
     },
     {
       "path": "research/STILL_RECORDING_BOUNDARY.md",
@@ -303,6 +313,11 @@
       "sha256": "ac65f3baaf81dbef0304eb792144d5ba1718e8f40f148e9e4681fd751cb8e768"
     },
     {
+      "path": "research/evidence/capture-handoff.json",
+      "bytes": 116028,
+      "sha256": "7ac1445b0366f9ee244a85623aaff1867384210d87f24d5a1dc4d11baa9681e2"
+    },
+    {
       "path": "research/evidence/cp-architecture.json",
       "bytes": 595432,
       "sha256": "686eb966edd7128a087896ec1f206a72915653788a1b7034034f7536c9c001e9"
@@ -336,6 +351,11 @@
       "path": "research/evidence/encoder-save-link.json",
       "bytes": 253460,
       "sha256": "7edea0e125cb9b4834606164c4c02c16ccbf7698a45cf694b4c37eefcdb4a35b"
+    },
+    {
+      "path": "research/evidence/feature-gates.json",
+      "bytes": 60124,
+      "sha256": "9817d3ddd86f54e8f62c44420e9d9c3e7418e555e9d391d89714e1ae12d3585d"
     },
     {
       "path": "research/evidence/firmware-audit-fixed.json",
@@ -435,7 +455,7 @@
     {
       "path": "research/evidence/lut-reference-checks.json",
       "bytes": 4273,
-      "sha256": "b0d45bb95254b90bd67fc9f9210817090a9d45f5addea51cf18ef3a79353fabb"
+      "sha256": "4c419b675c4513b3d45d24f6b18347ef1872dcb7b5b61f702d17f37534a3e198"
     },
     {
       "path": "research/evidence/lut-transfer.json",
@@ -526,6 +546,11 @@
       "path": "research/evidence/package-check.log",
       "bytes": 49,
       "sha256": "9048993b67e420d6c0254db8ebffd469b4676eb89f5b46d55abbdf740f5a6232"
+    },
+    {
+      "path": "research/evidence/printer-transport.json",
+      "bytes": 162964,
+      "sha256": "d03b3f32680177ac6539eeeb36e2186a183e72d5aa25ca3f21a45c8d0623ca5b"
     },
     {
       "path": "research/evidence/publication-checks.json",
@@ -2473,6 +2498,11 @@
       "sha256": "0140d5ec25413aa36c5f78686848269bc325122af3b13b2cd81d5713e7dcab31"
     },
     {
+      "path": "research/evidence/still-prototype-followup-checks.json",
+      "bytes": 3315,
+      "sha256": "7a90a8a36303552d04630366f33349eec73db9e034ae13326b8045cb10413c94"
+    },
+    {
       "path": "research/evidence/still-recording-boundary.json",
       "bytes": 908789,
       "sha256": "f729ca4dcb97b2830de211bc4fed82a1337bd62f729fe341e1ea611145aa8935"
@@ -2548,9 +2578,19 @@
       "sha256": "1766f9798451a123cecc972cc7297449eaf7e480c68d5103e2c2b7c153ce0a39"
     },
     {
+      "path": "research/map_feature_gates.py",
+      "bytes": 7958,
+      "sha256": "ea8cf8e9ed51d9ca01c86cdda11a9ae3904410b5f67b67a8502e9079b9a2c7f8"
+    },
+    {
       "path": "research/map_firmware_structure.py",
       "bytes": 20322,
       "sha256": "35f3cc7901ac75693602ea20c249359e3781dabfca4820d4ea74ad6f5d1b0041"
+    },
+    {
+      "path": "research/map_printer_transport.py",
+      "bytes": 11942,
+      "sha256": "33ba14b3566a62a21d06ab842496788e59ef2d62ab43cca862161b2cd56b9d2d"
     },
     {
       "path": "research/rea-jobs/appfw-focused.json",
@@ -2746,6 +2786,11 @@
       "path": "research/trace_avbbc_encoder_bridge.py",
       "bytes": 10610,
       "sha256": "82b685067a33eb173c5d6a472748a4e3d1bb480ddddc4de95a2e0b0fdb77e2f0"
+    },
+    {
+      "path": "research/trace_capture_handoff.py",
+      "bytes": 12506,
+      "sha256": "bc58bb0f4d0394490dae1040475c1dd01ea5adb06e01dbf52f02ba3877a3dc69"
     },
     {
       "path": "research/trace_encoder_save_link.py",

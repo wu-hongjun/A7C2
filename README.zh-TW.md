@@ -2,6 +2,8 @@
 
 [English](./README.md) | 繁體中文
 
+[10月18日離線研究](research/CAPTURE_HANDOFF.md)追出一條輸入請求經PCIe傳輸到JPEG編碼輸入的路徑，但尚未與MLUT來源連接。[原型計畫](research/STILL_PROTOTYPE_PLAN.md)涵蓋AUTO創意外觀、Fujifilm設定檔、機內InstantLink列印及手動鏡頭EXIF切換；本次未操作相機。
+
 **本地修訂 0.1.1-preview：** 已修正三項審查問題，通過41項主機測試、9,185項CP及259項AP獨立指令案例。已在一台A7C II 2.01完成程式與參數寫入、受限WBI收尾，以及取電池冷啟動後的完整程式與六處AP執行區域核對。使用者回報FL2／FL3選單出現，FL1、FL2、FL3及Auto可拍照；獨立回放、格式及色彩準確度尚未確認。最終服務退出成功，但MSC返回等待逾時。舊版0.1.0 ZIP不含本地修正。詳見[Mac操作指南](MACOS.md)、[安裝經驗與技術教訓](research/MACOS_INSTALLATION_LESSONS.md)及[修正記錄](research/FIXES.md)。
 
 記錄在 Sony **ILCE-7CM2（A7C II）、韌體 2.01** 上，移植 FL2／FL3 照片創意外觀的實作、實機結果，以及不使用 AI 的安裝方式。

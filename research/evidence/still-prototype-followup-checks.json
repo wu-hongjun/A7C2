@@ -1,0 +1,79 @@
+{
+  "date_utc": "2026-10-18T21:29:10.062159+00:00",
+  "starting_commit": "a5d80d71484ac67985fbf11363864637c1604aaf",
+  "scope": "Offline MLUT source-to-capture request gap and four requested feature prototype requirements",
+  "camera_accessed": false,
+  "printer_accessed": false,
+  "target_executed": false,
+  "research_network_access": false,
+  "network_exception": "User-authorized Git push and ref verification after offline work only",
+  "checks": {
+    "new_generators": 3,
+    "new_retained_regions": 25,
+    "new_byte_verified_instructions": 1755,
+    "capture_handoff_host_cases": 6,
+    "native_BLE_request_producers": 3,
+    "exact_EXIF_noop_stubs": 2,
+    "root_host_tests": 41,
+    "LUT_reference_tests": 8,
+    "LUT_reference_counts": {
+      "scalar_oracle_rgb_cases": 4016,
+      "analytic_rgb_cases": 4040,
+      "opencolorio_rgb_cases": 8016,
+      "malformed_cases": 22
+    },
+    "local_document_links": 115,
+    "py_compile": "passed for three new generators",
+    "whitespace": "git diff --check with CRLF-aware configuration passed"
+  },
+  "reproduce": [
+    ".venv-research/bin/python research/trace_capture_handoff.py",
+    ".venv-research/bin/python research/map_feature_gates.py",
+    ".venv-research/bin/python research/map_printer_transport.py --instantlink /path/to/InstantLink",
+    ".venv-research/bin/python research/check_lut_reference.py",
+    ".venv-research/bin/python -m unittest discover -s tests -v"
+  ],
+  "questions": [
+    {
+      "question": "MLUT allocation-to-encoder identity",
+      "status": "partially answered",
+      "finding": "One request-to-PCIe-transfer-to-JPEG-slot variant and CP type108 export recovered; no MLUT-to-request writer or alias chain."
+    },
+    {
+      "question": "Creative Looks in Intelligent AUTO",
+      "status": "unresolved",
+      "finding": "Table-driven option helper and AUTO icon retained; actual mode acceptance/persistence not established."
+    },
+    {
+      "question": "Requested Fujifilm custom profiles",
+      "status": "input unavailable offline",
+      "finding": "No locally available requested asset; no download; contents and format unexamined."
+    },
+    {
+      "question": "Camera-native InstantLink",
+      "status": "partially answered",
+      "finding": "Local reusable protocol core and Sony native BLE client request producers established; transport ABI/lifecycle and camera worker incomplete."
+    },
+    {
+      "question": "Quick manual lens EXIF presets",
+      "status": "partially answered",
+      "finding": "Preset snapshot/tag plan; two candidate native metadata APIs are noops; working pre-header hook/UI unresolved."
+    }
+  ],
+  "limits": [
+    "Host fixtures do not execute DMA/codec/DMM/BLE or prove full-resolution pixels and saved-image LUT effect.",
+    "DMA failure fixtures use returning diagnostic stubs; no live camera defect inferred.",
+    "Existing host CUBE evaluator is a correctness reference, not a low-memory camera build.",
+    "No new camera-installed program or firmware patch produced."
+  ],
+  "reports": [
+    "research/CAPTURE_HANDOFF.md",
+    "research/STILL_PROTOTYPE_PLAN.md"
+  ],
+  "publication_excludes": [
+    "Firmware images and extracted files",
+    "Private camera backups",
+    "InstantLink source/code copies",
+    "Unrelated existing atlas modification"
+  ]
+}

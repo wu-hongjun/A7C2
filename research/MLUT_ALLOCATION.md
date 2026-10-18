@@ -2,6 +2,8 @@
 
 The selected fallback has **two allocation paths**, so its ring token should not be treated as the JPEG pixel handle. One path creates a direct-address ring record with handle `0xffffffff`; the other asks DMM for a real handle and stores it beside the returned extents. A conditional branch then consumes that actual record, requests a shared handle and caches the returned handle. This is new handle provenance, but the cache is still not connected to the AP encoder or SSYC pixel-entry writer.
 
+The [capture-handoff follow-up](CAPTURE_HANDOFF.md) traces this publication helper's handle/selector/length globals into a type-`0x108` export record, dispatched by selector `0x72`. It separately traces a capture request through PCIe transfer into a JPEG input slot. No consumer joins that CP export to the request; the cross-processor MLUT identity remains unresolved.
+
 Reproduce with `.venv-research/bin/python research/trace_mlut_allocation.py`. The [source-bound evidence](evidence/mlut-allocation.json) pins the official CP image, retains **20 instruction regions and 38 bounded host cases**, and lists every external stub. `py_compile` and the full generator pass. All execution is on the host: no camera, USB, network, native DMM allocation, queue, target process, DMA, codec or pixel operation runs.
 
 ## The ring is a conditional allocation mode

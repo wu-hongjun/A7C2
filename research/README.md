@@ -12,6 +12,10 @@ The later controlled Mac trial installed the revised 0.1.1 payload on one A7C II
 
 ## Offline firmware investigation
 
+The October 18 [capture handoff](CAPTURE_HANDOFF.md) traces an incoming source handle through `ChipTransfer`/PCIe DMA request construction into a JPEG input slot, and follows the CP shared-handle globals into a type-`0x108` export record. No writer connects that export or MLUT allocation to the incoming request yet. Six host fixtures include a transfer-failure control; no native pixel processing occurs. The [prototype plan](STILL_PROTOTYPE_PLAN.md) covers the user's four priorities: Creative Looks in AUTO, imported Fujifilm profiles, camera-native InstantLink printing and manual-lens EXIF. Additional evidence maps native BLE request producers and establishes that two named EXIF APIs are stubs. The referenced Fujifilm repository was unavailable locally and was not fetched under the offline instruction.
+
+[Validation receipt](evidence/still-prototype-followup-checks.json): three new generators, 25 regions / 1,755 independently byte-verified instruction records, six host handoff cases, 41 root host tests and eight LUT-reference tests. No camera or printer operations occurred.
+
 The [firmware architecture atlas](A7C2_FIRMWARE_ATLAS.md) adds a deeper REA/Ghidra investigation: container and boot structure, original filesystem metadata, application initialization, AP/CP interfaces, recording LUT metadata and MLUT control paths. Its [REA index](evidence/rea/index.json) retains actual tool Evidence separately from the reproducible Python/Capstone maps. The camera was not accessed for this work.
 
 The next pass recovers the [ordinary native LUT format and producer](NATIVE_LUT_FORMAT.md), independently matches [CP SRAM/register layout](MLUT_LAYOUT.md), and deepens [still-sequence routing](STILL_MLUT_ROUTE.md) plus the [AP recording boundary](STILL_RECORDING_BOUNDARY.md). Full-resolution saved-still processing through MLUT remains unproven; all new execution tests use isolated host emulation.

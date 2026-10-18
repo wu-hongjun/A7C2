@@ -1,0 +1,6010 @@
+{
+  "format": 1,
+  "purpose": "Offline camera-native Instax transport feasibility",
+  "method": "Hash-pinned ELF symbols, PLT relocations and Capstone disassembly; local source text inspection. No emulation or runtime imports.",
+  "camera_accessed": false,
+  "printer_accessed": false,
+  "network_accessed": false,
+  "target_executed": false,
+  "hardware_operations": 0,
+  "address_model": "ELF virtual addresses for exact firmware sources; not observed runtime addresses.",
+  "generator": {
+    "path": "research/map_printer_transport.py",
+    "sha256": "33ba14b3566a62a21d06ab842496788e59ef2d62ab43cca862161b2cd56b9d2d",
+    "support": {
+      "path": "research/map_ap_interfaces.py",
+      "sha256": "ad7f84cc574cf3fa499331da7280d6d97772d0b448db9f74959ba9fbfbb50b6a"
+    }
+  },
+  "firmware_sources": [
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraBluetoothCore.so",
+      "bytes": 297392,
+      "sha256": "f58ec9d2b38982dd04ad4cc33b7646d220c3f8caba2ee818a99dcbfac25c45fc",
+      "needed": [
+        "libosal_uipc.so",
+        "libBTUtils.so",
+        "libpthread.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "librt.so.1"
+      ]
+    },
+    {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraBluetoothLowEnergy.so",
+      "bytes": 644096,
+      "sha256": "bdeb26bb34dbbe3cb03adac0992a17dc4ffb5539ee95223dca0a6f54637fc7a1",
+      "needed": [
+        "libbackup.so",
+        "libInfraBluetoothCore.so",
+        "libBTUtils.so",
+        "libbkdmn.so",
+        "libpthread.so.0",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libdl.so.2",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "librt.so.1"
+      ]
+    }
+  ],
+  "exported_candidates": [
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClExecWrite",
+      "va": "0x328d4",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClAppRegisterInit",
+      "va": "0x320d4",
+      "bytes": 124
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClRead",
+      "va": "0x326d8",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClSearch",
+      "va": "0x325cc",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "_Z24sony_ble_cl_connect_initP16tBSA_BLE_CL_OPEN",
+      "va": "0x1fd00",
+      "bytes": 16
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClWrite",
+      "va": "0x327dc",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClConnectInit",
+      "va": "0x32268",
+      "bytes": 120
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClConnect",
+      "va": "0x322e0",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClCacheLoadInit",
+      "va": "0x32d58",
+      "bytes": 132
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClAppDeregisterInit",
+      "va": "0x32b5c",
+      "bytes": 120
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClCloseInit",
+      "va": "0x32458",
+      "bytes": 120
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClIndConfInit",
+      "va": "0x32954",
+      "bytes": 132
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClExecWriteInit",
+      "va": "0x3285c",
+      "bytes": 120
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClWriteInit",
+      "va": "0x32758",
+      "bytes": 132
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClSearchInit",
+      "va": "0x32550",
+      "bytes": 124
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClAppRegister",
+      "va": "0x32150",
+      "bytes": 280
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClCacheLoad",
+      "va": "0x32ddc",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClCancelConnect",
+      "va": "0x323d8",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClNotifRegister",
+      "va": "0x32adc",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClNotifDeregisterInit",
+      "va": "0x32c54",
+      "bytes": 132
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClAppDeregister",
+      "va": "0x32bd4",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClNotifDeregister",
+      "va": "0x32cd8",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClReadInit",
+      "va": "0x3264c",
+      "bytes": 140
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "_Z19sony_ble_cl_connectP16tBSA_BLE_CL_OPEN",
+      "va": "0x1fd10",
+      "bytes": 120
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClIndConf",
+      "va": "0x329d8",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClNotifRegisterInit",
+      "va": "0x32a58",
+      "bytes": 132
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClClose",
+      "va": "0x324d0",
+      "bytes": 128
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClCancelConnectInit",
+      "va": "0x32360",
+      "bytes": 120
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon9ClConnectEjPFvNS_17ST_MSG_ASYNC_COMPEE",
+      "va": "0x47988",
+      "bytes": 520
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon19pvtCoreBleClConnectEPc",
+      "va": "0x47768",
+      "bytes": 544
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon11ClRegNotifyEjNS_10ST_BT_UUIDE",
+      "va": "0x46e84",
+      "bytes": 452
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon7ClWriteEjNS_10ST_BT_UUIDEttPhhbPFvNS_17ST_MSG_ASYNC_COMPEE",
+      "va": "0x463e0",
+      "bytes": 664
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon6ClReadEjNS_10ST_BT_UUIDEbPFvNS_17ST_MSG_ASYNC_COMPEE",
+      "va": "0x46aa4",
+      "bytes": 676
+    }
+  ],
+  "request_producers": [
+    {
+      "producer": "BSA_BleClConnect",
+      "producer_va": "0x322e0",
+      "message_opcode": "0x6aa",
+      "request_bytes": 8,
+      "request_pointer_assignment": "x1 = x20 (original x0)",
+      "boundary_branch": {
+        "address": "0x3235c",
+        "bytes": "c985ff17",
+        "mnemonic": "b",
+        "operands": "#0x13a80",
+        "target": "0x13a80",
+        "symbols": [
+          "bsa_send_message_receive_status@plt"
+        ]
+      },
+      "scope": "Static request producer; no server or controller executed."
+    },
+    {
+      "producer": "BSA_BleClWrite",
+      "producer_va": "0x327dc",
+      "message_opcode": "0x6ae",
+      "request_bytes": 244,
+      "request_pointer_assignment": "x1 = x20 (original x0)",
+      "boundary_branch": {
+        "address": "0x32858",
+        "bytes": "8a84ff17",
+        "mnemonic": "b",
+        "operands": "#0x13a80",
+        "target": "0x13a80",
+        "symbols": [
+          "bsa_send_message_receive_status@plt"
+        ]
+      },
+      "scope": "Static request producer; no server or controller executed."
+    },
+    {
+      "producer": "BSA_BleClNotifRegister",
+      "producer_va": "0x32adc",
+      "message_opcode": "0x6b1",
+      "request_bytes": 64,
+      "request_pointer_assignment": "x1 = x20 (original x0)",
+      "boundary_branch": {
+        "address": "0x32b58",
+        "bytes": "ca83ff17",
+        "mnemonic": "b",
+        "operands": "#0x13a80",
+        "target": "0x13a80",
+        "symbols": [
+          "bsa_send_message_receive_status@plt"
+        ]
+      },
+      "scope": "Static request producer; no server or controller executed."
+    }
+  ],
+  "regions": [
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClConnect",
+      "start_va": "0x322e0",
+      "file_offset": "0x322e0",
+      "bytes": 128,
+      "sha256": "6ed1e4132dbc0329f975a0cb0a7a389f284aa633949e4aa2ec236d14c7ba4b60",
+      "raw_hex": "fd7bbea9fd030091f35301a9f40300aa20010090f30300aa014c47f9210040393f080071a90000546100009040a0805221240791bf86ff97940100b5604e47f900004039a00000346100009000a0805221680791b786ff97000d8052f35341a9fd7bc2a8c0035fd6e10314aa02018052f35341a940d58052fd7bc2a8c985ff17",
+      "instructions": [
+        {
+          "address": "0x322e0",
+          "bytes": "fd7bbea9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x20]!"
+        },
+        {
+          "address": "0x322e4",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x322e8",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x322ec",
+          "bytes": "f40300aa",
+          "mnemonic": "mov",
+          "operands": "x20, x0"
+        },
+        {
+          "address": "0x322f0",
+          "bytes": "20010090",
+          "mnemonic": "adrp",
+          "operands": "x0, #0x56000"
+        },
+        {
+          "address": "0x322f4",
+          "bytes": "f30300aa",
+          "mnemonic": "mov",
+          "operands": "x19, x0"
+        },
+        {
+          "address": "0x322f8",
+          "bytes": "014c47f9",
+          "mnemonic": "ldr",
+          "operands": "x1, [x0, #0xe98]"
+        },
+        {
+          "address": "0x322fc",
+          "bytes": "21004039",
+          "mnemonic": "ldrb",
+          "operands": "w1, [x1]"
+        },
+        {
+          "address": "0x32300",
+          "bytes": "3f080071",
+          "mnemonic": "cmp",
+          "operands": "w1, #2"
+        },
+        {
+          "address": "0x32304",
+          "bytes": "a9000054",
+          "mnemonic": "b.ls",
+          "operands": "#0x32318"
+        },
+        {
+          "address": "0x32308",
+          "bytes": "61000090",
+          "mnemonic": "adrp",
+          "operands": "x1, #0x3e000"
+        },
+        {
+          "address": "0x3230c",
+          "bytes": "40a08052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x502"
+        },
+        {
+          "address": "0x32310",
+          "bytes": "21240791",
+          "mnemonic": "add",
+          "operands": "x1, x1, #0x1c9",
+          "linear_literal_candidate": {
+            "address": "0x3e1c9",
+            "text": "BSA_BleClConnect"
+          }
+        },
+        {
+          "address": "0x32314",
+          "bytes": "bf86ff97",
+          "mnemonic": "bl",
+          "operands": "#0x13e10",
+          "target": "0x13e10",
+          "symbols": [
+            "LogMsg_0@plt"
+          ]
+        },
+        {
+          "address": "0x32318",
+          "bytes": "940100b5",
+          "mnemonic": "cbnz",
+          "operands": "x20, #0x32348"
+        },
+        {
+          "address": "0x3231c",
+          "bytes": "604e47f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19, #0xe98]"
+        },
+        {
+          "address": "0x32320",
+          "bytes": "00004039",
+          "mnemonic": "ldrb",
+          "operands": "w0, [x0]"
+        },
+        {
+          "address": "0x32324",
+          "bytes": "a0000034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x32338"
+        },
+        {
+          "address": "0x32328",
+          "bytes": "61000090",
+          "mnemonic": "adrp",
+          "operands": "x1, #0x3e000"
+        },
+        {
+          "address": "0x3232c",
+          "bytes": "00a08052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x500"
+        },
+        {
+          "address": "0x32330",
+          "bytes": "21680791",
+          "mnemonic": "add",
+          "operands": "x1, x1, #0x1da",
+          "linear_literal_candidate": {
+            "address": "0x3e1da",
+            "text": "BSA_BleClConnect param struct pointer is NULL"
+          }
+        },
+        {
+          "address": "0x32334",
+          "bytes": "b786ff97",
+          "mnemonic": "bl",
+          "operands": "#0x13e10",
+          "target": "0x13e10",
+          "symbols": [
+            "LogMsg_0@plt"
+          ]
+        },
+        {
+          "address": "0x32338",
+          "bytes": "000d8052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x68"
+        },
+        {
+          "address": "0x3233c",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x32340",
+          "bytes": "fd7bc2a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x20"
+        },
+        {
+          "address": "0x32344",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x32348",
+          "bytes": "e10314aa",
+          "mnemonic": "mov",
+          "operands": "x1, x20"
+        },
+        {
+          "address": "0x3234c",
+          "bytes": "02018052",
+          "mnemonic": "mov",
+          "operands": "w2, #8"
+        },
+        {
+          "address": "0x32350",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x32354",
+          "bytes": "40d58052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x6aa"
+        },
+        {
+          "address": "0x32358",
+          "bytes": "fd7bc2a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x20"
+        },
+        {
+          "address": "0x3235c",
+          "bytes": "c985ff17",
+          "mnemonic": "b",
+          "operands": "#0x13a80",
+          "target": "0x13a80",
+          "symbols": [
+            "bsa_send_message_receive_status@plt"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClWrite",
+      "start_va": "0x327dc",
+      "file_offset": "0x327dc",
+      "bytes": 128,
+      "sha256": "ac97d51ec077dba2b0ddac1a72207e4fb69c72b792258f6f0a0b5a250f0d27ca",
+      "raw_hex": "fd7bbea9fd030091f35301a9f40300aa20010090f30300aa014c47f9210040393f080071a90000546100009040a08052218c16918085ff97940100b5604e47f900004039a00000346100009000a0805221c816917885ff97000d8052f35341a9fd7bc2a8c0035fd6e10314aa821e8052f35341a9c0d58052fd7bc2a88a84ff17",
+      "instructions": [
+        {
+          "address": "0x327dc",
+          "bytes": "fd7bbea9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x20]!"
+        },
+        {
+          "address": "0x327e0",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x327e4",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x327e8",
+          "bytes": "f40300aa",
+          "mnemonic": "mov",
+          "operands": "x20, x0"
+        },
+        {
+          "address": "0x327ec",
+          "bytes": "20010090",
+          "mnemonic": "adrp",
+          "operands": "x0, #0x56000"
+        },
+        {
+          "address": "0x327f0",
+          "bytes": "f30300aa",
+          "mnemonic": "mov",
+          "operands": "x19, x0"
+        },
+        {
+          "address": "0x327f4",
+          "bytes": "014c47f9",
+          "mnemonic": "ldr",
+          "operands": "x1, [x0, #0xe98]"
+        },
+        {
+          "address": "0x327f8",
+          "bytes": "21004039",
+          "mnemonic": "ldrb",
+          "operands": "w1, [x1]"
+        },
+        {
+          "address": "0x327fc",
+          "bytes": "3f080071",
+          "mnemonic": "cmp",
+          "operands": "w1, #2"
+        },
+        {
+          "address": "0x32800",
+          "bytes": "a9000054",
+          "mnemonic": "b.ls",
+          "operands": "#0x32814"
+        },
+        {
+          "address": "0x32804",
+          "bytes": "61000090",
+          "mnemonic": "adrp",
+          "operands": "x1, #0x3e000"
+        },
+        {
+          "address": "0x32808",
+          "bytes": "40a08052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x502"
+        },
+        {
+          "address": "0x3280c",
+          "bytes": "218c1691",
+          "mnemonic": "add",
+          "operands": "x1, x1, #0x5a3",
+          "linear_literal_candidate": {
+            "address": "0x3e5a3",
+            "text": "BSA_BleClWrite"
+          }
+        },
+        {
+          "address": "0x32810",
+          "bytes": "8085ff97",
+          "mnemonic": "bl",
+          "operands": "#0x13e10",
+          "target": "0x13e10",
+          "symbols": [
+            "LogMsg_0@plt"
+          ]
+        },
+        {
+          "address": "0x32814",
+          "bytes": "940100b5",
+          "mnemonic": "cbnz",
+          "operands": "x20, #0x32844"
+        },
+        {
+          "address": "0x32818",
+          "bytes": "604e47f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19, #0xe98]"
+        },
+        {
+          "address": "0x3281c",
+          "bytes": "00004039",
+          "mnemonic": "ldrb",
+          "operands": "w0, [x0]"
+        },
+        {
+          "address": "0x32820",
+          "bytes": "a0000034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x32834"
+        },
+        {
+          "address": "0x32824",
+          "bytes": "61000090",
+          "mnemonic": "adrp",
+          "operands": "x1, #0x3e000"
+        },
+        {
+          "address": "0x32828",
+          "bytes": "00a08052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x500"
+        },
+        {
+          "address": "0x3282c",
+          "bytes": "21c81691",
+          "mnemonic": "add",
+          "operands": "x1, x1, #0x5b2",
+          "linear_literal_candidate": {
+            "address": "0x3e5b2",
+            "text": "BSA_BleClWrite param struct pointer is NULL"
+          }
+        },
+        {
+          "address": "0x32830",
+          "bytes": "7885ff97",
+          "mnemonic": "bl",
+          "operands": "#0x13e10",
+          "target": "0x13e10",
+          "symbols": [
+            "LogMsg_0@plt"
+          ]
+        },
+        {
+          "address": "0x32834",
+          "bytes": "000d8052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x68"
+        },
+        {
+          "address": "0x32838",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x3283c",
+          "bytes": "fd7bc2a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x20"
+        },
+        {
+          "address": "0x32840",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x32844",
+          "bytes": "e10314aa",
+          "mnemonic": "mov",
+          "operands": "x1, x20"
+        },
+        {
+          "address": "0x32848",
+          "bytes": "821e8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0xf4"
+        },
+        {
+          "address": "0x3284c",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x32850",
+          "bytes": "c0d58052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x6ae"
+        },
+        {
+          "address": "0x32854",
+          "bytes": "fd7bc2a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x20"
+        },
+        {
+          "address": "0x32858",
+          "bytes": "8a84ff17",
+          "mnemonic": "b",
+          "operands": "#0x13a80",
+          "target": "0x13a80",
+          "symbols": [
+            "bsa_send_message_receive_status@plt"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "symbol": "BSA_BleClNotifRegister",
+      "start_va": "0x32adc",
+      "file_offset": "0x32adc",
+      "bytes": 128,
+      "sha256": "31628199bed040f48ae54bb736863109c5691bda0905e37519104d8d32959828",
+      "raw_hex": "fd7bbea9fd030091f35301a9f40300aa20010090f30300aa014c47f9210040393f080071a90000546100009040a0805221241091c084ff97940100b5604e47f900004039a00000346100009000a0805221801091b884ff97000d8052f35341a9fd7bc2a8c0035fd6e10314aa02088052f35341a920d68052fd7bc2a8ca83ff17",
+      "instructions": [
+        {
+          "address": "0x32adc",
+          "bytes": "fd7bbea9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x20]!"
+        },
+        {
+          "address": "0x32ae0",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x32ae4",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x32ae8",
+          "bytes": "f40300aa",
+          "mnemonic": "mov",
+          "operands": "x20, x0"
+        },
+        {
+          "address": "0x32aec",
+          "bytes": "20010090",
+          "mnemonic": "adrp",
+          "operands": "x0, #0x56000"
+        },
+        {
+          "address": "0x32af0",
+          "bytes": "f30300aa",
+          "mnemonic": "mov",
+          "operands": "x19, x0"
+        },
+        {
+          "address": "0x32af4",
+          "bytes": "014c47f9",
+          "mnemonic": "ldr",
+          "operands": "x1, [x0, #0xe98]"
+        },
+        {
+          "address": "0x32af8",
+          "bytes": "21004039",
+          "mnemonic": "ldrb",
+          "operands": "w1, [x1]"
+        },
+        {
+          "address": "0x32afc",
+          "bytes": "3f080071",
+          "mnemonic": "cmp",
+          "operands": "w1, #2"
+        },
+        {
+          "address": "0x32b00",
+          "bytes": "a9000054",
+          "mnemonic": "b.ls",
+          "operands": "#0x32b14"
+        },
+        {
+          "address": "0x32b04",
+          "bytes": "61000090",
+          "mnemonic": "adrp",
+          "operands": "x1, #0x3e000"
+        },
+        {
+          "address": "0x32b08",
+          "bytes": "40a08052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x502"
+        },
+        {
+          "address": "0x32b0c",
+          "bytes": "21241091",
+          "mnemonic": "add",
+          "operands": "x1, x1, #0x409",
+          "linear_literal_candidate": {
+            "address": "0x3e409",
+            "text": "BSA_BleClNotifRegister"
+          }
+        },
+        {
+          "address": "0x32b10",
+          "bytes": "c084ff97",
+          "mnemonic": "bl",
+          "operands": "#0x13e10",
+          "target": "0x13e10",
+          "symbols": [
+            "LogMsg_0@plt"
+          ]
+        },
+        {
+          "address": "0x32b14",
+          "bytes": "940100b5",
+          "mnemonic": "cbnz",
+          "operands": "x20, #0x32b44"
+        },
+        {
+          "address": "0x32b18",
+          "bytes": "604e47f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19, #0xe98]"
+        },
+        {
+          "address": "0x32b1c",
+          "bytes": "00004039",
+          "mnemonic": "ldrb",
+          "operands": "w0, [x0]"
+        },
+        {
+          "address": "0x32b20",
+          "bytes": "a0000034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x32b34"
+        },
+        {
+          "address": "0x32b24",
+          "bytes": "61000090",
+          "mnemonic": "adrp",
+          "operands": "x1, #0x3e000"
+        },
+        {
+          "address": "0x32b28",
+          "bytes": "00a08052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x500"
+        },
+        {
+          "address": "0x32b2c",
+          "bytes": "21801091",
+          "mnemonic": "add",
+          "operands": "x1, x1, #0x420",
+          "linear_literal_candidate": {
+            "address": "0x3e420",
+            "text": "BSA_BleClNotifRegister param struct pointer is NULL"
+          }
+        },
+        {
+          "address": "0x32b30",
+          "bytes": "b884ff97",
+          "mnemonic": "bl",
+          "operands": "#0x13e10",
+          "target": "0x13e10",
+          "symbols": [
+            "LogMsg_0@plt"
+          ]
+        },
+        {
+          "address": "0x32b34",
+          "bytes": "000d8052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x68"
+        },
+        {
+          "address": "0x32b38",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x32b3c",
+          "bytes": "fd7bc2a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x20"
+        },
+        {
+          "address": "0x32b40",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x32b44",
+          "bytes": "e10314aa",
+          "mnemonic": "mov",
+          "operands": "x1, x20"
+        },
+        {
+          "address": "0x32b48",
+          "bytes": "02088052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x40"
+        },
+        {
+          "address": "0x32b4c",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x32b50",
+          "bytes": "20d68052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x6b1"
+        },
+        {
+          "address": "0x32b54",
+          "bytes": "fd7bc2a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x20"
+        },
+        {
+          "address": "0x32b58",
+          "bytes": "ca83ff17",
+          "mnemonic": "b",
+          "operands": "#0x13a80",
+          "target": "0x13a80",
+          "symbols": [
+            "bsa_send_message_receive_status@plt"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon9ClConnectEjPFvNS_17ST_MSG_ASYNC_COMPEE",
+      "start_va": "0x47988",
+      "file_offset": "0x47988",
+      "bytes": 520,
+      "sha256": "a064cb2ba841b705babd01aac301ff8efb7563299a71327f26f79cf4fc6a7c8e",
+      "raw_hex": "ffc309d1fd7bbba9fd030091f35301a9f4020090f55b02a9f76303a9f96b04a9bf7f05a9bf7f06a9bf7f07a9bf4300f9e20100b594b646f9424580528100805273008052800240f910adff97f55b42a9e003132af35341a9f76343a9f96b44a9fd7bc5a8ffc30991c0035fd695b646f9f70300aaa0008052a19f01b9f80302aa21008052a09301b962008252a00240f992aaff97a04306917ca5ff97f303002a40010034a00240f94247805281008052f6acff97a00240f9e203132a0100805256a2ff97e2ffff17a09741b9a0010034a00240f90248805281008052ebacff97a29741b901008052a00240f94ba2ff97a09741b995aaff97f303002ad4ffff17b6230291a1830691e00316aa822080d2d9b20091faff9f52bc9dff97e0020090000c46f91578009113d82791a0625f3820010034e10319aae00315aa420280d256a5ff9780000035a0e25f781f001a6b81050054b5e20191bf0213eb81feff5400028052b5430191b83700f9a06300b9a0d30291000440a9a00707a9a08b4179a0030179e00315aabf0702396bacff97f303002a4001003494b646f9224b805281008052800240f9b8acff97e203132a01008052800240f9c2ffff17c1b20091e00317aaf5acff97f303002a00f4ff3494b646f9424c805281008052800240f9aaacff97800240f9e203132a010080520aa2ff97e00315aae8a2ff9794ffff17b300805292ffff17",
+      "instructions": [
+        {
+          "address": "0x47988",
+          "bytes": "ffc309d1",
+          "mnemonic": "sub",
+          "operands": "sp, sp, #0x270"
+        },
+        {
+          "address": "0x4798c",
+          "bytes": "fd7bbba9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x50]!"
+        },
+        {
+          "address": "0x47990",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x47994",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x47998",
+          "bytes": "f4020090",
+          "mnemonic": "adrp",
+          "operands": "x20, #0xa3000"
+        },
+        {
+          "address": "0x4799c",
+          "bytes": "f55b02a9",
+          "mnemonic": "stp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x479a0",
+          "bytes": "f76303a9",
+          "mnemonic": "stp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x479a4",
+          "bytes": "f96b04a9",
+          "mnemonic": "stp",
+          "operands": "x25, x26, [sp, #0x40]"
+        },
+        {
+          "address": "0x479a8",
+          "bytes": "bf7f05a9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0x50]"
+        },
+        {
+          "address": "0x479ac",
+          "bytes": "bf7f06a9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0x60]"
+        },
+        {
+          "address": "0x479b0",
+          "bytes": "bf7f07a9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0x70]"
+        },
+        {
+          "address": "0x479b4",
+          "bytes": "bf4300f9",
+          "mnemonic": "str",
+          "operands": "xzr, [x29, #0x80]"
+        },
+        {
+          "address": "0x479b8",
+          "bytes": "e20100b5",
+          "mnemonic": "cbnz",
+          "operands": "x2, #0x479f4"
+        },
+        {
+          "address": "0x479bc",
+          "bytes": "94b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x20, #0xd68]"
+        },
+        {
+          "address": "0x479c0",
+          "bytes": "42458052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x22a"
+        },
+        {
+          "address": "0x479c4",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x479c8",
+          "bytes": "73008052",
+          "mnemonic": "mov",
+          "operands": "w19, #3"
+        },
+        {
+          "address": "0x479cc",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x479d0",
+          "bytes": "10adff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x479d4",
+          "bytes": "f55b42a9",
+          "mnemonic": "ldp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x479d8",
+          "bytes": "e003132a",
+          "mnemonic": "mov",
+          "operands": "w0, w19"
+        },
+        {
+          "address": "0x479dc",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x479e0",
+          "bytes": "f76343a9",
+          "mnemonic": "ldp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x479e4",
+          "bytes": "f96b44a9",
+          "mnemonic": "ldp",
+          "operands": "x25, x26, [sp, #0x40]"
+        },
+        {
+          "address": "0x479e8",
+          "bytes": "fd7bc5a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x50"
+        },
+        {
+          "address": "0x479ec",
+          "bytes": "ffc30991",
+          "mnemonic": "add",
+          "operands": "sp, sp, #0x270"
+        },
+        {
+          "address": "0x479f0",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x479f4",
+          "bytes": "95b646f9",
+          "mnemonic": "ldr",
+          "operands": "x21, [x20, #0xd68]"
+        },
+        {
+          "address": "0x479f8",
+          "bytes": "f70300aa",
+          "mnemonic": "mov",
+          "operands": "x23, x0"
+        },
+        {
+          "address": "0x479fc",
+          "bytes": "a0008052",
+          "mnemonic": "mov",
+          "operands": "w0, #5"
+        },
+        {
+          "address": "0x47a00",
+          "bytes": "a19f01b9",
+          "mnemonic": "str",
+          "operands": "w1, [x29, #0x19c]"
+        },
+        {
+          "address": "0x47a04",
+          "bytes": "f80302aa",
+          "mnemonic": "mov",
+          "operands": "x24, x2"
+        },
+        {
+          "address": "0x47a08",
+          "bytes": "21008052",
+          "mnemonic": "mov",
+          "operands": "w1, #1"
+        },
+        {
+          "address": "0x47a0c",
+          "bytes": "a09301b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0x190]"
+        },
+        {
+          "address": "0x47a10",
+          "bytes": "62008252",
+          "mnemonic": "mov",
+          "operands": "w2, #0x1003"
+        },
+        {
+          "address": "0x47a14",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x47a18",
+          "bytes": "92aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x32460",
+          "target": "0x32460",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog12lowerAPICallEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47a1c",
+          "bytes": "a0430691",
+          "mnemonic": "add",
+          "operands": "x0, x29, #0x190"
+        },
+        {
+          "address": "0x47a20",
+          "bytes": "7ca5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x31010",
+          "target": "0x31010",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon17pvtSendInfraBTMsgEPN16nsInfraBluetooth10ST_MSG_REQE@plt"
+          ]
+        },
+        {
+          "address": "0x47a24",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x47a28",
+          "bytes": "40010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x47a50"
+        },
+        {
+          "address": "0x47a2c",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x47a30",
+          "bytes": "42478052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x23a"
+        },
+        {
+          "address": "0x47a34",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x47a38",
+          "bytes": "f6acff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47a3c",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x47a40",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x47a44",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x47a48",
+          "bytes": "56a2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47a4c",
+          "bytes": "e2ffff17",
+          "mnemonic": "b",
+          "operands": "#0x479d4",
+          "target": "0x479d4"
+        },
+        {
+          "address": "0x47a50",
+          "bytes": "a09741b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x29, #0x194]"
+        },
+        {
+          "address": "0x47a54",
+          "bytes": "a0010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x47a88"
+        },
+        {
+          "address": "0x47a58",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x47a5c",
+          "bytes": "02488052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x240"
+        },
+        {
+          "address": "0x47a60",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x47a64",
+          "bytes": "ebacff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47a68",
+          "bytes": "a29741b9",
+          "mnemonic": "ldr",
+          "operands": "w2, [x29, #0x194]"
+        },
+        {
+          "address": "0x47a6c",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x47a70",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x47a74",
+          "bytes": "4ba2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47a78",
+          "bytes": "a09741b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x29, #0x194]"
+        },
+        {
+          "address": "0x47a7c",
+          "bytes": "95aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x324d0",
+          "target": "0x324d0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtChangeInfraBTErrorEi@plt"
+          ]
+        },
+        {
+          "address": "0x47a80",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x47a84",
+          "bytes": "d4ffff17",
+          "mnemonic": "b",
+          "operands": "#0x479d4",
+          "target": "0x479d4"
+        },
+        {
+          "address": "0x47a88",
+          "bytes": "b6230291",
+          "mnemonic": "add",
+          "operands": "x22, x29, #0x88"
+        },
+        {
+          "address": "0x47a8c",
+          "bytes": "a1830691",
+          "mnemonic": "add",
+          "operands": "x1, x29, #0x1a0"
+        },
+        {
+          "address": "0x47a90",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x47a94",
+          "bytes": "822080d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x104"
+        },
+        {
+          "address": "0x47a98",
+          "bytes": "d9b20091",
+          "mnemonic": "add",
+          "operands": "x25, x22, #0x2c"
+        },
+        {
+          "address": "0x47a9c",
+          "bytes": "faff9f52",
+          "mnemonic": "mov",
+          "operands": "w26, #0xffff"
+        },
+        {
+          "address": "0x47aa0",
+          "bytes": "bc9dff97",
+          "mnemonic": "bl",
+          "operands": "#0x2f190",
+          "target": "0x2f190",
+          "symbols": [
+            "memcpy@plt"
+          ]
+        },
+        {
+          "address": "0x47aa4",
+          "bytes": "e0020090",
+          "mnemonic": "adrp",
+          "operands": "x0, #0xa3000"
+        },
+        {
+          "address": "0x47aa8",
+          "bytes": "000c46f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x0, #0xc18]"
+        },
+        {
+          "address": "0x47aac",
+          "bytes": "15780091",
+          "mnemonic": "add",
+          "operands": "x21, x0, #0x1e"
+        },
+        {
+          "address": "0x47ab0",
+          "bytes": "13d82791",
+          "mnemonic": "add",
+          "operands": "x19, x0, #0x9f6"
+        },
+        {
+          "address": "0x47ab4",
+          "bytes": "a0625f38",
+          "mnemonic": "ldurb",
+          "operands": "w0, [x21, #-0xa]"
+        },
+        {
+          "address": "0x47ab8",
+          "bytes": "20010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x47adc"
+        },
+        {
+          "address": "0x47abc",
+          "bytes": "e10319aa",
+          "mnemonic": "mov",
+          "operands": "x1, x25"
+        },
+        {
+          "address": "0x47ac0",
+          "bytes": "e00315aa",
+          "mnemonic": "mov",
+          "operands": "x0, x21"
+        },
+        {
+          "address": "0x47ac4",
+          "bytes": "420280d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x12"
+        },
+        {
+          "address": "0x47ac8",
+          "bytes": "56a5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x31020",
+          "target": "0x31020",
+          "symbols": [
+            "strncmp@plt"
+          ]
+        },
+        {
+          "address": "0x47acc",
+          "bytes": "80000035",
+          "mnemonic": "cbnz",
+          "operands": "w0, #0x47adc"
+        },
+        {
+          "address": "0x47ad0",
+          "bytes": "a0e25f78",
+          "mnemonic": "ldurh",
+          "operands": "w0, [x21, #-2]"
+        },
+        {
+          "address": "0x47ad4",
+          "bytes": "1f001a6b",
+          "mnemonic": "cmp",
+          "operands": "w0, w26"
+        },
+        {
+          "address": "0x47ad8",
+          "bytes": "81050054",
+          "mnemonic": "b.ne",
+          "operands": "#0x47b88"
+        },
+        {
+          "address": "0x47adc",
+          "bytes": "b5e20191",
+          "mnemonic": "add",
+          "operands": "x21, x21, #0x78"
+        },
+        {
+          "address": "0x47ae0",
+          "bytes": "bf0213eb",
+          "mnemonic": "cmp",
+          "operands": "x21, x19"
+        },
+        {
+          "address": "0x47ae4",
+          "bytes": "81feff54",
+          "mnemonic": "b.ne",
+          "operands": "#0x47ab4"
+        },
+        {
+          "address": "0x47ae8",
+          "bytes": "00028052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x10"
+        },
+        {
+          "address": "0x47aec",
+          "bytes": "b5430191",
+          "mnemonic": "add",
+          "operands": "x21, x29, #0x50"
+        },
+        {
+          "address": "0x47af0",
+          "bytes": "b83700f9",
+          "mnemonic": "str",
+          "operands": "x24, [x29, #0x68]"
+        },
+        {
+          "address": "0x47af4",
+          "bytes": "a06300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0x60]"
+        },
+        {
+          "address": "0x47af8",
+          "bytes": "a0d30291",
+          "mnemonic": "add",
+          "operands": "x0, x29, #0xb4"
+        },
+        {
+          "address": "0x47afc",
+          "bytes": "000440a9",
+          "mnemonic": "ldp",
+          "operands": "x0, x1, [x0]"
+        },
+        {
+          "address": "0x47b00",
+          "bytes": "a00707a9",
+          "mnemonic": "stp",
+          "operands": "x0, x1, [x29, #0x70]"
+        },
+        {
+          "address": "0x47b04",
+          "bytes": "a08b4179",
+          "mnemonic": "ldrh",
+          "operands": "w0, [x29, #0xc4]"
+        },
+        {
+          "address": "0x47b08",
+          "bytes": "a0030179",
+          "mnemonic": "strh",
+          "operands": "w0, [x29, #0x80]"
+        },
+        {
+          "address": "0x47b0c",
+          "bytes": "e00315aa",
+          "mnemonic": "mov",
+          "operands": "x0, x21"
+        },
+        {
+          "address": "0x47b10",
+          "bytes": "bf070239",
+          "mnemonic": "strb",
+          "operands": "wzr, [x29, #0x81]"
+        },
+        {
+          "address": "0x47b14",
+          "bytes": "6bacff97",
+          "mnemonic": "bl",
+          "operands": "#0x32cc0",
+          "target": "0x32cc0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon12pvtAddCBListEPNS_9cbListElmE@plt"
+          ]
+        },
+        {
+          "address": "0x47b18",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x47b1c",
+          "bytes": "40010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x47b44"
+        },
+        {
+          "address": "0x47b20",
+          "bytes": "94b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x20, #0xd68]"
+        },
+        {
+          "address": "0x47b24",
+          "bytes": "224b8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x259"
+        },
+        {
+          "address": "0x47b28",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x47b2c",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x47b30",
+          "bytes": "b8acff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47b34",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x47b38",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x47b3c",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x47b40",
+          "bytes": "c2ffff17",
+          "mnemonic": "b",
+          "operands": "#0x47a48",
+          "target": "0x47a48"
+        },
+        {
+          "address": "0x47b44",
+          "bytes": "c1b20091",
+          "mnemonic": "add",
+          "operands": "x1, x22, #0x2c"
+        },
+        {
+          "address": "0x47b48",
+          "bytes": "e00317aa",
+          "mnemonic": "mov",
+          "operands": "x0, x23"
+        },
+        {
+          "address": "0x47b4c",
+          "bytes": "f5acff97",
+          "mnemonic": "bl",
+          "operands": "#0x32f20",
+          "target": "0x32f20",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon19pvtCoreBleClConnectEPc@plt"
+          ]
+        },
+        {
+          "address": "0x47b50",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x47b54",
+          "bytes": "00f4ff34",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x479d4"
+        },
+        {
+          "address": "0x47b58",
+          "bytes": "94b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x20, #0xd68]"
+        },
+        {
+          "address": "0x47b5c",
+          "bytes": "424c8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x262"
+        },
+        {
+          "address": "0x47b60",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x47b64",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x47b68",
+          "bytes": "aaacff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47b6c",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x47b70",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x47b74",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x47b78",
+          "bytes": "0aa2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47b7c",
+          "bytes": "e00315aa",
+          "mnemonic": "mov",
+          "operands": "x0, x21"
+        },
+        {
+          "address": "0x47b80",
+          "bytes": "e8a2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30720",
+          "target": "0x30720",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtFreeMatchingCBListEPNS_9cbListElmE@plt"
+          ]
+        },
+        {
+          "address": "0x47b84",
+          "bytes": "94ffff17",
+          "mnemonic": "b",
+          "operands": "#0x479d4",
+          "target": "0x479d4"
+        },
+        {
+          "address": "0x47b88",
+          "bytes": "b3008052",
+          "mnemonic": "mov",
+          "operands": "w19, #5"
+        },
+        {
+          "address": "0x47b8c",
+          "bytes": "92ffff17",
+          "mnemonic": "b",
+          "operands": "#0x479d4",
+          "target": "0x479d4"
+        }
+      ]
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon19pvtCoreBleClConnectEPc",
+      "start_va": "0x47768",
+      "file_offset": "0x47768",
+      "bytes": 544,
+      "sha256": "683662a4e419f6f5ecd222b419ae4e95007ead55109ba16a911adbb0d89d9b41",
+      "raw_hex": "fd7bbaa9fd030091f55b02a9f60301aaf76303a9f80300aaf35301a9f92300f9daa0ff97f503002a40020034f302009082a2805273b646f9600240f9810080529aadff97600240f9e203152a01008052faa2ff97e003152af92340f9f35341a9f55b42a9f76343a9fd7bc6a8c0035fd6b7630191f3020090e00317aa14008052eaa4ff97e0060091e10316aa17a5ff9720008052e2ff9f52a07f0139600e46f900500091010040393f04007141010054010440393ffc0371e0000054030440b97f04007181000054031040797f00026bc00600549406001100e001919f56007121feff54730e46f9000080d2190f80d2014c199b147c40932150403901080034000400911f5400f141ffff54e002009062ac8052810080523500805200b446f9000040f961adff97cbffff17f3020090e2a5805273b646f9600240f9810080521501805259adff97600240f9e203172a01008052b9a2ff97bfffff17a05f4139a0630139e00317aa78aaff97173c0053b7000034f302009002ab805273b646f9eeffff17c00380d2c20e40a98002399b0000138b934e199b020c00a9c12240790120007912000014e00317aaa163013966aaff97173c0053b7fbff35c10380d2000f8052730e46f98006209b947e4093c20e40a90000138b020c00a9c122407901200079000f80d2934e009b400080527fbe0039601a00b997ffff17a15f0191e00318aa71a3ff97f503002a80faff34f302009042a9805273b646f987ffff17",
+      "instructions": [
+        {
+          "address": "0x47768",
+          "bytes": "fd7bbaa9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x60]!"
+        },
+        {
+          "address": "0x4776c",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x47770",
+          "bytes": "f55b02a9",
+          "mnemonic": "stp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x47774",
+          "bytes": "f60301aa",
+          "mnemonic": "mov",
+          "operands": "x22, x1"
+        },
+        {
+          "address": "0x47778",
+          "bytes": "f76303a9",
+          "mnemonic": "stp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x4777c",
+          "bytes": "f80300aa",
+          "mnemonic": "mov",
+          "operands": "x24, x0"
+        },
+        {
+          "address": "0x47780",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x47784",
+          "bytes": "f92300f9",
+          "mnemonic": "str",
+          "operands": "x25, [sp, #0x40]"
+        },
+        {
+          "address": "0x47788",
+          "bytes": "daa0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2faf0",
+          "target": "0x2faf0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon31pvtCoreBleClDmSetConfigConParamEPc@plt"
+          ]
+        },
+        {
+          "address": "0x4778c",
+          "bytes": "f503002a",
+          "mnemonic": "mov",
+          "operands": "w21, w0"
+        },
+        {
+          "address": "0x47790",
+          "bytes": "40020034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x477d8"
+        },
+        {
+          "address": "0x47794",
+          "bytes": "f3020090",
+          "mnemonic": "adrp",
+          "operands": "x19, #0xa3000"
+        },
+        {
+          "address": "0x47798",
+          "bytes": "82a28052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x514"
+        },
+        {
+          "address": "0x4779c",
+          "bytes": "73b646f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xd68]"
+        },
+        {
+          "address": "0x477a0",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x477a4",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x477a8",
+          "bytes": "9aadff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x477ac",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x477b0",
+          "bytes": "e203152a",
+          "mnemonic": "mov",
+          "operands": "w2, w21"
+        },
+        {
+          "address": "0x477b4",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x477b8",
+          "bytes": "faa2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x477bc",
+          "bytes": "e003152a",
+          "mnemonic": "mov",
+          "operands": "w0, w21"
+        },
+        {
+          "address": "0x477c0",
+          "bytes": "f92340f9",
+          "mnemonic": "ldr",
+          "operands": "x25, [sp, #0x40]"
+        },
+        {
+          "address": "0x477c4",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x477c8",
+          "bytes": "f55b42a9",
+          "mnemonic": "ldp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x477cc",
+          "bytes": "f76343a9",
+          "mnemonic": "ldp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x477d0",
+          "bytes": "fd7bc6a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x60"
+        },
+        {
+          "address": "0x477d4",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x477d8",
+          "bytes": "b7630191",
+          "mnemonic": "add",
+          "operands": "x23, x29, #0x58"
+        },
+        {
+          "address": "0x477dc",
+          "bytes": "f3020090",
+          "mnemonic": "adrp",
+          "operands": "x19, #0xa3000"
+        },
+        {
+          "address": "0x477e0",
+          "bytes": "e00317aa",
+          "mnemonic": "mov",
+          "operands": "x0, x23"
+        },
+        {
+          "address": "0x477e4",
+          "bytes": "14008052",
+          "mnemonic": "mov",
+          "operands": "w20, #0"
+        },
+        {
+          "address": "0x477e8",
+          "bytes": "eaa4ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30b90",
+          "target": "0x30b90",
+          "symbols": [
+            "_Z24sony_ble_cl_connect_initP16tBSA_BLE_CL_OPEN@plt"
+          ]
+        },
+        {
+          "address": "0x477ec",
+          "bytes": "e0060091",
+          "mnemonic": "add",
+          "operands": "x0, x23, #1"
+        },
+        {
+          "address": "0x477f0",
+          "bytes": "e10316aa",
+          "mnemonic": "mov",
+          "operands": "x1, x22"
+        },
+        {
+          "address": "0x477f4",
+          "bytes": "17a5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30c50",
+          "target": "0x30c50",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon16pvtConvertBdAddrEPhPc@plt"
+          ]
+        },
+        {
+          "address": "0x477f8",
+          "bytes": "20008052",
+          "mnemonic": "mov",
+          "operands": "w0, #1"
+        },
+        {
+          "address": "0x477fc",
+          "bytes": "e2ff9f52",
+          "mnemonic": "mov",
+          "operands": "w2, #0xffff"
+        },
+        {
+          "address": "0x47800",
+          "bytes": "a07f0139",
+          "mnemonic": "strb",
+          "operands": "w0, [x29, #0x5f]"
+        },
+        {
+          "address": "0x47804",
+          "bytes": "600e46f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19, #0xc18]"
+        },
+        {
+          "address": "0x47808",
+          "bytes": "00500091",
+          "mnemonic": "add",
+          "operands": "x0, x0, #0x14"
+        },
+        {
+          "address": "0x4780c",
+          "bytes": "01004039",
+          "mnemonic": "ldrb",
+          "operands": "w1, [x0]"
+        },
+        {
+          "address": "0x47810",
+          "bytes": "3f040071",
+          "mnemonic": "cmp",
+          "operands": "w1, #1"
+        },
+        {
+          "address": "0x47814",
+          "bytes": "41010054",
+          "mnemonic": "b.ne",
+          "operands": "#0x4783c"
+        },
+        {
+          "address": "0x47818",
+          "bytes": "01044039",
+          "mnemonic": "ldrb",
+          "operands": "w1, [x0, #1]"
+        },
+        {
+          "address": "0x4781c",
+          "bytes": "3ffc0371",
+          "mnemonic": "cmp",
+          "operands": "w1, #0xff"
+        },
+        {
+          "address": "0x47820",
+          "bytes": "e0000054",
+          "mnemonic": "b.eq",
+          "operands": "#0x4783c"
+        },
+        {
+          "address": "0x47824",
+          "bytes": "030440b9",
+          "mnemonic": "ldr",
+          "operands": "w3, [x0, #4]"
+        },
+        {
+          "address": "0x47828",
+          "bytes": "7f040071",
+          "mnemonic": "cmp",
+          "operands": "w3, #1"
+        },
+        {
+          "address": "0x4782c",
+          "bytes": "81000054",
+          "mnemonic": "b.ne",
+          "operands": "#0x4783c"
+        },
+        {
+          "address": "0x47830",
+          "bytes": "03104079",
+          "mnemonic": "ldrh",
+          "operands": "w3, [x0, #8]"
+        },
+        {
+          "address": "0x47834",
+          "bytes": "7f00026b",
+          "mnemonic": "cmp",
+          "operands": "w3, w2"
+        },
+        {
+          "address": "0x47838",
+          "bytes": "c0060054",
+          "mnemonic": "b.eq",
+          "operands": "#0x47910"
+        },
+        {
+          "address": "0x4783c",
+          "bytes": "94060011",
+          "mnemonic": "add",
+          "operands": "w20, w20, #1"
+        },
+        {
+          "address": "0x47840",
+          "bytes": "00e00191",
+          "mnemonic": "add",
+          "operands": "x0, x0, #0x78"
+        },
+        {
+          "address": "0x47844",
+          "bytes": "9f560071",
+          "mnemonic": "cmp",
+          "operands": "w20, #0x15"
+        },
+        {
+          "address": "0x47848",
+          "bytes": "21feff54",
+          "mnemonic": "b.ne",
+          "operands": "#0x4780c"
+        },
+        {
+          "address": "0x4784c",
+          "bytes": "730e46f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xc18]"
+        },
+        {
+          "address": "0x47850",
+          "bytes": "000080d2",
+          "mnemonic": "mov",
+          "operands": "x0, #0"
+        },
+        {
+          "address": "0x47854",
+          "bytes": "190f80d2",
+          "mnemonic": "mov",
+          "operands": "x25, #0x78"
+        },
+        {
+          "address": "0x47858",
+          "bytes": "014c199b",
+          "mnemonic": "madd",
+          "operands": "x1, x0, x25, x19"
+        },
+        {
+          "address": "0x4785c",
+          "bytes": "147c4093",
+          "mnemonic": "sxtw",
+          "operands": "x20, w0"
+        },
+        {
+          "address": "0x47860",
+          "bytes": "21504039",
+          "mnemonic": "ldrb",
+          "operands": "w1, [x1, #0x14]"
+        },
+        {
+          "address": "0x47864",
+          "bytes": "01080034",
+          "mnemonic": "cbz",
+          "operands": "w1, #0x47964"
+        },
+        {
+          "address": "0x47868",
+          "bytes": "00040091",
+          "mnemonic": "add",
+          "operands": "x0, x0, #1"
+        },
+        {
+          "address": "0x4786c",
+          "bytes": "1f5400f1",
+          "mnemonic": "cmp",
+          "operands": "x0, #0x15"
+        },
+        {
+          "address": "0x47870",
+          "bytes": "41ffff54",
+          "mnemonic": "b.ne",
+          "operands": "#0x47858"
+        },
+        {
+          "address": "0x47874",
+          "bytes": "e0020090",
+          "mnemonic": "adrp",
+          "operands": "x0, #0xa3000"
+        },
+        {
+          "address": "0x47878",
+          "bytes": "62ac8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x563"
+        },
+        {
+          "address": "0x4787c",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x47880",
+          "bytes": "35008052",
+          "mnemonic": "mov",
+          "operands": "w21, #1"
+        },
+        {
+          "address": "0x47884",
+          "bytes": "00b446f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x0, #0xd68]"
+        },
+        {
+          "address": "0x47888",
+          "bytes": "000040f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x0]"
+        },
+        {
+          "address": "0x4788c",
+          "bytes": "61adff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47890",
+          "bytes": "cbffff17",
+          "mnemonic": "b",
+          "operands": "#0x477bc",
+          "target": "0x477bc"
+        },
+        {
+          "address": "0x47894",
+          "bytes": "f3020090",
+          "mnemonic": "adrp",
+          "operands": "x19, #0xa3000"
+        },
+        {
+          "address": "0x47898",
+          "bytes": "e2a58052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x52f"
+        },
+        {
+          "address": "0x4789c",
+          "bytes": "73b646f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xd68]"
+        },
+        {
+          "address": "0x478a0",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x478a4",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x478a8",
+          "bytes": "15018052",
+          "mnemonic": "mov",
+          "operands": "w21, #8"
+        },
+        {
+          "address": "0x478ac",
+          "bytes": "59adff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x478b0",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x478b4",
+          "bytes": "e203172a",
+          "mnemonic": "mov",
+          "operands": "w2, w23"
+        },
+        {
+          "address": "0x478b8",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x478bc",
+          "bytes": "b9a2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x478c0",
+          "bytes": "bfffff17",
+          "mnemonic": "b",
+          "operands": "#0x477bc",
+          "target": "0x477bc"
+        },
+        {
+          "address": "0x478c4",
+          "bytes": "a05f4139",
+          "mnemonic": "ldrb",
+          "operands": "w0, [x29, #0x57]"
+        },
+        {
+          "address": "0x478c8",
+          "bytes": "a0630139",
+          "mnemonic": "strb",
+          "operands": "w0, [x29, #0x58]"
+        },
+        {
+          "address": "0x478cc",
+          "bytes": "e00317aa",
+          "mnemonic": "mov",
+          "operands": "x0, x23"
+        },
+        {
+          "address": "0x478d0",
+          "bytes": "78aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x322b0",
+          "target": "0x322b0",
+          "symbols": [
+            "_Z19sony_ble_cl_connectP16tBSA_BLE_CL_OPEN@plt"
+          ]
+        },
+        {
+          "address": "0x478d4",
+          "bytes": "173c0053",
+          "mnemonic": "uxth",
+          "operands": "w23, w0"
+        },
+        {
+          "address": "0x478d8",
+          "bytes": "b7000034",
+          "mnemonic": "cbz",
+          "operands": "w23, #0x478ec"
+        },
+        {
+          "address": "0x478dc",
+          "bytes": "f3020090",
+          "mnemonic": "adrp",
+          "operands": "x19, #0xa3000"
+        },
+        {
+          "address": "0x478e0",
+          "bytes": "02ab8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x558"
+        },
+        {
+          "address": "0x478e4",
+          "bytes": "73b646f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xd68]"
+        },
+        {
+          "address": "0x478e8",
+          "bytes": "eeffff17",
+          "mnemonic": "b",
+          "operands": "#0x478a0",
+          "target": "0x478a0"
+        },
+        {
+          "address": "0x478ec",
+          "bytes": "c00380d2",
+          "mnemonic": "mov",
+          "operands": "x0, #0x1e"
+        },
+        {
+          "address": "0x478f0",
+          "bytes": "c20e40a9",
+          "mnemonic": "ldp",
+          "operands": "x2, x3, [x22]"
+        },
+        {
+          "address": "0x478f4",
+          "bytes": "8002399b",
+          "mnemonic": "smaddl",
+          "operands": "x0, w20, w25, x0"
+        },
+        {
+          "address": "0x478f8",
+          "bytes": "0000138b",
+          "mnemonic": "add",
+          "operands": "x0, x0, x19"
+        },
+        {
+          "address": "0x478fc",
+          "bytes": "934e199b",
+          "mnemonic": "madd",
+          "operands": "x19, x20, x25, x19"
+        },
+        {
+          "address": "0x47900",
+          "bytes": "020c00a9",
+          "mnemonic": "stp",
+          "operands": "x2, x3, [x0]"
+        },
+        {
+          "address": "0x47904",
+          "bytes": "c1224079",
+          "mnemonic": "ldrh",
+          "operands": "w1, [x22, #0x10]"
+        },
+        {
+          "address": "0x47908",
+          "bytes": "01200079",
+          "mnemonic": "strh",
+          "operands": "w1, [x0, #0x10]"
+        },
+        {
+          "address": "0x4790c",
+          "bytes": "12000014",
+          "mnemonic": "b",
+          "operands": "#0x47954",
+          "target": "0x47954"
+        },
+        {
+          "address": "0x47910",
+          "bytes": "e00317aa",
+          "mnemonic": "mov",
+          "operands": "x0, x23"
+        },
+        {
+          "address": "0x47914",
+          "bytes": "a1630139",
+          "mnemonic": "strb",
+          "operands": "w1, [x29, #0x58]"
+        },
+        {
+          "address": "0x47918",
+          "bytes": "66aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x322b0",
+          "target": "0x322b0",
+          "symbols": [
+            "_Z19sony_ble_cl_connectP16tBSA_BLE_CL_OPEN@plt"
+          ]
+        },
+        {
+          "address": "0x4791c",
+          "bytes": "173c0053",
+          "mnemonic": "uxth",
+          "operands": "w23, w0"
+        },
+        {
+          "address": "0x47920",
+          "bytes": "b7fbff35",
+          "mnemonic": "cbnz",
+          "operands": "w23, #0x47894"
+        },
+        {
+          "address": "0x47924",
+          "bytes": "c10380d2",
+          "mnemonic": "mov",
+          "operands": "x1, #0x1e"
+        },
+        {
+          "address": "0x47928",
+          "bytes": "000f8052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x78"
+        },
+        {
+          "address": "0x4792c",
+          "bytes": "730e46f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xc18]"
+        },
+        {
+          "address": "0x47930",
+          "bytes": "8006209b",
+          "mnemonic": "smaddl",
+          "operands": "x0, w20, w0, x1"
+        },
+        {
+          "address": "0x47934",
+          "bytes": "947e4093",
+          "mnemonic": "sxtw",
+          "operands": "x20, w20"
+        },
+        {
+          "address": "0x47938",
+          "bytes": "c20e40a9",
+          "mnemonic": "ldp",
+          "operands": "x2, x3, [x22]"
+        },
+        {
+          "address": "0x4793c",
+          "bytes": "0000138b",
+          "mnemonic": "add",
+          "operands": "x0, x0, x19"
+        },
+        {
+          "address": "0x47940",
+          "bytes": "020c00a9",
+          "mnemonic": "stp",
+          "operands": "x2, x3, [x0]"
+        },
+        {
+          "address": "0x47944",
+          "bytes": "c1224079",
+          "mnemonic": "ldrh",
+          "operands": "w1, [x22, #0x10]"
+        },
+        {
+          "address": "0x47948",
+          "bytes": "01200079",
+          "mnemonic": "strh",
+          "operands": "w1, [x0, #0x10]"
+        },
+        {
+          "address": "0x4794c",
+          "bytes": "000f80d2",
+          "mnemonic": "mov",
+          "operands": "x0, #0x78"
+        },
+        {
+          "address": "0x47950",
+          "bytes": "934e009b",
+          "mnemonic": "madd",
+          "operands": "x19, x20, x0, x19"
+        },
+        {
+          "address": "0x47954",
+          "bytes": "40008052",
+          "mnemonic": "mov",
+          "operands": "w0, #2"
+        },
+        {
+          "address": "0x47958",
+          "bytes": "7fbe0039",
+          "mnemonic": "strb",
+          "operands": "wzr, [x19, #0x2f]"
+        },
+        {
+          "address": "0x4795c",
+          "bytes": "601a00b9",
+          "mnemonic": "str",
+          "operands": "w0, [x19, #0x18]"
+        },
+        {
+          "address": "0x47960",
+          "bytes": "97ffff17",
+          "mnemonic": "b",
+          "operands": "#0x477bc",
+          "target": "0x477bc"
+        },
+        {
+          "address": "0x47964",
+          "bytes": "a15f0191",
+          "mnemonic": "add",
+          "operands": "x1, x29, #0x57"
+        },
+        {
+          "address": "0x47968",
+          "bytes": "e00318aa",
+          "mnemonic": "mov",
+          "operands": "x0, x24"
+        },
+        {
+          "address": "0x4796c",
+          "bytes": "71a3ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30730",
+          "target": "0x30730",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtCoreBleClAppRegistEPh@plt"
+          ]
+        },
+        {
+          "address": "0x47970",
+          "bytes": "f503002a",
+          "mnemonic": "mov",
+          "operands": "w21, w0"
+        },
+        {
+          "address": "0x47974",
+          "bytes": "80faff34",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x478c4"
+        },
+        {
+          "address": "0x47978",
+          "bytes": "f3020090",
+          "mnemonic": "adrp",
+          "operands": "x19, #0xa3000"
+        },
+        {
+          "address": "0x4797c",
+          "bytes": "42a98052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x54a"
+        },
+        {
+          "address": "0x47980",
+          "bytes": "73b646f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xd68]"
+        },
+        {
+          "address": "0x47984",
+          "bytes": "87ffff17",
+          "mnemonic": "b",
+          "operands": "#0x477a0",
+          "target": "0x477a0"
+        }
+      ]
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon11ClRegNotifyEjNS_10ST_BT_UUIDE",
+      "start_va": "0x46e84",
+      "file_offset": "0x46e84",
+      "bytes": 452,
+      "sha256": "90e1bb57a2b45ee2613e220480f3ac066faa732386e8ff8b9c5e0f11fba70d12",
+      "raw_hex": "ff830ad1fd7bbba9fd030091f35301a9f403012af76303a9f70300aa400440a9b3430291a00709a9f80302aaf55b02a9401040b9f92300f9a0a300b9e00313aa1faaff9700530091020c40a9a20f09a9002740b9a0a300b9e00313aa18aaff97b4cf01b9f40200b0a00080526200825221008052a0c301b995b646f9a00240f957adff97a003079141a8ff9760010034f303002aa00240f9c216805281008052bbafff97a00240f9e203132a010080521ba5ff970e000014a0c741b980020034a00240f98217805281008052b0afff97a2c741b901008052a00240f910a5ff97a0c741b95aadff97f303002af55b42a9e003132af35341a9f76343a9f92340f9fd7bc5a8ff830a91c0035fd6b3e30291a1430791e00313aa822080d273b20091f9ff9f527aa0ff97e00200b0000c46f91678009115d82791c0625f3820010034e10313aae00316aa420280d214a8ff9780000035c0e25f781f00196bc1000054d6e20191df0215eb81feff5473008052dfffff17a3430191e10318aae00303aa820780d262a0ff97e20300aae10313aae00317aa72a7ff97f303002a80faff3494b646f9a21a805281008052800240f977afff97e203132a01008052800240f9bcffff17",
+      "instructions": [
+        {
+          "address": "0x46e84",
+          "bytes": "ff830ad1",
+          "mnemonic": "sub",
+          "operands": "sp, sp, #0x2a0"
+        },
+        {
+          "address": "0x46e88",
+          "bytes": "fd7bbba9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x50]!"
+        },
+        {
+          "address": "0x46e8c",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x46e90",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x46e94",
+          "bytes": "f403012a",
+          "mnemonic": "mov",
+          "operands": "w20, w1"
+        },
+        {
+          "address": "0x46e98",
+          "bytes": "f76303a9",
+          "mnemonic": "stp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x46e9c",
+          "bytes": "f70300aa",
+          "mnemonic": "mov",
+          "operands": "x23, x0"
+        },
+        {
+          "address": "0x46ea0",
+          "bytes": "400440a9",
+          "mnemonic": "ldp",
+          "operands": "x0, x1, [x2]"
+        },
+        {
+          "address": "0x46ea4",
+          "bytes": "b3430291",
+          "mnemonic": "add",
+          "operands": "x19, x29, #0x90"
+        },
+        {
+          "address": "0x46ea8",
+          "bytes": "a00709a9",
+          "mnemonic": "stp",
+          "operands": "x0, x1, [x29, #0x90]"
+        },
+        {
+          "address": "0x46eac",
+          "bytes": "f80302aa",
+          "mnemonic": "mov",
+          "operands": "x24, x2"
+        },
+        {
+          "address": "0x46eb0",
+          "bytes": "f55b02a9",
+          "mnemonic": "stp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x46eb4",
+          "bytes": "401040b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x2, #0x10]"
+        },
+        {
+          "address": "0x46eb8",
+          "bytes": "f92300f9",
+          "mnemonic": "str",
+          "operands": "x25, [sp, #0x40]"
+        },
+        {
+          "address": "0x46ebc",
+          "bytes": "a0a300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xa0]"
+        },
+        {
+          "address": "0x46ec0",
+          "bytes": "e00313aa",
+          "mnemonic": "mov",
+          "operands": "x0, x19"
+        },
+        {
+          "address": "0x46ec4",
+          "bytes": "1faaff97",
+          "mnemonic": "bl",
+          "operands": "#0x31740",
+          "target": "0x31740",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon14pvtDisplayUUIDE8tBT_UUID@plt"
+          ]
+        },
+        {
+          "address": "0x46ec8",
+          "bytes": "00530091",
+          "mnemonic": "add",
+          "operands": "x0, x24, #0x14"
+        },
+        {
+          "address": "0x46ecc",
+          "bytes": "020c40a9",
+          "mnemonic": "ldp",
+          "operands": "x2, x3, [x0]"
+        },
+        {
+          "address": "0x46ed0",
+          "bytes": "a20f09a9",
+          "mnemonic": "stp",
+          "operands": "x2, x3, [x29, #0x90]"
+        },
+        {
+          "address": "0x46ed4",
+          "bytes": "002740b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x24, #0x24]"
+        },
+        {
+          "address": "0x46ed8",
+          "bytes": "a0a300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xa0]"
+        },
+        {
+          "address": "0x46edc",
+          "bytes": "e00313aa",
+          "mnemonic": "mov",
+          "operands": "x0, x19"
+        },
+        {
+          "address": "0x46ee0",
+          "bytes": "18aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x31740",
+          "target": "0x31740",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon14pvtDisplayUUIDE8tBT_UUID@plt"
+          ]
+        },
+        {
+          "address": "0x46ee4",
+          "bytes": "b4cf01b9",
+          "mnemonic": "str",
+          "operands": "w20, [x29, #0x1cc]"
+        },
+        {
+          "address": "0x46ee8",
+          "bytes": "f40200b0",
+          "mnemonic": "adrp",
+          "operands": "x20, #0xa3000"
+        },
+        {
+          "address": "0x46eec",
+          "bytes": "a0008052",
+          "mnemonic": "mov",
+          "operands": "w0, #5"
+        },
+        {
+          "address": "0x46ef0",
+          "bytes": "62008252",
+          "mnemonic": "mov",
+          "operands": "w2, #0x1003"
+        },
+        {
+          "address": "0x46ef4",
+          "bytes": "21008052",
+          "mnemonic": "mov",
+          "operands": "w1, #1"
+        },
+        {
+          "address": "0x46ef8",
+          "bytes": "a0c301b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0x1c0]"
+        },
+        {
+          "address": "0x46efc",
+          "bytes": "95b646f9",
+          "mnemonic": "ldr",
+          "operands": "x21, [x20, #0xd68]"
+        },
+        {
+          "address": "0x46f00",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x46f04",
+          "bytes": "57adff97",
+          "mnemonic": "bl",
+          "operands": "#0x32460",
+          "target": "0x32460",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog12lowerAPICallEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46f08",
+          "bytes": "a0030791",
+          "mnemonic": "add",
+          "operands": "x0, x29, #0x1c0"
+        },
+        {
+          "address": "0x46f0c",
+          "bytes": "41a8ff97",
+          "mnemonic": "bl",
+          "operands": "#0x31010",
+          "target": "0x31010",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon17pvtSendInfraBTMsgEPN16nsInfraBluetooth10ST_MSG_REQE@plt"
+          ]
+        },
+        {
+          "address": "0x46f10",
+          "bytes": "60010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46f3c"
+        },
+        {
+          "address": "0x46f14",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x46f18",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x46f1c",
+          "bytes": "c2168052",
+          "mnemonic": "mov",
+          "operands": "w2, #0xb6"
+        },
+        {
+          "address": "0x46f20",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46f24",
+          "bytes": "bbafff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46f28",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x46f2c",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x46f30",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46f34",
+          "bytes": "1ba5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46f38",
+          "bytes": "0e000014",
+          "mnemonic": "b",
+          "operands": "#0x46f70",
+          "target": "0x46f70"
+        },
+        {
+          "address": "0x46f3c",
+          "bytes": "a0c741b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x29, #0x1c4]"
+        },
+        {
+          "address": "0x46f40",
+          "bytes": "80020034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46f90"
+        },
+        {
+          "address": "0x46f44",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x46f48",
+          "bytes": "82178052",
+          "mnemonic": "mov",
+          "operands": "w2, #0xbc"
+        },
+        {
+          "address": "0x46f4c",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46f50",
+          "bytes": "b0afff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46f54",
+          "bytes": "a2c741b9",
+          "mnemonic": "ldr",
+          "operands": "w2, [x29, #0x1c4]"
+        },
+        {
+          "address": "0x46f58",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46f5c",
+          "bytes": "a00240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x21]"
+        },
+        {
+          "address": "0x46f60",
+          "bytes": "10a5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46f64",
+          "bytes": "a0c741b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x29, #0x1c4]"
+        },
+        {
+          "address": "0x46f68",
+          "bytes": "5aadff97",
+          "mnemonic": "bl",
+          "operands": "#0x324d0",
+          "target": "0x324d0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtChangeInfraBTErrorEi@plt"
+          ]
+        },
+        {
+          "address": "0x46f6c",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x46f70",
+          "bytes": "f55b42a9",
+          "mnemonic": "ldp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x46f74",
+          "bytes": "e003132a",
+          "mnemonic": "mov",
+          "operands": "w0, w19"
+        },
+        {
+          "address": "0x46f78",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x46f7c",
+          "bytes": "f76343a9",
+          "mnemonic": "ldp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x46f80",
+          "bytes": "f92340f9",
+          "mnemonic": "ldr",
+          "operands": "x25, [sp, #0x40]"
+        },
+        {
+          "address": "0x46f84",
+          "bytes": "fd7bc5a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x50"
+        },
+        {
+          "address": "0x46f88",
+          "bytes": "ff830a91",
+          "mnemonic": "add",
+          "operands": "sp, sp, #0x2a0"
+        },
+        {
+          "address": "0x46f8c",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x46f90",
+          "bytes": "b3e30291",
+          "mnemonic": "add",
+          "operands": "x19, x29, #0xb8"
+        },
+        {
+          "address": "0x46f94",
+          "bytes": "a1430791",
+          "mnemonic": "add",
+          "operands": "x1, x29, #0x1d0"
+        },
+        {
+          "address": "0x46f98",
+          "bytes": "e00313aa",
+          "mnemonic": "mov",
+          "operands": "x0, x19"
+        },
+        {
+          "address": "0x46f9c",
+          "bytes": "822080d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x104"
+        },
+        {
+          "address": "0x46fa0",
+          "bytes": "73b20091",
+          "mnemonic": "add",
+          "operands": "x19, x19, #0x2c"
+        },
+        {
+          "address": "0x46fa4",
+          "bytes": "f9ff9f52",
+          "mnemonic": "mov",
+          "operands": "w25, #0xffff"
+        },
+        {
+          "address": "0x46fa8",
+          "bytes": "7aa0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2f190",
+          "target": "0x2f190",
+          "symbols": [
+            "memcpy@plt"
+          ]
+        },
+        {
+          "address": "0x46fac",
+          "bytes": "e00200b0",
+          "mnemonic": "adrp",
+          "operands": "x0, #0xa3000"
+        },
+        {
+          "address": "0x46fb0",
+          "bytes": "000c46f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x0, #0xc18]"
+        },
+        {
+          "address": "0x46fb4",
+          "bytes": "16780091",
+          "mnemonic": "add",
+          "operands": "x22, x0, #0x1e"
+        },
+        {
+          "address": "0x46fb8",
+          "bytes": "15d82791",
+          "mnemonic": "add",
+          "operands": "x21, x0, #0x9f6"
+        },
+        {
+          "address": "0x46fbc",
+          "bytes": "c0625f38",
+          "mnemonic": "ldurb",
+          "operands": "w0, [x22, #-0xa]"
+        },
+        {
+          "address": "0x46fc0",
+          "bytes": "20010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46fe4"
+        },
+        {
+          "address": "0x46fc4",
+          "bytes": "e10313aa",
+          "mnemonic": "mov",
+          "operands": "x1, x19"
+        },
+        {
+          "address": "0x46fc8",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x46fcc",
+          "bytes": "420280d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x12"
+        },
+        {
+          "address": "0x46fd0",
+          "bytes": "14a8ff97",
+          "mnemonic": "bl",
+          "operands": "#0x31020",
+          "target": "0x31020",
+          "symbols": [
+            "strncmp@plt"
+          ]
+        },
+        {
+          "address": "0x46fd4",
+          "bytes": "80000035",
+          "mnemonic": "cbnz",
+          "operands": "w0, #0x46fe4"
+        },
+        {
+          "address": "0x46fd8",
+          "bytes": "c0e25f78",
+          "mnemonic": "ldurh",
+          "operands": "w0, [x22, #-2]"
+        },
+        {
+          "address": "0x46fdc",
+          "bytes": "1f00196b",
+          "mnemonic": "cmp",
+          "operands": "w0, w25"
+        },
+        {
+          "address": "0x46fe0",
+          "bytes": "c1000054",
+          "mnemonic": "b.ne",
+          "operands": "#0x46ff8"
+        },
+        {
+          "address": "0x46fe4",
+          "bytes": "d6e20191",
+          "mnemonic": "add",
+          "operands": "x22, x22, #0x78"
+        },
+        {
+          "address": "0x46fe8",
+          "bytes": "df0215eb",
+          "mnemonic": "cmp",
+          "operands": "x22, x21"
+        },
+        {
+          "address": "0x46fec",
+          "bytes": "81feff54",
+          "mnemonic": "b.ne",
+          "operands": "#0x46fbc"
+        },
+        {
+          "address": "0x46ff0",
+          "bytes": "73008052",
+          "mnemonic": "mov",
+          "operands": "w19, #3"
+        },
+        {
+          "address": "0x46ff4",
+          "bytes": "dfffff17",
+          "mnemonic": "b",
+          "operands": "#0x46f70",
+          "target": "0x46f70"
+        },
+        {
+          "address": "0x46ff8",
+          "bytes": "a3430191",
+          "mnemonic": "add",
+          "operands": "x3, x29, #0x50"
+        },
+        {
+          "address": "0x46ffc",
+          "bytes": "e10318aa",
+          "mnemonic": "mov",
+          "operands": "x1, x24"
+        },
+        {
+          "address": "0x47000",
+          "bytes": "e00303aa",
+          "mnemonic": "mov",
+          "operands": "x0, x3"
+        },
+        {
+          "address": "0x47004",
+          "bytes": "820780d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x3c"
+        },
+        {
+          "address": "0x47008",
+          "bytes": "62a0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2f190",
+          "target": "0x2f190",
+          "symbols": [
+            "memcpy@plt"
+          ]
+        },
+        {
+          "address": "0x4700c",
+          "bytes": "e20300aa",
+          "mnemonic": "mov",
+          "operands": "x2, x0"
+        },
+        {
+          "address": "0x47010",
+          "bytes": "e10313aa",
+          "mnemonic": "mov",
+          "operands": "x1, x19"
+        },
+        {
+          "address": "0x47014",
+          "bytes": "e00317aa",
+          "mnemonic": "mov",
+          "operands": "x0, x23"
+        },
+        {
+          "address": "0x47018",
+          "bytes": "72a7ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30de0",
+          "target": "0x30de0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon25pvtCoreBleClNotifRegisterEPcNS_10ST_BT_UUIDE@plt"
+          ]
+        },
+        {
+          "address": "0x4701c",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x47020",
+          "bytes": "80faff34",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46f70"
+        },
+        {
+          "address": "0x47024",
+          "bytes": "94b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x20, #0xd68]"
+        },
+        {
+          "address": "0x47028",
+          "bytes": "a21a8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0xd5"
+        },
+        {
+          "address": "0x4702c",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x47030",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x47034",
+          "bytes": "77afff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x47038",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x4703c",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x47040",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x47044",
+          "bytes": "bcffff17",
+          "mnemonic": "b",
+          "operands": "#0x46f34",
+          "target": "0x46f34"
+        }
+      ]
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon7ClWriteEjNS_10ST_BT_UUIDEttPhhbPFvNS_17ST_MSG_ASYNC_COMPEE",
+      "start_va": "0x463e0",
+      "file_offset": "0x463e0",
+      "bytes": 664,
+      "sha256": "071ace6fcc58863a835b737ac6a8cbf2355d11c177f7df1d4a3cb3c7d420f903",
+      "raw_hex": "ff830bd1fd7bbaa9fd030091f35301a9f30200b0f55b02a9a03700f9a0a341f9f76303a9f96b04a9fb7305a9bf7f0da9bf7f0ea9bf7f0fa9bf8300f9000100b573b646f98265805281008052600240f978b2ff977700805238000014f50302aa783c0053420c40a9b4c30291a20f0ba9f603012a993c0053fa0305aaa01240b9db1c0053fc1c0053a0c300b9e00314aab4acff97a0520091020c40a9a20f0ba9a02640b9a0c300b9e00314aaadacff9774b646f9a00080526200825221008052b61f02b9a01302b9800240f9edafff97a0430891d7aaff97f703002a40010034800240f9026880528100805251b2ff97800240f9e203172a01008052b1a7ff970e000014a01742b9a0020034800240f9c26880528100805246b2ff97a21742b901008052800240f9a6a7ff97a01742b9f0afff97f703002af35341a9e003172af55b42a9f76343a9f96b44a9fb7345a9fd7bc6a8ff830b91c0035fd6b4230491a1830891e00314aa822080d294b2009110a3ff97e00200b0e5ff9f52000c46f91778009116d82791e0625f3860010034e10314aae00317aa420280d2a56700b9a8aaff97a56740b980000035e0e25f781f00056b21040054f7e20191df0217eb41feff54a4ffff17a8c30191e10315aae00308aa820780d2f6a2ff97e20300aaa03740f9e7031c2ae6031b2ae5031aaae403192ae303182ae10314aaada7ff97f703002aa0f9ff3473b646f9826d805281008052600240f906b2ff97600240f9e203172a0100805266a7ff97e00316aa44a8ff97c1ffff1760028052b6430391a0e300b9a0a341f9a07700f9a0d30491000440a9a0070fa9a08b4279a0030279e00316aabf0704399eb1ff97f703002ac0faff3473b646f9626c805281008052600240f9ebb1ff97e203172a01008052600240f99affff17",
+      "instructions": [
+        {
+          "address": "0x463e0",
+          "bytes": "ff830bd1",
+          "mnemonic": "sub",
+          "operands": "sp, sp, #0x2e0"
+        },
+        {
+          "address": "0x463e4",
+          "bytes": "fd7bbaa9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x60]!"
+        },
+        {
+          "address": "0x463e8",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x463ec",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x463f0",
+          "bytes": "f30200b0",
+          "mnemonic": "adrp",
+          "operands": "x19, #0xa3000"
+        },
+        {
+          "address": "0x463f4",
+          "bytes": "f55b02a9",
+          "mnemonic": "stp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x463f8",
+          "bytes": "a03700f9",
+          "mnemonic": "str",
+          "operands": "x0, [x29, #0x68]"
+        },
+        {
+          "address": "0x463fc",
+          "bytes": "a0a341f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x29, #0x340]"
+        },
+        {
+          "address": "0x46400",
+          "bytes": "f76303a9",
+          "mnemonic": "stp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x46404",
+          "bytes": "f96b04a9",
+          "mnemonic": "stp",
+          "operands": "x25, x26, [sp, #0x40]"
+        },
+        {
+          "address": "0x46408",
+          "bytes": "fb7305a9",
+          "mnemonic": "stp",
+          "operands": "x27, x28, [sp, #0x50]"
+        },
+        {
+          "address": "0x4640c",
+          "bytes": "bf7f0da9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0xd0]"
+        },
+        {
+          "address": "0x46410",
+          "bytes": "bf7f0ea9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0xe0]"
+        },
+        {
+          "address": "0x46414",
+          "bytes": "bf7f0fa9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0xf0]"
+        },
+        {
+          "address": "0x46418",
+          "bytes": "bf8300f9",
+          "mnemonic": "str",
+          "operands": "xzr, [x29, #0x100]"
+        },
+        {
+          "address": "0x4641c",
+          "bytes": "000100b5",
+          "mnemonic": "cbnz",
+          "operands": "x0, #0x4643c"
+        },
+        {
+          "address": "0x46420",
+          "bytes": "73b646f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xd68]"
+        },
+        {
+          "address": "0x46424",
+          "bytes": "82658052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x32c"
+        },
+        {
+          "address": "0x46428",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x4642c",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x46430",
+          "bytes": "78b2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46434",
+          "bytes": "77008052",
+          "mnemonic": "mov",
+          "operands": "w23, #3"
+        },
+        {
+          "address": "0x46438",
+          "bytes": "38000014",
+          "mnemonic": "b",
+          "operands": "#0x46518",
+          "target": "0x46518"
+        },
+        {
+          "address": "0x4643c",
+          "bytes": "f50302aa",
+          "mnemonic": "mov",
+          "operands": "x21, x2"
+        },
+        {
+          "address": "0x46440",
+          "bytes": "783c0053",
+          "mnemonic": "uxth",
+          "operands": "w24, w3"
+        },
+        {
+          "address": "0x46444",
+          "bytes": "420c40a9",
+          "mnemonic": "ldp",
+          "operands": "x2, x3, [x2]"
+        },
+        {
+          "address": "0x46448",
+          "bytes": "b4c30291",
+          "mnemonic": "add",
+          "operands": "x20, x29, #0xb0"
+        },
+        {
+          "address": "0x4644c",
+          "bytes": "a20f0ba9",
+          "mnemonic": "stp",
+          "operands": "x2, x3, [x29, #0xb0]"
+        },
+        {
+          "address": "0x46450",
+          "bytes": "f603012a",
+          "mnemonic": "mov",
+          "operands": "w22, w1"
+        },
+        {
+          "address": "0x46454",
+          "bytes": "993c0053",
+          "mnemonic": "uxth",
+          "operands": "w25, w4"
+        },
+        {
+          "address": "0x46458",
+          "bytes": "fa0305aa",
+          "mnemonic": "mov",
+          "operands": "x26, x5"
+        },
+        {
+          "address": "0x4645c",
+          "bytes": "a01240b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x21, #0x10]"
+        },
+        {
+          "address": "0x46460",
+          "bytes": "db1c0053",
+          "mnemonic": "uxtb",
+          "operands": "w27, w6"
+        },
+        {
+          "address": "0x46464",
+          "bytes": "fc1c0053",
+          "mnemonic": "uxtb",
+          "operands": "w28, w7"
+        },
+        {
+          "address": "0x46468",
+          "bytes": "a0c300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xc0]"
+        },
+        {
+          "address": "0x4646c",
+          "bytes": "e00314aa",
+          "mnemonic": "mov",
+          "operands": "x0, x20"
+        },
+        {
+          "address": "0x46470",
+          "bytes": "b4acff97",
+          "mnemonic": "bl",
+          "operands": "#0x31740",
+          "target": "0x31740",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon14pvtDisplayUUIDE8tBT_UUID@plt"
+          ]
+        },
+        {
+          "address": "0x46474",
+          "bytes": "a0520091",
+          "mnemonic": "add",
+          "operands": "x0, x21, #0x14"
+        },
+        {
+          "address": "0x46478",
+          "bytes": "020c40a9",
+          "mnemonic": "ldp",
+          "operands": "x2, x3, [x0]"
+        },
+        {
+          "address": "0x4647c",
+          "bytes": "a20f0ba9",
+          "mnemonic": "stp",
+          "operands": "x2, x3, [x29, #0xb0]"
+        },
+        {
+          "address": "0x46480",
+          "bytes": "a02640b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x21, #0x24]"
+        },
+        {
+          "address": "0x46484",
+          "bytes": "a0c300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xc0]"
+        },
+        {
+          "address": "0x46488",
+          "bytes": "e00314aa",
+          "mnemonic": "mov",
+          "operands": "x0, x20"
+        },
+        {
+          "address": "0x4648c",
+          "bytes": "adacff97",
+          "mnemonic": "bl",
+          "operands": "#0x31740",
+          "target": "0x31740",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon14pvtDisplayUUIDE8tBT_UUID@plt"
+          ]
+        },
+        {
+          "address": "0x46490",
+          "bytes": "74b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x19, #0xd68]"
+        },
+        {
+          "address": "0x46494",
+          "bytes": "a0008052",
+          "mnemonic": "mov",
+          "operands": "w0, #5"
+        },
+        {
+          "address": "0x46498",
+          "bytes": "62008252",
+          "mnemonic": "mov",
+          "operands": "w2, #0x1003"
+        },
+        {
+          "address": "0x4649c",
+          "bytes": "21008052",
+          "mnemonic": "mov",
+          "operands": "w1, #1"
+        },
+        {
+          "address": "0x464a0",
+          "bytes": "b61f02b9",
+          "mnemonic": "str",
+          "operands": "w22, [x29, #0x21c]"
+        },
+        {
+          "address": "0x464a4",
+          "bytes": "a01302b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0x210]"
+        },
+        {
+          "address": "0x464a8",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x464ac",
+          "bytes": "edafff97",
+          "mnemonic": "bl",
+          "operands": "#0x32460",
+          "target": "0x32460",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog12lowerAPICallEtj@plt"
+          ]
+        },
+        {
+          "address": "0x464b0",
+          "bytes": "a0430891",
+          "mnemonic": "add",
+          "operands": "x0, x29, #0x210"
+        },
+        {
+          "address": "0x464b4",
+          "bytes": "d7aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x31010",
+          "target": "0x31010",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon17pvtSendInfraBTMsgEPN16nsInfraBluetooth10ST_MSG_REQE@plt"
+          ]
+        },
+        {
+          "address": "0x464b8",
+          "bytes": "f703002a",
+          "mnemonic": "mov",
+          "operands": "w23, w0"
+        },
+        {
+          "address": "0x464bc",
+          "bytes": "40010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x464e4"
+        },
+        {
+          "address": "0x464c0",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x464c4",
+          "bytes": "02688052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x340"
+        },
+        {
+          "address": "0x464c8",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x464cc",
+          "bytes": "51b2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x464d0",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x464d4",
+          "bytes": "e203172a",
+          "mnemonic": "mov",
+          "operands": "w2, w23"
+        },
+        {
+          "address": "0x464d8",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x464dc",
+          "bytes": "b1a7ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x464e0",
+          "bytes": "0e000014",
+          "mnemonic": "b",
+          "operands": "#0x46518",
+          "target": "0x46518"
+        },
+        {
+          "address": "0x464e4",
+          "bytes": "a01742b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x29, #0x214]"
+        },
+        {
+          "address": "0x464e8",
+          "bytes": "a0020034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x4653c"
+        },
+        {
+          "address": "0x464ec",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x464f0",
+          "bytes": "c2688052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x346"
+        },
+        {
+          "address": "0x464f4",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x464f8",
+          "bytes": "46b2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x464fc",
+          "bytes": "a21742b9",
+          "mnemonic": "ldr",
+          "operands": "w2, [x29, #0x214]"
+        },
+        {
+          "address": "0x46500",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46504",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x46508",
+          "bytes": "a6a7ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x4650c",
+          "bytes": "a01742b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x29, #0x214]"
+        },
+        {
+          "address": "0x46510",
+          "bytes": "f0afff97",
+          "mnemonic": "bl",
+          "operands": "#0x324d0",
+          "target": "0x324d0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtChangeInfraBTErrorEi@plt"
+          ]
+        },
+        {
+          "address": "0x46514",
+          "bytes": "f703002a",
+          "mnemonic": "mov",
+          "operands": "w23, w0"
+        },
+        {
+          "address": "0x46518",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x4651c",
+          "bytes": "e003172a",
+          "mnemonic": "mov",
+          "operands": "w0, w23"
+        },
+        {
+          "address": "0x46520",
+          "bytes": "f55b42a9",
+          "mnemonic": "ldp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x46524",
+          "bytes": "f76343a9",
+          "mnemonic": "ldp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x46528",
+          "bytes": "f96b44a9",
+          "mnemonic": "ldp",
+          "operands": "x25, x26, [sp, #0x40]"
+        },
+        {
+          "address": "0x4652c",
+          "bytes": "fb7345a9",
+          "mnemonic": "ldp",
+          "operands": "x27, x28, [sp, #0x50]"
+        },
+        {
+          "address": "0x46530",
+          "bytes": "fd7bc6a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x60"
+        },
+        {
+          "address": "0x46534",
+          "bytes": "ff830b91",
+          "mnemonic": "add",
+          "operands": "sp, sp, #0x2e0"
+        },
+        {
+          "address": "0x46538",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x4653c",
+          "bytes": "b4230491",
+          "mnemonic": "add",
+          "operands": "x20, x29, #0x108"
+        },
+        {
+          "address": "0x46540",
+          "bytes": "a1830891",
+          "mnemonic": "add",
+          "operands": "x1, x29, #0x220"
+        },
+        {
+          "address": "0x46544",
+          "bytes": "e00314aa",
+          "mnemonic": "mov",
+          "operands": "x0, x20"
+        },
+        {
+          "address": "0x46548",
+          "bytes": "822080d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x104"
+        },
+        {
+          "address": "0x4654c",
+          "bytes": "94b20091",
+          "mnemonic": "add",
+          "operands": "x20, x20, #0x2c"
+        },
+        {
+          "address": "0x46550",
+          "bytes": "10a3ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2f190",
+          "target": "0x2f190",
+          "symbols": [
+            "memcpy@plt"
+          ]
+        },
+        {
+          "address": "0x46554",
+          "bytes": "e00200b0",
+          "mnemonic": "adrp",
+          "operands": "x0, #0xa3000"
+        },
+        {
+          "address": "0x46558",
+          "bytes": "e5ff9f52",
+          "mnemonic": "mov",
+          "operands": "w5, #0xffff"
+        },
+        {
+          "address": "0x4655c",
+          "bytes": "000c46f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x0, #0xc18]"
+        },
+        {
+          "address": "0x46560",
+          "bytes": "17780091",
+          "mnemonic": "add",
+          "operands": "x23, x0, #0x1e"
+        },
+        {
+          "address": "0x46564",
+          "bytes": "16d82791",
+          "mnemonic": "add",
+          "operands": "x22, x0, #0x9f6"
+        },
+        {
+          "address": "0x46568",
+          "bytes": "e0625f38",
+          "mnemonic": "ldurb",
+          "operands": "w0, [x23, #-0xa]"
+        },
+        {
+          "address": "0x4656c",
+          "bytes": "60010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46598"
+        },
+        {
+          "address": "0x46570",
+          "bytes": "e10314aa",
+          "mnemonic": "mov",
+          "operands": "x1, x20"
+        },
+        {
+          "address": "0x46574",
+          "bytes": "e00317aa",
+          "mnemonic": "mov",
+          "operands": "x0, x23"
+        },
+        {
+          "address": "0x46578",
+          "bytes": "420280d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x12"
+        },
+        {
+          "address": "0x4657c",
+          "bytes": "a56700b9",
+          "mnemonic": "str",
+          "operands": "w5, [x29, #0x64]"
+        },
+        {
+          "address": "0x46580",
+          "bytes": "a8aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x31020",
+          "target": "0x31020",
+          "symbols": [
+            "strncmp@plt"
+          ]
+        },
+        {
+          "address": "0x46584",
+          "bytes": "a56740b9",
+          "mnemonic": "ldr",
+          "operands": "w5, [x29, #0x64]"
+        },
+        {
+          "address": "0x46588",
+          "bytes": "80000035",
+          "mnemonic": "cbnz",
+          "operands": "w0, #0x46598"
+        },
+        {
+          "address": "0x4658c",
+          "bytes": "e0e25f78",
+          "mnemonic": "ldurh",
+          "operands": "w0, [x23, #-2]"
+        },
+        {
+          "address": "0x46590",
+          "bytes": "1f00056b",
+          "mnemonic": "cmp",
+          "operands": "w0, w5"
+        },
+        {
+          "address": "0x46594",
+          "bytes": "21040054",
+          "mnemonic": "b.ne",
+          "operands": "#0x46618"
+        },
+        {
+          "address": "0x46598",
+          "bytes": "f7e20191",
+          "mnemonic": "add",
+          "operands": "x23, x23, #0x78"
+        },
+        {
+          "address": "0x4659c",
+          "bytes": "df0217eb",
+          "mnemonic": "cmp",
+          "operands": "x22, x23"
+        },
+        {
+          "address": "0x465a0",
+          "bytes": "41feff54",
+          "mnemonic": "b.ne",
+          "operands": "#0x46568"
+        },
+        {
+          "address": "0x465a4",
+          "bytes": "a4ffff17",
+          "mnemonic": "b",
+          "operands": "#0x46434",
+          "target": "0x46434"
+        },
+        {
+          "address": "0x465a8",
+          "bytes": "a8c30191",
+          "mnemonic": "add",
+          "operands": "x8, x29, #0x70"
+        },
+        {
+          "address": "0x465ac",
+          "bytes": "e10315aa",
+          "mnemonic": "mov",
+          "operands": "x1, x21"
+        },
+        {
+          "address": "0x465b0",
+          "bytes": "e00308aa",
+          "mnemonic": "mov",
+          "operands": "x0, x8"
+        },
+        {
+          "address": "0x465b4",
+          "bytes": "820780d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x3c"
+        },
+        {
+          "address": "0x465b8",
+          "bytes": "f6a2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2f190",
+          "target": "0x2f190",
+          "symbols": [
+            "memcpy@plt"
+          ]
+        },
+        {
+          "address": "0x465bc",
+          "bytes": "e20300aa",
+          "mnemonic": "mov",
+          "operands": "x2, x0"
+        },
+        {
+          "address": "0x465c0",
+          "bytes": "a03740f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x29, #0x68]"
+        },
+        {
+          "address": "0x465c4",
+          "bytes": "e7031c2a",
+          "mnemonic": "mov",
+          "operands": "w7, w28"
+        },
+        {
+          "address": "0x465c8",
+          "bytes": "e6031b2a",
+          "mnemonic": "mov",
+          "operands": "w6, w27"
+        },
+        {
+          "address": "0x465cc",
+          "bytes": "e5031aaa",
+          "mnemonic": "mov",
+          "operands": "x5, x26"
+        },
+        {
+          "address": "0x465d0",
+          "bytes": "e403192a",
+          "mnemonic": "mov",
+          "operands": "w4, w25"
+        },
+        {
+          "address": "0x465d4",
+          "bytes": "e303182a",
+          "mnemonic": "mov",
+          "operands": "w3, w24"
+        },
+        {
+          "address": "0x465d8",
+          "bytes": "e10314aa",
+          "mnemonic": "mov",
+          "operands": "x1, x20"
+        },
+        {
+          "address": "0x465dc",
+          "bytes": "ada7ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30490",
+          "target": "0x30490",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon17pvtCoreBleClWriteEPcNS_10ST_BT_UUIDEttPhhb@plt"
+          ]
+        },
+        {
+          "address": "0x465e0",
+          "bytes": "f703002a",
+          "mnemonic": "mov",
+          "operands": "w23, w0"
+        },
+        {
+          "address": "0x465e4",
+          "bytes": "a0f9ff34",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46518"
+        },
+        {
+          "address": "0x465e8",
+          "bytes": "73b646f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xd68]"
+        },
+        {
+          "address": "0x465ec",
+          "bytes": "826d8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x36c"
+        },
+        {
+          "address": "0x465f0",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x465f4",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x465f8",
+          "bytes": "06b2ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x465fc",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x46600",
+          "bytes": "e203172a",
+          "mnemonic": "mov",
+          "operands": "w2, w23"
+        },
+        {
+          "address": "0x46604",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46608",
+          "bytes": "66a7ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x4660c",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x46610",
+          "bytes": "44a8ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30720",
+          "target": "0x30720",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtFreeMatchingCBListEPNS_9cbListElmE@plt"
+          ]
+        },
+        {
+          "address": "0x46614",
+          "bytes": "c1ffff17",
+          "mnemonic": "b",
+          "operands": "#0x46518",
+          "target": "0x46518"
+        },
+        {
+          "address": "0x46618",
+          "bytes": "60028052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x13"
+        },
+        {
+          "address": "0x4661c",
+          "bytes": "b6430391",
+          "mnemonic": "add",
+          "operands": "x22, x29, #0xd0"
+        },
+        {
+          "address": "0x46620",
+          "bytes": "a0e300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xe0]"
+        },
+        {
+          "address": "0x46624",
+          "bytes": "a0a341f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x29, #0x340]"
+        },
+        {
+          "address": "0x46628",
+          "bytes": "a07700f9",
+          "mnemonic": "str",
+          "operands": "x0, [x29, #0xe8]"
+        },
+        {
+          "address": "0x4662c",
+          "bytes": "a0d30491",
+          "mnemonic": "add",
+          "operands": "x0, x29, #0x134"
+        },
+        {
+          "address": "0x46630",
+          "bytes": "000440a9",
+          "mnemonic": "ldp",
+          "operands": "x0, x1, [x0]"
+        },
+        {
+          "address": "0x46634",
+          "bytes": "a0070fa9",
+          "mnemonic": "stp",
+          "operands": "x0, x1, [x29, #0xf0]"
+        },
+        {
+          "address": "0x46638",
+          "bytes": "a08b4279",
+          "mnemonic": "ldrh",
+          "operands": "w0, [x29, #0x144]"
+        },
+        {
+          "address": "0x4663c",
+          "bytes": "a0030279",
+          "mnemonic": "strh",
+          "operands": "w0, [x29, #0x100]"
+        },
+        {
+          "address": "0x46640",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x46644",
+          "bytes": "bf070439",
+          "mnemonic": "strb",
+          "operands": "wzr, [x29, #0x101]"
+        },
+        {
+          "address": "0x46648",
+          "bytes": "9eb1ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32cc0",
+          "target": "0x32cc0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon12pvtAddCBListEPNS_9cbListElmE@plt"
+          ]
+        },
+        {
+          "address": "0x4664c",
+          "bytes": "f703002a",
+          "mnemonic": "mov",
+          "operands": "w23, w0"
+        },
+        {
+          "address": "0x46650",
+          "bytes": "c0faff34",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x465a8"
+        },
+        {
+          "address": "0x46654",
+          "bytes": "73b646f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x19, #0xd68]"
+        },
+        {
+          "address": "0x46658",
+          "bytes": "626c8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x363"
+        },
+        {
+          "address": "0x4665c",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46660",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x46664",
+          "bytes": "ebb1ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46668",
+          "bytes": "e203172a",
+          "mnemonic": "mov",
+          "operands": "w2, w23"
+        },
+        {
+          "address": "0x4666c",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46670",
+          "bytes": "600240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x19]"
+        },
+        {
+          "address": "0x46674",
+          "bytes": "9affff17",
+          "mnemonic": "b",
+          "operands": "#0x464dc",
+          "target": "0x464dc"
+        }
+      ]
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon6ClReadEjNS_10ST_BT_UUIDEbPFvNS_17ST_MSG_ASYNC_COMPEE",
+      "start_va": "0x46aa4",
+      "file_offset": "0x46aa4",
+      "bytes": 676,
+      "sha256": "917113309e67c7cfc1c5e8abb9dc568ea0a0f4f8a2d995c0e2799bbb3e8e654a",
+      "raw_hex": "ff430bd1fd7bbaa9fd030091f55b02a9b5030891f96b04a9f90300aae00315aaf76303a9fb7305a9f70302aafb03012a822580d201008052f35301a97a1c0053f80304aab6e3039131a5ff97e00316aa822080d201008052f40200b02ca5ff97bf7f0ca9bf7f0da9bf7f0ea9bf7b00f9180100b594b646f9827b805281008052800240f9bab0ff977300805231000014e00640a9b3830291a0070aa9e01240b9a0b300b9e00313aafdaaff97e0520091020c40a9a20f0aa9e02640b9a0b300b9e00313aaf6aaff97bb0f02b99bb646f9a00080526200825221008052a00302b9600340f936aeff97e00315aa20a9ff97f303002a40010034600340f9e27d8052810080529ab0ff97600340f9e203132a01008052faa5ff970e000014b50742b9b5020034600340f9c27e8052810080528fb0ff97a20742b901008052600340f9efa5ff97a00742b939aeff97f303002af55b42a9e003132af35341a9f76343a9f96b44a9fb7345a9fd7bc6a8ff430b91c0035fd6e00316aaa1430891fb0200b0822080d2d6b20091fcff9f5258a1ff97730f46f9737a009160625f3820010034e10316aae00313aa420280d2f4a8ff978000003560e25f781f001c6b61040054b506001173e20191bf56007161feff54aeffff17a4830191e10317aae00304aa820780d2b57e409341a1ff97e40300aa000f80d27b0f46f9e3031a2ae20304aab56e009be00319aaa13a40792caaff97f303002ae0f9ff3494b646f98283805281008052800240f951b0ff97800240f9e203132a01008052b1a5ff97e00316aa8fa6ff97c3ffff17a0028052b6030391b86f00f9a0d300b9a0930491000440a9a0070ea9a06b4279a0e30179e00316aabfc70339eaafff97f303002ac0faff3494b646f96282805281008052800240f937b0ff97e203132a01008052800240f99dffff17",
+      "instructions": [
+        {
+          "address": "0x46aa4",
+          "bytes": "ff430bd1",
+          "mnemonic": "sub",
+          "operands": "sp, sp, #0x2d0"
+        },
+        {
+          "address": "0x46aa8",
+          "bytes": "fd7bbaa9",
+          "mnemonic": "stp",
+          "operands": "x29, x30, [sp, #-0x60]!"
+        },
+        {
+          "address": "0x46aac",
+          "bytes": "fd030091",
+          "mnemonic": "mov",
+          "operands": "x29, sp"
+        },
+        {
+          "address": "0x46ab0",
+          "bytes": "f55b02a9",
+          "mnemonic": "stp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x46ab4",
+          "bytes": "b5030891",
+          "mnemonic": "add",
+          "operands": "x21, x29, #0x200"
+        },
+        {
+          "address": "0x46ab8",
+          "bytes": "f96b04a9",
+          "mnemonic": "stp",
+          "operands": "x25, x26, [sp, #0x40]"
+        },
+        {
+          "address": "0x46abc",
+          "bytes": "f90300aa",
+          "mnemonic": "mov",
+          "operands": "x25, x0"
+        },
+        {
+          "address": "0x46ac0",
+          "bytes": "e00315aa",
+          "mnemonic": "mov",
+          "operands": "x0, x21"
+        },
+        {
+          "address": "0x46ac4",
+          "bytes": "f76303a9",
+          "mnemonic": "stp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x46ac8",
+          "bytes": "fb7305a9",
+          "mnemonic": "stp",
+          "operands": "x27, x28, [sp, #0x50]"
+        },
+        {
+          "address": "0x46acc",
+          "bytes": "f70302aa",
+          "mnemonic": "mov",
+          "operands": "x23, x2"
+        },
+        {
+          "address": "0x46ad0",
+          "bytes": "fb03012a",
+          "mnemonic": "mov",
+          "operands": "w27, w1"
+        },
+        {
+          "address": "0x46ad4",
+          "bytes": "822580d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x12c"
+        },
+        {
+          "address": "0x46ad8",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46adc",
+          "bytes": "f35301a9",
+          "mnemonic": "stp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x46ae0",
+          "bytes": "7a1c0053",
+          "mnemonic": "uxtb",
+          "operands": "w26, w3"
+        },
+        {
+          "address": "0x46ae4",
+          "bytes": "f80304aa",
+          "mnemonic": "mov",
+          "operands": "x24, x4"
+        },
+        {
+          "address": "0x46ae8",
+          "bytes": "b6e30391",
+          "mnemonic": "add",
+          "operands": "x22, x29, #0xf8"
+        },
+        {
+          "address": "0x46aec",
+          "bytes": "31a5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2ffb0",
+          "target": "0x2ffb0",
+          "symbols": [
+            "memset@plt"
+          ]
+        },
+        {
+          "address": "0x46af0",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x46af4",
+          "bytes": "822080d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x104"
+        },
+        {
+          "address": "0x46af8",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46afc",
+          "bytes": "f40200b0",
+          "mnemonic": "adrp",
+          "operands": "x20, #0xa3000"
+        },
+        {
+          "address": "0x46b00",
+          "bytes": "2ca5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2ffb0",
+          "target": "0x2ffb0",
+          "symbols": [
+            "memset@plt"
+          ]
+        },
+        {
+          "address": "0x46b04",
+          "bytes": "bf7f0ca9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0xc0]"
+        },
+        {
+          "address": "0x46b08",
+          "bytes": "bf7f0da9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0xd0]"
+        },
+        {
+          "address": "0x46b0c",
+          "bytes": "bf7f0ea9",
+          "mnemonic": "stp",
+          "operands": "xzr, xzr, [x29, #0xe0]"
+        },
+        {
+          "address": "0x46b10",
+          "bytes": "bf7b00f9",
+          "mnemonic": "str",
+          "operands": "xzr, [x29, #0xf0]"
+        },
+        {
+          "address": "0x46b14",
+          "bytes": "180100b5",
+          "mnemonic": "cbnz",
+          "operands": "x24, #0x46b34"
+        },
+        {
+          "address": "0x46b18",
+          "bytes": "94b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x20, #0xd68]"
+        },
+        {
+          "address": "0x46b1c",
+          "bytes": "827b8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x3dc"
+        },
+        {
+          "address": "0x46b20",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46b24",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x46b28",
+          "bytes": "bab0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46b2c",
+          "bytes": "73008052",
+          "mnemonic": "mov",
+          "operands": "w19, #3"
+        },
+        {
+          "address": "0x46b30",
+          "bytes": "31000014",
+          "mnemonic": "b",
+          "operands": "#0x46bf4",
+          "target": "0x46bf4"
+        },
+        {
+          "address": "0x46b34",
+          "bytes": "e00640a9",
+          "mnemonic": "ldp",
+          "operands": "x0, x1, [x23]"
+        },
+        {
+          "address": "0x46b38",
+          "bytes": "b3830291",
+          "mnemonic": "add",
+          "operands": "x19, x29, #0xa0"
+        },
+        {
+          "address": "0x46b3c",
+          "bytes": "a0070aa9",
+          "mnemonic": "stp",
+          "operands": "x0, x1, [x29, #0xa0]"
+        },
+        {
+          "address": "0x46b40",
+          "bytes": "e01240b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x23, #0x10]"
+        },
+        {
+          "address": "0x46b44",
+          "bytes": "a0b300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xb0]"
+        },
+        {
+          "address": "0x46b48",
+          "bytes": "e00313aa",
+          "mnemonic": "mov",
+          "operands": "x0, x19"
+        },
+        {
+          "address": "0x46b4c",
+          "bytes": "fdaaff97",
+          "mnemonic": "bl",
+          "operands": "#0x31740",
+          "target": "0x31740",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon14pvtDisplayUUIDE8tBT_UUID@plt"
+          ]
+        },
+        {
+          "address": "0x46b50",
+          "bytes": "e0520091",
+          "mnemonic": "add",
+          "operands": "x0, x23, #0x14"
+        },
+        {
+          "address": "0x46b54",
+          "bytes": "020c40a9",
+          "mnemonic": "ldp",
+          "operands": "x2, x3, [x0]"
+        },
+        {
+          "address": "0x46b58",
+          "bytes": "a20f0aa9",
+          "mnemonic": "stp",
+          "operands": "x2, x3, [x29, #0xa0]"
+        },
+        {
+          "address": "0x46b5c",
+          "bytes": "e02640b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x23, #0x24]"
+        },
+        {
+          "address": "0x46b60",
+          "bytes": "a0b300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xb0]"
+        },
+        {
+          "address": "0x46b64",
+          "bytes": "e00313aa",
+          "mnemonic": "mov",
+          "operands": "x0, x19"
+        },
+        {
+          "address": "0x46b68",
+          "bytes": "f6aaff97",
+          "mnemonic": "bl",
+          "operands": "#0x31740",
+          "target": "0x31740",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon14pvtDisplayUUIDE8tBT_UUID@plt"
+          ]
+        },
+        {
+          "address": "0x46b6c",
+          "bytes": "bb0f02b9",
+          "mnemonic": "str",
+          "operands": "w27, [x29, #0x20c]"
+        },
+        {
+          "address": "0x46b70",
+          "bytes": "9bb646f9",
+          "mnemonic": "ldr",
+          "operands": "x27, [x20, #0xd68]"
+        },
+        {
+          "address": "0x46b74",
+          "bytes": "a0008052",
+          "mnemonic": "mov",
+          "operands": "w0, #5"
+        },
+        {
+          "address": "0x46b78",
+          "bytes": "62008252",
+          "mnemonic": "mov",
+          "operands": "w2, #0x1003"
+        },
+        {
+          "address": "0x46b7c",
+          "bytes": "21008052",
+          "mnemonic": "mov",
+          "operands": "w1, #1"
+        },
+        {
+          "address": "0x46b80",
+          "bytes": "a00302b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0x200]"
+        },
+        {
+          "address": "0x46b84",
+          "bytes": "600340f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x27]"
+        },
+        {
+          "address": "0x46b88",
+          "bytes": "36aeff97",
+          "mnemonic": "bl",
+          "operands": "#0x32460",
+          "target": "0x32460",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog12lowerAPICallEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46b8c",
+          "bytes": "e00315aa",
+          "mnemonic": "mov",
+          "operands": "x0, x21"
+        },
+        {
+          "address": "0x46b90",
+          "bytes": "20a9ff97",
+          "mnemonic": "bl",
+          "operands": "#0x31010",
+          "target": "0x31010",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon17pvtSendInfraBTMsgEPN16nsInfraBluetooth10ST_MSG_REQE@plt"
+          ]
+        },
+        {
+          "address": "0x46b94",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x46b98",
+          "bytes": "40010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46bc0"
+        },
+        {
+          "address": "0x46b9c",
+          "bytes": "600340f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x27]"
+        },
+        {
+          "address": "0x46ba0",
+          "bytes": "e27d8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x3ef"
+        },
+        {
+          "address": "0x46ba4",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46ba8",
+          "bytes": "9ab0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46bac",
+          "bytes": "600340f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x27]"
+        },
+        {
+          "address": "0x46bb0",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x46bb4",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46bb8",
+          "bytes": "faa5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46bbc",
+          "bytes": "0e000014",
+          "mnemonic": "b",
+          "operands": "#0x46bf4",
+          "target": "0x46bf4"
+        },
+        {
+          "address": "0x46bc0",
+          "bytes": "b50742b9",
+          "mnemonic": "ldr",
+          "operands": "w21, [x29, #0x204]"
+        },
+        {
+          "address": "0x46bc4",
+          "bytes": "b5020034",
+          "mnemonic": "cbz",
+          "operands": "w21, #0x46c18"
+        },
+        {
+          "address": "0x46bc8",
+          "bytes": "600340f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x27]"
+        },
+        {
+          "address": "0x46bcc",
+          "bytes": "c27e8052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x3f6"
+        },
+        {
+          "address": "0x46bd0",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46bd4",
+          "bytes": "8fb0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46bd8",
+          "bytes": "a20742b9",
+          "mnemonic": "ldr",
+          "operands": "w2, [x29, #0x204]"
+        },
+        {
+          "address": "0x46bdc",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46be0",
+          "bytes": "600340f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x27]"
+        },
+        {
+          "address": "0x46be4",
+          "bytes": "efa5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46be8",
+          "bytes": "a00742b9",
+          "mnemonic": "ldr",
+          "operands": "w0, [x29, #0x204]"
+        },
+        {
+          "address": "0x46bec",
+          "bytes": "39aeff97",
+          "mnemonic": "bl",
+          "operands": "#0x324d0",
+          "target": "0x324d0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtChangeInfraBTErrorEi@plt"
+          ]
+        },
+        {
+          "address": "0x46bf0",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x46bf4",
+          "bytes": "f55b42a9",
+          "mnemonic": "ldp",
+          "operands": "x21, x22, [sp, #0x20]"
+        },
+        {
+          "address": "0x46bf8",
+          "bytes": "e003132a",
+          "mnemonic": "mov",
+          "operands": "w0, w19"
+        },
+        {
+          "address": "0x46bfc",
+          "bytes": "f35341a9",
+          "mnemonic": "ldp",
+          "operands": "x19, x20, [sp, #0x10]"
+        },
+        {
+          "address": "0x46c00",
+          "bytes": "f76343a9",
+          "mnemonic": "ldp",
+          "operands": "x23, x24, [sp, #0x30]"
+        },
+        {
+          "address": "0x46c04",
+          "bytes": "f96b44a9",
+          "mnemonic": "ldp",
+          "operands": "x25, x26, [sp, #0x40]"
+        },
+        {
+          "address": "0x46c08",
+          "bytes": "fb7345a9",
+          "mnemonic": "ldp",
+          "operands": "x27, x28, [sp, #0x50]"
+        },
+        {
+          "address": "0x46c0c",
+          "bytes": "fd7bc6a8",
+          "mnemonic": "ldp",
+          "operands": "x29, x30, [sp], #0x60"
+        },
+        {
+          "address": "0x46c10",
+          "bytes": "ff430b91",
+          "mnemonic": "add",
+          "operands": "sp, sp, #0x2d0"
+        },
+        {
+          "address": "0x46c14",
+          "bytes": "c0035fd6",
+          "mnemonic": "ret",
+          "operands": ""
+        },
+        {
+          "address": "0x46c18",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x46c1c",
+          "bytes": "a1430891",
+          "mnemonic": "add",
+          "operands": "x1, x29, #0x210"
+        },
+        {
+          "address": "0x46c20",
+          "bytes": "fb0200b0",
+          "mnemonic": "adrp",
+          "operands": "x27, #0xa3000"
+        },
+        {
+          "address": "0x46c24",
+          "bytes": "822080d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x104"
+        },
+        {
+          "address": "0x46c28",
+          "bytes": "d6b20091",
+          "mnemonic": "add",
+          "operands": "x22, x22, #0x2c"
+        },
+        {
+          "address": "0x46c2c",
+          "bytes": "fcff9f52",
+          "mnemonic": "mov",
+          "operands": "w28, #0xffff"
+        },
+        {
+          "address": "0x46c30",
+          "bytes": "58a1ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2f190",
+          "target": "0x2f190",
+          "symbols": [
+            "memcpy@plt"
+          ]
+        },
+        {
+          "address": "0x46c34",
+          "bytes": "730f46f9",
+          "mnemonic": "ldr",
+          "operands": "x19, [x27, #0xc18]"
+        },
+        {
+          "address": "0x46c38",
+          "bytes": "737a0091",
+          "mnemonic": "add",
+          "operands": "x19, x19, #0x1e"
+        },
+        {
+          "address": "0x46c3c",
+          "bytes": "60625f38",
+          "mnemonic": "ldurb",
+          "operands": "w0, [x19, #-0xa]"
+        },
+        {
+          "address": "0x46c40",
+          "bytes": "20010034",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46c64"
+        },
+        {
+          "address": "0x46c44",
+          "bytes": "e10316aa",
+          "mnemonic": "mov",
+          "operands": "x1, x22"
+        },
+        {
+          "address": "0x46c48",
+          "bytes": "e00313aa",
+          "mnemonic": "mov",
+          "operands": "x0, x19"
+        },
+        {
+          "address": "0x46c4c",
+          "bytes": "420280d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x12"
+        },
+        {
+          "address": "0x46c50",
+          "bytes": "f4a8ff97",
+          "mnemonic": "bl",
+          "operands": "#0x31020",
+          "target": "0x31020",
+          "symbols": [
+            "strncmp@plt"
+          ]
+        },
+        {
+          "address": "0x46c54",
+          "bytes": "80000035",
+          "mnemonic": "cbnz",
+          "operands": "w0, #0x46c64"
+        },
+        {
+          "address": "0x46c58",
+          "bytes": "60e25f78",
+          "mnemonic": "ldurh",
+          "operands": "w0, [x19, #-2]"
+        },
+        {
+          "address": "0x46c5c",
+          "bytes": "1f001c6b",
+          "mnemonic": "cmp",
+          "operands": "w0, w28"
+        },
+        {
+          "address": "0x46c60",
+          "bytes": "61040054",
+          "mnemonic": "b.ne",
+          "operands": "#0x46cec"
+        },
+        {
+          "address": "0x46c64",
+          "bytes": "b5060011",
+          "mnemonic": "add",
+          "operands": "w21, w21, #1"
+        },
+        {
+          "address": "0x46c68",
+          "bytes": "73e20191",
+          "mnemonic": "add",
+          "operands": "x19, x19, #0x78"
+        },
+        {
+          "address": "0x46c6c",
+          "bytes": "bf560071",
+          "mnemonic": "cmp",
+          "operands": "w21, #0x15"
+        },
+        {
+          "address": "0x46c70",
+          "bytes": "61feff54",
+          "mnemonic": "b.ne",
+          "operands": "#0x46c3c"
+        },
+        {
+          "address": "0x46c74",
+          "bytes": "aeffff17",
+          "mnemonic": "b",
+          "operands": "#0x46b2c",
+          "target": "0x46b2c"
+        },
+        {
+          "address": "0x46c78",
+          "bytes": "a4830191",
+          "mnemonic": "add",
+          "operands": "x4, x29, #0x60"
+        },
+        {
+          "address": "0x46c7c",
+          "bytes": "e10317aa",
+          "mnemonic": "mov",
+          "operands": "x1, x23"
+        },
+        {
+          "address": "0x46c80",
+          "bytes": "e00304aa",
+          "mnemonic": "mov",
+          "operands": "x0, x4"
+        },
+        {
+          "address": "0x46c84",
+          "bytes": "820780d2",
+          "mnemonic": "mov",
+          "operands": "x2, #0x3c"
+        },
+        {
+          "address": "0x46c88",
+          "bytes": "b57e4093",
+          "mnemonic": "sxtw",
+          "operands": "x21, w21"
+        },
+        {
+          "address": "0x46c8c",
+          "bytes": "41a1ff97",
+          "mnemonic": "bl",
+          "operands": "#0x2f190",
+          "target": "0x2f190",
+          "symbols": [
+            "memcpy@plt"
+          ]
+        },
+        {
+          "address": "0x46c90",
+          "bytes": "e40300aa",
+          "mnemonic": "mov",
+          "operands": "x4, x0"
+        },
+        {
+          "address": "0x46c94",
+          "bytes": "000f80d2",
+          "mnemonic": "mov",
+          "operands": "x0, #0x78"
+        },
+        {
+          "address": "0x46c98",
+          "bytes": "7b0f46f9",
+          "mnemonic": "ldr",
+          "operands": "x27, [x27, #0xc18]"
+        },
+        {
+          "address": "0x46c9c",
+          "bytes": "e3031a2a",
+          "mnemonic": "mov",
+          "operands": "w3, w26"
+        },
+        {
+          "address": "0x46ca0",
+          "bytes": "e20304aa",
+          "mnemonic": "mov",
+          "operands": "x2, x4"
+        },
+        {
+          "address": "0x46ca4",
+          "bytes": "b56e009b",
+          "mnemonic": "madd",
+          "operands": "x21, x21, x0, x27"
+        },
+        {
+          "address": "0x46ca8",
+          "bytes": "e00319aa",
+          "mnemonic": "mov",
+          "operands": "x0, x25"
+        },
+        {
+          "address": "0x46cac",
+          "bytes": "a13a4079",
+          "mnemonic": "ldrh",
+          "operands": "w1, [x21, #0x1c]"
+        },
+        {
+          "address": "0x46cb0",
+          "bytes": "2caaff97",
+          "mnemonic": "bl",
+          "operands": "#0x31560",
+          "target": "0x31560",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon16pvtCoreBleClReadEtNS_10ST_BT_UUIDEb@plt"
+          ]
+        },
+        {
+          "address": "0x46cb4",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x46cb8",
+          "bytes": "e0f9ff34",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46bf4"
+        },
+        {
+          "address": "0x46cbc",
+          "bytes": "94b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x20, #0xd68]"
+        },
+        {
+          "address": "0x46cc0",
+          "bytes": "82838052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x41c"
+        },
+        {
+          "address": "0x46cc4",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46cc8",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x46ccc",
+          "bytes": "51b0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46cd0",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x46cd4",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x46cd8",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46cdc",
+          "bytes": "b1a5ff97",
+          "mnemonic": "bl",
+          "operands": "#0x303a0",
+          "target": "0x303a0",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog9errorInfoEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46ce0",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x46ce4",
+          "bytes": "8fa6ff97",
+          "mnemonic": "bl",
+          "operands": "#0x30720",
+          "target": "0x30720",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon21pvtFreeMatchingCBListEPNS_9cbListElmE@plt"
+          ]
+        },
+        {
+          "address": "0x46ce8",
+          "bytes": "c3ffff17",
+          "mnemonic": "b",
+          "operands": "#0x46bf4",
+          "target": "0x46bf4"
+        },
+        {
+          "address": "0x46cec",
+          "bytes": "a0028052",
+          "mnemonic": "mov",
+          "operands": "w0, #0x15"
+        },
+        {
+          "address": "0x46cf0",
+          "bytes": "b6030391",
+          "mnemonic": "add",
+          "operands": "x22, x29, #0xc0"
+        },
+        {
+          "address": "0x46cf4",
+          "bytes": "b86f00f9",
+          "mnemonic": "str",
+          "operands": "x24, [x29, #0xd8]"
+        },
+        {
+          "address": "0x46cf8",
+          "bytes": "a0d300b9",
+          "mnemonic": "str",
+          "operands": "w0, [x29, #0xd0]"
+        },
+        {
+          "address": "0x46cfc",
+          "bytes": "a0930491",
+          "mnemonic": "add",
+          "operands": "x0, x29, #0x124"
+        },
+        {
+          "address": "0x46d00",
+          "bytes": "000440a9",
+          "mnemonic": "ldp",
+          "operands": "x0, x1, [x0]"
+        },
+        {
+          "address": "0x46d04",
+          "bytes": "a0070ea9",
+          "mnemonic": "stp",
+          "operands": "x0, x1, [x29, #0xe0]"
+        },
+        {
+          "address": "0x46d08",
+          "bytes": "a06b4279",
+          "mnemonic": "ldrh",
+          "operands": "w0, [x29, #0x134]"
+        },
+        {
+          "address": "0x46d0c",
+          "bytes": "a0e30179",
+          "mnemonic": "strh",
+          "operands": "w0, [x29, #0xf0]"
+        },
+        {
+          "address": "0x46d10",
+          "bytes": "e00316aa",
+          "mnemonic": "mov",
+          "operands": "x0, x22"
+        },
+        {
+          "address": "0x46d14",
+          "bytes": "bfc70339",
+          "mnemonic": "strb",
+          "operands": "wzr, [x29, #0xf1]"
+        },
+        {
+          "address": "0x46d18",
+          "bytes": "eaafff97",
+          "mnemonic": "bl",
+          "operands": "#0x32cc0",
+          "target": "0x32cc0",
+          "symbols": [
+            "_ZN29InfraBluetoothLowEnergyCommon12pvtAddCBListEPNS_9cbListElmE@plt"
+          ]
+        },
+        {
+          "address": "0x46d1c",
+          "bytes": "f303002a",
+          "mnemonic": "mov",
+          "operands": "w19, w0"
+        },
+        {
+          "address": "0x46d20",
+          "bytes": "c0faff34",
+          "mnemonic": "cbz",
+          "operands": "w0, #0x46c78"
+        },
+        {
+          "address": "0x46d24",
+          "bytes": "94b646f9",
+          "mnemonic": "ldr",
+          "operands": "x20, [x20, #0xd68]"
+        },
+        {
+          "address": "0x46d28",
+          "bytes": "62828052",
+          "mnemonic": "mov",
+          "operands": "w2, #0x413"
+        },
+        {
+          "address": "0x46d2c",
+          "bytes": "81008052",
+          "mnemonic": "mov",
+          "operands": "w1, #4"
+        },
+        {
+          "address": "0x46d30",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x46d34",
+          "bytes": "37b0ff97",
+          "mnemonic": "bl",
+          "operands": "#0x32e10",
+          "target": "0x32e10",
+          "symbols": [
+            "_ZN8BTUtils_6BTBlog10errorPlaceEtj@plt"
+          ]
+        },
+        {
+          "address": "0x46d38",
+          "bytes": "e203132a",
+          "mnemonic": "mov",
+          "operands": "w2, w19"
+        },
+        {
+          "address": "0x46d3c",
+          "bytes": "01008052",
+          "mnemonic": "mov",
+          "operands": "w1, #0"
+        },
+        {
+          "address": "0x46d40",
+          "bytes": "800240f9",
+          "mnemonic": "ldr",
+          "operands": "x0, [x20]"
+        },
+        {
+          "address": "0x46d44",
+          "bytes": "9dffff17",
+          "mnemonic": "b",
+          "operands": "#0x46bb8",
+          "target": "0x46bb8"
+        }
+      ]
+    }
+  ],
+  "call_relocations": [
+    {
+      "source": "libInfraBluetoothCore.so",
+      "plt_va": "0x13a80",
+      "relocation_offset": "0x57db8",
+      "relocation_type": 1026,
+      "symbol": "bsa_send_message_receive_status"
+    },
+    {
+      "source": "libInfraBluetoothCore.so",
+      "plt_va": "0x13e10",
+      "relocation_offset": "0x57f80",
+      "relocation_type": 1026,
+      "symbol": "LogMsg_0"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x2f190",
+      "relocation_offset": "0xa40b8",
+      "relocation_type": 1026,
+      "symbol": "memcpy"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x2faf0",
+      "relocation_offset": "0xa4568",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon31pvtCoreBleClDmSetConfigConParamEPc"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x2ffb0",
+      "relocation_offset": "0xa47c8",
+      "relocation_type": 1026,
+      "symbol": "memset"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x303a0",
+      "relocation_offset": "0xa49c0",
+      "relocation_type": 1026,
+      "symbol": "_ZN8BTUtils_6BTBlog9errorInfoEtj"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x30490",
+      "relocation_offset": "0xa4a38",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon17pvtCoreBleClWriteEPcNS_10ST_BT_UUIDEttPhhb"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x30720",
+      "relocation_offset": "0xa4b80",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon21pvtFreeMatchingCBListEPNS_9cbListElmE"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x30730",
+      "relocation_offset": "0xa4b88",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon21pvtCoreBleClAppRegistEPh"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x30b90",
+      "relocation_offset": "0xa4db8",
+      "relocation_type": 1026,
+      "symbol": "_Z24sony_ble_cl_connect_initP16tBSA_BLE_CL_OPEN"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x30c50",
+      "relocation_offset": "0xa4e18",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon16pvtConvertBdAddrEPhPc"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x30de0",
+      "relocation_offset": "0xa4ee0",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon25pvtCoreBleClNotifRegisterEPcNS_10ST_BT_UUIDE"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x31010",
+      "relocation_offset": "0xa4ff8",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon17pvtSendInfraBTMsgEPN16nsInfraBluetooth10ST_MSG_REQE"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x31020",
+      "relocation_offset": "0xa5000",
+      "relocation_type": 1026,
+      "symbol": "strncmp"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x31560",
+      "relocation_offset": "0xa52a0",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon16pvtCoreBleClReadEtNS_10ST_BT_UUIDEb"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x31740",
+      "relocation_offset": "0xa5390",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon14pvtDisplayUUIDE8tBT_UUID"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x322b0",
+      "relocation_offset": "0xa5948",
+      "relocation_type": 1026,
+      "symbol": "_Z19sony_ble_cl_connectP16tBSA_BLE_CL_OPEN"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x32460",
+      "relocation_offset": "0xa5a20",
+      "relocation_type": 1026,
+      "symbol": "_ZN8BTUtils_6BTBlog12lowerAPICallEtj"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x324d0",
+      "relocation_offset": "0xa5a58",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon21pvtChangeInfraBTErrorEi"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x32cc0",
+      "relocation_offset": "0xa5e50",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon12pvtAddCBListEPNS_9cbListElmE"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x32e10",
+      "relocation_offset": "0xa5ef8",
+      "relocation_type": 1026,
+      "symbol": "_ZN8BTUtils_6BTBlog10errorPlaceEtj"
+    },
+    {
+      "source": "libInfraBluetoothLowEnergy.so",
+      "plt_va": "0x32f20",
+      "relocation_offset": "0xa5f80",
+      "relocation_type": 1026,
+      "symbol": "_ZN29InfraBluetoothLowEnergyCommon19pvtCoreBleClConnectEPc"
+    }
+  ],
+  "instantlink": {
+    "repository_hint": "../InstantLink (or --instantlink PATH)",
+    "commit": "6877a83d5e4df59659cc649a70220ac2aa5cef72",
+    "sources": [
+      {
+        "path": "AGENTS.md",
+        "bytes": 9364,
+        "sha256": "3a86bdbc476b1856b0917167857e55ea9213458b5c9adffb164152a41ec65856",
+        "matches_head_blob": true
+      },
+      {
+        "path": "Cargo.toml",
+        "bytes": 837,
+        "sha256": "1559f40685117d9813429bb4c865732b1ee1e72b452d2496ad7b6ee0bba4af92",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-core/Cargo.toml",
+        "bytes": 757,
+        "sha256": "0747c395c91ab8143dd34e087e657a0f5d8a1f768e82d1f5fcc56f0da34a6600",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-core/src/transport.rs",
+        "bytes": 42438,
+        "sha256": "1ae53563b66aab59f48a3403386c3e55e5643793bcdea7522affb708dcbf33b9",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-core/src/protocol.rs",
+        "bytes": 16100,
+        "sha256": "c4fad52e7dc326c0bdb34f9e96a3a78d9789f61f9cf563c76387c7c6da04690f",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-core/src/models.rs",
+        "bytes": 3486,
+        "sha256": "f5ee4fbbcc8233db203a66780137cdf570c291043ab174df85a91ceccf58e05e",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-core/src/device.rs",
+        "bytes": 45715,
+        "sha256": "4aec1169300e4d577dced7f8c2b8e5f74539ce1f91dcb5bac4031f7d5c05b817",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-core/src/image.rs",
+        "bytes": 13322,
+        "sha256": "f47f40252e06ec930552ac3ddd20ffccc42f0434ad29f749b30b4ba9e9d38fdb",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-core/src/commands.rs",
+        "bytes": 22068,
+        "sha256": "e683fa37a8e26bc4af6110fe01cdd10bf34115cc13de719942a2e25b7d349f97",
+        "matches_head_blob": true
+      },
+      {
+        "path": "crates/instantlink-ffi/include/instantlink.h",
+        "bytes": 8111,
+        "sha256": "7c0bb737dca8b8a0a192a6825271c00303f5720751ab0918d4e1aec71f8de052",
+        "matches_head_blob": true
+      },
+      {
+        "path": "bridge/pyproject.toml",
+        "bytes": 2977,
+        "sha256": "b3eb507c6357e5013f1c02b107f32aa646c0e26b66894a88fc61424ab6f6ab93",
+        "matches_head_blob": true
+      },
+      {
+        "path": "bridge/src/instantlink_bridge/camera/ftp.py",
+        "bytes": 25120,
+        "sha256": "afaae7e3d3dcf266ac8e623bfbdf01f867e0fc4a81ff4919e4317f5b56b84ac8",
+        "matches_head_blob": true
+      },
+      {
+        "path": "bridge/src/instantlink_bridge/app.py",
+        "bytes": 43623,
+        "sha256": "45f34f618cc3a38ed13b148af039bbe6e455a1deb597f1eadd301c273b2ff816",
+        "matches_head_blob": true
+      },
+      {
+        "path": "bridge/scripts/build-firmware-bundle.sh",
+        "bytes": 14025,
+        "sha256": "631ce521eb37f8f7812be648c38e6d49721564332a78535b72b15030740cd7f4",
+        "matches_head_blob": true
+      },
+      {
+        "path": "docs/reference/protocol.md",
+        "bytes": 7392,
+        "sha256": "39ce72f2bd6f87dd9cd051efb101919be08715cc473f992a35bfb3a06c85d761",
+        "matches_head_blob": true
+      }
+    ],
+    "square_model": {
+      "width": 800,
+      "height": 800,
+      "chunk_size": 1808,
+      "max_image_size": 105000,
+      "packet_delay_ms": 150,
+      "pre_execute_delay_ms": 1000,
+      "success_code": 12
+    },
+    "ble_uuid_source_literals": {
+      "SERVICE_UUID": "0x70954782_2d83_473d_9e5f_81e1d02d5273",
+      "WRITE_CHAR_UUID": "0x70954783_2d83_473d_9e5f_81e1d02d5273",
+      "NOTIFY_CHAR_UUID": "0x70954784_2d83_473d_9e5f_81e1d02d5273"
+    },
+    "current_ble_fragment_bytes": 182,
+    "request_header_hex": "4162",
+    "response_header_hex": "6142",
+    "source_anchors": {
+      "crates/instantlink-core/src/device.rs": [
+        {
+          "line": 120,
+          "token": "transport: Box<dyn Transport>"
+        },
+        {
+          "line": 274,
+          "token": "async fn print_prepared_unlocked"
+        },
+        {
+          "line": 304,
+          "token": "async fn send_image_data"
+        }
+      ],
+      "crates/instantlink-core/src/transport.rs": [
+        {
+          "line": 128,
+          "token": "pub trait Transport"
+        },
+        {
+          "line": 682,
+          "token": "WriteType::WithoutResponse"
+        },
+        {
+          "line": 163,
+          "token": "D-Bus connection"
+        }
+      ],
+      "crates/instantlink-core/src/image.rs": [
+        {
+          "line": 40,
+          "token": "pub fn resize_image"
+        },
+        {
+          "line": 72,
+          "token": "pub fn encode_jpeg"
+        },
+        {
+          "line": 153,
+          "token": "fn prepare_image_inner"
+        }
+      ],
+      "bridge/src/instantlink_bridge/camera/ftp.py": [
+        {
+          "line": 612,
+          "token": "def on_file_received"
+        }
+      ],
+      "bridge/src/instantlink_bridge/app.py": [
+        {
+          "line": 790,
+          "token": "Run one FTP-received image through the auto-print flow."
+        }
+      ]
+    }
+  },
+  "counts": {
+    "firmware_sources": 2,
+    "instruction_regions": 8,
+    "instructions": 810,
+    "request_producers": 3,
+    "local_source_files": 15
+  },
+  "unknowns": [
+    "Sony BLE client initialization, message-server lifecycle, request/UUID layouts, callback and concurrency contracts remain incomplete.",
+    "Exports and request producers do not prove arbitrary printer UUIDs are accepted or that the controller connects in the relevant camera mode.",
+    "The existing btleplug/BlueZ/D-Bus backend is not established as available on the camera; an ARM64 build alone is insufficient.",
+    "Sony ATT payload/MTU, write type, CCCD subscription and coexistence with phone/remote services require future explicit validation.",
+    "Worker ABI (Linux 4.9/glibc2.25), launch/stop/resume lifecycle, completed-file notification, memory and UI integration remain prototype work.",
+    "Current 182-byte fragmentation is an InstantLink implementation constant, not a measured camera/printer negotiation.",
+    "No JPEG decoding, image conversion, BLE operation, print, saved-still LUT effect, or camera-installed prototype is demonstrated."
+  ]
+}
