@@ -2,7 +2,7 @@
 
 English | [繁體中文](./README.zh-TW.md)
 
-For custom LUTs and manual-lens EXIF on completed photos, use the [host JPEG worker prototype](photo_worker/README.md). It creates separate JPEG copies and has full-resolution offline checks; it does not install or run on the camera. All 11 supplied Fujifilm RGBTable stages now have [validated sRGB JPEG CLF adaptations](research/FUJIFILM_SRGB_CONVERSION.md), checked against Adobe’s local SDK reference. These exclude the full RAW/DCP pipeline and are not native camera looks.
+For custom LUTs and manual-lens EXIF on completed photos, use the [host JPEG worker prototype](photo_worker/README.md). It creates separate JPEG copies and has full-resolution offline checks; it does not install or run on the camera. All 11 supplied Fujifilm RGBTable stages now have [validated sRGB JPEG CLF adaptations](research/FUJIFILM_SRGB_CONVERSION.md), checked against Adobe’s local SDK reference. These exclude the full RAW/DCP pipeline and are not native camera looks. A separate [static ARM64 JPEG-worker build](camera_worker/README.md) now processes prepared jobs with these LUTs and lens EXIF using scanline memory; it passes offline host/emulator tests but remains hardware untested, with no camera installation.
 
 For macOS, start with the [Mac operating guide](MACOS.md). The [installation findings and lessons](research/MACOS_INSTALLATION_LESSONS.md) document the actual USB failures, host crash, preservation review and WBI recovery that this successful trial required.
 

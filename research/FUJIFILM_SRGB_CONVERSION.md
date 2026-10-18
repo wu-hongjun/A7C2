@@ -190,8 +190,10 @@ film examples use Adobe Standard Linear. Their other development stages and
 JPEG encoding also differ from this explicit adaptation. No profile equivalence
 is inferred from a visually pleasing result.
 
-A camera version still needs an independently authorized build/runtime,
-streaming codec and measured memory/latency budget, capture completion hook,
-job/preset selection and media database/playback integration. This host result
+A [separate static ARM64 worker](../camera_worker/README.md) now implements the
+native LUT evaluator, streaming JPEG codec and frozen lens EXIF, with offline
+host/sanitizer/emulator checks. Camera execution, target filesystem and resource
+validation, a capture completion hook, job/preset selection and media
+database/playback integration remain separate gates. This result
 does not resolve the native MLUT allocation-to-encoder link, enable Creative
 Looks in AUTO, add a native profile-import menu or install any program.

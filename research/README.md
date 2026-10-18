@@ -12,6 +12,15 @@ The later controlled Mac trial installed the revised 0.1.1 payload on one A7C II
 
 ## Offline firmware investigation
 
+The [standalone ARM64 JPEG-worker candidate](../camera_worker/README.md) now
+replaces the host runtime for processing exported jobs: static musl/libjpeg,
+native 11-look LUT evaluation, frozen lens EXIF and bounded scanline memory.
+Two clean builds are byte-identical. Sanitizer tests, full-resolution host
+processing and actual ELF execution in a restricted host emulator pass;
+[evidence](evidence/camera-worker-checks.json) separates these from unperformed
+camera validation. No camera access or installation occurred. Job production,
+native selection UI and media registration remain future work.
+
 The subsequent [completed-JPEG host worker](../photo_worker/README.md) implements custom sRGB CUBE processing and manual-lens EXIF presets on separate copies, with snapshotted jobs, an initial 15 host tests (now 26 including RGBTable/CLF coverage), a 7008×4672 synthetic proof and independent ExifTool readback. [Worker evidence](evidence/jpeg-worker-checks.json) records correctness and host-only resource measurements. The user supplied the Fujifilm pack after the initial research: [all 1,500 files are inventoried](evidence/fujifilm-profile-pack.json); the original Adobe RAW XMP/DCP files are not directly applied by the worker. The [new sRGB adaptation](FUJIFILM_SRGB_CONVERSION.md) converts all 11 embedded RGBTable stages to self-contained CLF pipelines, validates them against the supplied Adobe SDK scalar function, and verifies JPEG/manual-lens integration. It excludes full RAW/DCP rendering. No camera access or installation occurred.
 
 The October 18 [capture handoff](CAPTURE_HANDOFF.md) traces an incoming source handle through `ChipTransfer`/PCIe DMA request construction into a JPEG input slot, and follows the CP shared-handle globals into a type-`0x108` export record. No writer connects that export or MLUT allocation to the incoming request yet. Six host fixtures include a transfer-failure control; no native pixel processing occurs. The [prototype plan](STILL_PROTOTYPE_PLAN.md) covers the user's four priorities: Creative Looks in AUTO, imported Fujifilm profiles, camera-native InstantLink printing and manual-lens EXIF. Additional evidence maps native BLE request producers and establishes that two named EXIF APIs are stubs. The referenced Fujifilm repository was unavailable locally and was not fetched under the offline instruction.

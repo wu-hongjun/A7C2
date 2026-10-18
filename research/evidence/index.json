@@ -4,8 +4,8 @@
   "artifacts": [
     {
       "path": ".gitattributes",
-      "bytes": 150,
-      "sha256": "995280ab839c7d0baf5bba615200c4cf2e103adac80eaa9e1d56b2183e986dc6"
+      "bytes": 196,
+      "sha256": "84b2e63e404dccc79b957d42d99f6a27378371feb3470ef006755073a186b7ca"
     },
     {
       "path": ".gitignore",
@@ -14,8 +14,8 @@
     },
     {
       "path": "BUILD.md",
-      "bytes": 1262,
-      "sha256": "e257ff1f41973f97e99eb5812163b50bc399ba7cb30648d2c72b0c08c568f7f7"
+      "bytes": 1617,
+      "sha256": "7c28ad162470b010770af71099727020f9b745e313dea01073f21291eb11a832"
     },
     {
       "path": "MACOS.md",
@@ -24,18 +24,18 @@
     },
     {
       "path": "NOTICE.md",
-      "bytes": 3062,
-      "sha256": "0557e8d06ba27934f2710f219363f80a3772ecc3cc18f52c4e38bbbcb307ab4c"
+      "bytes": 3970,
+      "sha256": "1519391be83fb6c97473ba45f6fd2a6ab7657376f2abd7be5af85a5c92f36f66"
     },
     {
       "path": "README.md",
-      "bytes": 29632,
-      "sha256": "6ed9faa5abba4b3e6cff4328b636fa9fe35d74c5ab636bbc0768e8b7d2677a5b"
+      "bytes": 29880,
+      "sha256": "65f0a3a44bb38fda650f364220909c5eb0ca6c1856b29ee5b54a890ad0881746"
     },
     {
       "path": "README.zh-TW.md",
-      "bytes": 23147,
-      "sha256": "cad3c33d3355fa8a9167c0d871a01bb7af53808e762b7a4c0a7074e86d76353b"
+      "bytes": 23361,
+      "sha256": "113cf078bac79fc89859bdee372139c41b3ebf0e3d879d276b1940af6fa78356"
     },
     {
       "path": "VALIDATION.json",
@@ -53,6 +53,56 @@
       "sha256": "25cd13025306880da8935cb9aeb52a312142c8a04b8da0f13a90c9862744369f"
     },
     {
+      "path": "camera_worker/README.md",
+      "bytes": 11209,
+      "sha256": "7b0b78edf8be998fc80c30e4be83305e9d8855686e913bc8b6c7e73c705a6233"
+    },
+    {
+      "path": "camera_worker/build.py",
+      "bytes": 6688,
+      "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+    },
+    {
+      "path": "camera_worker/bundle.py",
+      "bytes": 3382,
+      "sha256": "259446adaaa658637082a25c84b8e990a577707368d5f284c66f288c47b05d00"
+    },
+    {
+      "path": "camera_worker/dist/README.md",
+      "bytes": 558,
+      "sha256": "2bebbfc1b37ce09e7417cc2c09c35be315a215b8e5a31795c7742c5b7206d0c6"
+    },
+    {
+      "path": "camera_worker/dist/build.json",
+      "bytes": 2369,
+      "sha256": "759357d5d059d1ca6a029509f40972960ebabb87c54d89894072fc62f9449312"
+    },
+    {
+      "path": "camera_worker/dist/jpeg-worker-aarch64",
+      "bytes": 491656,
+      "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+    },
+    {
+      "path": "camera_worker/pack.py",
+      "bytes": 4977,
+      "sha256": "58e9ef03a46998503e41ad1e6e13f09cf3317ea1e947bb685e4b1772aedc4c78"
+    },
+    {
+      "path": "camera_worker/srgb_profile.h",
+      "bytes": 1737,
+      "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+    },
+    {
+      "path": "camera_worker/tests/test_pack.py",
+      "bytes": 4757,
+      "sha256": "beb7cb5186edc0c5d4679ddad235546c75ba415e682f9997b21b3fac2f499c6e"
+    },
+    {
+      "path": "camera_worker/worker.c",
+      "bytes": 15733,
+      "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+    },
+    {
       "path": "licenses/Adobe-DNG-SDK.txt",
       "bytes": 5283,
       "sha256": "89d75e1bfd65269c41ec57be67adacd48926af81554574d92742f96296ed9166"
@@ -63,9 +113,29 @@
       "sha256": "f40fa84ebd3c1329fc6f4b75c11af9df6b19ae9a0485a02e85a5eeb476fcd94e"
     },
     {
+      "path": "licenses/Zig-MIT.txt",
+      "bytes": 1080,
+      "sha256": "5c537d6853e005298a285d508cff9ac7192cea23576c840d485b2b586a7ff177"
+    },
+    {
       "path": "licenses/a7c2-fl23-macos-MIT.txt",
       "bytes": 1290,
       "sha256": "4a99d78c5a839e62af4835eaab77c6657ee206581a495b38ea9a1afa11c539fc"
+    },
+    {
+      "path": "licenses/libjpeg-turbo-LICENSE.md",
+      "bytes": 5620,
+      "sha256": "96f5b328adbb78eeaaec6980d73fd558cb1e4d62560ed615646bc3cf5e532430"
+    },
+    {
+      "path": "licenses/libjpeg-turbo-README.ijg",
+      "bytes": 12799,
+      "sha256": "75815e3bf6484201a3c3d17a1bbf10f2e8e3237f84df10a2357ea896db2a81d6"
+    },
+    {
+      "path": "licenses/musl-COPYRIGHT.txt",
+      "bytes": 6204,
+      "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
     },
     {
       "path": "macos_fl23.py",
@@ -74,8 +144,8 @@
     },
     {
       "path": "photo_worker/README.md",
-      "bytes": 10403,
-      "sha256": "a46e3d349d972f866db8923d7124babf72a2fad8e7ed74a12faf0016c58d49c5"
+      "bytes": 10639,
+      "sha256": "3d1cfbfc6b47bf837970defd1582d708838ab8b77b7742a728b3c47b9c8b81b8"
     },
     {
       "path": "photo_worker/__init__.py",
@@ -199,8 +269,8 @@
     },
     {
       "path": "research/FUJIFILM_SRGB_CONVERSION.md",
-      "bytes": 11170,
-      "sha256": "9904b756feb8c85bbc2d4eaf1ad36e7a8d42a8ef95735aab53be6834404058d7"
+      "bytes": 11316,
+      "sha256": "bd478d4469fc7a74eed3d5261d9a20c35840a834772aa5dd25b1585d68b39b05"
     },
     {
       "path": "research/HEIF_BINDING.md",
@@ -259,8 +329,8 @@
     },
     {
       "path": "research/README.md",
-      "bytes": 22611,
-      "sha256": "286d83c774549534a7993b8ff311f08d4cdef09d26c44503d7e27ff49dd53a1e"
+      "bytes": 23211,
+      "sha256": "e3ddc3579660921e832c4f8b00f287940d2a92b405609daaae4f3049e9864b7a"
     },
     {
       "path": "research/RECORDING_BUFFER_OWNERSHIP.md",
@@ -299,8 +369,8 @@
     },
     {
       "path": "research/STILL_PROTOTYPE_PLAN.md",
-      "bytes": 16352,
-      "sha256": "0a4916a54163bafeabfb9d27d5d5903be8b62ade53d69d0d9076fe33a3c0423c"
+      "bytes": 16698,
+      "sha256": "008a131f527eafd8f369fe85055baebc732c9a74913aa4f447b2a6acab370dfc"
     },
     {
       "path": "research/STILL_RECORDING_BOUNDARY.md",
@@ -333,6 +403,11 @@
       "sha256": "195dc9ca6f077acba540327912610b8c47ce36ccb12d52e5bf8a257484ec5d53"
     },
     {
+      "path": "research/check_camera_worker.py",
+      "bytes": 18455,
+      "sha256": "9691d2a16806baf34325c07499ec9d72afbe16d43be1db8e9be387f391ad860e"
+    },
+    {
       "path": "research/check_fujifilm_conversion.py",
       "bytes": 13815,
       "sha256": "fb487759af04f18978067868dc0a40cca4a49d488b106bac0be36d219e46313b"
@@ -346,6 +421,11 @@
       "path": "research/check_lut_reference.py",
       "bytes": 14047,
       "sha256": "2bc92e29875039b496b980ef9b428ac6c409dffb3662388202d7f983733e290b"
+    },
+    {
+      "path": "research/emulate_camera_worker.py",
+      "bytes": 10376,
+      "sha256": "0f3f9ccfc7baf2f68c5b949c1e028e465dbc077946f5aa25a885c47077bf7385"
     },
     {
       "path": "research/evidence/allocation-ownership-followup-checks.json",
@@ -406,6 +486,21 @@
       "path": "research/evidence/camera-backup-attempt.json",
       "bytes": 937,
       "sha256": "ac65f3baaf81dbef0304eb792144d5ba1718e8f40f148e9e4681fd751cb8e768"
+    },
+    {
+      "path": "research/evidence/camera-worker-checks.json",
+      "bytes": 32388,
+      "sha256": "50c3faae0dacbd7d6fd745a3b5c9242fee4fa2d0850a11ef2c5fbc7a38561419"
+    },
+    {
+      "path": "research/evidence/camera-worker-publication-checks.json",
+      "bytes": 4863,
+      "sha256": "0915ede3d26b6e7c34de1aa8afe8a41b09f3d08c563f0f4fb7f7396f3ae13c7e"
+    },
+    {
+      "path": "research/evidence/camera-worker-reproducibility.json",
+      "bytes": 5622,
+      "sha256": "be21e3053bfe667ad8214b806e1cd257b42aacd2b18085e47517f8b9bc42a2c5"
     },
     {
       "path": "research/evidence/capture-handoff.json",
@@ -580,7 +675,7 @@
     {
       "path": "research/evidence/lut-reference-checks.json",
       "bytes": 4273,
-      "sha256": "c6119fd6641ddfe5234ecd0f9d3e99b0af7fe693dddc53c8fe75a668bd98f518"
+      "sha256": "620891c341ccb506928711614ec8826cf1b80ff503564c06dd0f2c79305a5165"
     },
     {
       "path": "research/evidence/lut-transfer.json",
@@ -2669,8 +2764,8 @@
     },
     {
       "path": "research/index_evidence.py",
-      "bytes": 1821,
-      "sha256": "63d967a781354ec1e35a19a21e6d7fbd180a37868b5eeb01fd1c33ceedf563de"
+      "bytes": 1954,
+      "sha256": "8b8b5ba772d802c0dc3f7fc7a6a1339f23641103dc854d52e404f7c6841e392b"
     },
     {
       "path": "research/inventory_av_cam_context.py",

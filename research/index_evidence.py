@@ -20,7 +20,8 @@ def main():
     for pattern in ('*.py', '*.md', 'requirements*.txt', '*.example.json'):
         paths.update(worker.glob(pattern))
     paths.update((worker/'tests').glob('test_*.py'))
-    paths.update((ROOT/'licenses').glob('*.txt'))
+    paths.update(p for p in (ROOT/'licenses').iterdir() if p.is_file())
+    paths.update(p for p in (ROOT/'camera_worker').rglob('*') if p.is_file() and '__pycache__' not in p.parts)
     paths.add(ROOT/'NOTICE.md')
     paths.discard(output)
     data['artifacts'] = []

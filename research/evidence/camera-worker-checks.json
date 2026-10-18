@@ -1,0 +1,998 @@
+{
+  "schema": 1,
+  "generated_at_utc": "2026-10-18T23:47:43.334115+00:00",
+  "camera_accessed": false,
+  "camera_installation": false,
+  "network_accessed": false,
+  "ELF": {
+    "machine": "EM_AARCH64",
+    "type": "ET_EXEC",
+    "ELF_bits": 64,
+    "little_endian": true,
+    "interpreter": null,
+    "dynamic_dependencies": [],
+    "writable_executable_load_segments": false,
+    "executable_stack": false,
+    "bytes": 491656,
+    "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+  },
+  "LUT_checks": [
+    {
+      "name": "astia-srgb",
+      "source_CLF_sha256": "2fe11e16c17e802b85e469a86df8b300daab13fa401b47a3b4be368c539183e6",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "1fadb083980a642468843e34b7c0dc5b153fa3ef685bbbbd25f9f4347c4a6a9e",
+      "mean_RGB8_scale": 1.0912229508226824e-05,
+      "p95_RGB8_scale": 3.7997961044311523e-05,
+      "p99_RGB8_scale": 7.599592208862305e-05,
+      "max_RGB8_scale": 0.0011781742796301842,
+      "max_rounded_RGB8_difference": 0
+    },
+    {
+      "name": "bleach-bypass-srgb",
+      "source_CLF_sha256": "87b249d6541e7b1d81cd1fd32b36d529d90ce5a1fff544f72056dda969259de2",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "7af9cd378b8bba7f317fb74dfdb551842cec41f0e8223e2e494dd7de7278b2a1",
+      "mean_RGB8_scale": 1.1555043989336808e-05,
+      "p95_RGB8_scale": 3.039836883544922e-05,
+      "p99_RGB8_scale": 5.6996941566467285e-05,
+      "max_RGB8_scale": 0.00022798776626586914,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "name": "classic-chrome-srgb",
+      "source_CLF_sha256": "92d53be5c1c41d81c5f1b5de351d7f942d563a972cd8984992fb5cb459f23493",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "0ae818330c16cf76c7db393c3c82b3610cda3cb0e16f8ff92e89a471b329845a",
+      "mean_RGB8_scale": 1.1744674210012214e-05,
+      "p95_RGB8_scale": 3.7997961044311523e-05,
+      "p99_RGB8_scale": 7.599592208862305e-05,
+      "max_RGB8_scale": 0.001080092042684555,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "name": "classic-neg-srgb",
+      "source_CLF_sha256": "a3b13ec3fa3bb06e5be10c22311071ff986d8497664f2aba411af57fe6913bcc",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "ecda7534506e69998f691e19f1a784883136b89cfefe80c0df0ca4da5cdfac73",
+      "mean_RGB8_scale": 1.1744361128438747e-05,
+      "p95_RGB8_scale": 3.039836883544922e-05,
+      "p99_RGB8_scale": 7.599592208862305e-05,
+      "max_RGB8_scale": 0.00216018408536911,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "name": "eterna-srgb",
+      "source_CLF_sha256": "12dbd3604f2f3b82b5f818299188a4d2ea9cd68df3a97f2fb5c6d0ff055ac396",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "c1072368dcf02a0557a17771dea7692a274364b54be454244fc761c88c705753",
+      "mean_RGB8_scale": 1.1752866788631646e-05,
+      "p95_RGB8_scale": 3.039836883544922e-05,
+      "p99_RGB8_scale": 6.839632987976074e-05,
+      "max_RGB8_scale": 0.0010734423995018005,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "name": "nostalgic-neg-srgb",
+      "source_CLF_sha256": "79ab22a65065f23faeb812b6c86cf950aee406765dd8eb775ff60142f2c0c00d",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "7c2b754ec1d60b5998359bf463119ad85180a8424d155b7f69c659b1d50d462b",
+      "mean_RGB8_scale": 1.1809313327076944e-05,
+      "p95_RGB8_scale": 3.039836883544922e-05,
+      "p99_RGB8_scale": 6.079673767089844e-05,
+      "max_RGB8_scale": 0.0003928039222955704,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "name": "pro-neg-hi-srgb",
+      "source_CLF_sha256": "de8639735ed87db6251a7f056d6819c5afd318ab6322593a7e16c81d09c20a60",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "b548f769e203de3ad4bb2da53348bd3e06deaa9d5e4b0132319ecab9b58b3838",
+      "mean_RGB8_scale": 1.0721963173609215e-05,
+      "p95_RGB8_scale": 3.419816493988037e-05,
+      "p99_RGB8_scale": 7.599592208862305e-05,
+      "max_RGB8_scale": 0.0017179828137159348,
+      "max_rounded_RGB8_difference": 0
+    },
+    {
+      "name": "pro-neg-std-srgb",
+      "source_CLF_sha256": "af52789e183c802932a594d082a7fa0d364802627122ada93c7270c70f49f671",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "001c236de088857f37545eab18e0bdb63b7531525416b667edb7855b988737b9",
+      "mean_RGB8_scale": 1.1146506049631513e-05,
+      "p95_RGB8_scale": 3.7997961044311523e-05,
+      "p99_RGB8_scale": 7.599592208862305e-05,
+      "max_RGB8_scale": 0.0013375282287597656,
+      "max_rounded_RGB8_difference": 0
+    },
+    {
+      "name": "provia-srgb",
+      "source_CLF_sha256": "a1964a9476657eabf5fd982aba5cfd1aec8ce4475c05aca80eb62c20aeb34e66",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "bb146cd8a038d33c3788452d35548079e5de0917d598e1c7fc53a241f6d2c129",
+      "mean_RGB8_scale": 1.0532318815023521e-05,
+      "p95_RGB8_scale": 3.681052476167679e-05,
+      "p99_RGB8_scale": 7.599592208862305e-05,
+      "max_RGB8_scale": 0.0017490936443209648,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "name": "reala-ace-srgb",
+      "source_CLF_sha256": "6a090b6bbd24d85f65754d08331125b4cf6b48ac3a53553c65d51c847ab4a375",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "975e1bc436ac628e9d28d24ee19ed7cb029ef2ab04c0e06fc32321aea5cff4ae",
+      "mean_RGB8_scale": 1.1192742722524036e-05,
+      "p95_RGB8_scale": 3.039836883544922e-05,
+      "p99_RGB8_scale": 5.319714546203613e-05,
+      "max_RGB8_scale": 0.0003020837903022766,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "name": "velvia-srgb",
+      "source_CLF_sha256": "fa9647f585a2e712d1e133401c710c8e682f9732c748fa94a58183255cb0dcc9",
+      "RGB_vectors": 42084,
+      "packed_lut_sha256": "14445e443ec83f13514f23fc05e2dbff4310288742f8e3dd1e95dba69c0f67aa",
+      "mean_RGB8_scale": 1.0134185704786326e-05,
+      "p95_RGB8_scale": 4.1797757148742676e-05,
+      "p99_RGB8_scale": 7.599592208862305e-05,
+      "max_RGB8_scale": 0.0012088101357221603,
+      "max_rounded_RGB8_difference": 1
+    }
+  ],
+  "JPEG_checks": [
+    {
+      "name": "astia-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "bleach-bypass-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "classic-chrome-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "classic-neg-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "eterna-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "nostalgic-neg-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "pro-neg-hi-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "pro-neg-std-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "provia-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "reala-ace-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    },
+    {
+      "name": "velvia-srgb",
+      "sampled_flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG": 1,
+      "independent_ExifTool_capture_and_lens_tags": "passed",
+      "output_has_sRGB_ICC": true
+    }
+  ],
+  "emulation": [
+    {
+      "exit_code": 0,
+      "stdout": "A7C2 JPEG Worker native 0.1.0; static ARM64 candidate; offline-only validation\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "ioctl": 1,
+        "writev": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [],
+      "peak_mapped_guest_bytes": 8929280,
+      "elapsed_host_seconds": 0.0032504170667380095,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "exit_code": 0,
+      "stdout": "{\"status\":\"ok\",\"width\":256,\"height\":256,\"published\":true,\"image_row_bytes\":768}\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "prlimit64": 3,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "openat": 6,
+        "fcntl": 1,
+        "fstat": 4,
+        "read": 4,
+        "close": 6,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 16,
+        "lseek": 3,
+        "readv": 4,
+        "newfstatat": 1,
+        "getpid": 1,
+        "ioctl": 2,
+        "writev": 3,
+        "fsync": 2,
+        "renameat2": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            67108864,
+            67108864
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            120,
+            120
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 9945088,
+      "elapsed_host_seconds": 8.458540125051513,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "{\"status\":\"jpeg_error\",\"published\":false}\n",
+      "syscalls": {
+        "set_tid_address": 1,
+        "prlimit64": 3,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "openat": 6,
+        "fcntl": 1,
+        "fstat": 4,
+        "read": 4,
+        "close": 6,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 16,
+        "lseek": 2,
+        "readv": 2,
+        "newfstatat": 1,
+        "getpid": 1,
+        "ioctl": 1,
+        "writev": 2,
+        "unlinkat": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            67108864,
+            67108864
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            120,
+            120
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 9945088,
+      "elapsed_host_seconds": 6.692744583124295,
+      "injected_fault": "output_ENOSPC",
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "{\"status\":\"no_replace_publication\",\"published\":false}\n",
+      "syscalls": {
+        "set_tid_address": 1,
+        "prlimit64": 3,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "openat": 6,
+        "fcntl": 1,
+        "fstat": 4,
+        "read": 4,
+        "close": 6,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 16,
+        "lseek": 3,
+        "readv": 4,
+        "newfstatat": 1,
+        "getpid": 1,
+        "ioctl": 1,
+        "writev": 3,
+        "fsync": 1,
+        "renameat2": 1,
+        "unlinkat": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            67108864,
+            67108864
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            120,
+            120
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 9945088,
+      "elapsed_host_seconds": 10.665455459151417,
+      "injected_fault": "publication_unsupported",
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "{\"status\":\"published_directory_sync_unconfirmed\",\"published\":true}\n",
+      "syscalls": {
+        "set_tid_address": 1,
+        "prlimit64": 3,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "openat": 6,
+        "fcntl": 1,
+        "fstat": 4,
+        "read": 4,
+        "close": 6,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 16,
+        "lseek": 3,
+        "readv": 4,
+        "newfstatat": 1,
+        "getpid": 1,
+        "ioctl": 1,
+        "writev": 3,
+        "fsync": 2,
+        "renameat2": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            67108864,
+            67108864
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            120,
+            120
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 9945088,
+      "elapsed_host_seconds": 11.206937042064965,
+      "injected_fault": "directory_sync",
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "{\"status\":\"asset_type_or_size\",\"published\":false}\n",
+      "syscalls": {
+        "set_tid_address": 1,
+        "prlimit64": 3,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "openat": 5,
+        "fcntl": 1,
+        "fstat": 4,
+        "read": 3,
+        "close": 5,
+        "sched_getaffinity": 1,
+        "mmap": 2,
+        "munmap": 2,
+        "writev": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            67108864,
+            67108864
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            120,
+            120
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 9424896,
+      "elapsed_host_seconds": 2.882619749987498,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "exit_code": 0,
+      "stdout": "{\"status\":\"ok\",\"width\":256,\"height\":256,\"published\":false,\"image_row_bytes\":768}\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "prlimit64": 3,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "openat": 7,
+        "fcntl": 1,
+        "fstat": 5,
+        "read": 4,
+        "close": 7,
+        "sched_getaffinity": 1,
+        "mmap": 3,
+        "munmap": 4,
+        "lseek": 2,
+        "readv": 13,
+        "write": 1024,
+        "ioctl": 1,
+        "writev": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            67108864,
+            67108864
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            120,
+            120
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 9551872,
+      "elapsed_host_seconds": 4.768896625144407,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    }
+  ],
+  "sources": [
+    {
+      "path": "camera_worker/README.md",
+      "sha256": "7b0b78edf8be998fc80c30e4be83305e9d8855686e913bc8b6c7e73c705a6233"
+    },
+    {
+      "path": "camera_worker/build.py",
+      "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+    },
+    {
+      "path": "camera_worker/bundle.py",
+      "sha256": "259446adaaa658637082a25c84b8e990a577707368d5f284c66f288c47b05d00"
+    },
+    {
+      "path": "camera_worker/dist/README.md",
+      "sha256": "2bebbfc1b37ce09e7417cc2c09c35be315a215b8e5a31795c7742c5b7206d0c6"
+    },
+    {
+      "path": "camera_worker/dist/build.json",
+      "sha256": "759357d5d059d1ca6a029509f40972960ebabb87c54d89894072fc62f9449312"
+    },
+    {
+      "path": "camera_worker/dist/jpeg-worker-aarch64",
+      "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+    },
+    {
+      "path": "camera_worker/pack.py",
+      "sha256": "58e9ef03a46998503e41ad1e6e13f09cf3317ea1e947bb685e4b1772aedc4c78"
+    },
+    {
+      "path": "camera_worker/srgb_profile.h",
+      "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+    },
+    {
+      "path": "camera_worker/tests/test_pack.py",
+      "sha256": "beb7cb5186edc0c5d4679ddad235546c75ba415e682f9997b21b3fac2f499c6e"
+    },
+    {
+      "path": "camera_worker/worker.c",
+      "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+    },
+    {
+      "path": "research/check_camera_worker.py",
+      "sha256": "9691d2a16806baf34325c07499ec9d72afbe16d43be1db8e9be387f391ad860e"
+    },
+    {
+      "path": "research/emulate_camera_worker.py",
+      "sha256": "0f3f9ccfc7baf2f68c5b949c1e028e465dbc077946f5aa25a885c47077bf7385"
+    },
+    {
+      "path": "photo_worker/clf.py",
+      "sha256": "6cffce337832018775107157b961db5042c81dea4f6dd59d26d2d791825edb22"
+    },
+    {
+      "path": "photo_worker/worker.py",
+      "sha256": "9a0edd1e6159c33e0d6eb5d9f1d0ef3ab46fd2bb7a57fa30e1207ff9938bfd1b"
+    },
+    {
+      "path": "native/sha256.h",
+      "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+    }
+  ],
+  "limitations": [
+    "Hardware untested; Unicorn syscall models are not the camera kernel/filesystem.",
+    "Host prepares immutable jobs and presets; no on-camera job producer, shutter hook, menu or media registration.",
+    "Native runner accepts sequential 8-bit RGB/YCbCr sRGB/orientation-1 JPEG only; normalization, when explicitly requested, occurs on host.",
+    "Linux renameat2(RENAME_NOREPLACE) and directory fsync need actual target-filesystem verification before installation."
+  ],
+  "builds": [
+    {
+      "schema": 1,
+      "host_variant": false,
+      "sanitizers": false,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "aarch64-linux-musl static, generic ARMv8-A",
+      "compiler": "Homebrew clang version 21.1.8",
+      "zig_version": "0.16.0",
+      "compiler_executable_sha256": "71cc3995a7586753ebf82c66dfb8bef43df446517550678781834586a960f8c9",
+      "compiler_target_arguments": [
+        "cc",
+        "-target",
+        "aarch64-linux-musl",
+        "-mcpu=generic"
+      ],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src"
+      ],
+      "link_flags": [
+        "-static",
+        "-s",
+        "-Wl,-z,noexecstack",
+        "-Wl,--build-id=sha1"
+      ],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-aarch64",
+        "bytes": 491656,
+        "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+      }
+    },
+    {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": false,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "native host",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "zig_version": null,
+      "compiler_executable_sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+      "compiler_target_arguments": [],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src"
+      ],
+      "link_flags": [],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-host",
+        "bytes": 495136,
+        "sha256": "d220663ce1b553661711b39c0212647024f95476a4dc1f84d0f321ce27db00a4"
+      }
+    },
+    {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": true,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "native host",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "zig_version": null,
+      "compiler_executable_sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+      "compiler_target_arguments": [],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer"
+      ],
+      "link_flags": [],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-host",
+        "bytes": 6317472,
+        "sha256": "6766af60761a77564cb0f45b10146ac166f7b51c93cd6758352bda2b403a321b"
+      }
+    }
+  ],
+  "reference_provenance": {
+    "receipt": "research/evidence/fujifilm-srgb-checks.json",
+    "sha256": "d4b07213c9c30959484d62e8fa12e0e9b4fff00f6c8f71eb06fc082ded4a1a97",
+    "scope": "Native implementation compared with the exact previously SDK-validated CLF files; not full RAW development."
+  },
+  "offline_target_ABI": {
+    "kernel": {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha3_unpacked/vmlinux.bin",
+      "bytes": 6610952,
+      "sha256": "620a6a3c2b4f09a3696f2fbf06bab98b49be5eaad6bdb366a1f33319fcb6e9d2"
+    },
+    "kernel_banner": "Linux version 4.9.337-scel+ (jp10239@dic-build-scm-u20-006) (gcc version 6.4.0 (20201211 (Sony CE Linux 14.0.1.0)) ) #1 SMP PREEMPT Sat Oct 11 04:09:59 JST 2025",
+    "libc": {
+      "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha7_unpacked/lib/libc-2.25.so",
+      "sha256": "f9104526eb7e5d2ea533c1a209bb0b83e69367f569e4c966895c8e106e6382c9",
+      "version": "2.25"
+    },
+    "strategy": "Standalone static musl executable avoids the firmware glibc loader/symbol namespace; ARMv8-A generic scalar codec."
+  },
+  "fault_checks": [
+    {
+      "name": "bad-header-hash",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"job_header\",\"published\":false}"
+    },
+    {
+      "name": "bad-input-hash",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"asset_type_or_size\",\"published\":false}"
+    },
+    {
+      "name": "bad-lut-hash",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"asset_hash\",\"published\":false}"
+    },
+    {
+      "name": "truncated-entropy",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"jpeg_warning_or_truncation\",\"published\":false}"
+    },
+    {
+      "name": "trailing-image-bytes",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"jpeg_trailing_bytes\",\"published\":false}"
+    },
+    {
+      "name": "nonfinite-lut",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"lut_values\",\"published\":false}"
+    },
+    {
+      "name": "malformed-exif-offset",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"exif_offset\",\"published\":false}"
+    },
+    {
+      "name": "oversized-dimensions",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"job_bounds\",\"published\":false}"
+    },
+    {
+      "name": "progressive-jpeg",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"unsupported_jpeg\",\"published\":false}"
+    },
+    {
+      "name": "grayscale-jpeg",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"unsupported_jpeg\",\"published\":false}"
+    },
+    {
+      "name": "symlink-input",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"asset_open\",\"published\":false}"
+    },
+    {
+      "name": "symlink-output",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"output_exists_or_unavailable\",\"published\":false}"
+    },
+    {
+      "name": "existing-output-preserved",
+      "exit_code": 1,
+      "diagnostic": "{\"status\":\"output_exists_or_unavailable\",\"published\":false}"
+    },
+    {
+      "name": "concurrent-publication-one-winner",
+      "exit_codes": [
+        0,
+        1
+      ]
+    }
+  ],
+  "lens_only": {
+    "sampled_flat_patch_centers": 64,
+    "max_RGB8_error_including_JPEG": 0,
+    "independent_ExifTool_capture_and_lens_tags": "passed",
+    "output_has_sRGB_ICC": true
+  },
+  "normalization_gate": "explicit host opt-in required, normalized progressive/ICC input passes",
+  "ELF_JPEG": {
+    "sampled_flat_patch_centers": 64,
+    "max_RGB8_error_including_JPEG": 1,
+    "independent_ExifTool_capture_and_lens_tags": "passed",
+    "output_has_sRGB_ICC": true
+  },
+  "ELF_vectors": {
+    "RGB_vectors": 1024,
+    "mean_RGB8_scale": 1.261573260080695e-05,
+    "p95_RGB8_scale": 4.464760422706604e-05,
+    "p99_RGB8_scale": 7.97957181930542e-05,
+    "max_RGB8_scale": 0.0005386210978031158,
+    "max_rounded_RGB8_difference": 0
+  },
+  "full_resolution": {
+    "dimensions": [
+      7008,
+      4672
+    ],
+    "sampled_flat_patch_centers": 64,
+    "max_RGB8_error_including_JPEG": 1,
+    "independent_ExifTool_capture_and_lens_tags": "passed",
+    "output_has_sRGB_ICC": true,
+    "performance": {
+      "returncode": 0,
+      "stdout": "{\"status\":\"ok\",\"width\":7008,\"height\":4672,\"published\":true,\"image_row_bytes\":21024}\n",
+      "stderr": "",
+      "seconds": 2.1353726249653846,
+      "peak_RSS_raw": 3096576,
+      "RSS_units": "bytes"
+    },
+    "host_performance_only": true,
+    "native_RGB_row_bytes": 21024,
+    "files": [
+      {
+        "path": "research/build/camera-worker-check-w4zw86d2/full-native/native/input.jpg",
+        "bytes": 998863,
+        "sha256": "f38754d5bf2ce73f41941f6ed0fd38ddf78daf0fa65cdaf4e8d577fe54aea354"
+      },
+      {
+        "path": "research/build/camera-worker-check-w4zw86d2/full-native/native/result.jpg",
+        "bytes": 970060,
+        "sha256": "5855d41d1f56b6e4303d0e67ddea221677bb81f8da62436ccc4cb8ac89a5510d"
+      }
+    ]
+  },
+  "interruption": {
+    "owned_child_SIGTERM": "handled",
+    "published": false,
+    "temporary_removed": true
+  },
+  "originals_unchanged": true,
+  "passed": true
+}

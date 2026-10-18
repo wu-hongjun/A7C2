@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "generated_at_utc": "2026-10-18T23:49:57.222610+00:00",
+  "starting_commit": "e83eec66559213557ec9be5c8cf40ac7e787527d",
+  "scope": "Standalone static ARM64 Linux JPEG-worker candidate: 11 validated Fujifilm RGBTable adaptations, frozen manual-lens EXIF, scanline codec, offline-only builds and tests",
+  "camera_accessed": false,
+  "camera_installation": false,
+  "camera_hardware_tested": false,
+  "network_for_builds_or_tests": false,
+  "packages_installed": false,
+  "publication_network_exception": "User-authorized Git push and remote-ref verification only",
+  "checks": {
+    "repository_tests": 41,
+    "host_worker_tests": 26,
+    "LUT_reference_groups": 8,
+    "native_job_packer_tests": 6,
+    "total_test_groups": 81,
+    "native_profile_LUTs": 11,
+    "RGB_vectors_per_profile": 42084,
+    "RGB_vectors_across_profiles": 462924,
+    "max_native_float_error_vs_SDK_validated_CLF_in_RGB8_levels": 0.00216018408536911,
+    "sanitizer_JPEG_look_jobs": 11,
+    "independent_ExifTool_lens_capture_and_sRGB_checks": "passed",
+    "malformed_and_concurrent_fault_cases": 14,
+    "actual_ELF_emulation_scenarios": 7,
+    "emulated_faults": [
+      "output_ENOSPC",
+      "publication_unsupported",
+      "directory_sync"
+    ],
+    "interruption_cleanup": {
+      "owned_child_SIGTERM": "handled",
+      "published": false,
+      "temporary_removed": true
+    },
+    "full_resolution": [
+      7008,
+      4672
+    ],
+    "full_resolution_max_RGB8_error_including_JPEG": 1,
+    "native_RGB_row_bytes": 21024,
+    "host_performance": {
+      "returncode": 0,
+      "stdout": "{\"status\":\"ok\",\"width\":7008,\"height\":4672,\"published\":true,\"image_row_bytes\":21024}\n",
+      "stderr": "",
+      "seconds": 2.1353726249653846,
+      "peak_RSS_raw": 3096576,
+      "RSS_units": "bytes"
+    },
+    "two_clean_ARM64_builds_byte_identical": true,
+    "ELF_structure": {
+      "machine": "EM_AARCH64",
+      "type": "ET_EXEC",
+      "ELF_bits": 64,
+      "little_endian": true,
+      "interpreter": null,
+      "dynamic_dependencies": [],
+      "writable_executable_load_segments": false,
+      "executable_stack": false,
+      "bytes": 491656,
+      "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+    },
+    "source_and_build_record_consistency": "passed",
+    "local_document_links": 146,
+    "compileall": "passed",
+    "existing_installer_asset_check": "passed (check-package, no connection)"
+  },
+  "evidence": [
+    "research/evidence/camera-worker-checks.json",
+    "research/evidence/camera-worker-reproducibility.json",
+    "camera_worker/dist/build.json"
+  ],
+  "local_bundle": {
+    "manifest": "research/build/camera-worker-bundle/manifest.json",
+    "sha256": "52d03a2184bb13e8ea2200d3d392828fee1f13338e5fe0f80a4e76944485865f",
+    "ELF_and_native_LUT_count": 12,
+    "installer_included": false
+  },
+  "commands": [
+    ".venv-research/bin/python camera_worker/build.py --codec-archive /path/to/pinned/local/crate --output /path/to/new/build",
+    ".venv-research/bin/python -m unittest discover -s camera_worker/tests -v",
+    ".venv-research/bin/python -m research.check_camera_worker --linux-build /path/to/linux-build --host-build /path/to/host-build --asan-build /path/to/asan-build --luts research/build/fujifilm-srgb --full-resolution",
+    ".venv-research/bin/python -m unittest discover -s photo_worker/tests -v",
+    ".venv-research/bin/python -m unittest discover -s tests -v",
+    ".venv-research/bin/python research/check_lut_reference.py",
+    ".venv-research/bin/python app.py check-package"
+  ],
+  "delivered": [
+    "491656-byte static ARM64 Linux ELF, source and full build identity",
+    "Unmodified pinned scalar libjpeg-turbo and bundled musl runtime; no dynamic Sony dependencies",
+    "Native tetrahedral LUT pipeline and selected manual-lens/capture EXIF on separate JPEG copies",
+    "Host job exporter and local 11-look bundle with notices",
+    "Sanitizer faults, actual ELF in restricted emulation, full-size host proof, reproducibility receipt"
+  ],
+  "not_delivered": [
+    "Actual camera execution or performance validation",
+    "Camera installation, service-mode launcher or firmware modification",
+    "Autonomous camera job producer, capture-time preset association, quick-switch UI or media/playback registration",
+    "Native ICC conversion/orientation/progressive support (explicit host normalization available)",
+    "RAW/HEIF processing, full Adobe RAW rendering, native Fujifilm matching, AUTO menu unlock or printing"
+  ],
+  "publication_excludes": [
+    "User-supplied source profile/SDK/demo bytes and generated profile LUT arrays",
+    "Generated photo/job files and local private bundle",
+    "Unrelated pre-existing firmware atlas edit"
+  ],
+  "preexisting_atlas_working_sha256": "7ad382f8dc2e1f50efe475a78f1cb2394c8154a39f985430fa9888979ca4271b"
+}

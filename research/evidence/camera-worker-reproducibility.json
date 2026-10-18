@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "camera_accessed": false,
+  "network_accessed": false,
+  "independent_clean_builds": 2,
+  "byte_identical": true,
+  "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0",
+  "bytes": 491656,
+  "build_records": [
+    {
+      "schema": 1,
+      "host_variant": false,
+      "sanitizers": false,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "aarch64-linux-musl static, generic ARMv8-A",
+      "compiler": "Homebrew clang version 21.1.8",
+      "zig_version": "0.16.0",
+      "compiler_executable_sha256": "71cc3995a7586753ebf82c66dfb8bef43df446517550678781834586a960f8c9",
+      "compiler_target_arguments": [
+        "cc",
+        "-target",
+        "aarch64-linux-musl",
+        "-mcpu=generic"
+      ],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src"
+      ],
+      "link_flags": [
+        "-static",
+        "-s",
+        "-Wl,-z,noexecstack",
+        "-Wl,--build-id=sha1"
+      ],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-aarch64",
+        "bytes": 491656,
+        "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+      }
+    },
+    {
+      "schema": 1,
+      "host_variant": false,
+      "sanitizers": false,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "aarch64-linux-musl static, generic ARMv8-A",
+      "compiler": "Homebrew clang version 21.1.8",
+      "zig_version": "0.16.0",
+      "compiler_executable_sha256": "71cc3995a7586753ebf82c66dfb8bef43df446517550678781834586a960f8c9",
+      "compiler_target_arguments": [
+        "cc",
+        "-target",
+        "aarch64-linux-musl",
+        "-mcpu=generic"
+      ],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src"
+      ],
+      "link_flags": [
+        "-static",
+        "-s",
+        "-Wl,-z,noexecstack",
+        "-Wl,--build-id=sha1"
+      ],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-aarch64",
+        "bytes": 491656,
+        "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+      }
+    }
+  ]
+}

@@ -12,4 +12,6 @@ zig cc -target aarch64-linux-gnu -shared -fPIC -O2 -ffreestanding -fno-builtin -
 
 安裝Python依賴後，可執行 `python -m unittest discover -s tests -v` 與 `python app.py check-package`，都不連線相機。
 
+獨立的[JPEG工作程式](camera_worker/README.md)使用Zig 0.16.0、靜態musl及固定版本libjpeg-turbo，建置於`camera_worker/`，不屬於以上服務模式模組或安裝資產。它已通過離線主機與模擬器檢查，尚未在相機執行；工作封裝與預設選取仍由主機完成。其建置流程不會安裝或連線相機。
+
 本套件的可攜Python流程尚未在第二台機身驗證；原生工作程式與固定窗口是在一台目標機身完成寫入及完整讀回的版本。離線測試不等於第二台實機測試。

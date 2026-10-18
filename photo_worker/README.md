@@ -1,6 +1,6 @@
 # Completed-JPEG LUT and manual-lens worker (host prototype)
 
-This runs on the computer. It takes an explicitly selected, completed local JPEG, snapshots the image/look/lens selection, and writes a **new JPEG copy**. There is no camera transport, installation command, filesystem watcher, native menu change or printer connection.
+This runs on the computer. It takes an explicitly selected, completed local JPEG, snapshots the image/look/lens selection, and writes a **new JPEG copy**. There is no camera transport, installation command, filesystem watcher, native menu change or printer connection. The separate [native ARM64 runner](../camera_worker/README.md) can now consume exported job snapshots using a streaming JPEG codec; it is offline validated and hardware untested. This Python package remains the host preparer/reference.
 
 The tested environment is the repository's existing `.venv-research`: Python 3.14, Pillow 12.1.0 and OpenColorIO 2.6.0. Dependencies are pinned in [requirements.txt](requirements.txt); no new packages or system configuration were installed for this prototype. Run module commands from the repository root.
 

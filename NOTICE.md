@@ -16,7 +16,8 @@ macOS整合使用 [MDHan/a7c2-fl23-macos](https://github.com/MDHan/a7c2-fl23-mac
 
 The RGBTable predictor/format interpretation, color matrices, transfer functions
 and interpolation harness in `photo_worker/adobe_table.py`,
-`photo_worker/fujifilm.py` and `research/adobe_rgb_table_oracle.cpp` use the
+`photo_worker/fujifilm.py`, `camera_worker/worker.c` and
+`research/adobe_rgb_table_oracle.cpp` use the
 user-supplied Adobe DNG SDK 1.7.1 source as their reference. Applicable Adobe
 portions retain the [DNG SDK license](licenses/Adobe-DNG-SDK.txt); this repository's
 MIT license does not replace it.
@@ -34,3 +35,19 @@ build folder, preserving its source notice. The SDK archive, original profiles,
 demo photographs and generated profile LUT arrays remain local; committed
 evidence records their fingerprints and validation results. Fujifilm and Adobe
 names identify source material and do not imply an official rendering match.
+
+## Standalone JPEG worker dependencies
+
+This software is based in part on the work of the Independent JPEG Group.
+The standalone worker links unmodified scalar libjpeg-turbo 3.1.0 sources from
+the locally cached `turbojpeg-sys` 1.2.0 crate. The archive and generated build
+configuration are pinned in the offline build record. The original
+[license roll-up](licenses/libjpeg-turbo-LICENSE.md) and complete
+[IJG README and notices](licenses/libjpeg-turbo-README.ijg) are retained.
+
+The ARM64 executable statically links Zig's bundled musl runtime. Its
+[complete copyright/license file](licenses/musl-COPYRIGHT.txt) and
+[Zig contributor license](licenses/Zig-MIT.txt) are included. The camera worker
+does not link or redistribute any Sony executable or library. Its output ICC
+marker is a fixed-date generated sRGB profile; no LittleCMS library is linked
+into the native executable.

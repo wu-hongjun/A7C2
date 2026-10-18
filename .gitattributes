@@ -2,3 +2,4 @@
 research/upstream/** -text
 research/downloads/** -text
 research/evidence/*.png binary
+camera_worker/dist/jpeg-worker-aarch64 binary
