@@ -1,6 +1,16 @@
 # A7C II firmware research baseline
 
-Research date: October 17, 2026. Starting commit: `370bf0b5b9b23d3d50dd381b562a736035c6690a`.
+Baseline research date: October 17, 2026. Documentation updated October 18, 2026. Starting commit: `370bf0b5b9b23d3d50dd381b562a736035c6690a`.
+
+## October 18 hardware installation
+
+The later controlled Mac trial installed the revised 0.1.1 payload on one A7C II 2.01. Full programs, parameters, WBI completion and six AP runtime regions after battery removal passed verification; the user reported basic FL1/FL2/FL3 and Auto capture. Normal USB return remained unconfirmed. This hardware trial is separate from the offline LUT/firmware investigations below.
+
+- [Mac operating guide](../MACOS.md): phases, commands and failure classification.
+- [Installation findings and lessons](MACOS_INSTALLATION_LESSONS.md): tested environment, host lifetime bug, G HUB ownership, parser-overlap proof, reviewed recovery and outstanding work.
+- [Sanitized hardware evidence](evidence/macos-installation-review.json) and [current validation](../VALIDATION.json): computer checks versus user-reported capture and inherited results.
+
+## Offline firmware investigation
 
 The [firmware architecture atlas](A7C2_FIRMWARE_ATLAS.md) adds a deeper REA/Ghidra investigation: container and boot structure, original filesystem metadata, application initialization, AP/CP interfaces, recording LUT metadata and MLUT control paths. Its [REA index](evidence/rea/index.json) retains actual tool Evidence separately from the reproducible Python/Capstone maps. The camera was not accessed for this work.
 
@@ -16,11 +26,11 @@ The latest allocation/ownership pass adds [conditional CP MLUT allocation and sh
 
 Follow-up: [CP review before the next hardware trial](CP_REVIEW.md) records 9,153 additional isolated CP checks, an inconsistent movie fallback, two host preservation-check counterexamples, and the distinction between this port and arbitrary LUT support for still photos.
 
-Those three findings are now fixed in local revision 0.1.1-preview. [Fixes and rerun evidence](FIXES.md) records 24 passing host tests, 9,185 CP cases, 259 AP converter cases, synchronized native assets, and the separate status of the connected-camera read attempt. The baseline hashes and results below describe the original candidate unless explicitly marked otherwise.
+Those three findings are now fixed in local revision 0.1.1-preview. [Fixes and rerun evidence](FIXES.md) records the original 24-test fix check, 9,185 CP cases, 259 AP converter cases and synchronized native assets. The expanded checkout now passes 41 host tests, and the separate hardware trial is linked above. The baseline hashes and results below describe the original candidate unless explicitly marked otherwise.
 
 [Still photo LUT feasibility](STILL_LUT_FEASIBILITY.md) examines a custom post-capture JPEG worker and reuse of the existing Sony LUT engine during still capture. It includes new offline AP/libmpr/CP evidence and identifies the unresolved buffer, color-space and execution contracts. No camera access was used for that investigation.
 
-**FL2/FL3 is technically feasible on A7C II 2.01: this checkout already contains an experimental implementation.** The starting README reports successful selection, capture, and playback on one body. Those are inherited reports, not a camera experiment performed during this research session. The work here gathers the dependencies and makes the offline evidence reproducible.
+**FL2/FL3 is implemented experimentally on A7C II 2.01.** The baseline README's original selection/capture/playback results are inherited 0.1.0 reports. The later 0.1.1 hardware trial has its own scoped evidence above. The collection and native LUT investigations below remain offline work and do not establish arbitrary still-photo LUT support.
 
 ## What was collected
 

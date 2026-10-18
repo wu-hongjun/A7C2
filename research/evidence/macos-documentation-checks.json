@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-18",
+  "scope": "documentation_and_validation_metadata_only",
+  "camera_commands_sent": false,
+  "private_camera_state_changed": false,
+  "markdown_documents_checked": 9,
+  "local_links_and_fragments_checked": 126,
+  "document_shell_blocks_syntax_checked": 15,
+  "root_host_tests": 41,
+  "root_host_tests_passed": true,
+  "root_host_test_log": "research/evidence/offline-tests-macos-documentation.log",
+  "pinned_profile_package_check_passed": true,
+  "deployment_file_fingerprints_unchanged": true,
+  "common_finish_source_hash_verified": true,
+  "upstream_license_hash_verified": true,
+  "personal_absolute_paths_in_checked_documents": false,
+  "hardware_claims_checked_against_sanitized_evidence": true,
+  "unrelated_atlas_worktree_edit_excluded": true
+}

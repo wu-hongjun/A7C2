@@ -11,6 +11,6 @@
     "runtime.so": "e8a5efa72a6c6f3126247e838a65001ea2c6987f97cf4fb25d896e8de79b7700",
     "wbi.so": "8d73d55bf89a8400b1c00130b514405d850553536f222fca0eb3959eb0a0be25"
   },
-  "hardware_scope": "Revised CP movie fallback and installer guards: offline validated only; no hardware installation. Historical 0.1.0 preview was reported on one body.",
+  "hardware_scope": "Revision 0.1.1 installed and AP runtime verified on one ILCE-7CM2/2.01 through reviewed Mac recovery; basic capture user-reported. General installation/recovery and full photographic coverage remain unvalidated. See VALIDATION.json.",
   "normal_signed_memory_card_updater": false
 }

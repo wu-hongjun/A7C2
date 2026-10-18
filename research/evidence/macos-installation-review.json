@@ -7,7 +7,11 @@
   "installation_body_complete": true,
   "phase": "verified_after_cold_start_usb_unconfirmed",
   "original_backup_files_verified": 8,
-  "native_prechecks_verified": ["probe", "installer mode 0", "WBI mode 0"],
+  "native_prechecks_verified": [
+    "probe",
+    "installer mode 0",
+    "WBI mode 0"
+  ],
   "native_installer_mode_1_verified": true,
   "native_window_writes": 40,
   "independent_complete_readback_hashes": {
@@ -21,8 +25,16 @@
     "unrelated_live_properties_preserved": 53239,
     "unrelated_stored_properties_preserved": 53241,
     "attributes_and_reset_bytes_checked": true,
-    "existing_live_runtime_allowances": ["0x01070000", "0x02780000"],
-    "extra_live_delta": {"key": "0x02770015", "bytes": 4, "attribute": 2, "little_endian_delta": 60},
+    "existing_live_runtime_allowances": [
+      "0x01070000",
+      "0x02780000"
+    ],
+    "extra_live_delta": {
+      "key": "0x02770015",
+      "bytes": 4,
+      "attribute": 2,
+      "little_endian_delta": 60
+    },
     "extra_stored_delta": false,
     "proven_duplicate_parser_byte": {
       "array_key": "0x02cf1288",
@@ -65,7 +77,12 @@
   "basic_capture_user_reported_passed": true,
   "manual_capture_report": {
     "source": "user_report",
-    "reported_working": ["FL1", "FL2", "FL3", "Auto"],
+    "reported_working": [
+      "FL1",
+      "FL2",
+      "FL3",
+      "Auto"
+    ],
     "description": "they seem to work, I took a photo with FL1, FL2, FL3, and auto mode",
     "playback_separately_confirmed": false,
     "image_files_independently_analyzed": false,
@@ -75,5 +92,43 @@
   "next_step": "no_additional_installation_required",
   "finish_only_recovery_executed_on_one_body": true,
   "general_finish_only_recovery_hardware_validated": false,
-  "raw_backups_settings_identity_and_operation_logs": "private_local_only"
+  "raw_backups_settings_identity_and_operation_logs": "private_local_only",
+  "documentation": {
+    "operating_guide": "MACOS.md",
+    "case_study": "research/MACOS_INSTALLATION_LESSONS.md"
+  },
+  "tested_environment": {
+    "cpu": "Apple M3 Max",
+    "architecture": "arm64",
+    "macos_version": "27.0.1",
+    "macos_build": "26A434",
+    "python": "3.14.6",
+    "pyusb": "1.3.1",
+    "libusb_package": "1.0.30.0",
+    "native_libusb": "1.0.30.12037",
+    "pycryptodomex": "3.24.1",
+    "PyYAML": "6.0.3",
+    "importlib_resources": "7.1.0"
+  },
+  "source_profile": {
+    "payload": "local 0.1.1-preview",
+    "mac_adapter_commit": "d9eac5a3f805a65a894722d9a4b8800ac6b8df15",
+    "adapter_lock": "research/toolchains/macos-adapter.json",
+    "finish_commit": "b625c78f43eca9208e6c00f564cebbf353031891",
+    "finish_source_sha256": "2c3a1a8762d0ab61115835e1932032b492a56d31d7989222e8caf21af836a8b0",
+    "original_downloaded_upstream_unchanged": true,
+    "features": [
+      "fl23"
+    ]
+  },
+  "observations": {
+    "service_interface_owner_confirmed": "lghub_agent",
+    "local_context_lifetime_bug_confirmed_and_fixed": true,
+    "intermittent_usb_discovery_root_cause_resolved": false,
+    "extra_live_property_semantics_decoded": false,
+    "duplicate_reset_read_proven_for_this_layout": true,
+    "global_runtime_counter_allowance_widened": false,
+    "persistent_root_shell_installed": false,
+    "arbitrary_still_photo_cube_lut_support_added": false
+  }
 }

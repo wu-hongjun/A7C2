@@ -10,6 +10,8 @@ Local revision: `0.1.1-preview`, October 17, 2026. A subsequent October 18 hardw
 
 ## Offline results
 
+The 24 host tests in this table are the October 17 fix checkpoint. Later Mac integration and scoped-review tests bring the current root suite to 41; [the installation case study](MACOS_INSTALLATION_LESSONS.md) separates those checks from actual hardware results.
+
 | Check | Result | Evidence |
 |---|---|---|
 | Host tests | 24 passed: original guards, preservation/install/restore regressions, backup-only workflow | [log](evidence/offline-tests-fixed.log) |
@@ -46,4 +48,4 @@ The camera enumerates as `054c:0e8a`, with interface class08/subclass06/protocol
 
 `backup_camera.py` provides a separate backup-only workflow. Unlike installer preparation, it does not upload diagnostic/native modules or create installation state. After model/version checks, it uses service authentication only to read full live/saved settings, complete AP/CP program files, two CP units, and two AP bindings. It writes eight files and a private manifest into each of two independent local directories, verifies SHA-256 readback of both copies, and records whether the directories reside on distinct filesystems. An unexpected firmware revision stops before service access. An incomplete backup is marked incomplete rather than usable for installation.
 
-The paragraph above describes the earlier backup-only workflow and initial USB failure. The later Mac-adapter preparation confirmed firmware 2.01, completed eight hash-verified original backups and all three native prechecks, and verified reversible candidates. The subsequent partial installation and preservation stop are documented in [MACOS.md](../MACOS.md); those private backups remain outside Git.
+The paragraph above describes the earlier backup-only workflow and initial USB failure. The later Mac-adapter preparation confirmed firmware 2.01, completed eight hash-verified original backups and all three native prechecks, and verified reversible candidates. The preservation stop, reviewed WBI completion and successful cold-start verification are documented in [MACOS.md](../MACOS.md) and [the technical case study](MACOS_INSTALLATION_LESSONS.md); private backups remain outside Git.

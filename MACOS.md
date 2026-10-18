@@ -1,81 +1,121 @@
 # FL2/FL3 installation on macOS
 
-The `macos_fl23.py` entry point combines [MDHan's macOS adapter](https://github.com/MDHan/a7c2-fl23-macos) at pinned commit `d9eac5a3f805a65a894722d9a4b8800ac6b8df15` with this repository's fixed `0.1.1-preview` payload. The adapter supplies disk identification/unmounting, temporary USB ownership, service-session cleanup and phase handling. The local `app.py`, `core.py`, `transport.py` and asset manifest supply the reviewed firmware operations and preservation checks.
+The fixed `0.1.1-preview` payload is installed and verified on one ILCE-7CM2 running firmware 2.01. After confirmed battery removal, both complete program files, target parameters and all six AP runtime regions matched. The user reported FL2/FL3 visible and basic capture working with FL1, FL2, FL3 and Auto. The final phase is `verified_after_cold_start_usb_unconfirmed`: verification and service exit completed, but normal USB return was not observed before its deadline.
 
-The adapter's original downloaded release remains unchanged and checksum verified. The module-provider seam selects our local implementation; it does not change original-camera fingerprints or bypass native checks. A local session wrapper reads the firmware version before service authentication using only updater INIT/QUERY_VERSION and allows 60 seconds for the service USB identity to appear on the same physical port. Discovery uses a new context from the pinned PyUSB 1.3.1 backend for each polling scan instead of its cached singleton, prompting fresh Darwin device scans. Raw devices and their parent references retain that context until they are released. This discovery change has passed service entry on the connected body, but a subsequent installation attempt timed out at the same transition; it is not a reliable solution yet. The fixed CP target is `60b9dc9d974cf1e32ddc7e72099fda80c328a84a5e6bd89790d62e36f8ed58ab`. This profile supports FL2/FL3 only. The optional NTSC change and interrupted-install diagnostics are rejected.
+The installation required reviewed recovery from USB and settings-check interruptions. This is a tested result on one body, not a reliable out-of-the-box Mac installer. An already-installed body should not be prepared or installed again.
 
-## Prepare the computer
+| Read next | Purpose |
+|---|---|
+| [Installation findings and lessons](research/MACOS_INSTALLATION_LESSONS.md) | Environment, implementation, failures, parser proof, recovery guards and remaining work |
+| [Sanitized trial record](research/evidence/macos-installation-review.json) | Exact outcome and limits of the hardware evidence |
+| [VALIDATION.json](VALIDATION.json) | Current revision versus inherited 0.1.0 results |
+| [Fixes before the trial](research/FIXES.md) | Preservation and CP movie-fallback changes in this payload |
 
-From this repository's root:
+## Supported profile
+
+`macos_fl23.py` combines MDHan's Mac adapter at commit `d9eac5a3f805a65a894722d9a4b8800ac6b8df15` with this repository's local `app.py`, `core.py`, `transport.py` and fixed deployment assets. The [adapter lock](research/toolchains/macos-adapter.json) verifies the imported source. Its original downloaded upstream release remains unchanged and checksum verified; the module-provider seam selects our corrected payload.
+
+New preparation requires the supported original A7C II 2.01 files; verification/restoration use the corresponding validated workspace and candidates. This profile supports FL2/FL3 only. It rejects the optional NTSC feature and generic `diagnose` through this entry point. The private reviewed continuations used in this trial are not published CLI commands. In particular, the pinned local CLI has no `finish-install` action. Do not invoke the adapter's CLI directly as a substitute: that selects its own upstream provider.
+
+The trial host was Apple M3 Max, macOS 27.0.1, Python 3.14.6, PyUSB 1.3.1 and libusb-package 1.0.30.0. Full versions, payload hashes and upstream finish provenance are recorded in the [case study](research/MACOS_INSTALLATION_LESSONS.md#tested-configuration). Other environments remain separate compatibility questions.
+
+## Prepare the host
+
+Run these setup commands from the repository root only when the adapter directory does not already exist:
 
 ```sh
 git clone https://github.com/MDHan/a7c2-fl23-macos.git research/build/a7c2-fl23-macos
 git -C research/build/a7c2-fl23-macos checkout d9eac5a3f805a65a894722d9a4b8800ac6b8df15
 (cd research/build/a7c2-fl23-macos && ./setup.sh)
+```
+
+For an existing checkout, inspect it and retain its state. Do not reset it, overwrite a camera workspace or update pins to make a failed hash check pass. Setup may download dependencies and the pinned release; subsequent offline package checks do not need the camera:
+
+```sh
 research/build/a7c2-fl23-macos/.venv/bin/python -B macos_fl23.py check
+research/build/a7c2-fl23-macos/.venv/bin/python -B -m unittest discover -s tests -v
+```
+
+Close Finder windows browsing the camera cards. Keep G HUB closed during camera-utility operations: in this trial its agent owned the Sony service interface. Reopen it afterward. Use a direct data connection and choose **Image Transfer (MSC)**, the second option when the connection menu appears. Do not use Windows Zadig instructions on macOS or disable SIP.
+
+The read-only host inventory below queries macOS USB/disk information without service authentication:
+
+```sh
 research/build/a7c2-fl23-macos/.venv/bin/python -B macos_fl23.py usb-status
 ```
 
-If the adapter already exists, inspect it and retain existing work. Do not overwrite an existing camera workspace. Adapter files are pinned in [the adapter manifest](research/toolchains/macos-adapter.json). The Mac adapter's MIT license and upstream acknowledgements remain in its checkout.
+## Inspect an existing workspace first
 
-## Camera phases
+Private camera workspaces belong outside Git. The examples use a placeholder path, not the workspace or battery reading from this trial:
 
-Use only a supported ILCE-7CM2 with exact original 2.01 program hashes. Connect directly, select Image Transfer (MSC), and close Finder windows browsing its cards. macOS requires administrator authentication for USB takeover. Enter the password in your own Terminal; never send it through chat.
+```sh
+research/build/a7c2-fl23-macos/.venv/bin/python -B macos_fl23.py status --workspace "$HOME/Pictures/A7C2-FL23-work"
+```
 
-Choose a new private workspace outside this repository. Preparation reads full programs and live/saved settings, checks this body's color slots, builds reversible candidates and runs temporary native diagnostics. It does not write firmware or save shooting settings. It defaults to one original backup location; an explicit `--backup-copy` adds a second location.
+| Recorded phase | Meaning and next decision |
+|---|---|
+| `prepared` | Original backups/candidates/prechecks completed; explicit installation may proceed with a current battery reading |
+| `prepared_usb_unconfirmed` | Same verified preflight body, service exit sent, final MSC wait timed out; establish normal MSC before explicit installation |
+| `installed_pending_cold_start` or its `_usb_unconfirmed` form | Installation body verified; do not reinstall; follow the cold-start step when error-free and idle |
+| `verified_after_cold_start` or its `_usb_unconfirmed` form | Program/runtime checks completed; retain the actual USB-return result and separately record manual shooting observations |
+| `needs_review` | Inspect `failed_action`, `failed_during`, the journal and raw reports; no general resume, phase-reset or reboot instruction follows from this state |
+
+## New preparation and installation
+
+Use a new private workspace whose parent exists. The operation checks model, normal protocol version and serial-derived identity, then verifies complete original AP/CP fingerprints in service mode. Preparation saves eight original files, validates per-body color slots, builds reversible candidates and runs the native probe, installer mode 0 and WBI mode 0.
 
 ```sh
 sudo research/build/a7c2-fl23-macos/.venv/bin/python -B macos_fl23.py prepare --workspace "$HOME/Pictures/A7C2-FL23-work"
 ```
 
-Proceed to installation only after the actual phase is `prepared` (or the adapter's specifically documented completed-preflight USB-return timeout), backups/candidates pass, and the user supplies the current battery percentage, at least 50%. The following placeholder must be replaced with the real reading:
+Preparation runs temporary native modules; it does not write program files or save shooting settings. The Mac adapter defaults to one verified original backup location. `--backup-copy` is optional and explicit. The standalone two-copy `backup_camera.py` workflow is different; do not infer that the Mac preparation created a second copy.
+
+After a genuinely completed preflight, supply the **current displayed battery percentage**, at least 50. Replace the placeholder below with that actual integer:
 
 ```sh
 sudo research/build/a7c2-fl23-macos/.venv/bin/python -B macos_fl23.py install --workspace "$HOME/Pictures/A7C2-FL23-work" --battery-percent ACTUAL_PERCENT
 ```
 
-After successful installation and all operations finish, unplug USB, shut down normally, wait for the access lamp to go out, remove the battery for about ten seconds, reinstall it and switch on. Confirm this physical step before running:
+Installation rechecks targets and WBI preconditions, writes the fixed program windows, independently reads back the complete files, writes/saves the four target parameters, checks preservation and completes WBI handling. It is not atomic across all these stages. Keep power and USB unchanged during the command. Enter administrator credentials only in the user's Terminal; never in chat. A new Terminal session may need authentication again.
+
+On completion, inspect the process exit code **and** saved phase/journal. A progress message or completed program write does not establish that settings and WBI finished. Do not automatically chain a failed stage into another camera action.
+
+## Classify failures before another device command
+
+| Symptom | What it establishes | Required response |
+|---|---|---|
+| Timeout waiting for `0336` after first authentication | This process did not acquire the service identity; it says nothing by itself about whether macOS sees it | Preserve state/logs; inspect OS identity, port and ownership. Establish whether the operation body ever began |
+| Unexpected driver on service interface | Another owner may hold that interface; G HUB was the confirmed owner here | Identify the exact user client; keep the guard and avoid broad process/driver changes |
+| Exit 139 after apparently completed preparation | Host crashed; completed evidence may exist | Independently validate the saved backups/candidates/native reports and exit journal; do not repeat preparation to repair host ownership or cleanup |
+| Extra setting change at `chip0/0x2770015` | Preservation rejected an unexplained live change after possible program/settings writes | Read all live/stored before/after evidence. This trial's +60 and parser overlap are narrowly reviewed facts, not global allowances |
+| Existing service device after a failed transition | A service object is visible now | A late continuation needs the reviewed prior normal identity, same physical port/object, unchanged connection/power and a known pre-write outcome; do not treat it as a generic entry shortcut |
+| `_usb_unconfirmed` with exit 2 | Only a specifically verified completed body and successful service exit may receive this status | Follow the action-specific next step; no repeat writes. Ordinary entry/body timeouts use the incomplete path instead |
+| Existing one-shot result or finish marker | An operation has already produced evidence or may have begun mutation | Preserve it. Do not delete logs/markers or edit `state.json` to force another attempt |
+
+Fresh libusb contexts and a 60-second service wait did not make handoff reliable. The context-lifetime crash was fixed separately. [The case study](research/MACOS_INSTALLATION_LESSONS.md#usb-discovery-and-ownership) distinguishes those findings from the unresolved discovery cause.
+
+The reviewed WBI-only recovery used [upstream finish code at b625c78](https://github.com/MDHan/a7c2-fl23-macos/blob/b625c78f43eca9208e6c00f564cebbf353031891/macfl23/finish.py), plus stricter local preservation review and body/session-specific guards. It required explicit informed opt-in. That private procedure is recorded as a case study, not offered here as a command to run on arbitrary failed installations.
+
+## Cold start and final verification
+
+Only after the install/WBI body is verified, the command has finished, and the camera has no error or ongoing access activity:
+
+1. Unplug USB and switch the camera off normally.
+2. Wait for the access lamp to go out.
+3. Remove the battery for about ten seconds, reinstall it and switch on.
+4. Check that FL2/FL3 appear, reconnect and choose MSC.
+5. Confirm that the physical battery-removal step actually happened before invoking verification.
 
 ```sh
 sudo research/build/a7c2-fl23-macos/.venv/bin/python -B macos_fl23.py verify --workspace "$HOME/Pictures/A7C2-FL23-work" --cold-start-confirmed
 ```
 
-Inspect the FL2/FL3 menus, reset each look, and capture/play back fresh ST, FL2 and FL3 photos. Host verification and that manual photography check are separate results. On interruption or `needs_review`, preserve the workspace and logs; do not rerun writes or force a restart.
+Verification reads both complete programs, checks target parameters and uploads a temporary reader for six AP runtime regions. It does not reinstall programs, save parameters or repeat WBI completion. The six regions are AP checks; they do not directly inspect executing CP instructions.
 
-## Checks performed before this camera attempt
+Then use each look's own reset option and take new comparison photographs with fixed scene, exposure and white balance. Check capture, saved files and playback separately. Record exactly which looks, modes and formats were tested. This trial's user report covers FL1/FL2/FL3 and Auto capture; separate playback and format confirmation were not supplied.
 
-On October 18, 2026, the unchanged adapter passed 48 offline tests. Its host/session/workflow suites passed 25 tests with this repository's fixed local module provider, including after the context lifetime fix and shared installation-body extraction. All 41 root tests pass, including rejection of unsupported firmware, fresh-context discovery with same-port/ambiguity/timeout guards, raw-device/parent context lifetime, refusal to apply the late-service check to post-write failures, installation stop conditions, and scoped snapshot review. Stop conditions include a changed target, WBI precheck failure, full-program readback mismatch, settings preservation failure and unknown WBI finish outcome. Package manifests passed. A separate host test completed 32 descriptor-enumeration/garbage-collection cycles without claiming interfaces, authenticating or sending camera commands. Those tests do not establish a successful installation on this body. Camera-specific backups and operation results belong outside Git.
+## Preserve the completed result
 
-## Current camera attempt
+Keep the original backups, candidates, state, native reports and full readbacks private and intact. Do not repeat preparation/install on this already-modified body, replay the trial's one-off helper scripts or change its final phase to erase the MSC timeout. A later need to restore original firmware is a separate operation requiring this body's validated originals and the existing restore prerequisites.
 
-The normal USB query confirmed **ILCE-7CM2 firmware 2.01**. Early preparation attempts stopped before backup reads at the service USB transition. A later OS inventory and a fresh Python process observed service identity `054c:0336` on the original physical port. This suggested delayed/cached USB discovery without proving its cause. The same timeout is independently reported in [upstream issue 4](https://github.com/MDHan/a7c2-fl23-macos/issues/4).
-
-The guarded local `service-check --failed-prepare ... --bus ... --ports ...` command is limited to the reviewed pre-backup failure and the known physical port. It performs second authentication, reads the 88-byte ProductInfo and requests normal service exit; it does not upload modules, read firmware/settings backups, install patches or alter the failed state. It rejects post-write failures and is distinct from the upstream interrupted-install diagnosis. The standalone `service-check` starts a normal-to-service check instead. These checks require user-entered administrator authentication; do not run them against arbitrary failed installations.
-
-The late-service check rejected a normal MSC connection before sending authentication commands. Subsequent normal-to-service checks completed both authentications and the ProductInfo read. One then timed out only while waiting for the user-selected MSC return; this was an authentication test, not an installation.
-
-One check stopped at the original service-driver guard. Targeted IORegistry inspection showed `lghub_agent` owning an `AppleUSBHostInterfaceUserClient` under the Sony vendor interface. Stopping only the agent caused it to restart; after stopping the user-level G HUB tray/UI and agent, that interface had no clients. No service-driver guard was bypassed and no Logitech settings or launch configuration were edited. Keep G HUB closed while the camera utility runs; reopen it after camera USB operations finish.
-
-Preparation subsequently completed eight verified backups, candidate/reverse-patch checks, and all three native prechecks (probe, installer mode 0, WBI mode 0). Service exit and normal MSC return were recorded. The host then crashed during raw-device destruction, after `prepared` had been saved. The crash trace exposed an error in the fresh-context wrapper: PyUSB could release the context before its last raw device. The owner references described above fix that lifetime ordering; the offline and host enumeration tests passed afterward. Original backup hashes, candidate bytes and the three raw native reports were independently rechecked without camera commands.
-
-The following installation attempt stopped in session entry, waiting for `0336`, while the action phase was still `prepared`. Its journal contains no installation native calls, firmware/settings writes or WBI mode 1. The CLI preserved it as `needs_review / failed_action=install / failed_during=prepared`. FL2/FL3 installation has **not** completed. The user later reconnected the camera, and passive OS inventory observed normal MSC again. Preserve the failed state and attempt logs; do not reset the phase, repeat preparation, or use the unrelated `writing_settings` recovery procedure to force installation.
-
-An authentication-only trace then completed both authentication stages and the 88-byte ProductInfo read, without changing the installation state. An independent IORegistry observer saw `0336` on the correct port and its removal after the service-exit request, followed by no supported camera USB identity throughout the MSC return wait. This particular return timeout is therefore also visible to the OS, rather than only to libusb. It does not explain the earlier intermittent entry timeout or prove a general fix.
-
-For this reviewed pre-body failure, a private, single-attempt continuation was prepared, bound to the exact source-state and three native-report hashes. It verifies all eight backups and candidates offline, preserves the failed state bytes as evidence, and records a distinct `reviewed_entry_rechecking` operation rather than setting the phase back to `prepared`. In one identity-bound service session it rereads both complete original programs and reruns the probe and installer mode 0, then calls the shared installation body, which checks target settings and WBI mode 0 before any program writes. The normal `install` command still rejects `needs_review`. Six synthetic cases verified that entry/original/probe/precheck failures cannot call the installation body, and that ordinary completion and typed exit-only timeout retain their separate outcomes. This is a body-specific reviewed procedure, not a published general recovery command.
-
-That continuation executed on the camera. The installer reported all 40 windows complete, and independent full readbacks matched the fixed AP and CP hashes. The four target parameters were written, directly read back, and saved. The preservation check then rejected live chip0 key `0x02770015` increasing by exactly 60 (four bytes, attribute 2); the stored view of that key did not change. The failure phase is `writing_settings`, and WBI mode 1 did not execute. Service exit and normal MSC return were successful. Do not rerun program installation or treat this as completed.
-
-Offline comparison also exposed a duplicate read in the vendor backup parser. For array property `0x02cf1288`, its 13-byte `resetData` read reaches into the neighboring `0x02cf1289` data. Reset byte index 1 is the same physical byte as the intended FL3 binding, changing from 0 to 11. Both snapshots have identical property pointers, sizes and attributes; the array's actual data and every other reported reset byte are unchanged. This does not establish a general array/reset format. [The scoped offline reviewer](research/settings_snapshot_review.py) proves that exact overlap before accounting for the duplicate byte, compares the stored view against its independent stored baseline, and keeps the unknown +60 exception confined to this historical live snapshot. Core preservation and runtime-counter rules remain unchanged.
-
-The scoped review passed for 53,239 unrelated live properties and 53,241 unrelated stored properties, plus their attributes/reset bytes. Only the original two runtime allowances, that duplicate parser byte, and the historical live +60 were accounted for. Mutations of the pointer relationship, other reset bytes, target reset data, attributes, unrelated properties or the delta are rejected by offline tests.
-
-A private finish-only procedure uses the unchanged [MDHan WBI completion implementation at b625c78](https://github.com/MDHan/a7c2-fl23-macos/blob/b625c78f43eca9208e6c00f564cebbf353031891/macfl23/finish.py), checksum pinned separately from the adapter. Its local review is bound to the exact failed state and raw evidence, includes the stricter reset-byte proof and independent stored baseline, and additionally rechecks current saved-property preservation. The guarded session exposes no firmware installer or parameter write/save calls. Fresh full candidate programs, direct/live/saved targets, runtime spans, image mode/backend and WBI mode 0 must all pass before a one-shot WBI mode 1. Five applicable upstream finish tests passed with the local provider, and the private wrapper's opt-in and saved-reset rejection guards passed separately. The upstream CLI opt-in test is not applicable to the pinned older CLI; the local wrapper implements and tests its own explicit opt-in. [Upstream rules](https://github.com/MDHan/a7c2-fl23-macos/blob/b625c78f43eca9208e6c00f564cebbf353031891/AGENTS.md) require an informed explicit choice before this experimental WBI recovery.
-
-After explicit user opt-in, the first finish attempt stopped in service entry with no runtime/module execution or WBI mutation; its source state was unchanged and no WBI-attempt marker existed. Subsequent OS inventory found the service object on the original port, and the user confirmed uninterrupted USB and power. A private continuation was bound to that exact registry object, port and failed-entry evidence; it performed only the remaining service authentication, with no repeated normal-mode handoff. Seven synthetic cases checked identity/object/port/owner guards, authentication and ProductInfo failure, and successful entry. Recreated registry objects, normal mode and changed physical location were also rejected offline.
-
-That continuation completed on hardware: fresh full AP/CP readbacks matched the fixed candidates, all four direct/live/stored targets and attributes matched, and all 53,241 unrelated stored properties were preserved. Runtime disk windows matched all six candidates. Four memory windows matched the candidate; the two menu windows exactly matched the original, satisfying the explicitly allowed pre-cold-start state. Raw WBI mode 0 and mode 1 reports independently parsed successfully; the mode 1 report verified image-mode change from 2 to 0 and a fresh drop log. Service exit was sent, with only the subsequent MSC wait timing out. State is therefore `installed_pending_cold_start_usb_unconfirmed`, not an unknown write result; the finish must not be repeated. The user subsequently reported reconnecting and seeing both FL2 and FL3. Full post-cold-start computer verification and shooting tests remain pending. This single reviewed body-specific recovery does not establish a general reliable Mac installation or recovery path.
-
-The user then confirmed the full battery-removal cold start in Terminal and ran the standard verification path. Both complete programs again matched the fixed hashes, target parameters matched, and all six runtime windows matched the candidate in memory and on disk, including both previously original menu regions. The raw runtime report was independently parsed and compared again offline. Service exit succeeded; only normal MSC return timed out, so the recorded state is `verified_after_cold_start_usb_unconfirmed`. The post-start runtime report records image mode 2, whereas WBI completion had verified mode 0 before cold start; no additional WBI writes are indicated or authorized by this observation. Program/runtime verification is complete on this body. Basic ST/FL2/FL3 capture and playback remain a separate pending manual check.
-
-The user subsequently reported that photographs taken with FL1, FL2, FL3 and Auto "seem to work." This completes the reported basic capture check for those selections. ST, separate playback, capture format, individual-look resets and fixed exposure/white balance were not explicitly confirmed; no captured image files were independently analyzed. The private workspace records the report without altering its truthful USB-unconfirmed verification phase. G HUB was reopened after the camera utility finished. Original backups and all private operation evidence remain local. This is a verified installation with user-reported basic capture on one body, not evidence of complete mode coverage, exact donor-camera color matching or long-term stability.
+The public repository retains the common program fingerprints, test results, sanitized hardware record, [technical lessons](research/MACOS_INSTALLATION_LESSONS.md) and [remaining LUT research](research/STILL_LUT_FEASIBILITY.md). Serial hashes, original settings/calibration, full firmware, administrator credentials and private operation logs remain outside the published evidence.

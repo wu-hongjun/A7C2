@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "camera_accessed": true,
   "artifacts": [
     {
@@ -13,19 +13,54 @@
       "sha256": "20bc0d8808f96d81e50460e640dd4e29bf8f6fce32b62a19f731648fbdb32ea2"
     },
     {
+      "path": "BUILD.md",
+      "bytes": 1262,
+      "sha256": "e257ff1f41973f97e99eb5812163b50bc399ba7cb30648d2c72b0c08c568f7f7"
+    },
+    {
+      "path": "MACOS.md",
+      "bytes": 11634,
+      "sha256": "42a99e28029fdef58050c421e105bf458f1a6dfc198427c4e4a693bd51e55279"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 1822,
+      "sha256": "902b8b7477b62de73cc79ff700f2d10981f57e87a9d9b5d5e28b5d8c1af76af4"
+    },
+    {
       "path": "README.md",
-      "bytes": 26915,
-      "sha256": "9cc47f9857b0aea5d7e254ff17ab8050ef2644be1a2fbd8506e17f2deb55ec2b"
+      "bytes": 28665,
+      "sha256": "6844a21c2640ea3df5538da44a89c580ca1a068bdf532cf3c53353944baf334c"
     },
     {
       "path": "README.zh-TW.md",
-      "bytes": 20819,
-      "sha256": "49ebd87a1f214f0cb8559de18fe2a064a4fca713f4bf860607c542d0fa1beb6b"
+      "bytes": 22394,
+      "sha256": "cfd429585f599ac0b58ef9eef6635cefb3dec4852e6bff75b0a622591227965a"
+    },
+    {
+      "path": "VALIDATION.json",
+      "bytes": 2717,
+      "sha256": "b9d5f69b300640f05de269c33030430b35d2b15bdfc9c7ecd2ad06ab55dd745b"
+    },
+    {
+      "path": "assets/manifest.json",
+      "bytes": 928,
+      "sha256": "e1f7b9f1b26be8eaea53311b3e46f7b335b19c2d9fc6209af0284e8b7e294cca"
     },
     {
       "path": "backup_camera.py",
       "bytes": 6725,
       "sha256": "25cd13025306880da8935cb9aeb52a312142c8a04b8da0f13a90c9862744369f"
+    },
+    {
+      "path": "licenses/a7c2-fl23-macos-MIT.txt",
+      "bytes": 1290,
+      "sha256": "4a99d78c5a839e62af4835eaab77c6657ee206581a495b38ea9a1afa11c539fc"
+    },
+    {
+      "path": "macos_fl23.py",
+      "bytes": 12728,
+      "sha256": "d5608a27dd32446017ef3d45719bbf3c8f6e887f7b186a0cbd7d485b480c7222"
     },
     {
       "path": "research/A7C2_FIRMWARE_ATLAS.md",
@@ -64,8 +99,8 @@
     },
     {
       "path": "research/CP_REVIEW.md",
-      "bytes": 10489,
-      "sha256": "b27ccb63e616be2e50fea26c3a4e01110c97314639ebc109a2b98ff4694e6b5c"
+      "bytes": 11245,
+      "sha256": "667d489f620fd1cf2dfebafcf741842aa2243b6783c0a7b794200832338c7df3"
     },
     {
       "path": "research/ENCODER_SAVE_LINK.md",
@@ -79,8 +114,8 @@
     },
     {
       "path": "research/FIXES.md",
-      "bytes": 5547,
-      "sha256": "be8a19f5a4e67a031648e72ee315d42758da0bd1839aaf148fe8035272e63288"
+      "bytes": 5895,
+      "sha256": "15783a0e069ff94347ee715e7c532ff25264023ed02969eb0ec3bccc51e6efb1"
     },
     {
       "path": "research/HEIF_BINDING.md",
@@ -113,6 +148,11 @@
       "sha256": "f298bcedb1df50f3d15affe87f5deb55f7a009c48bef0e6cc986efeb46674964"
     },
     {
+      "path": "research/MACOS_INSTALLATION_LESSONS.md",
+      "bytes": 22581,
+      "sha256": "046726f416fa2c5ecb4b0464f932bafc76073e7b0f5e2248d6207d3c0503b4fc"
+    },
+    {
       "path": "research/MLUT_ALLOCATION.md",
       "bytes": 8489,
       "sha256": "d33cd3bb82f187080992568be5f984a96d4ae2f1b2c095f8c5bbbafd4dab903e"
@@ -134,8 +174,8 @@
     },
     {
       "path": "research/README.md",
-      "bytes": 19597,
-      "sha256": "499ea6e54e1868635cab5869df1c0478f3409a11ca92a50e54855fb9b11892c1"
+      "bytes": 20571,
+      "sha256": "2910dc238ab4d49208ba469076ef96bbecd1c3eccd1e1bcdce10acc63b874da7"
     },
     {
       "path": "research/RECORDING_BUFFER_OWNERSHIP.md",
@@ -403,9 +443,14 @@
       "sha256": "8b027b485289cbe2e8aff0626c62a8187ebcf0316ac78fc8866ff424d32a6040"
     },
     {
+      "path": "research/evidence/macos-documentation-checks.json",
+      "bytes": 779,
+      "sha256": "85c71a78365b54c40f010205c9686fec28f3f7c0210a963a3c42771a11fafb34"
+    },
+    {
       "path": "research/evidence/macos-installation-review.json",
-      "bytes": 3451,
-      "sha256": "06d0876f8b08c5d8a203772673387220e8c86510a0a3b5862ab806072cc5034b"
+      "bytes": 4935,
+      "sha256": "11bf28eb7417dc86b4a6c08b29295c293b7b9d7028dc3e4fa56b4d67f47ff224"
     },
     {
       "path": "research/evidence/mlut-allocation.json",
@@ -446,6 +491,11 @@
       "path": "research/evidence/offline-tests-hq-followup.log",
       "bytes": 3325,
       "sha256": "68f55d9f29caca2b02fb97d0ce6fedbf96d7d3319a52a727b13c92c8d87473c8"
+    },
+    {
+      "path": "research/evidence/offline-tests-macos-documentation.log",
+      "bytes": 6100,
+      "sha256": "b990b1d3244b690cdd527a21fc6798203c1f9a9a30f4772aad002f7517ebdaa9"
     },
     {
       "path": "research/evidence/offline-tests-publish.log",
@@ -2659,8 +2709,8 @@
     },
     {
       "path": "research/toolchains/README.md",
-      "bytes": 4982,
-      "sha256": "81b077731b99109235d7e56fff49179b35e9a60dbb256395687330fae77cff48"
+      "bytes": 5300,
+      "sha256": "aaf562eca45fb090c654041ed7f37fb354163f0e3baa1bfced1260fc92873e5f"
     },
     {
       "path": "research/toolchains/macos-adapter.json",
@@ -2818,8 +2868,8 @@
       "sha256": "02ede33d835809345c345dbc2459332ea6134d51b99f37d7db2af451da2c2113"
     }
   ],
-  "camera_access_scope": "USB inventory/descriptors and blocked interface-open attempt; no successful Sony command or service authentication",
-  "note": "Older reports retain their historical results; listed source files and their hashes describe current working-tree bytes.",
+  "camera_access_scope": "Separate controlled 0.1.1 Mac hardware trial: two-stage service authentication, eight original backups, program/parameter writes and readbacks, reviewed WBI completion and post-cold-start AP runtime verification; basic capture user-reported. Offline firmware/LUT scope remains separate.",
+  "note": "Historical reports retain their dated scope. The controlled hardware result is documented in research/evidence/macos-installation-review.json; private camera evidence is excluded. Artifact hashes describe the selected repository contents.",
   "deep_dive_scope": {
     "camera_accessed": false,
     "target_executed": false,

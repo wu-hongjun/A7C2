@@ -2,6 +2,8 @@
 
 **Resolution:** all three numbered findings below are fixed in local revision 0.1.1-preview. [Fix details and rerun evidence](FIXES.md) supersede their unresolved status. The original review and counterexample results remain below for context. The remaining trial gaps still apply.
 
+**October 18 follow-up:** the revised candidate was installed and passed full program/parameter and six-region AP runtime checks after battery removal. The user reported FL1/FL2/FL3 and Auto capture working. [The Mac case study](MACOS_INSTALLATION_LESSONS.md) records the host faults, scoped preservation review and WBI recovery; it does not close the CP runtime, reset/import, controlled color or full-format gaps below.
+
 Reviewed October 17, 2026, against the pinned A7C II 2.01 original and existing candidate. **The modeled still-photo processing path is coherent, but the current installer should not be used for the next trial until the preservation checks and movie fallback are addressed.** This review did not change deployment assets or enter a camera service session.
 
 ## Findings to fix
@@ -88,9 +90,11 @@ Sony's A7C II documentation supports user LUT registration using 17-point or 33-
 
 A future custom-photo-profile project could investigate native curves/matrices or trace whether the existing 3D-LUT hardware path can be used for still-image rendering. Those are separate implementations. An arbitrary nonlinear 3D transform cannot generally be reproduced exactly by substituting a few tone curves and matrices. Input color space/gamma, output format, preview-versus-recorded rendering, and ISP resource limits would need validation. The current port does not establish that possibility.
 
-## Connected camera
+## Historical connected-camera observation on October 17
 
 macOS USB inventory reports `ILCE-7CM2`, vendor/product `054c:0e8a`, link speed480 Mb/s. [Inventory evidence](evidence/usb-presence.json) omits serial numbers. This confirms USB visibility; it does not confirm the installed firmware revision or its program hashes. No service authentication, diagnostic upload, program/settings write, or installation was performed.
+
+That paragraph describes the initial observation, not the later completed installation. The subsequent normal protocol version, complete original/candidate fingerprints, native operations and final runtime result are recorded in [the hardware evidence](evidence/macos-installation-review.json).
 
 Run the new offline checks from the repository root:
 

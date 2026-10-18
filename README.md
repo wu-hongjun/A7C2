@@ -2,7 +2,7 @@
 
 English | [繁體中文](./README.zh-TW.md)
 
-For macOS, see the [Mac installation workflow](MACOS.md), which uses MDHan's pinned USB adapter with this repository's fixed payload.
+For macOS, start with the [Mac operating guide](MACOS.md). The [installation findings and lessons](research/MACOS_INSTALLATION_LESSONS.md) document the actual USB failures, host crash, preservation review and WBI recovery that this successful trial required.
 
 The [offline firmware architecture atlas](research/A7C2_FIRMWARE_ATLAS.md) maps the downloaded 2.01 image using REA/Ghidra, Capstone and bounded host emulation. It now includes ordinary/HQ LUT conversion, MLUT pixel parameters, cross-decoded AP/CP SDYC metadata, JPEG/HEIF command boundaries, and the still-info notification producer in `av-cam.bin`. The latest pass traces conditional MLUT allocations, resize-to-encoder input handles, and native capture HEIF completion/output handoff through AP share-before-free. That native capture route bypasses the separate AP HEIF conversion-table gap. Live MLUT-to-encoder allocation lineage and final shared-reference reclamation remain unresolved, so full-resolution saved-still LUT integration is unproven. No camera access or installation was used for that investigation.
 
@@ -12,19 +12,23 @@ This repository documents an experimental port of the FL2 and FL3 still-photo Cr
 
 **This is an experimental preview with basic functionality confirmed on one camera. It is not a fully validated stable release or an official Sony memory-card firmware update.**
 
-Updated: October 17, 2026.
+Updated: October 18, 2026.
 
 ## Current validation status
 
-| Item | Evidence so far |
+The current column describes local `0.1.1-preview`. Inherited `0.1.0` reports remain separately recorded in [VALIDATION.json](VALIDATION.json); they are not additional revised-payload trials.
+
+| Item | Current 0.1.1 evidence |
 |---|---|
-| Camera and version | One ILCE-7CM2 displaying version 2.01; complete AP/CP readbacks matched the pinned official 2.01 program hashes |
-| Program installation | Fixed AP/CP regions written in place, preserving file lengths and inodes; fsync and complete on-camera SHA-256 verification completed |
-| Independent program readback | Both complete program files read back over USB and matched the candidates |
-| Native parameters | New records merged into this camera's own backup; native writes, readbacks, saves, and storage readbacks completed |
-| FL2/FL3 menu | The user confirmed that both looks appeared after normal shutdown, removal of the battery for about 10 seconds, and power-on |
-| Basic photography and playback | The user confirmed that FL2, FL3, and the existing ST look could each capture new photos and play them back on the camera |
-| Packaged portable installer | Offline guard tests and simulated workflows passed; this reorganized portable workflow has not been tested on a second camera |
+| Camera and version | One ILCE-7CM2; normal protocol query reported 2.01 and both complete originals matched the supported fingerprints |
+| Original backups | Eight files hash verified in one private original location through the Mac adapter |
+| Program installation | All 40 native windows verified; independent full AP/CP readbacks matched the fixed candidates before and after cold start |
+| Native parameters | Both CP units and AP bindings matched direct/live/stored targets; unrelated saved data, attributes and reset bytes passed scoped review |
+| WBI and restart | Reviewed WBI completion verified; user confirmed battery removal; all six AP memory/disk windows matched afterward |
+| FL2/FL3 menu | User reported both visible after restart |
+| Basic photography | User reported capture working with FL1, FL2, FL3 and Auto; separate playback, formats and image analysis were not confirmed |
+| Final USB return | Service exit sent; MSC return timed out, retaining `verified_after_cold_start_usb_unconfirmed` |
+| Mac reliability | A body-specific reviewed recovery succeeded; intermittent discovery and general recovery remain unresolved |
 
 User-reported successful photography is not an independent measurement of every image format, setting combination, MakerNote field, or color characteristic. The following remain unvalidated:
 
@@ -38,7 +42,9 @@ Firmware modification can prevent a camera from booting. Backups, readbacks, and
 
 ## Download and package contents
 
-[Download the A7C II 2.01 preview toolkit, version 0.1.0](./a7c2-fl23-2.01-preview-0.1.0.zip)
+[Download the historical A7C II 2.01 preview toolkit, version 0.1.0](https://raw.githubusercontent.com/QAQLeonard/a7c2-fl23-research/dd01c07a2a5df004d709595a43ebafe81bbd8fae/a7c2-fl23-2.01-preview-0.1.0.zip)
+
+This is the pinned upstream historical archive. There is no updated 0.1.1 ZIP in this checkout; use the current source and its fixed asset manifest for that revision. The archive link is the same pinned source used by the Mac adapter, not a claim that its older payload contains the local fixes.
 
 The ZIP contains the installer and small patch assets. **It does not include complete Sony firmware, a complete camera backup, or private calibration units.** The tool reads the target camera's original files, checks their exact fingerprints, and builds candidates locally. Each camera uses its own backup.
 
@@ -71,9 +77,9 @@ Get-FileHash .\a7c2-fl23-2.01-preview-0.1.0.zip -Algorithm SHA256
 
 Share this prepared ZIP and the documentation. **Do not publish the per-camera working directory or backups created during installation.**
 
-## Installation without an AI assistant
+## Windows installation without an AI assistant
 
-An AI assistant is not required to run the installer. Installation is performed by local software. Windows, Python, and manual USB-driver preparation are still required; the toolkit is not yet a standalone EXE that runs without Python.
+An AI assistant is not required to run the installer. The following Windows workflow accompanies the historical downloadable package; the current checkout contains the separately identified 0.1.1 fixes. For Mac commands and its default single original-backup location, use [MACOS.md](MACOS.md). The Windows toolkit still requires Python and manual USB-driver preparation; it is not a standalone EXE.
 
 ### Prerequisites
 
@@ -257,7 +263,7 @@ In this kernel version, related function file offsets are `0x63e28` -> `0x63dc0`
 
 ## Errors and restoration
 
-- Keep the original programs, settings, and second backup copy. Settings backups contain private information; do not publish them.
+- Keep the original programs/settings and any explicitly created second backup copy. Mac preparation defaults to one original location. Settings backups contain private information; do not publish them.
 - After a timeout, disconnection, `needs_review` state, or unknown result, stop further writes. Establish the existing outcome and current file state before retrying or rebooting.
 - Fixed-region restoration does not guarantee recovery after arbitrary power loss, partial file damage, or loss of service access.
 - **「回復原版」 — Restore original** uses this body's own original data to restore two programs and four target settings. It requires complete program files matching the known candidate and rejects unknown partial images. Select ST and perform a complete power cycle before reconnecting for restoration.
@@ -266,6 +272,8 @@ In this kernel version, related function file offsets are `0x63e28` -> `0x63dc0`
 During this work, a five-second host-side read timeout interrupted a verification-only session. The existing successful result was later retrieved, confirming zero program-region writes for that operation, before cleanup. The unknown operation was not simply repeated. The reorganized transport uses bounded transaction budgets and sends no further cleanup commands after a session becomes unknown.
 
 ## Tests and their limits
+
+The current checkout passes 41 root host tests. The revised CP/AP instruction checks and original/candidate audits are linked in [FIXES.md](research/FIXES.md). The following counts describe the earlier 0.1.0 validation set, retained as historical evidence rather than current test totals.
 
 | Test | Result | What it does not establish |
 |---|---:|---|
@@ -290,5 +298,6 @@ The following public work informed this A7C II-specific implementation and analy
 - [ma1co/fwtool.py PR52](https://github.com/ma1co/fwtool.py/pull/52), pinned commit `3955d7890fc38daf942bb52827599bfe35de4a14`: reference tooling for offline analysis of official firmware.
 - Official Sony A7C II 2.01 and Alpha 1 II 4.00 firmware: sources for program and color-data analysis. Sony trademarks and firmware-data rights remain with their respective rights holders.
 - [morluto/rea](https://github.com/morluto/rea), version 6.5.0, with Ghidra 12.1.4: offline native analysis for the firmware atlas. Exact tool identities and analysis limitations are retained in [research/toolchains](research/toolchains/README.md).
+- [MDHan/a7c2-fl23-macos](https://github.com/MDHan/a7c2-fl23-macos/tree/d9eac5a3f805a65a894722d9a4b8800ac6b8df15): pinned macOS USB/workflow adapter. The reviewed finish implementation is pinned separately to `b625c78`; see [the case study](research/MACOS_INSTALLATION_LESSONS.md) and [retained MIT license](licenses/a7c2-fl23-macos-MIT.txt).
 
 This README is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See `LICENSE`, `NOTICE.md`, and `licenses/` inside the ZIP for the preview toolkit's new code and upstream licenses. These licenses do not claim to cover Sony firmware data. This repository does not publish the tested camera's serial number, complete settings backup, private calibration data or private login credentials. Local research Evidence records retain analysis paths for provenance.

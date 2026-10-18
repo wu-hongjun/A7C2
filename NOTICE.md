@@ -2,6 +2,8 @@
 
 原生服務通訊使用 ma1co 的 Sony-PMCA-RE，固定提交 `a82f5baaa8e9c3d9f28f94699e860fb2e48cc8e0`。附帶Python來源位於 `vendor/pmca`，MIT授權全文見 `licenses/Sony-PMCA-RE-MIT.txt`。
 
+macOS整合使用 [MDHan/a7c2-fl23-macos](https://github.com/MDHan/a7c2-fl23-macos/tree/d9eac5a3f805a65a894722d9a4b8800ac6b8df15) 的固定USB與工作流程適配層，另以 `b625c78f43eca9208e6c00f564cebbf353031891` 的WBI收尾實作作為本次受限恢復的來源。主適配層與收尾來源分別固定，未修改下載的原始上游套件。原作者MIT授權保留於 [licenses/a7c2-fl23-macos-MIT.txt](licenses/a7c2-fl23-macos-MIT.txt)。實際分工、驗證範圍與私人資料排除方式見 [Mac安裝經驗](research/MACOS_INSTALLATION_LESSONS.md)。
+
 研究方法與對照資料：
 
 - [lzh2016zzz/a7cr-fl23-research](https://github.com/lzh2016zzz/a7cr-fl23-research/tree/43ba74441c8f10459ade41e84a379ad8005e6ef4)：A7CR FL2／FL3 分層移植與參數、標籤、WBI 的研究參考。本工具為 A7C II 另行定位及實作，沒有把A7CR偏移直接刷入。

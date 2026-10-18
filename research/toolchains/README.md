@@ -1,5 +1,7 @@
 # Reproducing REA native analysis
 
+For the separate Mac hardware-installation environment and adapter pins, see [MACOS.md](../../MACOS.md), [the installation case study](../MACOS_INSTALLATION_LESSONS.md#tested-configuration) and [macos-adapter.json](macos-adapter.json). The REA tooling below serves offline firmware analysis, not camera installation.
+
 The [toolchain record](rea.json) pins REA 6.5.0, Ghidra 12.1.4, the checksum-verified ARM64 macOS JDK archive and the locally built native decompiler. Firmware inputs remain in the ignored `research/extracted` tree. REA source was inspected at commit `4f7b5fb6023ce2ec449561782d09e3c7e5ac7c7b`; the published npm package is pinned independently. No source-to-package equivalence claim is made.
 
 Run from the repository root. Create the local REA runtime with the retained lockfile:
