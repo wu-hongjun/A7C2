@@ -1,0 +1,49 @@
+{
+  "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+  "output_directory": "research/evidence/rea/still-buffer-ownership",
+  "queries": [
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe274c"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe3c14"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe3bb4"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe0c4c"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe0e48"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xf1494"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe1210"
+      }
+    }
+  ],
+  "export_bundle": true
+}

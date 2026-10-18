@@ -3,7 +3,7 @@
   "target_executed": false,
   "target_execution_definition": "No execution on camera hardware; selected original AP/CP/av-cam routines run only in bounded host emulation with documented external stubs.",
   "host_CP_emulation_performed": true,
-  "source_files_sha256_verified": 1445,
+  "source_files_sha256_verified": 1450,
   "container_crc_verified": true,
   "partition_count": 30,
   "extracted_regular_files": 1369,
@@ -48,7 +48,12 @@
     "AP_SSYC_metadata": 803,
     "CP_SDYC_nested_backing": 1200,
     "HEIF_binding_and_native_receiver": 672,
-    "av_cam_still_info_producer": 1315
+    "av_cam_still_info_producer": 1315,
+    "CP_MLUT_allocation": 1259,
+    "av_cam_encoder_pixels": 1464,
+    "av_cam_HEIF_ownership": 1747,
+    "av_cam_MLUT_boundary": 54,
+    "AP_recording_share_and_free": 425
   },
   "encoder_followup_host_cases": {
     "AP_JPEG_bridge": 274,
@@ -64,6 +69,16 @@
     "av_cam_still_info_producer": 83
   },
   "buffer_producer_followup_host_cases_total": 577,
+  "allocation_ownership_followup_host_cases": {
+    "CP_MLUT_allocation": 38,
+    "av_cam_encoder_pixels": 8,
+    "av_cam_HEIF_ownership": 168,
+    "av_cam_MLUT_boundary": 67,
+    "AP_recording_share_and_free": 21
+  },
+  "allocation_ownership_followup_host_cases_total": 302,
+  "native_capture_HEIF_request_bypasses_generic_AP_conversion": true,
+  "AP_noncache_share_before_original_reference_free_verified": true,
   "AP_CP_SSYC_metadata_crossdecode_cases": 4,
   "av_cam_still_info_producer_identified": true,
   "local_HEIF_two_way_translation_gap_remains": true,
@@ -82,15 +97,16 @@
   "HQ_zero_alignment_padding_bytes": 4,
   "full_resolution_saved_still_MLUT_route_proven": false,
   "MLUT_diagnostic_entries": 64,
-  "REA_successful_records_verified": 115,
-  "REA_pseudocode_records": 108,
-  "REA_closed_sessions": 22,
+  "REA_successful_records_verified": 122,
+  "REA_pseudocode_records": 115,
+  "REA_closed_sessions": 23,
   "deployment_assets_unchanged_from_pre_investigation": true,
   "host_LUT_reference_test_groups": 8,
   "host_LUT_OpenColorIO_comparisons": 8016,
   "limits": [
     "Source-bound artifact verification and explicitly bounded host emulation, not camera or image-pipeline validation.",
-    "AP-to-CP SSYC metadata and av-cam JPEG callback-to-area transport are demonstrated offline; live MLUT allocation identity, pixel ownership and HEIF runtime translation remain unresolved.",
+    "AP-to-CP SSYC metadata and av-cam encoded-area transport are demonstrated offline; actual MLUT allocation lineage and final shared-reference reclamation remain unresolved.",
+    "The generic AP HEIF conversion table gap remains local to that service path; av-cam capture independently constructs native MC requests.",
     "Ordinary packing and synthetic HQ serialization are recovered; upstream resampling and live saved-still routing remain unresolved.",
     "Four synthetic fragmented transfer layouts emit excess descriptor bytes; retained counterexamples are not observed hardware overruns."
   ]

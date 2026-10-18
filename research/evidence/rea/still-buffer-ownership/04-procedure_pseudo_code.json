@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_2974f7138f8ab1f3259edc0ea78be8adb8e21ac99d93ef009a786c8bef20eac9\",\"subject\":{\"name\":\"libmpr.so\",\"digest\":{\"sha256\":\"4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\"},\"digest\":\"73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"file-offset:0xe0e48\"},\"raw_result\":{\"value\":\"\\nvoid _ZN3mpr11stillrecord19FreeStillInfoMemoryEibPNS_18recordStillParam_tEPN5still8fin_if_tEbb\\n               (int param_1,char param_2,long param_3,long param_4,char param_5,char param_6)\\n\\n{\\n  long lVar1;\\n  uint uVar2;\\n  ulong uVar3;\\n  undefined2 local_30;\\n  undefined2 local_2e;\\n  undefined1 local_2c;\\n  undefined1 local_2b;\\n  undefined1 local_2a;\\n  undefined1 local_29;\\n  undefined4 local_28;\\n  long local_20 [4];\\n  \\n  param_3 = param_3 + (long)param_1 * 0x588;\\n  local_20[0] = 0;\\n  local_20[1] = 0;\\n  local_20[2] = 0;\\n  local_20[3] = 0;\\n  if (*(int *)(param_3 + 0x20c) == -1) {\\n    local_2b = 0;\\n    local_2a = 0;\\n    local_2c = 3;\\n    local_29 = 0;\\n    local_30 = 0x2120;\\n    local_2e = 0x8501;\\n    local_28 = osal_thread_id();\\n    FUN_001df8d4(&local_30,0xc);\\n  }\\n  else if (param_2 == '\\\\0') {\\n    uVar2 = *(uint *)(param_3 + 500);\\n    lVar1 = param_4 + 0xc0;\\n    if (uVar2 == 1) {\\n      local_20[2] = lVar1;\\n      local_20[0] = param_4;\\n      local_20[1] = param_4 + 0x30;\\n      uVar2 = 3;\\n      if (param_5 != '\\\\0') {\\n        uVar2 = 4;\\n        local_20[3] = param_4 + 0x120;\\n      }\\n    }\\n    else if (uVar2 == 2) {\\n      local_20[0] = param_4;\\n      if (param_6 == '\\\\0') {\\n        local_20[1] = lVar1;\\n      }\\n      else {\\n        if (param_5 == '\\\\0') {\\n          local_20[1] = param_4 + 0xf0;\\n        }\\n        else {\\n          local_20[1] = param_4 + 0x120;\\n        }\\n        uVar2 = 3;\\n        local_20[2] = lVar1;\\n      }\\n    }\\n    else {\\n      if (uVar2 != 4) {\\n                    /* WARNING: Subroutine does not return */\\n        __assert_fail(\\\"0\\\",\\\"integRecordStill.cpp\\\",0xd92,\\n                      \\\"void mpr::stillrecord::FreeStillInfoMemory(int, bool, mpr::recordStillParam_t*, still::fin_if_t*, bool, bool)\\\"\\n                     );\\n      }\\n      local_20[3] = lVar1;\\n      local_20[0] = param_4;\\n      local_20[1] = param_4 + 0x60;\\n      local_20[2] = param_4 + 0x90;\\n    }\\n    uVar3 = 0;\\n    local_20[0] = param_4;\\n    do {\\n      if (((int *)local_20[uVar3] != (int *)0x0) && (*(int *)local_20[uVar3] != 0)) {\\n        FUN_003b24f0();\\n      }\\n      uVar3 = uVar3 + 1;\\n    } while (uVar2 != uVar3);\\n  }\\n  return;\\n}\\n\\n\",\"limitations\":[\"Ghidra Listing reports a terminal call at 0x1e0fa8 to 0x17d070 <EXTERNAL>::__assert_fail (external=false, thunk=true, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.\"],\"selection\":{\"file_offset\":921160,\"mapped_address\":\"0x1e0e48\",\"procedure_address\":\"0x1e0e48\"}},\"normalized_result\":\"\\nvoid _ZN3mpr11stillrecord19FreeStillInfoMemoryEibPNS_18recordStillParam_tEPN5still8fin_if_tEbb\\n               (int param_1,char param_2,long param_3,long param_4,char param_5,char param_6)\\n\\n{\\n  long lVar1;\\n  uint uVar2;\\n  ulong uVar3;\\n  undefined2 local_30;\\n  undefined2 local_2e;\\n  undefined1 local_2c;\\n  undefined1 local_2b;\\n  undefined1 local_2a;\\n  undefined1 local_29;\\n  undefined4 local_28;\\n  long local_20 [4];\\n  \\n  param_3 = param_3 + (long)param_1 * 0x588;\\n  local_20[0] = 0;\\n  local_20[1] = 0;\\n  local_20[2] = 0;\\n  local_20[3] = 0;\\n  if (*(int *)(param_3 + 0x20c) == -1) {\\n    local_2b = 0;\\n    local_2a = 0;\\n    local_2c = 3;\\n    local_29 = 0;\\n    local_30 = 0x2120;\\n    local_2e = 0x8501;\\n    local_28 = osal_thread_id();\\n    FUN_001df8d4(&local_30,0xc);\\n  }\\n  else if (param_2 == '\\\\0') {\\n    uVar2 = *(uint *)(param_3 + 500);\\n    lVar1 = param_4 + 0xc0;\\n    if (uVar2 == 1) {\\n      local_20[2] = lVar1;\\n      local_20[0] = param_4;\\n      local_20[1] = param_4 + 0x30;\\n      uVar2 = 3;\\n      if (param_5 != '\\\\0') {\\n        uVar2 = 4;\\n        local_20[3] = param_4 + 0x120;\\n      }\\n    }\\n    else if (uVar2 == 2) {\\n      local_20[0] = param_4;\\n      if (param_6 == '\\\\0') {\\n        local_20[1] = lVar1;\\n      }\\n      else {\\n        if (param_5 == '\\\\0') {\\n          local_20[1] = param_4 + 0xf0;\\n        }\\n        else {\\n          local_20[1] = param_4 + 0x120;\\n        }\\n        uVar2 = 3;\\n        local_20[2] = lVar1;\\n      }\\n    }\\n    else {\\n      if (uVar2 != 4) {\\n                    /* WARNING: Subroutine does not return */\\n        __assert_fail(\\\"0\\\",\\\"integRecordStill.cpp\\\",0xd92,\\n                      \\\"void mpr::stillrecord::FreeStillInfoMemory(int, bool, mpr::recordStillParam_t*, still::fin_if_t*, bool, bool)\\\"\\n                     );\\n      }\\n      local_20[3] = lVar1;\\n      local_20[0] = param_4;\\n      local_20[1] = param_4 + 0x60;\\n      local_20[2] = param_4 + 0x90;\\n    }\\n    uVar3 = 0;\\n    local_20[0] = param_4;\\n    do {\\n      if (((int *)local_20[uVar3] != (int *)0x0) && (*(int *)local_20[uVar3] != 0)) {\\n        FUN_003b24f0();\\n      }\\n      uVar3 = uVar3 + 1;\\n    } while (uVar2 != uVar3);\\n  }\\n  return;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"Ghidra Listing reports a terminal call at 0x1e0fa8 to 0x17d070 <EXTERNAL>::__assert_fail (external=false, thunk=true, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[{\"kind\":\"file-offset\",\"offset\":921160},{\"kind\":\"address\",\"address\":\"0x1e0e48\"},{\"kind\":\"address\",\"address\":\"0x1e0e48\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_2974f7138f8ab1f3259edc0ea78be8adb8e21ac99d93ef009a786c8bef20eac9",
+    "subject": {
+      "name": "libmpr.so",
+      "digest": {
+        "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "arm64",
+        "available_architectures": [
+          "arm64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-v1",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default"
+      },
+      "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "file-offset:0xe0e48"
+    },
+    "raw_result": {
+      "value": "\nvoid _ZN3mpr11stillrecord19FreeStillInfoMemoryEibPNS_18recordStillParam_tEPN5still8fin_if_tEbb\n               (int param_1,char param_2,long param_3,long param_4,char param_5,char param_6)\n\n{\n  long lVar1;\n  uint uVar2;\n  ulong uVar3;\n  undefined2 local_30;\n  undefined2 local_2e;\n  undefined1 local_2c;\n  undefined1 local_2b;\n  undefined1 local_2a;\n  undefined1 local_29;\n  undefined4 local_28;\n  long local_20 [4];\n  \n  param_3 = param_3 + (long)param_1 * 0x588;\n  local_20[0] = 0;\n  local_20[1] = 0;\n  local_20[2] = 0;\n  local_20[3] = 0;\n  if (*(int *)(param_3 + 0x20c) == -1) {\n    local_2b = 0;\n    local_2a = 0;\n    local_2c = 3;\n    local_29 = 0;\n    local_30 = 0x2120;\n    local_2e = 0x8501;\n    local_28 = osal_thread_id();\n    FUN_001df8d4(&local_30,0xc);\n  }\n  else if (param_2 == '\\0') {\n    uVar2 = *(uint *)(param_3 + 500);\n    lVar1 = param_4 + 0xc0;\n    if (uVar2 == 1) {\n      local_20[2] = lVar1;\n      local_20[0] = param_4;\n      local_20[1] = param_4 + 0x30;\n      uVar2 = 3;\n      if (param_5 != '\\0') {\n        uVar2 = 4;\n        local_20[3] = param_4 + 0x120;\n      }\n    }\n    else if (uVar2 == 2) {\n      local_20[0] = param_4;\n      if (param_6 == '\\0') {\n        local_20[1] = lVar1;\n      }\n      else {\n        if (param_5 == '\\0') {\n          local_20[1] = param_4 + 0xf0;\n        }\n        else {\n          local_20[1] = param_4 + 0x120;\n        }\n        uVar2 = 3;\n        local_20[2] = lVar1;\n      }\n    }\n    else {\n      if (uVar2 != 4) {\n                    /* WARNING: Subroutine does not return */\n        __assert_fail(\"0\",\"integRecordStill.cpp\",0xd92,\n                      \"void mpr::stillrecord::FreeStillInfoMemory(int, bool, mpr::recordStillParam_t*, still::fin_if_t*, bool, bool)\"\n                     );\n      }\n      local_20[3] = lVar1;\n      local_20[0] = param_4;\n      local_20[1] = param_4 + 0x60;\n      local_20[2] = param_4 + 0x90;\n    }\n    uVar3 = 0;\n    local_20[0] = param_4;\n    do {\n      if (((int *)local_20[uVar3] != (int *)0x0) && (*(int *)local_20[uVar3] != 0)) {\n        FUN_003b24f0();\n      }\n      uVar3 = uVar3 + 1;\n    } while (uVar2 != uVar3);\n  }\n  return;\n}\n\n",
+      "limitations": [
+        "Ghidra Listing reports a terminal call at 0x1e0fa8 to 0x17d070 <EXTERNAL>::__assert_fail (external=false, thunk=true, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return."
+      ],
+      "selection": {
+        "file_offset": 921160,
+        "mapped_address": "0x1e0e48",
+        "procedure_address": "0x1e0e48"
+      }
+    },
+    "normalized_result": "\nvoid _ZN3mpr11stillrecord19FreeStillInfoMemoryEibPNS_18recordStillParam_tEPN5still8fin_if_tEbb\n               (int param_1,char param_2,long param_3,long param_4,char param_5,char param_6)\n\n{\n  long lVar1;\n  uint uVar2;\n  ulong uVar3;\n  undefined2 local_30;\n  undefined2 local_2e;\n  undefined1 local_2c;\n  undefined1 local_2b;\n  undefined1 local_2a;\n  undefined1 local_29;\n  undefined4 local_28;\n  long local_20 [4];\n  \n  param_3 = param_3 + (long)param_1 * 0x588;\n  local_20[0] = 0;\n  local_20[1] = 0;\n  local_20[2] = 0;\n  local_20[3] = 0;\n  if (*(int *)(param_3 + 0x20c) == -1) {\n    local_2b = 0;\n    local_2a = 0;\n    local_2c = 3;\n    local_29 = 0;\n    local_30 = 0x2120;\n    local_2e = 0x8501;\n    local_28 = osal_thread_id();\n    FUN_001df8d4(&local_30,0xc);\n  }\n  else if (param_2 == '\\0') {\n    uVar2 = *(uint *)(param_3 + 500);\n    lVar1 = param_4 + 0xc0;\n    if (uVar2 == 1) {\n      local_20[2] = lVar1;\n      local_20[0] = param_4;\n      local_20[1] = param_4 + 0x30;\n      uVar2 = 3;\n      if (param_5 != '\\0') {\n        uVar2 = 4;\n        local_20[3] = param_4 + 0x120;\n      }\n    }\n    else if (uVar2 == 2) {\n      local_20[0] = param_4;\n      if (param_6 == '\\0') {\n        local_20[1] = lVar1;\n      }\n      else {\n        if (param_5 == '\\0') {\n          local_20[1] = param_4 + 0xf0;\n        }\n        else {\n          local_20[1] = param_4 + 0x120;\n        }\n        uVar2 = 3;\n        local_20[2] = lVar1;\n      }\n    }\n    else {\n      if (uVar2 != 4) {\n                    /* WARNING: Subroutine does not return */\n        __assert_fail(\"0\",\"integRecordStill.cpp\",0xd92,\n                      \"void mpr::stillrecord::FreeStillInfoMemory(int, bool, mpr::recordStillParam_t*, still::fin_if_t*, bool, bool)\"\n                     );\n      }\n      local_20[3] = lVar1;\n      local_20[0] = param_4;\n      local_20[1] = param_4 + 0x60;\n      local_20[2] = param_4 + 0x90;\n    }\n    uVar3 = 0;\n    local_20[0] = param_4;\n    do {\n      if (((int *)local_20[uVar3] != (int *)0x0) && (*(int *)local_20[uVar3] != 0)) {\n        FUN_003b24f0();\n      }\n      uVar3 = uVar3 + 1;\n    } while (uVar2 != uVar3);\n  }\n  return;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "Ghidra Listing reports a terminal call at 0x1e0fa8 to 0x17d070 <EXTERNAL>::__assert_fail (external=false, thunk=true, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [
+      {
+        "kind": "file-offset",
+        "offset": 921160
+      },
+      {
+        "kind": "address",
+        "address": "0x1e0e48"
+      },
+      {
+        "kind": "address",
+        "address": "0x1e0e48"
+      }
+    ],
+    "evidence_links": []
+  }
+}

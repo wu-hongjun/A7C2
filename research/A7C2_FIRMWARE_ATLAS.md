@@ -2,7 +2,7 @@
 
 Updated October 18, 2026. Input: the pinned official ILCE-7CM2 firmware 2.01 already downloaded for this project. No camera connection, module upload, on-camera execution or camera installation was performed for this investigation. Selected original routines were exercised only in bounded host emulation, with external operations stubbed.
 
-The inspected software includes an ARM64 Linux application system, a separate mixed ARM/Thumb CP image with TOPPERS-FMP/SOLID build evidence, and an additional AArch64 `av-cam.bin` image containing concrete still-notification and encoder handlers. Its physical processor assignment and live scheduling remain unestablished. The application is assembled through an initialization registry and dynamically loaded modules. LUT-related code separates into recording metadata, Creative Look color processing, and MLUT hardware configuration. **The ordinary native LUT format is recovered, and the HQ converter executes offline through its actual serializer. Full-resolution saved-still routing through MLUT remains unproven.** A selected fallback's context and ring allocation now reach pixel-port parameter records, but the live allocation's identity with the encoder input remains missing.
+The inspected software includes an ARM64 Linux application system, a separate mixed ARM/Thumb CP image with TOPPERS-FMP/SOLID build evidence, and an additional AArch64 `av-cam.bin` image containing concrete still-notification and encoder handlers. Its physical processor assignment and live scheduling remain unestablished. The application is assembled through an initialization registry and dynamically loaded modules. LUT-related code separates into recording metadata, Creative Look color processing, and MLUT hardware configuration. **The ordinary native LUT format is recovered, and the HQ converter executes offline through its actual serializer. Full-resolution saved-still routing through MLUT remains unproven.** The selected CP path conditionally uses a direct resource ring or a regular DMM allocation, followed by a state-gated share. The allocation's live lineage into av-cam's encoder input remains missing. Native capture HEIF completion and output handoff are now traced independently of the generic AP conversion tables.
 
 This is a map of inspected bytes and code relationships. Installed firmware, running privileges, usable memory and actual frame behavior on this camera remain unmeasured.
 
@@ -27,6 +27,11 @@ This is a map of inspected bytes and code relationships. Installed firmware, run
 | [CP SDYC backing mapping](SDYC_MAPPING.md) | Segmented handle/offset resolution, SSYC entry parser and nested pixel address in the JPEG object |
 | [Still-info producer](STILL_INFO_PRODUCER.md) | av-cam notification construction and its connection to the AP recording boundary |
 | [HEIF binding and receiver](HEIF_BINDING.md) | AP activation/initialization, missing translation entries and av-cam native receive/completion IDs |
+| [Conditional MLUT allocation](MLUT_ALLOCATION.md) | Live-global predicate, ring versus DMM allocation, continuous allocation/share fragment and missing encoder export |
+| [av-cam encoder pixels](AV_CAM_PIXELS.md) | Resize-output handle to encoder-input slot, extent query, JPEG pixel offset and hardware-address encoding |
+| [Native HEIF ownership](HEIF_OWNERSHIP.md) | Direct native capture request, completion, output tracker detach, area publication and codec close |
+| [av-cam MLUT boundary](AV_CAM_MLUT.md) | Diagnostic registry, dimension dispatcher and bounded direct-call references; no demonstrated still-buffer join |
+| [AP recording ownership](RECORDING_BUFFER_OWNERSHIP.md) | Non-cache share-before-free ordering, HEIF area identity and deduplicated original-reference cleanup |
 | [MLUT SRAM/register layout](MLUT_LAYOUT.md) | Named stock tables, exhaustive bank-layout comparisons and register-payload fields |
 | [Still MLUT route](STILL_MLUT_ROUTE.md) | Callback identity, selector gate, fallback sequence, resource groups, geometry sources and dimension limits |
 | [AP still-recording boundary](STILL_RECORDING_BOUNDARY.md) | Additional REA recording/parameter/virtual-interface evidence and the missing capture-buffer connection |
@@ -153,40 +158,46 @@ The AP pass resolves JPEG/ARW/HEIF vtables and separates normal finalization at 
 
 The **notification-to-save descriptor link** is traced: AP message `0x1006` supplies two typed image records, the worker copies them into an allocated payload, and a registered callback passes that same pointer through queue tag 9 to the recording handler. Eighteen host cases cover all JPEG/RAW/HEIF pairs in both diagnostic-preprocessor branches. The October 18 producer follow-up below connects this input to av-cam construction. [Notification/save evidence](ENCODER_SAVE_LINK.md).
 
-On the imaging side, a resource ring supplies the selected context's address, which passes unchanged to four pixel-port parameter blocks with the context dimensions. MLUT and pixel configuration receive the same context/resource owner. The new SDYC trace explains handle/offset resolution, but does not identify its live pixel allocation with that MLUT ring. The CP JPEG inner-command-7 gate and named fields align with AP JPEG command fields displaced by `0x1c`, but the actual receive dispatch/prefix construction is still missing. [MLUT/pixel trace](MLUT_ENCODER_LINK.md), [AP command/transport trace](AVBBC_ENCODER_BRIDGE.md).
+On the imaging side, the context address reaches four pixel-port parameter blocks and MLUT/pixel configuration share a context owner. The latest pass corrects the earlier ring-only description: the live-global predicate selects either the direct ring record or a regular DMM handle allocation. A continuous original fragment follows regular allocation into a state-gated DMM share, including a newly returned handle. Neither that handle nor its backing has been joined to the capture input in av-cam. Shared handles can differ while referring to the same backing, so numeric handle inequality is not evidence of separate images. [Allocation branches and share](MLUT_ALLOCATION.md), [earlier pixel parameters](MLUT_ENCODER_LINK.md).
 
-The HEIF encoder is now distinct from container finalization: named MC command classes construct a 96-byte frame request, handle a completion scalar and build a conditional main/thumbnail/screen sequence with session open/close. **This does not establish a callable custom-program API:** the local conversion table lacks its logical `0x534` request and returns `0xffff` under tested local bindings. Runtime routing/activation, pixel ownership and encoded-image-area joins remain unresolved. JPEG and HEIF completion length fields have matching offsets in separately keyed parameter blocks; their memory must not be assumed to alias. [HEIF encoder evidence](HEIF_ENCODER.md).
+The SDYC trace independently explains an outer metadata handle and nested pixel handle/offset. The CP JPEG command-7 fields align with AP JPEG fields displaced by `0x1c`, but that receive dispatch/prefix construction remains missing. These contracts do not close the CP-to-av-cam allocation/export link. [SDYC metadata](SDYC_METADATA.md), [segmented mapping](SDYC_MAPPING.md), [AP command transport](AVBBC_ENCODER_BRIDGE.md).
+
+The capture-specific JPEG and normal-mode HEIF stages in av-cam consume the same per-slot input handle/geometry records. Original resize Post code transfers its output handle into those exact input slots. The materializer queries a DMM extent, and the JPEG request builder applies a geometry-dependent byte offset and an explicit address-alias conversion. This joins **resize output to encoder input locally**, while the producer upstream of that resize and its relation to CP MLUT remain unresolved. [Encoder pixel evidence](AV_CAM_PIXELS.md). A separate MLUT diagnostic registry and dimension dispatcher establish native MLUT software in av-cam, but their bounded call references do not establish still-frame routing or physical alias equivalence with the CP addresses. [av-cam MLUT boundary](AV_CAM_MLUT.md).
+
+The HEIF capture resource constructs a native `0x2003:0x010e` frame request directly and sends to `0x8057060a`; the separately traced receiver accepts it and builds `0x810e`. Capture Wait extracts status and completion length. Successful Post stores the encoded output in HIF areas `+0x90/+0xb0/+0xa0` for numeric modes 0/1/2, releases its input and detaches output from local cleanup. Publication preserves the descriptors and conditionally invalidates sender handle fields after send success. Codec close clears codec state separately from those output handles. **This native capture route bypasses the generic AP shared-library HEIF conversion-table gap.** The gap remains specific to the earlier AP service path, rather than a demonstrated blocker for all HEIF capture. [Native request, completion and lifetime](HEIF_OWNERSHIP.md), [separate AP table gap](HEIF_BINDING.md).
+
+On the AP side, the actual non-cache recording caller requests share/open before freeing original references. Its HIF area enumeration includes the same `+0x90/+0xb0/+0xa0` descriptors; cleanup deduplicates nonzero numeric handles. This establishes software handoff on both sides, with resource services stubbed in the host fixtures. Actual DMM reference counts, coherency, cancellation and final receiver-side shared-reference reclamation remain unobserved. The write-finished callback alone does not prove all image references have been released. [Recording ownership](RECORDING_BUFFER_OWNERSHIP.md).
 
 ```mermaid
 flowchart LR
-  A[Selected CP MLUT context] --> P[Resource ring and pixel-port parameters]
-  P -. missing allocation identity .-> Y[Nested SDYC pixel descriptor]
-  Y --> B[CP JPEG input backing address]
-  P -. missing input ownership .-> H[av-cam MC HEIF receiver]
-  L[AP MC HEIF commands] -. missing translation .-> H
-  B -. missing output provenance .-> N[av-cam still-info context]
-  H -. missing output provenance .-> N
-  G[av-cam capture JPEG callback length] --> R[Adjusted JPEG area length]
-  R --> N
-  N --> S[av-cam producer sends 0x1006]
-  S --> Q[AP callback and queue tag 9]
-  Q --> C[RecordStill JPEG areas]
-  Q --> I[RecordStill HEIF areas]
-  C --> D[JPEG finalizer]
-  I --> J[HEIF finalizer]
+  A[CP MLUT context] --> P[Conditional ring or DMM allocation]
+  P --> V[Pixel-port parameters and state-gated share]
+  V -. missing allocation export lineage .-> X[av-cam capture input slots]
+  Y[Nested SDYC pixel descriptor] --> B[CP JPEG backing address]
+  V -. missing allocation identity .-> Y
+  R[av-cam resize output handle] --> X
+  X --> G[Capture JPEG encoder]
+  X --> H[Native capture HEIF request and completion]
+  L[Generic AP HEIF commands] -. local conversion gap .-> M[Separate AP service route]
+  G --> J[JPEG output area]
+  H --> I[HEIF output area and tracker detach]
+  J --> N[av-cam still-info producer 0x1006]
+  I --> N
+  N --> Q[AP callback and queue tag 9]
+  Q --> C[RecordStill typed image areas]
+  C --> S[Share-open before original-reference free]
+  C --> D[JPEG and HEIF finalizers]
   D --> E[Media object area list]
-  J --> E
   E --> F[Asynchronous filesystem writer]
   F --> T[File completion callback and queue]
+  T -. final shared-reference cleanup unresolved .-> U[DMM reclamation]
 ```
 
-The October 18 follow-up narrows the missing links:
+The preceding [producer trace](STILL_INFO_PRODUCER.md) identifies av-cam message `0x1006`, its destination and JPEG callback-length propagation. Ten sender outputs pass the original AP transform. The [notification/save trace](ENCODER_SAVE_LINK.md) then follows descriptor copies and pointer identity through callback/queue tag 9 to `RecordStill`; the [saved-file sink](STILL_SINK.md) resolves finalizers and asynchronous filesystem submission. These source-bound links compose at the descriptor boundary without equating the earlier CP JPEG scalar with the capture callback.
 
-- **SDYC metadata is now joined across AP and CP original code.** JPEG input identifies an outer `SSYC` metadata allocation; its image-size entry contains a second pixel unit/handle/offset. Four AP-produced metadata fixtures decode correctly through original CP instructions. The backing resolver queries segment tables and resolves one logical offset across their lengths; a returned point or summed capacity does not imply one contiguous image extent. [AP serialization](SDYC_METADATA.md), [CP parser and mapping](SDYC_MAPPING.md).
-- **The missing still-info producer is in `av-cam.bin`.** This additional image constructs message `0x1006` and sends to the AP worker destination. Ten original sender outputs pass the original AP descriptor transform. A capture-specific JPEG callback length, adjusted by an output-descriptor offset, reaches the JPEG area later copied into the notification. HEIF area population is also identified, while its full callback path and relation to the separate MC controller remain unresolved. None of these edges equates the earlier CP JPEG scalar with the capture callback. [Producer evidence](STILL_INFO_PRODUCER.md).
-- **HEIF now has a concrete av-cam receiver boundary.** Native request selectors `0x10c/0x10d/0x10e` and completion selectors `0x810c/0x810d/0x810e` identify open/close/frame operations. The examined AP converter tables lack the corresponding newer mappings in both directions. Local initialization and activation checks narrow that gap without proving a usable runtime route. [HEIF binding](HEIF_BINDING.md).
+The latest five mappers add **302 bounded host cases**, **67 instruction regions** and **4,949 byte-verified instruction records**; the combined verification now checks 26,359 retained instruction records, including overlaps. Seven new native REA pseudocode results independently support AP ownership analysis. [Pass receipt](evidence/allocation-ownership-followup-checks.json), [global verification](evidence/deep-dive-verification.json).
 
-The [bounded av-cam string inventory](evidence/av-cam-lut-context.json) additionally retains 956 MLUT and ten SSYC matches, including SRAM/3D-LUT diagnostics and image-size read/write names. These contents justify investigating its imaging code; strings alone do not establish that its still path uses MLUT. Neither a live MLUT ring allocation → nested pixel handle identity nor complete MLUT → encoded saved image routing has been demonstrated. No captured or encoded image was produced during the investigation.
+The [bounded av-cam string inventory](evidence/av-cam-lut-context.json) retains 956 MLUT and ten SSYC matches; strings are only search leads. The resolved MLUT diagnostic registry, executed dimension routines, encoder inputs and output-ownership paths supply stronger code evidence, but **no live MLUT allocation → encoder pixels → saved full-resolution image identity has been demonstrated**. No captured or encoded image was produced during the investigation.
 
 ### Creative Look and CamCore tables
 
@@ -198,7 +209,7 @@ The FL2/FL3 port modifies native look dispatch, tone curves, chroma and matrices
 
 [Toolchain identities](toolchains/rea.json), [the static-query driver](run_rea.mjs), and [the evidence index](evidence/rea/index.json) retain the boundaries. The REA firmware-region adapters require Linux tooling in this release; Sony container decoding used the already-pinned fwtool instead. Mixed ARM/Thumb CP analysis used an explicit recovered map and Capstone rather than claiming unsupported raw-Thumb REA results.
 
-The retained results comprise **115 successful REA Evidence records, including 108 pseudocode records, across eight binary identities**. Default Ghidra analysis completed for the large `appFw.so`; its main LUT selection helper corroborates the instruction map. The separate procam helper was not recognized as a procedure by that database, so its failed query is retained and its instructions remain separately labeled Capstone evidence. The alternate profile without automatic switch recovery was stopped after the default run completed; no results are claimed from it. All twenty-two sessions in the retained REA index have explicit successful close receipts. The HQ session explicitly disables `Decompiler Switch Analysis` and has a distinct analysis-profile digest; its focused coverage is not equivalent to the earlier default-analysis run. Two preliminary HQ attempts were stopped before any successful function result and their diagnostics remain in ignored build storage. Earlier JDK setup failures are documented separately in the toolchain record. Raw av-cam instructions and host results are separately labeled ordinary evidence; no unsupported raw-image REA import is claimed.
+The retained results comprise **122 successful REA Evidence records, including 115 pseudocode records, across eight binary identities**. Default Ghidra analysis completed for the large `appFw.so`; its main LUT selection helper corroborates the instruction map. The separate procam helper was not recognized as a procedure by that database, so its failed query is retained and its instructions remain separately labeled Capstone evidence. The alternate profile without automatic switch recovery was stopped after the default run completed; no results are claimed from it. All twenty-three sessions in the retained REA index have explicit successful close receipts. The HQ session explicitly disables `Decompiler Switch Analysis` and has a distinct analysis-profile digest; its focused coverage is not equivalent to the earlier default-analysis run. Two preliminary HQ attempts were stopped before any successful function result and their diagnostics remain in ignored build storage. Earlier JDK setup failures are documented separately in the toolchain record. Raw av-cam instructions and host results are separately labeled ordinary evidence; no unsupported raw-image REA import is claimed.
 
 Pseudocode was checked against instruction-level evidence. In particular, missing output-pointer effects can make the CUBE prefix length appear zero, and an incompletely modeled virtual call can make metadata branches appear unreachable. These are decompiler-model limitations, not proof that the firmware lacks those effects. Failed selector requests are retained separately and excluded from successful Evidence counts.
 
@@ -233,6 +244,11 @@ The [verification record](evidence/deep-dive-verification.json) checks concrete 
 .venv-research/bin/python research/trace_still_info_producer.py
 .venv-research/bin/python research/trace_heif_binding.py
 .venv-research/bin/python research/inventory_av_cam_context.py
+.venv-research/bin/python research/trace_mlut_allocation.py
+.venv-research/bin/python research/trace_av_cam_pixels.py
+.venv-research/bin/python research/trace_heif_ownership.py
+.venv-research/bin/python research/trace_av_cam_mlut.py
+.venv-research/bin/python research/trace_recording_ownership.py
 .venv-research/bin/python research/check_lut_reference.py
 .venv-research/bin/python research/summarize_rea.py
 .venv-research/bin/python research/verify_deep_dive.py
@@ -253,10 +269,10 @@ The CP mapper includes its bounded host-emulation cases. The retained REA result
 | What is the native LUT payload? | Ordinary packing recovered; HQ executes offline and serializes a populated 20³ grid plus 128 register bytes; upstream resampling remains partial |
 | Does supplied LUT state reach imaging-control code? | Snapshot/builder and callback identity structurally joined for one variant; its selector gate and the selected alternative prevent a live-frame claim |
 | Can arbitrary LUTs be baked into full-resolution stills? | Unresolved: actual selected still route, buffer/color domain and ownership/completion contract |
-| How does a completed still reach recording? | av-cam constructs notification 0x1006 → AP copied descriptors → callback/queue tag 9 → RecordStill; specific codec-output provenance and image ownership remain partial |
+| How does a completed still reach recording? | av-cam JPEG/HEIF outputs → notification 0x1006 → AP copied descriptors → callback/queue tag 9 → RecordStill and file sink; final shared-reference reclamation remains open |
 | Is SDYC input just a pixel pointer? | No: outer SSYC metadata descriptor → nested pixel descriptor → segmented backing address is traced and cross-decoded offline |
-| Is a HEIF encoder API identified? | AP command structure/activation and av-cam receiver recovered; two-way translation gap, runtime activation and saved-image ownership remain unresolved |
+| Is a HEIF encoder API identified? | Native av-cam capture request/completion and output handoff recovered; separate AP table gap is bypassed by capture; real codec execution and final shared-reference reclamation unobserved |
 | Can the official update be repacked and accepted? | Not established; decryptability and CRC checks do not prove authenticity/signature acceptance |
 | Can a damaged camera always be recovered? | Not established; neither a complete flash backup nor a verified power-loss recovery procedure exists |
 
-The next firmware work is to classify the selected alternative sequence, follow its image resource into the now-named JPEG input descriptor, join the encoded result to AP saved-file areas, and recover completion/cancellation, color domain and DMA ownership. HQ resampling coverage must remain separate from serialization recovery. The [host reference LUT processor](LUT_REFERENCE.md) is implemented separately: its 17/33-point CUBE evaluation passed 8,016 OpenColorIO comparisons, plus independent analytic/scalar and image-output checks. It is a computer-only numerical reference, with full-frame Pillow allocations and no camera performance claim. No installer or live camera experiment follows automatically from this map.
+The next firmware work is to follow CP allocation/share/export into the producer of av-cam capture or resize inputs, establish the selected still route and its color domain, and recover actual DMM lifetime/coherency plus cancellation and final shared-reference cleanup. The resize-to-encoder and HEIF-output-to-recording descriptor links are now established locally; those links do not identify the pixels as MLUT output. HQ resampling coverage must remain separate from serialization recovery. The [host reference LUT processor](LUT_REFERENCE.md) is implemented separately: its 17/33-point CUBE evaluation passed 8,016 OpenColorIO comparisons, plus independent analytic/scalar and image-output checks. It is a computer-only numerical reference, with full-frame Pillow allocations and no camera performance claim. No installer or live camera experiment follows automatically from this map.

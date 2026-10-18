@@ -14,8 +14,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 26161,
-      "sha256": "7ad3bc5a3974fcc63c667ce9a66ff06fe2cbea39591c18aac4c7af88257c4038"
+      "bytes": 26398,
+      "sha256": "e709c686a71977847ccd7c3c516dce4de64fb767b80fd90aeefd4d52b2871158"
     },
     {
       "path": "README.zh-TW.md",
@@ -29,8 +29,8 @@
     },
     {
       "path": "research/A7C2_FIRMWARE_ATLAS.md",
-      "bytes": 34244,
-      "sha256": "7ad382f8dc2e1f50efe475a78f1cb2394c8154a39f985430fa9888979ca4271b"
+      "bytes": 37369,
+      "sha256": "d52b0e2317288193de4b9cdc0cf2f245e9ed0ef5db1327b652a93448853ff7ca"
     },
     {
       "path": "research/AP_INTERFACES.md",
@@ -46,6 +46,16 @@
       "path": "research/AVBBC_ENCODER_BRIDGE.md",
       "bytes": 6328,
       "sha256": "8601be0edaae19eaea0469c17c09608be2b98c0719c3914ddb8ddfdd74047d60"
+    },
+    {
+      "path": "research/AV_CAM_MLUT.md",
+      "bytes": 4600,
+      "sha256": "22e2f123b23e058e86049ebb278fef9b2041c05ac5331bfc69b4db5bcd3ade56"
+    },
+    {
+      "path": "research/AV_CAM_PIXELS.md",
+      "bytes": 9227,
+      "sha256": "38675f6f2b162294aaad94fb662eba73ade6c6e06ec97868cb4af7f27a1021d8"
     },
     {
       "path": "research/CP_ARCHITECTURE.md",
@@ -83,6 +93,11 @@
       "sha256": "198efdfcaba9fb7dc23b2370fe22349e182820068d7f38913d621a4b8a289731"
     },
     {
+      "path": "research/HEIF_OWNERSHIP.md",
+      "bytes": 10534,
+      "sha256": "2389e7b0d74d8f783f49b13dccbdfce17fa7a3e6b632b81ea33034d16db22cba"
+    },
+    {
       "path": "research/HQ_LUT_FORMAT.md",
       "bytes": 16357,
       "sha256": "ef6809bb0501a475f1ba245b7367cbe5a45b84b4cb01a199b8404a41e4798152"
@@ -96,6 +111,11 @@
       "path": "research/LUT_TRANSFER.md",
       "bytes": 7600,
       "sha256": "f298bcedb1df50f3d15affe87f5deb55f7a009c48bef0e6cc986efeb46674964"
+    },
+    {
+      "path": "research/MLUT_ALLOCATION.md",
+      "bytes": 8489,
+      "sha256": "d33cd3bb82f187080992568be5f984a96d4ae2f1b2c095f8c5bbbafd4dab903e"
     },
     {
       "path": "research/MLUT_ENCODER_LINK.md",
@@ -114,8 +134,13 @@
     },
     {
       "path": "research/README.md",
-      "bytes": 18656,
-      "sha256": "3e81920ebdad39df637f2440b8a6e9f1208e0aee07033ae4f24a1269629e52a7"
+      "bytes": 19597,
+      "sha256": "499ea6e54e1868635cab5869df1c0478f3409a11ca92a50e54855fb9b11892c1"
+    },
+    {
+      "path": "research/RECORDING_BUFFER_OWNERSHIP.md",
+      "bytes": 6783,
+      "sha256": "ab27e63941c21392bae25b6bc399cbf32c8aecefb56757be0dc5ba86b078cf08"
     },
     {
       "path": "research/SDYC_MAPPING.md",
@@ -178,6 +203,11 @@
       "sha256": "2bc92e29875039b496b980ef9b428ac6c409dffb3662388202d7f983733e290b"
     },
     {
+      "path": "research/evidence/allocation-ownership-followup-checks.json",
+      "bytes": 3695,
+      "sha256": "7f0c6ebb721e567fc9f721eeb77e91968038b427b39b81853dcc01cae2e794ef"
+    },
+    {
       "path": "research/evidence/ap-interfaces.json",
       "bytes": 3898615,
       "sha256": "a40971a7ffb998b611365bb2e81ecdb1443f492acad05cfc97bd6d5996e9b3fd"
@@ -191,6 +221,16 @@
       "path": "research/evidence/av-cam-lut-context.json",
       "bytes": 125250,
       "sha256": "0d7a93136e6afcb42465740cb7b82afe5c6f0a94245f5681bf3dcd00a330d737"
+    },
+    {
+      "path": "research/evidence/av-cam-mlut.json",
+      "bytes": 44120,
+      "sha256": "8ed12bcf94b9a30dc1921fdd542ba1c49db3b14616181f7f51d4eeaff64c65aa"
+    },
+    {
+      "path": "research/evidence/av-cam-pixels.json",
+      "bytes": 315830,
+      "sha256": "37841c31d3998d18bdd4d8b18b4cf7231f936b9e7722895131b1db4e1c1e20b6"
     },
     {
       "path": "research/evidence/avbbc-encoder-bridge.json",
@@ -244,8 +284,8 @@
     },
     {
       "path": "research/evidence/deep-dive-verification.json",
-      "bytes": 3964,
-      "sha256": "530eadc195d29b8aeed5c85114ad3e6ae435c894d7783076e5de478c708a0d91"
+      "bytes": 4682,
+      "sha256": "2c7a1da1da4e14b7e4da10014d1b30aac950302ef66037693692eacae90512c6"
     },
     {
       "path": "research/evidence/encoder-followup-checks.json",
@@ -296,6 +336,11 @@
       "path": "research/evidence/heif-encoder.json",
       "bytes": 943501,
       "sha256": "9c01017dfd35db08260a7bef164a2f1ed1731c4be40d87920a03781c8ed1064a"
+    },
+    {
+      "path": "research/evidence/heif-ownership.json",
+      "bytes": 471611,
+      "sha256": "7e3ebebdb89189b4f3e2312a87327ecad5fa19ccba9ad7e6392ad46a64eac81f"
     },
     {
       "path": "research/evidence/host-guard-review-fixed.json",
@@ -356,6 +401,11 @@
       "path": "research/evidence/lut-transfer.json",
       "bytes": 242199,
       "sha256": "8b027b485289cbe2e8aff0626c62a8187ebcf0316ac78fc8866ff424d32a6040"
+    },
+    {
+      "path": "research/evidence/mlut-allocation.json",
+      "bytes": 307996,
+      "sha256": "26a30a33f3cc6e5565a98abc18afe49cc2c18124f23110474e7f762c6c3f510f"
     },
     {
       "path": "research/evidence/mlut-encoder-link.json",
@@ -1024,8 +1074,8 @@
     },
     {
       "path": "research/evidence/rea/index.json",
-      "bytes": 488405,
-      "sha256": "5ba5cea85e40dbd3c8d21f94c94cae4567b8f87f16dd653183ccbf8a1c8145ef"
+      "bytes": 518012,
+      "sha256": "142aa87b2acd43ba383f60758e28ef7f9a09107e84ed10de5f64f8e652413b43"
     },
     {
       "path": "research/evidence/rea/jiritsu/00-procedure_pseudo_code.json",
@@ -1788,6 +1838,41 @@
       "sha256": "bf79796b69ba1e2459b15ece3e72dbbabddecc64d1de79a747ca6dedd7189ec4"
     },
     {
+      "path": "research/evidence/rea/readable/still-buffer-ownership-00-procedure_pseudo_code.c",
+      "bytes": 5401,
+      "sha256": "ce37204011dc127f0682a91e1ae80f1dc75bfd02e621e0d6f5ce952d98c3202a"
+    },
+    {
+      "path": "research/evidence/rea/readable/still-buffer-ownership-01-procedure_pseudo_code.c",
+      "bytes": 4737,
+      "sha256": "aaaf178f582ab8aca3e0e46dea9087c078836b9ca3b9036ccf232df1baba6e67"
+    },
+    {
+      "path": "research/evidence/rea/readable/still-buffer-ownership-02-procedure_pseudo_code.c",
+      "bytes": 754,
+      "sha256": "05482215b8b1d7fb8d3a20bee72e625c0c03aea8146e7cc860445458783be9ae"
+    },
+    {
+      "path": "research/evidence/rea/readable/still-buffer-ownership-03-procedure_pseudo_code.c",
+      "bytes": 3430,
+      "sha256": "d60eecba3237c11a2795d39e375f8f21ebf1a910e70b237e98fdb4cf3e77b36c"
+    },
+    {
+      "path": "research/evidence/rea/readable/still-buffer-ownership-04-procedure_pseudo_code.c",
+      "bytes": 2362,
+      "sha256": "8655aed57fc43d65f47c40bc6f778703c78d0b16634e60b67b049895c6cc90b6"
+    },
+    {
+      "path": "research/evidence/rea/readable/still-buffer-ownership-05-procedure_pseudo_code.c",
+      "bytes": 4571,
+      "sha256": "c86237e6ca92b80bfa63fed2a50ae80193f48f807afcf581a634592567563d25"
+    },
+    {
+      "path": "research/evidence/rea/readable/still-buffer-ownership-06-procedure_pseudo_code.c",
+      "bytes": 1255,
+      "sha256": "ccd9453b698f4da395b473601c477438e11d0d3050625e831895b260229e788c"
+    },
+    {
       "path": "research/evidence/rea/readable/still-sink-finalizers-00-procedure_pseudo_code.c",
       "bytes": 18304,
       "sha256": "c9b3f40b12392dc5e377403ec4e4d9c16c3f4f04e4309847c1510b661a5916c8"
@@ -2038,6 +2123,71 @@
       "sha256": "ec57f762279aa513ba625dcdb0cf6c4c3bdd6a957ebca753f9dc00898dfe4d37"
     },
     {
+      "path": "research/evidence/rea/still-buffer-ownership/00-procedure_pseudo_code.json",
+      "bytes": 30950,
+      "sha256": "7dd2bd5580e2293e09573a2a36493b0e69072c86fff39ad6ca685e9c3088636b"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/01-procedure_pseudo_code.json",
+      "bytes": 26915,
+      "sha256": "5413eaddf5558f3084b585845c3f38d035e74cb9d5ec2245f61a1d2638794b3a"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/02-procedure_pseudo_code.json",
+      "bytes": 10399,
+      "sha256": "ec162371e9b564b114b3c83c3b3721858bf313af71f5ea4acd121b026ff049cb"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/03-procedure_pseudo_code.json",
+      "bytes": 22906,
+      "sha256": "e8e8bad4a7ab4934456091821b62688b339f22b27d722ce0187b84886192324d"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/04-procedure_pseudo_code.json",
+      "bytes": 18472,
+      "sha256": "7399e9a80855db0544b45d487779d124f288066d0af4530c1240c96b18d17548"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/05-procedure_pseudo_code.json",
+      "bytes": 26341,
+      "sha256": "4cca9eb457d14b91f118c757b0e3b1dc2a3648bf929dab51134df7fe713f08c2"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/06-procedure_pseudo_code.json",
+      "bytes": 12541,
+      "sha256": "5df3569be5f24653338955e7ae5e6232a894ff5b7158227809749cbe7a404414"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/close.json",
+      "bytes": 251,
+      "sha256": "fb3beac94c0871148d4cdb98bf38d13aafaa4e281a422cb0995a943c16648a51"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/evidence-bundle.json",
+      "bytes": 69446,
+      "sha256": "a4d4a4f51de4b40d2f36559bb355c5c90d161c096f70195570ab81f31c28ae60"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/export.json",
+      "bytes": 461,
+      "sha256": "6aaa1317503d4c8acb86cf7cccf2482b4f202dc55d0ab44140896df242bbcee6"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/open.json",
+      "bytes": 866,
+      "sha256": "fa85d97629de87aace8516e1a9589bb4981a8cc489cec26e4dd7421eeefb7a07"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/receipts.json",
+      "bytes": 2747,
+      "sha256": "0a2d318b952e5d0364ee76f61966d6f93d6d32e4ba98d6749bddccd65fe9b7be"
+    },
+    {
+      "path": "research/evidence/rea/still-buffer-ownership/tool-schemas.json",
+      "bytes": 929971,
+      "sha256": "ec57f762279aa513ba625dcdb0cf6c4c3bdd6a957ebca753f9dc00898dfe4d37"
+    },
+    {
       "path": "research/evidence/rea/still-sink-finalizers/00-procedure_pseudo_code.json",
       "bytes": 83289,
       "sha256": "1a95974b7fba607f3338f05d8c2a13678f1eaabec820434c7dcb964502e45cb0"
@@ -2196,6 +2346,11 @@
       "path": "research/evidence/rea-analysis-diagnostics.json",
       "bytes": 1707,
       "sha256": "6e1481c9fce6c3eac485f15821028a230bdc0092b17d8151892c21c112fe66de"
+    },
+    {
+      "path": "research/evidence/recording-ownership.json",
+      "bytes": 83820,
+      "sha256": "04044e3b0b3d5f4161b38512370e1468e371cec44f3725aae17d1e2bb7462e9f"
     },
     {
       "path": "research/evidence/sdyc-mapping.json",
@@ -2438,6 +2593,11 @@
       "sha256": "8effb12482b23e59402fb80f1f0150b964df5f1fae6d532d70b1f95f9d0c4be0"
     },
     {
+      "path": "research/rea-jobs/still-buffer-ownership.json",
+      "bytes": 1107,
+      "sha256": "32e5a8989f227b9fefb81c36648e8340f1f4d5ca2acd2cf4b8080f44c2e2f0bc"
+    },
+    {
       "path": "research/rea-jobs/still-sink-finalizers.json",
       "bytes": 1115,
       "sha256": "83e73cb18a6ff9ece198454c4e6db42fd83779ff650a00b1ae3333e0b3d74470"
@@ -2508,6 +2668,16 @@
       "sha256": "ea9c066c9736b71502007df659788beb82e61986c2e284b4442c05c197a36aa9"
     },
     {
+      "path": "research/trace_av_cam_mlut.py",
+      "bytes": 6782,
+      "sha256": "e24f05a4c60380885b88d8bc016541a53bcdd5a8403f2a4242c44b358aefbfa2"
+    },
+    {
+      "path": "research/trace_av_cam_pixels.py",
+      "bytes": 14417,
+      "sha256": "7a5dc9707259c31b42c9ef8ea0233018dd3fd97f71af6aec2e0306c4dd9d76f9"
+    },
+    {
       "path": "research/trace_avbbc_encoder_bridge.py",
       "bytes": 10610,
       "sha256": "82b685067a33eb173c5d6a472748a4e3d1bb480ddddc4de95a2e0b0fdb77e2f0"
@@ -2526,6 +2696,11 @@
       "path": "research/trace_heif_encoder.py",
       "bytes": 22745,
       "sha256": "0ea874efd2f59d14b10d3a028313e66a326a34d58ac582d9a53cdc4d886c52c2"
+    },
+    {
+      "path": "research/trace_heif_ownership.py",
+      "bytes": 16454,
+      "sha256": "c98d65b0bf622b3933d39c7434917753a0fd3f58a3941e8165ce0944ec9b20f0"
     },
     {
       "path": "research/trace_hq_coordinates.py",
@@ -2548,6 +2723,11 @@
       "sha256": "e8731367612599086afad9fca6e02ace6f2108a71ab561d14e7cdabd2074dd3c"
     },
     {
+      "path": "research/trace_mlut_allocation.py",
+      "bytes": 17239,
+      "sha256": "a363756bc989c5aa0c747a9f6fdf073f04a71338ccd9f5f6c9f06def430a3f66"
+    },
+    {
       "path": "research/trace_mlut_encoder_link.py",
       "bytes": 20756,
       "sha256": "c5498b8ed569f3c0dccc95edd6734aedfe03f091e1688c64dfd466d735c7a316"
@@ -2561,6 +2741,11 @@
       "path": "research/trace_native_lut.py",
       "bytes": 23953,
       "sha256": "886f628c35bb5c1054f4c7caec2b7788f8b9396796a641919f08f4ceeaf37fee"
+    },
+    {
+      "path": "research/trace_recording_ownership.py",
+      "bytes": 9641,
+      "sha256": "d445865c706df030f1e0882e45d36021f91e7c6a4ed20251a89dcb1139822955"
     },
     {
       "path": "research/trace_sdyc_mapping.py",
@@ -2599,8 +2784,8 @@
     },
     {
       "path": "research/verify_deep_dive.py",
-      "bytes": 25036,
-      "sha256": "42505e818bb264e7cb77025c4fc8cd1def851d1dfa9675829934b964242bbb7d"
+      "bytes": 28892,
+      "sha256": "2072416df28deebf5ccce4eebd650d473872000fca52a99e0c837e5f3a5385bc"
     },
     {
       "path": "research/verify_sources.py",

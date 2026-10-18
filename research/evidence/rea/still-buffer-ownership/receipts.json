@@ -1,0 +1,96 @@
+{
+  "camera_accessed": false,
+  "target_execution_requested": false,
+  "operations": [
+    {
+      "operation": "open_binary",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "provider_id": "ghidra"
+      },
+      "result_file": "open.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:06:44.506Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe274c"
+      },
+      "result_file": "00-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.312Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe3c14"
+      },
+      "result_file": "01-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.332Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe3bb4"
+      },
+      "result_file": "02-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.337Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe0c4c"
+      },
+      "result_file": "03-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.352Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe0e48"
+      },
+      "result_file": "04-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.367Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xf1494"
+      },
+      "result_file": "05-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.392Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0xe1210"
+      },
+      "result_file": "06-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.399Z"
+    },
+    {
+      "operation": "export_evidence_bundle",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/still-buffer-ownership/evidence-bundle.json"
+      },
+      "result_file": "export.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.411Z"
+    },
+    {
+      "operation": "close_binary",
+      "arguments": {},
+      "result_file": "close.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T14:07:49.945Z"
+    }
+  ],
+  "diagnostic": ""
+}

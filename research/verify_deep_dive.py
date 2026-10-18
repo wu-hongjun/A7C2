@@ -296,6 +296,48 @@ def main():
     instruction_counts['av_cam_still_info_producer'] = verify_instruction_bytes(producer)
     buffer_followup_counts = {'AP_SSYC_metadata':4,'CP_SDYC_mapping':87,'HEIF_binding_and_native_receiver':binding_cases,
                               'av_cam_still_info_producer':producer['validation']['case_count']}
+    allocation = core.read_json(ROOT/'research/evidence/mlut-allocation.json')
+    pixels = core.read_json(ROOT/'research/evidence/av-cam-pixels.json')
+    heif_owner = core.read_json(ROOT/'research/evidence/heif-ownership.json')
+    native_mlut = core.read_json(ROOT/'research/evidence/av-cam-mlut.json')
+    recording_owner = core.read_json(ROOT/'research/evidence/recording-ownership.json')
+    for newest in [allocation,pixels,heif_owner,native_mlut,recording_owner]:
+        walk(newest)
+    assert not allocation['camera_accessed'] and not allocation['target_executed']
+    assert allocation['verification']['host_cases']==38 and allocation['verification']['decoded_regions']==20
+    assert len(allocation['host_tests']['actual_branch_cases'])==7
+    shared = next(c for c in allocation['host_tests']['conditional_share_cases'] if c['synthetic_state']==2)
+    assert shared['continuous_allocation_then_share_fragment_executed']
+    assert shared['cached_shared_handle'] != shared['source_handle']
+    assert pixels['validation']['case_count']==8
+    assert len(pixels['validation']['pixel_chain_cases'])==len(pixels['validation']['resize_handoff_cases'])==4
+    assert not pixels['address_model']['runtime_mapping_observed']
+    assert not heif_owner['mapping']['runtime_mapping_proved']
+    assert heif_owner['counts']['total_cases']==168
+    assert heif_owner['findings']['capture_request']=={'category':'0x2003','selector':'0x10e','bytes':96,'count':1,'destination':'0x8057060a'}
+    assert heif_owner['findings']['publication']['send_success_required']
+    assert all(c['before']==c['after'] for c in heif_owner['publication_cases'] if c['send_rc']!=0)
+    assert all(c['published_primary_areas_preserved'] for c in heif_owner['publication_cases'])
+    assert not native_mlut['camera_accessed'] and not native_mlut['network_access']
+    assert not native_mlut['MMIO_accessed'] and not native_mlut['codec_executed']
+    assert native_mlut['counts']['host_cases']==67 and len(native_mlut['diagnostic_registry'])==64
+    mlut_blob=(ROOT/native_mlut['source']['path']).read_bytes()
+    for entry in native_mlut['diagnostic_registry']:
+        off=int(entry['table_file_offset'],0);raw=bytes.fromhex(entry['raw_hex'])
+        assert mlut_blob[off:off+len(raw)]==raw
+    assert not recording_owner['camera_accessed'] and not recording_owner['network_access']
+    assert not recording_owner['DMM_service_executed'] and not recording_owner['codec_executed']
+    assert recording_owner['counts']['host_cases']==21
+    assert len(recording_owner['caller_ordering_cases'])==6
+    for case in recording_owner['caller_ordering_cases']:
+        commands=[r['command'] for r in case['requests']]
+        assert not commands if case['record_mode']==3 else commands==sorted(commands) and '0x21'in commands and '0x23'in commands
+    for name,report in [('CP_MLUT_allocation',allocation),('av_cam_encoder_pixels',pixels),
+                        ('av_cam_HEIF_ownership',heif_owner),('av_cam_MLUT_boundary',native_mlut),
+                        ('AP_recording_share_and_free',recording_owner)]:
+        instruction_counts[name]=verify_instruction_bytes(report)
+    allocation_followup_counts={'CP_MLUT_allocation':38,'av_cam_encoder_pixels':8,'av_cam_HEIF_ownership':168,
+                                'av_cam_MLUT_boundary':67,'AP_recording_share_and_free':21}
     rea = core.read_json(ROOT/'research/evidence/rea/index.json')
     for row in rea['records']:
         path = ROOT/row['path']
@@ -348,6 +390,10 @@ def main():
               'encoder_followup_host_cases_total': sum(followup_counts.values()),
               'buffer_producer_followup_host_cases':buffer_followup_counts,
               'buffer_producer_followup_host_cases_total':sum(buffer_followup_counts.values()),
+              'allocation_ownership_followup_host_cases':allocation_followup_counts,
+              'allocation_ownership_followup_host_cases_total':sum(allocation_followup_counts.values()),
+              'native_capture_HEIF_request_bypasses_generic_AP_conversion':True,
+              'AP_noncache_share_before_original_reference_free_verified':True,
               'AP_CP_SSYC_metadata_crossdecode_cases':len(cross),
               'av_cam_still_info_producer_identified':True,
               'local_HEIF_two_way_translation_gap_remains':True,
@@ -368,7 +414,8 @@ def main():
               'host_LUT_reference_test_groups': lut['tests_run'],
               'host_LUT_OpenColorIO_comparisons': lut['counts']['opencolorio_rgb_cases'],
               'limits': ['Source-bound artifact verification and explicitly bounded host emulation, not camera or image-pipeline validation.',
-                         'AP-to-CP SSYC metadata and av-cam JPEG callback-to-area transport are demonstrated offline; live MLUT allocation identity, pixel ownership and HEIF runtime translation remain unresolved.',
+                         'AP-to-CP SSYC metadata and av-cam encoded-area transport are demonstrated offline; actual MLUT allocation lineage and final shared-reference reclamation remain unresolved.',
+                         'The generic AP HEIF conversion table gap remains local to that service path; av-cam capture independently constructs native MC requests.',
                          'Ordinary packing and synthetic HQ serialization are recovered; upstream resampling and live saved-still routing remain unresolved.',
                          'Four synthetic fragmented transfer layouts emit excess descriptor bytes; retained counterexamples are not observed hardware overruns.']}
     core.save_json(ROOT/'research/evidence/deep-dive-verification.json', result)

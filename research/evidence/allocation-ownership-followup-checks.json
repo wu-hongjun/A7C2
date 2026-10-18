@@ -1,0 +1,82 @@
+{
+  "generated_at_utc": "2026-10-18T14:21:14.172317+00:00",
+  "starting_commit": "b6cbd318a23f0f4b515b54154c6793fa02ab81df",
+  "scope": "Offline MLUT allocation-to-encoder provenance and native HEIF output ownership",
+  "camera_accessed": false,
+  "USB_commands_sent": false,
+  "camera_uploads": false,
+  "camera_installation": false,
+  "research_network_access": false,
+  "network_exception": "User-requested Git push and remote ref verification only, after offline work.",
+  "target_executed": false,
+  "host_emulation": "Selected original instructions in Unicorn with explicit synthetic inputs and external-service stubs; no MMIO, real DMM, codec, IPC or imaging hardware.",
+  "checklist": [
+    {
+      "question": "CP MLUT allocation and derived-handle consumer",
+      "status": "partially answered",
+      "finding": "Conditional ring or DMM allocation; continuous allocation-to-share fragment recovered; live globals and export to encoder unknown.",
+      "report": "research/MLUT_ALLOCATION.md"
+    },
+    {
+      "question": "av-cam encoder pixel inputs",
+      "status": "partially answered",
+      "finding": "Resize output writes exact encoder input handle slots; extent/address conversion recovered; MLUT producer lineage missing.",
+      "report": "research/AV_CAM_PIXELS.md"
+    },
+    {
+      "question": "Native av-cam MLUT boundary",
+      "status": "partially answered",
+      "finding": "64 diagnostic registrations and dimension wrapper mapped; no allocation-bearing still route or physical-alias proof.",
+      "report": "research/AV_CAM_MLUT.md"
+    },
+    {
+      "question": "HEIF encode completion to published areas",
+      "status": "answered within bounded software trace",
+      "finding": "Direct native request bypasses generic AP converter; completion length, Post, tracker detach, publication and codec close recovered. Real codec and grid metadata not executed.",
+      "report": "research/HEIF_OWNERSHIP.md"
+    },
+    {
+      "question": "AP recording resource ownership",
+      "status": "partially answered",
+      "finding": "Same HEIF areas participate in non-cache share-before-free and deduplication; real refcounts and final shared-reference reclamation unobserved.",
+      "report": "research/RECORDING_BUFFER_OWNERSHIP.md"
+    }
+  ],
+  "checks": {
+    "new_mappers": 5,
+    "new_host_cases": 302,
+    "new_instruction_regions": 67,
+    "new_byte_verified_instruction_records": 4949,
+    "all_byte_verified_instruction_records_including_overlaps": 26359,
+    "offline_regression_tests": 24,
+    "package_check": "passed without USB",
+    "source_archives_verified": 9,
+    "snapshot_files_verified": 4132,
+    "supporting_metadata_verified": 21,
+    "REA_successful_records": 122,
+    "REA_pseudocode_records": 115,
+    "REA_binary_identities": 8,
+    "REA_closed_sessions": 23,
+    "deployment_assets_unchanged": true,
+    "local_document_links_resolved": 277,
+    "preexisting_unavailable_links": [
+      {
+        "file": "README.md",
+        "link": "./a7c2-fl23-2.01-preview-0.1.0.zip"
+      }
+    ]
+  },
+  "not_proven": [
+    "Live CP MLUT allocation/share/export into av-cam still or resize input",
+    "Live mode selection and pixel color domain",
+    "Full-resolution LUT processing or saved-image effect",
+    "DMM coherency, cancellation and final receiver-side shared-reference reclamation",
+    "Working custom-program codec API or on-camera behavior"
+  ],
+  "publication_excludes": [
+    "Official firmware downloads and extracted images",
+    "Ignored local toolchains, logs and Ghidra build databases",
+    "Camera backups and private calibration data"
+  ],
+  "verification_report": "research/evidence/deep-dive-verification.json"
+}
