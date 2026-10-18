@@ -2,7 +2,7 @@
 
 English | [繁體中文](./README.zh-TW.md)
 
-The [offline firmware architecture atlas](research/A7C2_FIRMWARE_ATLAS.md) maps the downloaded 2.01 image using REA/Ghidra, Capstone and bounded host emulation. It now includes ordinary/HQ LUT conversion, MLUT resource-to-pixel parameters, JPEG and HEIF encoder command structures, and a traced still-info notification-to-recording link. The MLUT-to-encoder buffer join and codec-to-notification producer remain unresolved, so full-resolution saved-still LUT integration is unproven. No camera access or installation was used for that investigation.
+The [offline firmware architecture atlas](research/A7C2_FIRMWARE_ATLAS.md) maps the downloaded 2.01 image using REA/Ghidra, Capstone and bounded host emulation. It now includes ordinary/HQ LUT conversion, MLUT pixel parameters, cross-decoded AP/CP SDYC metadata, JPEG/HEIF command boundaries, and the still-info notification producer in `av-cam.bin`. Live pixel-allocation identity, encoder-output ownership and HEIF runtime translation remain unresolved, so full-resolution saved-still LUT integration is unproven. No camera access or installation was used for that investigation.
 
 **Local revision 0.1.1-preview:** the three [CP review findings](research/CP_REVIEW.md) are fixed. This revision passes 24 host tests, 9,185 isolated CP cases, 259 AP converter cases, and full forward/reverse program hash checks. It has **zero hardware installation trials**; the one-body reports below describe the earlier 0.1.0 candidate. See [fixes and current evidence](research/FIXES.md). The historical ZIP below does not contain these fixes.
 

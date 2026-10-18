@@ -1,0 +1,52 @@
+{
+  "date_utc": "2026-10-18T13:46:12.867594+00:00",
+  "starting_commit": "b662a14b6759f775ba6ebc27e6b1ac89ca4db951",
+  "camera_session_opened": false,
+  "camera_commands_sent": false,
+  "camera_upload_or_installation": false,
+  "research_network_requests": false,
+  "publication_network_scope": "User-authorized Git publication to existing GitHub origin only",
+  "checks": {
+    "new_host_cases": {
+      "AP_SSYC_metadata": 4,
+      "CP_SDYC_mapping": 87,
+      "HEIF_binding_and_native_receiver": 403,
+      "av_cam_still_info_producer": 83
+    },
+    "new_host_cases_total": 577,
+    "new_instruction_regions": 54,
+    "new_instruction_records_byte_verified": 3990,
+    "all_retained_instruction_records_byte_verified": 21410,
+    "AP_CP_metadata_crossdecodes": 4,
+    "av_cam_producer_to_AP_transform_cases": 10,
+    "regression_unit_tests": 24,
+    "package_check_passed": true,
+    "pinned_source_archives": 9,
+    "pinned_source_files": 4132,
+    "supporting_source_metadata_files": 21,
+    "REA_successful_records": 115,
+    "REA_pseudocode_records": 108,
+    "REA_closed_sessions": 22,
+    "local_markdown_links_existing": 238,
+    "preexisting_missing_historical_ZIP_link": true,
+    "high_confidence_credential_patterns_found": 0,
+    "deployment_assets_unchanged": true
+  },
+  "findings": {
+    "AP_SSYC_to_CP_nested_pixel_descriptor_crossdecoded": true,
+    "segmented_handle_offset_resolution_recovered": true,
+    "av_cam_0x1006_producer_to_AP_descriptor_transform": true,
+    "capture_JPEG_callback_adjusted_length_to_notified_area": true,
+    "native_MC_receive_and_completion_ids_identified": true,
+    "local_HEIF_two_way_translation_gap_persists_after_tested_initialization": true,
+    "live_MLUT_ring_to_nested_pixel_handle_identity_proven": false,
+    "full_resolution_saved_still_MLUT_route_proven": false
+  },
+  "official_firmware_and_private_backups_excluded_from_publication": true,
+  "limits": [
+    "Only selected original instructions execute in bounded host emulators with explicit service, allocation, transport, logging and codec stubs.",
+    "Decoded metadata compatibility, descriptor field identity and callback-length arithmetic are not live image or hardware validation.",
+    "av-cam raw linked-address modeling and normalized host aliases do not establish a running memory map, physical processor identity or scheduling.",
+    "Generic AP HEIF resize-service routing remains distinct from normal HEIF capture; a local translation-table gap does not establish that camera HEIF photography is broken."
+  ]
+}

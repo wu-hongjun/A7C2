@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/hongjunwu/Git/A7C2/research/evidence/rea/sdyc-physical-map/evidence-bundle.json\",\"bytes\":13600,\"records\":2,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/sdyc-physical-map/evidence-bundle.json",
+      "bytes": 13600,
+      "records": 2,
+      "unknowns": 0
+    }
+  }
+}

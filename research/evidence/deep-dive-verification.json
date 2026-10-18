@@ -1,9 +1,9 @@
 {
   "camera_accessed": false,
   "target_executed": false,
-  "target_execution_definition": "No execution on camera hardware; selected original AP conversion and AP/CP metadata/descriptor routines run only in bounded host emulation with documented external stubs.",
+  "target_execution_definition": "No execution on camera hardware; selected original AP/CP/av-cam routines run only in bounded host emulation with documented external stubs.",
   "host_CP_emulation_performed": true,
-  "source_files_sha256_verified": 1440,
+  "source_files_sha256_verified": 1445,
   "container_crc_verified": true,
   "partition_count": 30,
   "extracted_regular_files": 1369,
@@ -44,7 +44,11 @@
     "AP_JPEG_encoder_bridge": 1639,
     "AP_HEIF_encoder": 1430,
     "CP_MLUT_pixel_encoder_link": 1669,
-    "AP_notification_save_link": 1063
+    "AP_notification_save_link": 1063,
+    "AP_SSYC_metadata": 803,
+    "CP_SDYC_nested_backing": 1200,
+    "HEIF_binding_and_native_receiver": 672,
+    "av_cam_still_info_producer": 1315
   },
   "encoder_followup_host_cases": {
     "AP_JPEG_bridge": 274,
@@ -53,6 +57,16 @@
     "AP_notification_save_link": 18
   },
   "encoder_followup_host_cases_total": 2984,
+  "buffer_producer_followup_host_cases": {
+    "AP_SSYC_metadata": 4,
+    "CP_SDYC_mapping": 87,
+    "HEIF_binding_and_native_receiver": 403,
+    "av_cam_still_info_producer": 83
+  },
+  "buffer_producer_followup_host_cases_total": 577,
+  "AP_CP_SSYC_metadata_crossdecode_cases": 4,
+  "av_cam_still_info_producer_identified": true,
+  "local_HEIF_two_way_translation_gap_remains": true,
   "HQ_converter_completed_fixtures": 3,
   "HQ_quantizer_samples_compared": 72000,
   "HQ_identity_coordinate_samples": 24000,
@@ -68,14 +82,15 @@
   "HQ_zero_alignment_padding_bytes": 4,
   "full_resolution_saved_still_MLUT_route_proven": false,
   "MLUT_diagnostic_entries": 64,
-  "REA_successful_records_verified": 99,
-  "REA_pseudocode_records": 92,
-  "REA_closed_sessions": 18,
+  "REA_successful_records_verified": 115,
+  "REA_pseudocode_records": 108,
+  "REA_closed_sessions": 22,
   "deployment_assets_unchanged_from_pre_investigation": true,
   "host_LUT_reference_test_groups": 8,
   "host_LUT_OpenColorIO_comparisons": 8016,
   "limits": [
     "Source-bound artifact verification and explicitly bounded host emulation, not camera or image-pipeline validation.",
+    "AP-to-CP SSYC metadata and av-cam JPEG callback-to-area transport are demonstrated offline; live MLUT allocation identity, pixel ownership and HEIF runtime translation remain unresolved.",
     "Ordinary packing and synthetic HQ serialization are recovered; upstream resampling and live saved-still routing remain unresolved.",
     "Four synthetic fragmented transfer layouts emit excess descriptor bytes; retained counterexamples are not observed hardware overruns."
   ]

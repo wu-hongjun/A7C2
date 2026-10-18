@@ -1,0 +1,4864 @@
+{
+  "source": {
+    "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha3_unpacked/av-cam.bin",
+    "sha256": "90343f5f2edc0393ad8809d907cfe648dfd3a82ce0ef39cf06167929d8955096",
+    "bytes": 13797088
+  },
+  "generator": {
+    "path": "research/inventory_av_cam_context.py",
+    "sha256": "8616f4959d89aa1f840aa6df77e9271f54b77329cc22b01b77db0c334e3882dc"
+  },
+  "camera_accessed": false,
+  "network_access": false,
+  "target_executed": false,
+  "method": "Full-file bounded NUL-terminated printable-ASCII inventory, matched case-insensitively for MLUT/SSYC/SDYC. Original file offsets retained.",
+  "header": {
+    "file_offset": 0,
+    "first_88_bytes_hex": "58000001c0ffffff4f52494c050000006c000001c0ffffffa8000001c0ffffffa4010001c0ffffffe0000001c0ffffff18010001c0ffffff50010001c0ffffff88010001c0ffffff8c010001c0ffffff90010001c0ffffff",
+    "marker_at_8": "ORIL",
+    "u32_at_c": 5,
+    "first_u64_pointer": "0xffffffc001000058"
+  },
+  "matches": [
+    {
+      "file_offset": "0x38653c",
+      "bytes_including_NUL": 15,
+      "text": "MLUT_YC2RGB_ON"
+    },
+    {
+      "file_offset": "0x3865d4",
+      "bytes_including_NUL": 14,
+      "text": "MLUT_L1D_A_ON"
+    },
+    {
+      "file_offset": "0x38666c",
+      "bytes_including_NUL": 14,
+      "text": "MLUT_L1D_B_ON"
+    },
+    {
+      "file_offset": "0x386704",
+      "bytes_including_NUL": 14,
+      "text": "MLUT_L1D_C_ON"
+    },
+    {
+      "file_offset": "0x38679c",
+      "bytes_including_NUL": 14,
+      "text": "MLUT_MTX_A_ON"
+    },
+    {
+      "file_offset": "0x386834",
+      "bytes_including_NUL": 14,
+      "text": "MLUT_MTX_B_ON"
+    },
+    {
+      "file_offset": "0x3868cc",
+      "bytes_including_NUL": 14,
+      "text": "MLUT_MTX_C_ON"
+    },
+    {
+      "file_offset": "0x386964",
+      "bytes_including_NUL": 14,
+      "text": "MLUT_MTX_D_ON"
+    },
+    {
+      "file_offset": "0x3869fc",
+      "bytes_including_NUL": 15,
+      "text": "MLUT_EIGAIN_ON"
+    },
+    {
+      "file_offset": "0x386a94",
+      "bytes_including_NUL": 13,
+      "text": "MLUT_YR1D_ON"
+    },
+    {
+      "file_offset": "0x386b2c",
+      "bytes_including_NUL": 15,
+      "text": "MLUT_ASCCDL_ON"
+    },
+    {
+      "file_offset": "0x386bc4",
+      "bytes_including_NUL": 12,
+      "text": "MLUT_L3D_ON"
+    },
+    {
+      "file_offset": "0x386c5c",
+      "bytes_including_NUL": 15,
+      "text": "MLUT_RGB2YC_ON"
+    },
+    {
+      "file_offset": "0x386cf4",
+      "bytes_including_NUL": 12,
+      "text": "MLUT_HCD_ON"
+    },
+    {
+      "file_offset": "0x386d8c",
+      "bytes_including_NUL": 12,
+      "text": "MLUT_FCD_ON"
+    },
+    {
+      "file_offset": "0x386e24",
+      "bytes_including_NUL": 19,
+      "text": "MLUT_L1D_A_SEL_REG"
+    },
+    {
+      "file_offset": "0x386ebc",
+      "bytes_including_NUL": 19,
+      "text": "MLUT_L1D_B_SEL_REG"
+    },
+    {
+      "file_offset": "0x386f54",
+      "bytes_including_NUL": 19,
+      "text": "MLUT_L1D_C_SEL_REG"
+    },
+    {
+      "file_offset": "0x386fec",
+      "bytes_including_NUL": 17,
+      "text": "MLUT_L3D_SEL_REG"
+    },
+    {
+      "file_offset": "0x3f1bc4",
+      "bytes_including_NUL": 22,
+      "text": "ReadSsycImageSizeInfo"
+    },
+    {
+      "file_offset": "0x3f1bdf",
+      "bytes_including_NUL": 20,
+      "text": "ReadSsycYcStateInfo"
+    },
+    {
+      "file_offset": "0x3f1bf3",
+      "bytes_including_NUL": 24,
+      "text": "ReadSsycImageOutTimInfo"
+    },
+    {
+      "file_offset": "0x3f1c0b",
+      "bytes_including_NUL": 22,
+      "text": "ReadSsycTimeStampInfo"
+    },
+    {
+      "file_offset": "0x3f1c21",
+      "bytes_including_NUL": 22,
+      "text": "ReadSsycMovieStatInfo"
+    },
+    {
+      "file_offset": "0x3f1c46",
+      "bytes_including_NUL": 23,
+      "text": "WriteSsycImageSizeInfo"
+    },
+    {
+      "file_offset": "0x3f1c5d",
+      "bytes_including_NUL": 21,
+      "text": "WriteSsycYcStateInfo"
+    },
+    {
+      "file_offset": "0x3f1c72",
+      "bytes_including_NUL": 25,
+      "text": "WriteSsycImageOutTimInfo"
+    },
+    {
+      "file_offset": "0x3f1c8b",
+      "bytes_including_NUL": 20,
+      "text": "WriteSsycEffectInfo"
+    },
+    {
+      "file_offset": "0x3f1c9f",
+      "bytes_including_NUL": 23,
+      "text": "WriteSsycTimeStampInfo"
+    },
+    {
+      "file_offset": "0x451492",
+      "bytes_including_NUL": 25,
+      "text": "ddl_mlut_clkrst [IPTYPE]"
+    },
+    {
+      "file_offset": "0x4514ab",
+      "bytes_including_NUL": 29,
+      "text": "ddl_mlut_data_reset [IPTYPE]"
+    },
+    {
+      "file_offset": "0x4514c8",
+      "bytes_including_NUL": 28,
+      "text": "ddl_mlut_reg_reset [IPTYPE]"
+    },
+    {
+      "file_offset": "0x4514e4",
+      "bytes_including_NUL": 26,
+      "text": "ddl_mlut_clk_off [IPTYPE]"
+    },
+    {
+      "file_offset": "0x4514fe",
+      "bytes_including_NUL": 70,
+      "text": "ddl_mlut_set_mode_flow [IPTYPE][MLUT_MODE_FLOW][MLUT_MODE_FLOW_3DLUT]"
+    },
+    {
+      "file_offset": "0x451544",
+      "bytes_including_NUL": 60,
+      "text": "ddl_mlut_set_hv_param [IPTYPE][mlut_h_width][mlut_v_height]"
+    },
+    {
+      "file_offset": "0x451580",
+      "bytes_including_NUL": 46,
+      "text": "ddl_mlut_set_lookname [IPTYPE][MLUT_LOOKNAME]"
+    },
+    {
+      "file_offset": "0x4515ae",
+      "bytes_including_NUL": 31,
+      "text": "ddl_mlut_get_lookname [IPTYPE]"
+    },
+    {
+      "file_offset": "0x4515cd",
+      "bytes_including_NUL": 55,
+      "text": "ddl_mlut_onoff_l1d_cpu_ram_access [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x451604",
+      "bytes_including_NUL": 56,
+      "text": "ddl_mlut_onoff_yr1d_cpu_ram_access [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x45163c",
+      "bytes_including_NUL": 55,
+      "text": "ddl_mlut_onoff_l3d_cpu_ram_access [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x451673",
+      "bytes_including_NUL": 43,
+      "text": "ddl_mlut_onoff_yc2rgb [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x45169e",
+      "bytes_including_NUL": 71,
+      "text": "ddl_mlut_onoff_l1d_a [IPTYPE][on_r][on_g][on_b][pre_black][post_black]"
+    },
+    {
+      "file_offset": "0x4516e5",
+      "bytes_including_NUL": 71,
+      "text": "ddl_mlut_onoff_l1d_b [IPTYPE][on_r][on_g][on_b][pre_black][post_black]"
+    },
+    {
+      "file_offset": "0x45172c",
+      "bytes_including_NUL": 71,
+      "text": "ddl_mlut_onoff_l1d_c [IPTYPE][on_r][on_g][on_b][pre_black][post_black]"
+    },
+    {
+      "file_offset": "0x451773",
+      "bytes_including_NUL": 42,
+      "text": "ddl_mlut_onoff_mtx_a [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x45179d",
+      "bytes_including_NUL": 42,
+      "text": "ddl_mlut_onoff_mtx_b [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x4517c7",
+      "bytes_including_NUL": 42,
+      "text": "ddl_mlut_onoff_mtx_c [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x4517f1",
+      "bytes_including_NUL": 42,
+      "text": "ddl_mlut_onoff_mtx_d [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x45181b",
+      "bytes_including_NUL": 43,
+      "text": "ddl_mlut_onoff_eigain [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x451846",
+      "bytes_including_NUL": 41,
+      "text": "ddl_mlut_onoff_yr1d [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x45186f",
+      "bytes_including_NUL": 90,
+      "text": "ddl_mlut_onoff_asccdl [IPTYPE][cdl_on][clip_on][ofst_in_on][sub_out_on][on_r][on_g][on_b]"
+    },
+    {
+      "file_offset": "0x4518c9",
+      "bytes_including_NUL": 77,
+      "text": "ddl_mlut_onoff_l3d [IPTYPE][all_on][on_r][on_g][on_b][pre_black][post_black]"
+    },
+    {
+      "file_offset": "0x451916",
+      "bytes_including_NUL": 43,
+      "text": "ddl_mlut_onoff_rgb2yc [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x451941",
+      "bytes_including_NUL": 40,
+      "text": "ddl_mlut_onoff_hcd [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x451969",
+      "bytes_including_NUL": 40,
+      "text": "ddl_mlut_onoff_fcd [IPTYPE][MLUT_ONOFF]"
+    },
+    {
+      "file_offset": "0x451991",
+      "bytes_including_NUL": 41,
+      "text": "ddl_mlut_change_l1d_a_sram [IPTYPE][sel]"
+    },
+    {
+      "file_offset": "0x4519ba",
+      "bytes_including_NUL": 41,
+      "text": "ddl_mlut_change_l1d_b_sram [IPTYPE][sel]"
+    },
+    {
+      "file_offset": "0x4519e3",
+      "bytes_including_NUL": 41,
+      "text": "ddl_mlut_change_l1d_c_sram [IPTYPE][sel]"
+    },
+    {
+      "file_offset": "0x451a0c",
+      "bytes_including_NUL": 44,
+      "text": "ddl_mlut_change_l3d_sram [IPTYPE][sel][ram]"
+    },
+    {
+      "file_offset": "0x451a38",
+      "bytes_including_NUL": 37,
+      "text": "ddl_mlut_set_l3d_sram [IPTYPE][size]"
+    },
+    {
+      "file_offset": "0x451a5d",
+      "bytes_including_NUL": 44,
+      "text": "ddl_mlut_calc_eigain_setting [ei][base_iso]"
+    },
+    {
+      "file_offset": "0x451a89",
+      "bytes_including_NUL": 42,
+      "text": "ddl_mlut_calc_eigain_setting_f [rgb_gain]"
+    },
+    {
+      "file_offset": "0x451ab3",
+      "bytes_including_NUL": 56,
+      "text": "ddl_mlut_set_eigain_shift [IPTYPE][sft_r][sft_g][sft_b]"
+    },
+    {
+      "file_offset": "0x451aeb",
+      "bytes_including_NUL": 62,
+      "text": "ddl_mlut_set_eigain_black [IPTYPE][black_r][black_g][black_b]"
+    },
+    {
+      "file_offset": "0x451b29",
+      "bytes_including_NUL": 62,
+      "text": "ddl_mlut_set_eigain_white [IPTYPE][white_r][white_g][white_b]"
+    },
+    {
+      "file_offset": "0x451b67",
+      "bytes_including_NUL": 50,
+      "text": "ddl_mlut_set_eigain_clip_level [IPTYPE][0-0xFFFF]"
+    },
+    {
+      "file_offset": "0x451b99",
+      "bytes_including_NUL": 62,
+      "text": "ddl_mlut_set_eigain_flare [IPTYPE][flare_r][flare_g][flare_b]"
+    },
+    {
+      "file_offset": "0x451bd7",
+      "bytes_including_NUL": 51,
+      "text": "ddl_mlut_set_eigain_setting [IPTYPE][ei][base_iso]"
+    },
+    {
+      "file_offset": "0x451c0a",
+      "bytes_including_NUL": 52,
+      "text": "ddl_mlut_set_eigain_setting [IPTYPE][TestParam:0-9]"
+    },
+    {
+      "file_offset": "0x451c3e",
+      "bytes_including_NUL": 37,
+      "text": "ddl_mlut_get_eigain_setting [IPTYPE]"
+    },
+    {
+      "file_offset": "0x451c63",
+      "bytes_including_NUL": 84,
+      "text": "ddl_mlut_onoff_l3d(task) [IPTYPE][all_on][r][g][b][pre_black][post_black][callback]"
+    },
+    {
+      "file_offset": "0x451cb7",
+      "bytes_including_NUL": 36,
+      "text": "ddl_mlut_set_l3d_reg [IPTYPE][size]"
+    },
+    {
+      "file_offset": "0x451d10",
+      "bytes_including_NUL": 17,
+      "text": "mlut_flush_range"
+    },
+    {
+      "file_offset": "0x451d51",
+      "bytes_including_NUL": 17,
+      "text": "mlut_read_backup"
+    },
+    {
+      "file_offset": "0x451d66",
+      "bytes_including_NUL": 38,
+      "text": "mlut_clear_block [IPTYPE][MLUT_BLOCK]"
+    },
+    {
+      "file_offset": "0x451da7",
+      "bytes_including_NUL": 16,
+      "text": "vfx_mlut_enable"
+    },
+    {
+      "file_offset": "0x451dd4",
+      "bytes_including_NUL": 23,
+      "text": "mlut_pre_test [IPTYPE]"
+    },
+    {
+      "file_offset": "0x451def",
+      "bytes_including_NUL": 68,
+      "text": "ddl_mlut_set_lookname_dmac_loop [IPTYPE][MLUT_LOOKNAME][loop_count]"
+    },
+    {
+      "file_offset": "0x451e33",
+      "bytes_including_NUL": 49,
+      "text": "ddl_mlut_calc_eigain_setting_both [ei][base_iso]"
+    },
+    {
+      "file_offset": "0x451e64",
+      "bytes_including_NUL": 35,
+      "text": "ddl_mlut_calc_eigain_setting_check"
+    },
+    {
+      "file_offset": "0x451e87",
+      "bytes_including_NUL": 37,
+      "text": "cmp_reg_data [IPTYPE][MLUT_LOOKNAME]"
+    },
+    {
+      "file_offset": "0x451eac",
+      "bytes_including_NUL": 38,
+      "text": "cmp_sram_data [IPTYPE][MLUT_LOOKNAME]"
+    },
+    {
+      "file_offset": "0x451f55",
+      "bytes_including_NUL": 29,
+      "text": "MLUT_TEST_LOOKNAME_IPSX_THRU"
+    },
+    {
+      "file_offset": "0x451f72",
+      "bytes_including_NUL": 31,
+      "text": "MLUT_TEST_LOOKNAME_YC2RGB_ONLY"
+    },
+    {
+      "file_offset": "0x451f91",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_TEST_LOOKNAME_L1D_A_ONLY"
+    },
+    {
+      "file_offset": "0x451faf",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_TEST_LOOKNAME_L1D_B_ONLY"
+    },
+    {
+      "file_offset": "0x451fcd",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_TEST_LOOKNAME_L1D_C_ONLY"
+    },
+    {
+      "file_offset": "0x451feb",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_TEST_LOOKNAME_MTX_A_ONLY"
+    },
+    {
+      "file_offset": "0x452009",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_TEST_LOOKNAME_MTX_B_ONLY"
+    },
+    {
+      "file_offset": "0x452027",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_TEST_LOOKNAME_MTX_C_ONLY"
+    },
+    {
+      "file_offset": "0x452045",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_TEST_LOOKNAME_MTX_D_ONLY"
+    },
+    {
+      "file_offset": "0x452063",
+      "bytes_including_NUL": 31,
+      "text": "MLUT_TEST_LOOKNAME_EIGAIN_ONLY"
+    },
+    {
+      "file_offset": "0x452082",
+      "bytes_including_NUL": 29,
+      "text": "MLUT_TEST_LOOKNAME_YR1D_ONLY"
+    },
+    {
+      "file_offset": "0x45209f",
+      "bytes_including_NUL": 31,
+      "text": "MLUT_TEST_LOOKNAME_ASCCDL_ONLY"
+    },
+    {
+      "file_offset": "0x4520be",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_TEST_LOOKNAME_L3D_ONLY"
+    },
+    {
+      "file_offset": "0x4520da",
+      "bytes_including_NUL": 31,
+      "text": "MLUT_TEST_LOOKNAME_RGB2YC_ONLY"
+    },
+    {
+      "file_offset": "0x4520f9",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_TEST_LOOKNAME_HCD_ONLY"
+    },
+    {
+      "file_offset": "0x452115",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_TEST_LOOKNAME_FCD_ONLY"
+    },
+    {
+      "file_offset": "0x452131",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_TEST_LOOKNAME_L1D_A_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x452154",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_TEST_LOOKNAME_L1D_B_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x452177",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_TEST_LOOKNAME_L1D_C_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x45219a",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_TEST_LOOKNAME_L3D_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x4521bb",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_TEST_LOOKNAME_YR1D_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x4521dd",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_TEST_LOOKNAME_ASCCDL_R_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x452203",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_TEST_LOOKNAME_ASCCDL_G_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x452229",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_TEST_LOOKNAME_ASCCDL_B_SRAM_ONLY"
+    },
+    {
+      "file_offset": "0x45224f",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_LOOKNAME_SL3SG3C_THRU"
+    },
+    {
+      "file_offset": "0x45226a",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_709800"
+    },
+    {
+      "file_offset": "0x45228a",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_COOL"
+    },
+    {
+      "file_offset": "0x4522a8",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_ICART_CINEEI"
+    },
+    {
+      "file_offset": "0x4522ce",
+      "bytes_including_NUL": 42,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_ICART_CUSTOM2020"
+    },
+    {
+      "file_offset": "0x4522f8",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_ICART_CUSTOM709"
+    },
+    {
+      "file_offset": "0x452321",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_S709"
+    },
+    {
+      "file_offset": "0x45233f",
+      "bytes_including_NUL": 49,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_SG3_TO_ICART_CUSTOM2020"
+    },
+    {
+      "file_offset": "0x452370",
+      "bytes_including_NUL": 48,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_SG3_TO_ICART_CUSTOM709"
+    },
+    {
+      "file_offset": "0x4523a0",
+      "bytes_including_NUL": 48,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_SG3_TO_USER_CUSTOM2020"
+    },
+    {
+      "file_offset": "0x4523d0",
+      "bytes_including_NUL": 47,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_SG3_TO_USER_CUSTOM709"
+    },
+    {
+      "file_offset": "0x4523ff",
+      "bytes_including_NUL": 31,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_TANDO"
+    },
+    {
+      "file_offset": "0x45241e",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_USER_CINEEI"
+    },
+    {
+      "file_offset": "0x452443",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_USER_CUSTOM2020"
+    },
+    {
+      "file_offset": "0x45246c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_USER_CUSTOM709"
+    },
+    {
+      "file_offset": "0x452494",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_VINTAGE"
+    },
+    {
+      "file_offset": "0x4524b5",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_LOOKNAME_SL3SG3C_TO_WARM"
+    },
+    {
+      "file_offset": "0x4524d3",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_LOOKNAME_SL3SG3_THRU"
+    },
+    {
+      "file_offset": "0x4524ed",
+      "bytes_including_NUL": 31,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_709800"
+    },
+    {
+      "file_offset": "0x45250c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_ACESCCT"
+    },
+    {
+      "file_offset": "0x45252c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_ACESPROXY"
+    },
+    {
+      "file_offset": "0x45254e",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_ACESREC709"
+    },
+    {
+      "file_offset": "0x452571",
+      "bytes_including_NUL": 29,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_COOL"
+    },
+    {
+      "file_offset": "0x45258e",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_ICART_CINEEI"
+    },
+    {
+      "file_offset": "0x4525b3",
+      "bytes_including_NUL": 29,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_S709"
+    },
+    {
+      "file_offset": "0x4525d0",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_TANDO"
+    },
+    {
+      "file_offset": "0x4525ee",
+      "bytes_including_NUL": 36,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_USER_CINEEI"
+    },
+    {
+      "file_offset": "0x452612",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_VINTAGE"
+    },
+    {
+      "file_offset": "0x452632",
+      "bytes_including_NUL": 29,
+      "text": "MLUT_LOOKNAME_SL3SG3_TO_WARM"
+    },
+    {
+      "file_offset": "0x45264f",
+      "bytes_including_NUL": 20,
+      "text": "mlut_make_lli_table"
+    },
+    {
+      "file_offset": "0x45471a",
+      "bytes_including_NUL": 26,
+      "text": "ddl_VfxCheckMlutArtBinary"
+    },
+    {
+      "file_offset": "0xbdc624",
+      "bytes_including_NUL": 18,
+      "text": "MLUT_FCD_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdc6bc",
+      "bytes_including_NUL": 18,
+      "text": "MLUT_HCD_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdc754",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_A_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdc7ec",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_B_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdc884",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_C_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdc91c",
+      "bytes_including_NUL": 18,
+      "text": "MLUT_L3D_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdc9b4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_A_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdca4c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_B_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdcae4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_C_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdcb7c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_D_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdcc14",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_RGB2YC_REG_FILTERON_BT709F"
+    },
+    {
+      "file_offset": "0xbdccac",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_TOP_REG_1920X1080_NORMAL_THRU"
+    },
+    {
+      "file_offset": "0xbdcd44",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_YC2RGB_REG_FILTERON_BT709F"
+    },
+    {
+      "file_offset": "0xbdcddc",
+      "bytes_including_NUL": 19,
+      "text": "MLUT_YR1D_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdce74",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_EIGAIN_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdcf0c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_ASCCDL_REG_THRU"
+    },
+    {
+      "file_offset": "0xbdcfa4",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_ASCCDL_SRAM_THRU"
+    },
+    {
+      "file_offset": "0xbdd03c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_A_SRAM_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd0d4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_A_SRAM_G_THRU"
+    },
+    {
+      "file_offset": "0xbdd16c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_A_SRAM_B_THRU"
+    },
+    {
+      "file_offset": "0xbdd204",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_B_SRAM_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd29c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_B_SRAM_G_THRU"
+    },
+    {
+      "file_offset": "0xbdd334",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_B_SRAM_B_THRU"
+    },
+    {
+      "file_offset": "0xbdd3cc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_C_SRAM_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd464",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_C_SRAM_G_THRU"
+    },
+    {
+      "file_offset": "0xbdd4fc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_C_SRAM_B_THRU"
+    },
+    {
+      "file_offset": "0xbdd594",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_0_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd62c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_1_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd6c4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_2_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd75c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_3_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd7f4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_4_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd88c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_5_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd924",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_6_R_THRU"
+    },
+    {
+      "file_offset": "0xbdd9bc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_7_R_THRU"
+    },
+    {
+      "file_offset": "0xbdda54",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_0_G_THRU"
+    },
+    {
+      "file_offset": "0xbddaec",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_1_G_THRU"
+    },
+    {
+      "file_offset": "0xbddb84",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_2_G_THRU"
+    },
+    {
+      "file_offset": "0xbddc1c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_3_G_THRU"
+    },
+    {
+      "file_offset": "0xbddcb4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_4_G_THRU"
+    },
+    {
+      "file_offset": "0xbddd4c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_5_G_THRU"
+    },
+    {
+      "file_offset": "0xbddde4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_6_G_THRU"
+    },
+    {
+      "file_offset": "0xbdde7c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_7_G_THRU"
+    },
+    {
+      "file_offset": "0xbddf14",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_0_B_THRU"
+    },
+    {
+      "file_offset": "0xbddfac",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_1_B_THRU"
+    },
+    {
+      "file_offset": "0xbde044",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_2_B_THRU"
+    },
+    {
+      "file_offset": "0xbde0dc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_3_B_THRU"
+    },
+    {
+      "file_offset": "0xbde174",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_4_B_THRU"
+    },
+    {
+      "file_offset": "0xbde20c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_5_B_THRU"
+    },
+    {
+      "file_offset": "0xbde2a4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_6_B_THRU"
+    },
+    {
+      "file_offset": "0xbde33c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_7_B_THRU"
+    },
+    {
+      "file_offset": "0xbde3d4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_YR1D_SRAM_THRU"
+    },
+    {
+      "file_offset": "0xbde46c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_A_CH_SEL_R_THRU"
+    },
+    {
+      "file_offset": "0xbde504",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_A_CH_SEL_G_THRU"
+    },
+    {
+      "file_offset": "0xbde59c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_A_CH_SEL_B_THRU"
+    },
+    {
+      "file_offset": "0xbde634",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_B_CH_SEL_R_THRU"
+    },
+    {
+      "file_offset": "0xbde6cc",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_B_CH_SEL_G_THRU"
+    },
+    {
+      "file_offset": "0xbde764",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_B_CH_SEL_B_THRU"
+    },
+    {
+      "file_offset": "0xbde7fc",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_C_CH_SEL_R_THRU"
+    },
+    {
+      "file_offset": "0xbde894",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_C_CH_SEL_G_THRU"
+    },
+    {
+      "file_offset": "0xbde92c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_C_CH_SEL_B_THRU"
+    },
+    {
+      "file_offset": "0xbde9c4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM0_THRU"
+    },
+    {
+      "file_offset": "0xbdea5c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM1_THRU"
+    },
+    {
+      "file_offset": "0xbdeaf4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM2_THRU"
+    },
+    {
+      "file_offset": "0xbdeb8c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM3_THRU"
+    },
+    {
+      "file_offset": "0xbdec24",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM4_THRU"
+    },
+    {
+      "file_offset": "0xbdecbc",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM5_THRU"
+    },
+    {
+      "file_offset": "0xbded54",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM6_THRU"
+    },
+    {
+      "file_offset": "0xbdedec",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_R_RAM7_THRU"
+    },
+    {
+      "file_offset": "0xbdee84",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM0_THRU"
+    },
+    {
+      "file_offset": "0xbdef1c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM1_THRU"
+    },
+    {
+      "file_offset": "0xbdefb4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM2_THRU"
+    },
+    {
+      "file_offset": "0xbdf04c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM3_THRU"
+    },
+    {
+      "file_offset": "0xbdf0e4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM4_THRU"
+    },
+    {
+      "file_offset": "0xbdf17c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM5_THRU"
+    },
+    {
+      "file_offset": "0xbdf214",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM6_THRU"
+    },
+    {
+      "file_offset": "0xbdf2ac",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_G_RAM7_THRU"
+    },
+    {
+      "file_offset": "0xbdf344",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM0_THRU"
+    },
+    {
+      "file_offset": "0xbdf3dc",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM1_THRU"
+    },
+    {
+      "file_offset": "0xbdf474",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM2_THRU"
+    },
+    {
+      "file_offset": "0xbdf50c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM3_THRU"
+    },
+    {
+      "file_offset": "0xbdf5a4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM4_THRU"
+    },
+    {
+      "file_offset": "0xbdf63c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM5_THRU"
+    },
+    {
+      "file_offset": "0xbdf6d4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM6_THRU"
+    },
+    {
+      "file_offset": "0xbdf76c",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_SEL_B_RAM7_THRU"
+    },
+    {
+      "file_offset": "0xbdf804",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_YC2RGB_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdf89c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_A_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdf934",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_B_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdf9cc",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_C_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfa64",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_A_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfafc",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_B_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfb94",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_C_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfc2c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_MTX_D_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfcc4",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_EIGAIN_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfd5c",
+      "bytes_including_NUL": 19,
+      "text": "MLUT_YR1D_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfdf4",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_ASCCDL_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdfe8c",
+      "bytes_including_NUL": 18,
+      "text": "MLUT_L3D_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdff24",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_RGB2YC_REG_TEST"
+    },
+    {
+      "file_offset": "0xbdffbc",
+      "bytes_including_NUL": 18,
+      "text": "MLUT_HCD_REG_TEST"
+    },
+    {
+      "file_offset": "0xbe0054",
+      "bytes_including_NUL": 18,
+      "text": "MLUT_FCD_REG_TEST"
+    },
+    {
+      "file_offset": "0xbe00ec",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L1D_A_SRAM_TEST"
+    },
+    {
+      "file_offset": "0xbe0184",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L1D_B_SRAM_TEST"
+    },
+    {
+      "file_offset": "0xbe021c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L1D_C_SRAM_TEST"
+    },
+    {
+      "file_offset": "0xbe02b4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_YR1D_SRAM_TEST"
+    },
+    {
+      "file_offset": "0xbe034c",
+      "bytes_including_NUL": 24,
+      "text": "MLUT_ASCCDL_R_SRAM_TEST"
+    },
+    {
+      "file_offset": "0xbe03e4",
+      "bytes_including_NUL": 24,
+      "text": "MLUT_ASCCDL_G_SRAM_TEST"
+    },
+    {
+      "file_offset": "0xbe047c",
+      "bytes_including_NUL": 24,
+      "text": "MLUT_ASCCDL_B_SRAM_TEST"
+    },
+    {
+      "file_offset": "0xbe0514",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L1D_A_CH_SEL_ALL_TEST"
+    },
+    {
+      "file_offset": "0xbe05ac",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L1D_B_CH_SEL_ALL_TEST"
+    },
+    {
+      "file_offset": "0xbe0644",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L1D_C_CH_SEL_ALL_TEST"
+    },
+    {
+      "file_offset": "0xbe06dc",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_0"
+    },
+    {
+      "file_offset": "0xbe0774",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_1"
+    },
+    {
+      "file_offset": "0xbe080c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_2"
+    },
+    {
+      "file_offset": "0xbe08a4",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_3"
+    },
+    {
+      "file_offset": "0xbe093c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_4"
+    },
+    {
+      "file_offset": "0xbe09d4",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_5"
+    },
+    {
+      "file_offset": "0xbe0a6c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_6"
+    },
+    {
+      "file_offset": "0xbe0b04",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_R_RAM_7"
+    },
+    {
+      "file_offset": "0xbe0b9c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_0"
+    },
+    {
+      "file_offset": "0xbe0c34",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_1"
+    },
+    {
+      "file_offset": "0xbe0ccc",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_2"
+    },
+    {
+      "file_offset": "0xbe0d64",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_3"
+    },
+    {
+      "file_offset": "0xbe0dfc",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_4"
+    },
+    {
+      "file_offset": "0xbe0e94",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_5"
+    },
+    {
+      "file_offset": "0xbe0f2c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_6"
+    },
+    {
+      "file_offset": "0xbe0fc4",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_G_RAM_7"
+    },
+    {
+      "file_offset": "0xbe105c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_0"
+    },
+    {
+      "file_offset": "0xbe10f4",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_1"
+    },
+    {
+      "file_offset": "0xbe118c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_2"
+    },
+    {
+      "file_offset": "0xbe1224",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_3"
+    },
+    {
+      "file_offset": "0xbe12bc",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_4"
+    },
+    {
+      "file_offset": "0xbe1354",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_5"
+    },
+    {
+      "file_offset": "0xbe13ec",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_6"
+    },
+    {
+      "file_offset": "0xbe1484",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_SEL_B_RAM_7"
+    },
+    {
+      "file_offset": "0xbe151c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_0_TEST"
+    },
+    {
+      "file_offset": "0xbe15b4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_1_TEST"
+    },
+    {
+      "file_offset": "0xbe164c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_2_TEST"
+    },
+    {
+      "file_offset": "0xbe16e4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_3_TEST"
+    },
+    {
+      "file_offset": "0xbe177c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_4_TEST"
+    },
+    {
+      "file_offset": "0xbe1814",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_5_TEST"
+    },
+    {
+      "file_offset": "0xbe18ac",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_6_TEST"
+    },
+    {
+      "file_offset": "0xbe1944",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_R_7_TEST"
+    },
+    {
+      "file_offset": "0xbe19dc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_0_TEST"
+    },
+    {
+      "file_offset": "0xbe1a74",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_1_TEST"
+    },
+    {
+      "file_offset": "0xbe1b0c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_2_TEST"
+    },
+    {
+      "file_offset": "0xbe1ba4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_3_TEST"
+    },
+    {
+      "file_offset": "0xbe1c3c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_4_TEST"
+    },
+    {
+      "file_offset": "0xbe1cd4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_5_TEST"
+    },
+    {
+      "file_offset": "0xbe1d6c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_6_TEST"
+    },
+    {
+      "file_offset": "0xbe1e04",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_G_7_TEST"
+    },
+    {
+      "file_offset": "0xbe1e9c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_0_TEST"
+    },
+    {
+      "file_offset": "0xbe1f34",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_1_TEST"
+    },
+    {
+      "file_offset": "0xbe1fcc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_2_TEST"
+    },
+    {
+      "file_offset": "0xbe2064",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_3_TEST"
+    },
+    {
+      "file_offset": "0xbe20fc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_4_TEST"
+    },
+    {
+      "file_offset": "0xbe2194",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_5_TEST"
+    },
+    {
+      "file_offset": "0xbe222c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_6_TEST"
+    },
+    {
+      "file_offset": "0xbe22c4",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L3D_SRAM_B_7_TEST"
+    },
+    {
+      "file_offset": "0xbe2c74",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_FCD_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe2d0c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_HCD_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe2da4",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_L1D_A_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe2e3c",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_L1D_B_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe2ed4",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_L1D_C_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe2f6c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe3004",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_MTX_A_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe309c",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_MTX_B_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe3134",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_MTX_C_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe31cc",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_MTX_D_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe3264",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_RGB2YC_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe32fc",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_TOP_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe3394",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_YC2RGB_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe342c",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_YR1D_REG_BYPASS"
+    },
+    {
+      "file_offset": "0xbe34c4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_TOP_REG_SEL_E_INV_WS_CUBE_CDL"
+    },
+    {
+      "file_offset": "0xbe355c",
+      "bytes_including_NUL": 36,
+      "text": "MLUT_TOP_REG_SEL_E_NORM_WS_CUBE_CDL"
+    },
+    {
+      "file_offset": "0xbe35f4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_TOP_REG_SEL_F_INV_WS_CDL_CUBE"
+    },
+    {
+      "file_offset": "0xbe368c",
+      "bytes_including_NUL": 36,
+      "text": "MLUT_TOP_REG_SEL_F_NORM_WS_CDL_CUBE"
+    },
+    {
+      "file_offset": "0xbe3724",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_YC2RGB_REG_INV2020_YC"
+    },
+    {
+      "file_offset": "0xbe37bc",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_YC2RGB_REG_INV709_YC"
+    },
+    {
+      "file_offset": "0xbe3854",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_A_REG_LUT_OFF"
+    },
+    {
+      "file_offset": "0xbe38ec",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_A_SRAM_R_SL3TOLINEAR"
+    },
+    {
+      "file_offset": "0xbe3984",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_A_SRAM_G_SL3TOLINEAR"
+    },
+    {
+      "file_offset": "0xbe3a1c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_A_SRAM_B_SL3TOLINEAR"
+    },
+    {
+      "file_offset": "0xbe3ab4",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L1D_A_REG_SL3TOLINEAR"
+    },
+    {
+      "file_offset": "0xbe3b4c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_A_CH_SEL_R"
+    },
+    {
+      "file_offset": "0xbe3be4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_A_CH_SEL_G"
+    },
+    {
+      "file_offset": "0xbe3c7c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_A_CH_SEL_B"
+    },
+    {
+      "file_offset": "0xbe3d14",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_L1D_A_CH_SEL_ALL"
+    },
+    {
+      "file_offset": "0xbe3dac",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_MTX_A_REG_SG3CTOBT709"
+    },
+    {
+      "file_offset": "0xbe3e44",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_MTX_A_REG_SG3TOBT709"
+    },
+    {
+      "file_offset": "0xbe3edc",
+      "bytes_including_NUL": 24,
+      "text": "MLUT_MTX_A_REG_IDENTITY"
+    },
+    {
+      "file_offset": "0xbe3f74",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_MTX_A_REG_SG3CTOSG3"
+    },
+    {
+      "file_offset": "0xbe400c",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_MTX_A_REG_SG3CTOSG3CWB"
+    },
+    {
+      "file_offset": "0xbe40a4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_MTX_A_REG_SG3TOAP1_0"
+    },
+    {
+      "file_offset": "0xbe413c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_MTX_A_REG_SG3TOS709WB"
+    },
+    {
+      "file_offset": "0xbe41d4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_MTX_A_REG_SG3TOSG3C"
+    },
+    {
+      "file_offset": "0xbe426c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_MTX_A_REG_SG3TOSG3CWB"
+    },
+    {
+      "file_offset": "0xbe4304",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L1D_B_REG_LINEARTO709_800_LEGAL"
+    },
+    {
+      "file_offset": "0xbe439c",
+      "bytes_including_NUL": 36,
+      "text": "MLUT_L1D_B_REG_LINEARTOACESCCT_FULL"
+    },
+    {
+      "file_offset": "0xbe4434",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L1D_B_REG_LINEARTOACESPROXY_FULL"
+    },
+    {
+      "file_offset": "0xbe44cc",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L1D_B_REG_LINEARTOS709_V1_LEGAL"
+    },
+    {
+      "file_offset": "0xbe4564",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L1D_B_REG_LINEARTOSL3"
+    },
+    {
+      "file_offset": "0xbe45fc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L1D_B_SRAM_R_LINEARTO709_800_LEGAL"
+    },
+    {
+      "file_offset": "0xbe4694",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L1D_B_SRAM_G_LINEARTO709_800_LEGAL"
+    },
+    {
+      "file_offset": "0xbe472c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L1D_B_SRAM_B_LINEARTO709_800_LEGAL"
+    },
+    {
+      "file_offset": "0xbe47c4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L1D_B_SRAM_R_LINEARTOACESCCT_FULL"
+    },
+    {
+      "file_offset": "0xbe485c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L1D_B_SRAM_G_LINEARTOACESCCT_FULL"
+    },
+    {
+      "file_offset": "0xbe48f4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L1D_B_SRAM_B_LINEARTOACESCCT_FULL"
+    },
+    {
+      "file_offset": "0xbe498c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L1D_B_SRAM_R_LINEARTOACESPROXY_FULL"
+    },
+    {
+      "file_offset": "0xbe4a24",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L1D_B_SRAM_G_LINEARTOACESPROXY_FULL"
+    },
+    {
+      "file_offset": "0xbe4abc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L1D_B_SRAM_B_LINEARTOACESPROXY_FULL"
+    },
+    {
+      "file_offset": "0xbe4b54",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L1D_B_SRAM_R_LINEARTOS709_V1_LEGAL"
+    },
+    {
+      "file_offset": "0xbe4bec",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L1D_B_SRAM_G_LINEARTOS709_V1_LEGAL"
+    },
+    {
+      "file_offset": "0xbe4c84",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L1D_B_SRAM_B_LINEARTOS709_V1_LEGAL"
+    },
+    {
+      "file_offset": "0xbe4d1c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_B_SRAM_R_LINEARTOSL3"
+    },
+    {
+      "file_offset": "0xbe4db4",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_B_SRAM_G_LINEARTOSL3"
+    },
+    {
+      "file_offset": "0xbe4e4c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_B_SRAM_B_LINEARTOSL3"
+    },
+    {
+      "file_offset": "0xbe4ee4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_B_CH_SEL_R"
+    },
+    {
+      "file_offset": "0xbe4f7c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_B_CH_SEL_G"
+    },
+    {
+      "file_offset": "0xbe5014",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_B_CH_SEL_B"
+    },
+    {
+      "file_offset": "0xbe50ac",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_L1D_B_CH_SEL_ALL"
+    },
+    {
+      "file_offset": "0xbe5144",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_C_REG_S1886_045_FULL"
+    },
+    {
+      "file_offset": "0xbe51dc",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_C_REG_SL3S709"
+    },
+    {
+      "file_offset": "0xbe5274",
+      "bytes_including_NUL": 29,
+      "text": "MLUT_L1D_C_REG_LUT_BLACK_OFF"
+    },
+    {
+      "file_offset": "0xbe530c",
+      "bytes_including_NUL": 23,
+      "text": "MLUT_L1D_C_REG_LUT_OFF"
+    },
+    {
+      "file_offset": "0xbe53a4",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L1D_C_SRAM_R_RRT709ODT_FULL"
+    },
+    {
+      "file_offset": "0xbe543c",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L1D_C_SRAM_G_RRT709ODT_FULL"
+    },
+    {
+      "file_offset": "0xbe54d4",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L1D_C_SRAM_B_RRT709ODT_FULL"
+    },
+    {
+      "file_offset": "0xbe556c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L1D_C_REG_RRT709ODT_FULL"
+    },
+    {
+      "file_offset": "0xbe5604",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_L1D_C_SRAM_R_RRT709ODT"
+    },
+    {
+      "file_offset": "0xbe569c",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_L1D_C_SRAM_G_RRT709ODT"
+    },
+    {
+      "file_offset": "0xbe5734",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_L1D_C_SRAM_B_RRT709ODT"
+    },
+    {
+      "file_offset": "0xbe57cc",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L1D_C_REG_RRT709ODT"
+    },
+    {
+      "file_offset": "0xbe5864",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L1D_C_SRAM_R_S1886_045_FULL"
+    },
+    {
+      "file_offset": "0xbe58fc",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L1D_C_SRAM_G_S1886_045_FULL"
+    },
+    {
+      "file_offset": "0xbe5994",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L1D_C_SRAM_B_S1886_045_FULL"
+    },
+    {
+      "file_offset": "0xbe5a2c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L1D_C_SRAM_R_SL3S709"
+    },
+    {
+      "file_offset": "0xbe5ac4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L1D_C_SRAM_G_SL3S709"
+    },
+    {
+      "file_offset": "0xbe5b5c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L1D_C_SRAM_B_SL3S709"
+    },
+    {
+      "file_offset": "0xbe5bf4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_C_CH_SEL_R"
+    },
+    {
+      "file_offset": "0xbe5c8c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_C_CH_SEL_G"
+    },
+    {
+      "file_offset": "0xbe5d24",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L1D_C_CH_SEL_B"
+    },
+    {
+      "file_offset": "0xbe5dbc",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_L1D_C_CH_SEL_ALL"
+    },
+    {
+      "file_offset": "0xbe5e54",
+      "bytes_including_NUL": 24,
+      "text": "MLUT_MTX_B_REG_IDENTITY"
+    },
+    {
+      "file_offset": "0xbe5eec",
+      "bytes_including_NUL": 31,
+      "text": "MLUT_MTX_B_REG_RRT709ODT_PRE_1"
+    },
+    {
+      "file_offset": "0xbe5f84",
+      "bytes_including_NUL": 28,
+      "text": "MLUT_MTX_B_REG_SG3CS709_PRE"
+    },
+    {
+      "file_offset": "0xbe601c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_MTX_B_REG_SG3C_TO_S709V2_2"
+    },
+    {
+      "file_offset": "0xbe60b4",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_MTX_B_REG_SG3S709_PRE"
+    },
+    {
+      "file_offset": "0xbe614c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_REG_ICART_LUT_20"
+    },
+    {
+      "file_offset": "0xbe61e4",
+      "bytes_including_NUL": 18,
+      "text": "MLUT_L3D_REG_LIST"
+    },
+    {
+      "file_offset": "0xbe627c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_REG_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe6314",
+      "bytes_including_NUL": 22,
+      "text": "MLUT_L3D_REG_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe63ac",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_REG_SG3S709"
+    },
+    {
+      "file_offset": "0xbe6444",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_REG_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbe64dc",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_REG_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbe6574",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L3D_REG_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbe660c",
+      "bytes_including_NUL": 29,
+      "text": "MLUT_L3D_REG_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbe66a4",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_REG_USER_LUT_17"
+    },
+    {
+      "file_offset": "0xbe673c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_REG_OFF_ALL_BLACKOFF"
+    },
+    {
+      "file_offset": "0xbe67d4",
+      "bytes_including_NUL": 21,
+      "text": "MLUT_L3D_REG_OFF_ALL"
+    },
+    {
+      "file_offset": "0xbe686c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_0_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6904",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_1_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe699c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_2_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6a34",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_3_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6acc",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_4_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6b64",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_5_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6bfc",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_6_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6c94",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_R_7_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6d2c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_0_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6dc4",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_1_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6e5c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_2_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6ef4",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_3_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe6f8c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_4_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe7024",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_5_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe70bc",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_6_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe7154",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_G_7_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe71ec",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_0_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe7284",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_1_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe731c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_2_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe73b4",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_3_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe744c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_4_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe74e4",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_5_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe757c",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_6_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe7614",
+      "bytes_including_NUL": 30,
+      "text": "MLUT_L3D_SRAM_B_7_RRT709ODT_1"
+    },
+    {
+      "file_offset": "0xbe76ac",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_L3D_REG_RRT709ODT_2"
+    },
+    {
+      "file_offset": "0xbe7744",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_0_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe77dc",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_1_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7874",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_2_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe790c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_3_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe79a4",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_4_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7a3c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_5_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7ad4",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_6_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7b6c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_R_7_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7c04",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_0_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7c9c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_1_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7d34",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_2_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7dcc",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_3_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7e64",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_4_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7efc",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_5_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe7f94",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_6_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe802c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_G_7_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe80c4",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_0_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe815c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_1_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe81f4",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_2_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe828c",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_3_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe8324",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_4_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe83bc",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_5_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe8454",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_6_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe84ec",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_SRAM_B_7_S709_V2_S_045"
+    },
+    {
+      "file_offset": "0xbe8584",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_0_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe861c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_1_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe86b4",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_2_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe874c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_3_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe87e4",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_4_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe887c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_5_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8914",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_6_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe89ac",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_R_7_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8a44",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_0_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8adc",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_1_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8b74",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_2_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8c0c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_3_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8ca4",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_4_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8d3c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_5_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8dd4",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_6_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8e6c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_G_7_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8f04",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_0_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe8f9c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_1_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe9034",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_2_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe90cc",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_3_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe9164",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_4_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe91fc",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_5_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe9294",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_6_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe932c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_L3D_SRAM_B_7_SG3CS709"
+    },
+    {
+      "file_offset": "0xbe93c4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_0_SG3S709"
+    },
+    {
+      "file_offset": "0xbe945c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_1_SG3S709"
+    },
+    {
+      "file_offset": "0xbe94f4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_2_SG3S709"
+    },
+    {
+      "file_offset": "0xbe958c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_3_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9624",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_4_SG3S709"
+    },
+    {
+      "file_offset": "0xbe96bc",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_5_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9754",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_6_SG3S709"
+    },
+    {
+      "file_offset": "0xbe97ec",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_R_7_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9884",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_0_SG3S709"
+    },
+    {
+      "file_offset": "0xbe991c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_1_SG3S709"
+    },
+    {
+      "file_offset": "0xbe99b4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_2_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9a4c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_3_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9ae4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_4_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9b7c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_5_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9c14",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_6_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9cac",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_G_7_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9d44",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_0_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9ddc",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_1_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9e74",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_2_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9f0c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_3_SG3S709"
+    },
+    {
+      "file_offset": "0xbe9fa4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_4_SG3S709"
+    },
+    {
+      "file_offset": "0xbea03c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_5_SG3S709"
+    },
+    {
+      "file_offset": "0xbea0d4",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_6_SG3S709"
+    },
+    {
+      "file_offset": "0xbea16c",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_L3D_SRAM_B_7_SG3S709"
+    },
+    {
+      "file_offset": "0xbea204",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea29c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea334",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea3cc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea464",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea4fc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea594",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea62c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea6c4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea75c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea7f4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea88c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea924",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbea9bc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeaa54",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeaaec",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeab84",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeac1c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeacb4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbead4c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeade4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeae7c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeaf14",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeafac",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeb044",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_REG_SL3SG3CTOL1_BBN_ICART"
+    },
+    {
+      "file_offset": "0xbeb0dc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb174",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb20c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb2a4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb33c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb3d4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb46c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb504",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb59c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb634",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb6cc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb764",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb7fc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb894",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb92c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeb9c4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbeba5c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebaf4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebb8c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebc24",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebcbc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebd54",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebdec",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebe84",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebf1c",
+      "bytes_including_NUL": 36,
+      "text": "MLUT_L3D_REG_SL3SG3CTOL2_JF02_ICART"
+    },
+    {
+      "file_offset": "0xbebfb4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec04c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec0e4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec17c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec214",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec2ac",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec344",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec3dc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec474",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec50c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec5a4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec63c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec6d4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec76c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec804",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec89c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec934",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbec9cc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbeca64",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbecafc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbecb94",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbecc2c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbeccc4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbecd5c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbecdf4",
+      "bytes_including_NUL": 36,
+      "text": "MLUT_L3D_REG_SL3SG3CTOL3_JF03_ICART"
+    },
+    {
+      "file_offset": "0xbece8c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbecf24",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbecfbc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed054",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed0ec",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed184",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed21c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed2b4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed34c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed3e4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed47c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed514",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed5ac",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed644",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed6dc",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed774",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed80c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed8a4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed93c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbed9d4",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbeda6c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbedb04",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbedb9c",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbedc34",
+      "bytes_including_NUL": 41,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbedccc",
+      "bytes_including_NUL": 36,
+      "text": "MLUT_L3D_REG_SL3SG3CTOL4_SA01_ICART"
+    },
+    {
+      "file_offset": "0xbedd64",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbeddfc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbede94",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbedf2c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbedfc4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee05c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee0f4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee18c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee224",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee2bc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee354",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee3ec",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee484",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee51c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee5b4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee64c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee6e4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee77c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee814",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee8ac",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee944",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbee9dc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbeea74",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbeeb0c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbeeba4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbeec3c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbeecd4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbeed6c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbeee04",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbeee9c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbeef34",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbeefcc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef064",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef0fc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef194",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef22c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef2c4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef35c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef3f4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef48c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef524",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef5bc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef654",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef6ec",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef784",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef81c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef8b4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef94c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOR709_800_17"
+    },
+    {
+      "file_offset": "0xbef9e4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefa7c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefb14",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefbac",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefc44",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefcdc",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefd74",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefe0c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbefea4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbeff3c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbeffd4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf006c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf0104",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf019c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf0234",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf02cc",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf0364",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf03fc",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf0494",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf052c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf05c4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf065c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf06f4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf078c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOS709_17"
+    },
+    {
+      "file_offset": "0xbf0824",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf08bc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0954",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf09ec",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0a84",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0b1c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0bb4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0c4c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0ce4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0d7c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0e14",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0eac",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0f44",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf0fdc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf1074",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf110c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf11a4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf123c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf12d4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf136c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf1404",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf149c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf1534",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf15cc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf1664",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_REG_SL3SG3CTOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf16fc",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1794",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf182c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf18c4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf195c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf19f4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1a8c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1b24",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1bbc",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1c54",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1cec",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1d84",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1e1c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1eb4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1f4c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf1fe4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf207c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf2114",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf21ac",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf2244",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf22dc",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf2374",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf240c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf24a4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf253c",
+      "bytes_including_NUL": 33,
+      "text": "MLUT_L3D_REG_SL3SG3CTOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf25d4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf266c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2704",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf279c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2834",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf28cc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2964",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf29fc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2a94",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2b2c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2bc4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2c5c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2cf4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2d8c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2e24",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2ebc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2f54",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf2fec",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf3084",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf311c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf31b4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf324c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf32e4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf337c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf3414",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_REG_SL3SG3TOL1_AB01_ICART"
+    },
+    {
+      "file_offset": "0xbf34ac",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3544",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf35dc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3674",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf370c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf37a4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf383c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf38d4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf396c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3a04",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3a9c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3b34",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3bcc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3c64",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3cfc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3d94",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3e2c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3ec4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3f5c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf3ff4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf408c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf4124",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf41bc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf4254",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf42ec",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_REG_SL3SG3TOL2_AB03_ICART"
+    },
+    {
+      "file_offset": "0xbf4384",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf441c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf44b4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf454c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf45e4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf467c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4714",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf47ac",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4844",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf48dc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4974",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4a0c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4aa4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4b3c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4bd4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4c6c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4d04",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4d9c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4e34",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4ecc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4f64",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf4ffc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf5094",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf512c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf51c4",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_REG_SL3SG3TOL3_AB05_ICART"
+    },
+    {
+      "file_offset": "0xbf525c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf52f4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf538c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5424",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf54bc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5554",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf55ec",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5684",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf571c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf57b4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf584c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf58e4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf597c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5a14",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5aac",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5b44",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5bdc",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5c74",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5d0c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5da4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5e3c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5ed4",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf5f6c",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf6004",
+      "bytes_including_NUL": 40,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf609c",
+      "bytes_including_NUL": 35,
+      "text": "MLUT_L3D_REG_SL3SG3TOL4_MG01_ICART"
+    },
+    {
+      "file_offset": "0xbf6134",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf61cc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6264",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf62fc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6394",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf642c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf64c4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf655c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf65f4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf668c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6724",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf67bc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6854",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf68ec",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6984",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6a1c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6ab4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6b4c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6be4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6c7c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6d14",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6dac",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6e44",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6edc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf6f74",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_REG_SL3SG3TOR709BR_ICART"
+    },
+    {
+      "file_offset": "0xbf700c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf70a4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf713c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf71d4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf726c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7304",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf739c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7434",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf74cc",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7564",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf75fc",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7694",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf772c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf77c4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf785c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf78f4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf798c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7a24",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7abc",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7b54",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7bec",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7c84",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7d1c",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7db4",
+      "bytes_including_NUL": 38,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOR709_800_17"
+    },
+    {
+      "file_offset": "0xbf7e4c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf7ee4",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf7f7c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8014",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf80ac",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8144",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf81dc",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8274",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf830c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf83a4",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf843c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf84d4",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf856c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8604",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf869c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8734",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf87cc",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8864",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf88fc",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8994",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8a2c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8ac4",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8b5c",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8bf4",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOS709_17"
+    },
+    {
+      "file_offset": "0xbf8c8c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf8d24",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf8dbc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf8e54",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf8eec",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf8f84",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf901c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf90b4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf914c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf91e4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf927c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf9314",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf93ac",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf9444",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf94dc",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf9574",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf960c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf96a4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf973c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf97d4",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf986c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf9904",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf999c",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf9a34",
+      "bytes_including_NUL": 39,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf9acc",
+      "bytes_including_NUL": 34,
+      "text": "MLUT_L3D_REG_SL3SG3TOS709_CHAP_V1"
+    },
+    {
+      "file_offset": "0xbf9b64",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_0_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf9bfc",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_1_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf9c94",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_2_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf9d2c",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_3_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf9dc4",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_4_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf9e5c",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_5_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf9ef4",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_6_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbf9f8c",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_R_7_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa024",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_0_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa0bc",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_1_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa154",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_2_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa1ec",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_3_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa284",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_4_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa31c",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_5_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa3b4",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_6_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa44c",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_G_7_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa4e4",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_0_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa57c",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_1_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa614",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_2_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa6ac",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_3_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa744",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_4_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa7dc",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_5_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa874",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_6_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa90c",
+      "bytes_including_NUL": 37,
+      "text": "MLUT_L3D_SRAM_B_7_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfa9a4",
+      "bytes_including_NUL": 32,
+      "text": "MLUT_L3D_REG_SL3SG3TOS709_ICART"
+    },
+    {
+      "file_offset": "0xbfaa3c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM0"
+    },
+    {
+      "file_offset": "0xbfaad4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM1"
+    },
+    {
+      "file_offset": "0xbfab6c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM2"
+    },
+    {
+      "file_offset": "0xbfac04",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM3"
+    },
+    {
+      "file_offset": "0xbfac9c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM4"
+    },
+    {
+      "file_offset": "0xbfad34",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM5"
+    },
+    {
+      "file_offset": "0xbfadcc",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM6"
+    },
+    {
+      "file_offset": "0xbfae64",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_R_RAM7"
+    },
+    {
+      "file_offset": "0xbfaefc",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM0"
+    },
+    {
+      "file_offset": "0xbfaf94",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM1"
+    },
+    {
+      "file_offset": "0xbfb02c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM2"
+    },
+    {
+      "file_offset": "0xbfb0c4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM3"
+    },
+    {
+      "file_offset": "0xbfb15c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM4"
+    },
+    {
+      "file_offset": "0xbfb1f4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM5"
+    },
+    {
+      "file_offset": "0xbfb28c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM6"
+    },
+    {
+      "file_offset": "0xbfb324",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_G_RAM7"
+    },
+    {
+      "file_offset": "0xbfb3bc",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM0"
+    },
+    {
+      "file_offset": "0xbfb454",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM1"
+    },
+    {
+      "file_offset": "0xbfb4ec",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM2"
+    },
+    {
+      "file_offset": "0xbfb584",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM3"
+    },
+    {
+      "file_offset": "0xbfb61c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM4"
+    },
+    {
+      "file_offset": "0xbfb6b4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM5"
+    },
+    {
+      "file_offset": "0xbfb74c",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM6"
+    },
+    {
+      "file_offset": "0xbfb7e4",
+      "bytes_including_NUL": 20,
+      "text": "MLUT_L3D_SEL_B_RAM7"
+    },
+    {
+      "file_offset": "0xbfb87c",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_MTX_C_REG_FULLTOLEGAL"
+    },
+    {
+      "file_offset": "0xbfb914",
+      "bytes_including_NUL": 24,
+      "text": "MLUT_MTX_C_REG_IDENTITY"
+    },
+    {
+      "file_offset": "0xbfb9ac",
+      "bytes_including_NUL": 27,
+      "text": "MLUT_RGB2YC_REG_2020_LEGAL"
+    },
+    {
+      "file_offset": "0xbfba44",
+      "bytes_including_NUL": 25,
+      "text": "MLUT_RGB2YC_REG_709_FULL"
+    },
+    {
+      "file_offset": "0xbfbadc",
+      "bytes_including_NUL": 26,
+      "text": "MLUT_RGB2YC_REG_709_LEGAL"
+    }
+  ],
+  "counts": {
+    "matching_strings": 966,
+    "MLUT_matches": 956,
+    "SSYC_matches": 10
+  },
+  "limits": [
+    "String presence establishes inspected artifact contents only; it does not establish invocation, physical processor identity, active imaging mode, resource ownership or a saved-frame MLUT route.",
+    "No raw firmware has been registered as ELF, and no unsupported REA raw-image analysis is claimed.",
+    "The notification and encoder follow-ups independently retain code/data references and address-model evidence; these strings alone are not those execution edges."
+  ]
+}

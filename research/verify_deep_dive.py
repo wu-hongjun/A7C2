@@ -25,11 +25,14 @@ def verify_instruction_bytes(report):
         regions = regions.values()
     cache, count = {}, 0
     for region in regions:
-        path = ROOT / region.get('source_path', default_source)
+        source_path = region.get('source_path', default_source)
+        if source_path is None and isinstance(report.get('sources'),dict):
+            source_path = report['sources'][region['source']]['path']
+        path = ROOT / source_path
         if path not in cache:
             cache[path] = path.read_bytes()
         for instruction in region['instructions']:
-            offset = instruction.get('file_offset')
+            offset = instruction.get('file_offset',instruction.get('file_alias'))
             if offset is None:
                 offset = region['file_offset'] + int(instruction['va'], 0) - int(region['start_va'], 0)
             offset = int(offset, 0) if isinstance(offset, str) else offset
@@ -242,6 +245,57 @@ def main():
                        'CP_MLUT_pixel_link':mlut_link['verification']['host_cases'],
                        'AP_notification_save_link':save_link['host_dataflow_cases']['cases']}
     assert followup_counts['AP_HEIF_encoder'] == 2653
+    sdyc_ap = core.read_json(ROOT/'research/evidence/sdyc-metadata.json')
+    sdyc_cp = core.read_json(ROOT/'research/evidence/sdyc-mapping.json')
+    av_context = core.read_json(ROOT/'research/evidence/av-cam-lut-context.json')
+    for newer in [sdyc_ap,sdyc_cp,av_context]:
+        walk(newer)
+        assert newer['camera_accessed'] is False
+    assert not sdyc_ap['network_access'] and not sdyc_ap['target_codec_executed']
+    assert sdyc_ap['counts']['host_cases'] == len(sdyc_ap['cases']) == 4
+    assert sdyc_cp['verification']['host_cases'] == 87 and not sdyc_cp['target_executed']
+    cross = sdyc_cp['host_tests']['AP_to_CP_crossdecode_cases']
+    assert len(cross) == 4
+    cross_source = sdyc_cp['host_tests']['AP_to_CP_crossdecode_source']
+    assert cross_source['artifact_sha256_at_read'] == core.sha((ROOT/cross_source['path']).read_bytes())
+    for produced,decoded in zip(sdyc_ap['cases'],cross):
+        assert core.sha(bytes.fromhex(produced['metadata_1024_hex'])) == decoded['metadata_sha256']
+        assert produced['independent_nested_pixel_triple'] == decoded['decoded_nested_descriptor']
+        assert produced['supplied_dimensions'] == decoded['decoded_dimensions']
+        assert produced['guards_unchanged']
+    instruction_counts['AP_SSYC_metadata'] = verify_instruction_bytes(sdyc_ap)
+    instruction_counts['CP_SDYC_nested_backing'] = verify_instruction_bytes(sdyc_cp)
+    assert not av_context['network_access'] and not av_context['target_executed']
+    assert av_context['counts'] == {'matching_strings':966,'MLUT_matches':956,'SSYC_matches':10}
+    av_blob = (ROOT/av_context['source']['path']).read_bytes()
+    assert av_blob[:88] == bytes.fromhex(av_context['header']['first_88_bytes_hex'])
+    for item in av_context['matches']:
+        offset = int(item['file_offset'],0)
+        assert av_blob[offset:offset+item['bytes_including_NUL']] == item['text'].encode()+b'\0'
+    heif_binding = core.read_json(ROOT/'research/evidence/heif-binding.json')
+    walk(heif_binding)
+    assert not heif_binding['camera_access'] and not heif_binding['network_access']
+    assert not heif_binding['syscall_forwarding'] and not heif_binding['codec_execution']
+    init = heif_binding['initializer_table_validation']
+    assert init['table_unchanged'] and init['GOT_slot_unchanged'] and not init['observed_target_writes']
+    assert len(heif_binding['initializer_cases']) == 16
+    assert all(row['actual_native']=='0xffff' for row in init['conversion_after_initialization'] if row['logical'] in ['0x532','0x533','0x534'])
+    assert all(row['output_unchanged'] for row in heif_binding['inverse_conversion_cases'] if row['native'] in ['0x810c','0x810d','0x810e'])
+    binding_cases = sum(v for k,v in heif_binding['counts'].items() if k!='original_instruction_regions')
+    assert binding_cases == 403 and heif_binding['counts']['full_request_cases'] == 5
+    instruction_counts['HEIF_binding_and_native_receiver'] = verify_instruction_bytes(heif_binding)
+    producer = core.read_json(ROOT/'research/evidence/still-info-producer.json')
+    walk(producer)
+    assert producer['producer']['tag']=='0x1006'
+    assert producer['producer']['destination']=='0x80020002'
+    assert producer['producer']['source_argument']=='0x90030001'
+    assert producer['producer']['message_bytes']==0x384
+    assert producer['producer']['body_copy']['bytes']==0x364
+    assert producer['validation']['case_count']==83
+    assert producer['validation']['producer_to_actual_AP_transform_cases']==10
+    instruction_counts['av_cam_still_info_producer'] = verify_instruction_bytes(producer)
+    buffer_followup_counts = {'AP_SSYC_metadata':4,'CP_SDYC_mapping':87,'HEIF_binding_and_native_receiver':binding_cases,
+                              'av_cam_still_info_producer':producer['validation']['case_count']}
     rea = core.read_json(ROOT/'research/evidence/rea/index.json')
     for row in rea['records']:
         path = ROOT/row['path']
@@ -266,7 +320,7 @@ def main():
     assert lut['opencolorio']['performed'] and lut['counts']['opencolorio_rgb_cases'] == 8016
     assert lut['camera_access'] is False and lut['target_execution'] is False
     result = {'camera_accessed': False, 'target_executed': False,
-              'target_execution_definition': 'No execution on camera hardware; selected original AP conversion and AP/CP metadata/descriptor routines run only in bounded host emulation with documented external stubs.',
+              'target_execution_definition': 'No execution on camera hardware; selected original AP/CP/av-cam routines run only in bounded host emulation with documented external stubs.',
               'host_CP_emulation_performed': True,
               'source_files_sha256_verified': len(checked),
               'container_crc_verified': True, 'partition_count': 30,
@@ -292,6 +346,11 @@ def main():
               'new_instruction_records_byte_verified': instruction_counts,
               'encoder_followup_host_cases': followup_counts,
               'encoder_followup_host_cases_total': sum(followup_counts.values()),
+              'buffer_producer_followup_host_cases':buffer_followup_counts,
+              'buffer_producer_followup_host_cases_total':sum(buffer_followup_counts.values()),
+              'AP_CP_SSYC_metadata_crossdecode_cases':len(cross),
+              'av_cam_still_info_producer_identified':True,
+              'local_HEIF_two_way_translation_gap_remains':True,
               'HQ_converter_completed_fixtures': len(hq['cases']),
               'HQ_quantizer_samples_compared': samples,
               'HQ_identity_coordinate_samples': 24000,
@@ -309,6 +368,7 @@ def main():
               'host_LUT_reference_test_groups': lut['tests_run'],
               'host_LUT_OpenColorIO_comparisons': lut['counts']['opencolorio_rgb_cases'],
               'limits': ['Source-bound artifact verification and explicitly bounded host emulation, not camera or image-pipeline validation.',
+                         'AP-to-CP SSYC metadata and av-cam JPEG callback-to-area transport are demonstrated offline; live MLUT allocation identity, pixel ownership and HEIF runtime translation remain unresolved.',
                          'Ordinary packing and synthetic HQ serialization are recovered; upstream resampling and live saved-still routing remain unresolved.',
                          'Four synthetic fragmented transfer layouts emit excess descriptor bytes; retained counterexamples are not observed hardware overruns.']}
     core.save_json(ROOT/'research/evidence/deep-dive-verification.json', result)
