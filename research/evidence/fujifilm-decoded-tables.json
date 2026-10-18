@@ -1,0 +1,348 @@
+{
+  "profiles": [
+    {
+      "file": "Astia.xmp",
+      "source_sha256": "33b8332916ce5ba1f0a03d58cc649f5fa36104d9104d779f82e34159edc1cb4b",
+      "XMP_fingerprint_MD5": "69D40E90F90741D0F7FE8393083FF176",
+      "payload_sha256": "5cdc60241e097065b52cdbb02144dd314fef283f1fd42c79d791e19238a257d8",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Bleach Bypass.xmp",
+      "source_sha256": "011a5525dce3bda208d36b1d8ded935c7272de03e8d38b2ebce1fc3e2071766d",
+      "XMP_fingerprint_MD5": "E10CE683D852E62CC61A33CF5A622912",
+      "payload_sha256": "4565428c196ce835459690d22741f83afdef81509b911cfb79df2320688e2dfa",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Classic Chrome.xmp",
+      "source_sha256": "59a9934f7eeb084882ca4530ca6253b44d702d751855c7dd9449c7d2697377e7",
+      "XMP_fingerprint_MD5": "1311BE81C2780C95A5A64E17DA253DE9",
+      "payload_sha256": "3337bba46565ff7a8bfa448930d7cbc7cc920bc7cdc94d27502b2535ffe601c5",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Classic Neg.xmp",
+      "source_sha256": "feeae55376a13e2891108d049b30b577a9cd1fc978cd7bc237561e5c394be6f9",
+      "XMP_fingerprint_MD5": "6A3ACC086E1508DDF5153E9944E5081B",
+      "payload_sha256": "51a9117c1867d1fb54ead86016c6fb1b6af92b5e3405614af1e8c89a985cac1b",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Eterna.xmp",
+      "source_sha256": "ec031b910eb5a9f232a41e8a77a0fdb08bfc7e1149f244b4bd681b215eaf502f",
+      "XMP_fingerprint_MD5": "3F66B9D6213C01C493A30107550E048C",
+      "payload_sha256": "434211ec4cfb28d8ed4486d591944a45a20e30566676f5cf29ebcfe46c48b459",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Nostalgic Neg.xmp",
+      "source_sha256": "fcc6933373dfd3d2603464bee1175c2de6b35481de71146ca14da3f500c1659d",
+      "XMP_fingerprint_MD5": "7D7CAE45BA11590DFF90D56790078E2A",
+      "payload_sha256": "46c9ede1de02de4afbfc6ff65e48e6c01387dea7e4d9b7cd101585fc00ec1f65",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Pro Neg Hi.xmp",
+      "source_sha256": "79f8e73b04bc640ec843a7467ef1a64f1cc18f7aa091d63965a5709b8a801d60",
+      "XMP_fingerprint_MD5": "C3B67CDB1E76ACD9B63A4AA0C4A9568D",
+      "payload_sha256": "d07600c287bc52a78be48e99b5a661583bb08ec946a960f5e802937b66be304d",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Pro Neg Std.xmp",
+      "source_sha256": "0a80eb75aff6fe1e14eb5fc024944bf0805abc38899560a697da8cda6938c567",
+      "XMP_fingerprint_MD5": "2FB53E868348096BFEED4530CE01D63D",
+      "payload_sha256": "d2f92f87cdb21feef2fd6cd9fe1396d75f4b1346e2098ad077ab24398a11822e",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Provia.xmp",
+      "source_sha256": "b28770a8ee0b1c01b061bf90cf598e46085426d8fd2a2a160a1a7665b28636c5",
+      "XMP_fingerprint_MD5": "226D6ED18A1DA9309898CAD0344B1EAB",
+      "payload_sha256": "b496bb688aa76265a0b13196d3ee690ebb92dfc48b3b57168fdc9aff20f7c8a8",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Reala Ace.xmp",
+      "source_sha256": "261f1d16b6875157d86aae049944b731bcfbc63e8dcd40b104ce1dfcd001bee2",
+      "XMP_fingerprint_MD5": "5074284950CFE8C3A5D385477BF527E0",
+      "payload_sha256": "75194157dcf276f5bb0076544e9f6d16e3782f5e71e5565c9fd9425d9a131364",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    {
+      "file": "Velvia.xmp",
+      "source_sha256": "6c0b02f82b45a4df953ed608e190b88ac8369511e276b8811e915cd4e4ece2e7",
+      "XMP_fingerprint_MD5": "470BB281E22C2206F337E79D332189A7",
+      "payload_sha256": "eb58aac59033eac091236f24e19c4c6660a21e06921d223d2196dc10d37a6d9c",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    }
+  ],
+  "camera_accessed": false,
+  "network_accessed": false,
+  "scope": "Byte/fingerprint and SDK format semantics; bake checks are recorded separately."
+}

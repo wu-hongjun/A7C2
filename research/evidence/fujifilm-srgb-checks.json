@@ -1,0 +1,1209 @@
+{
+  "schema": 1,
+  "generated_at_utc": "2026-10-18T23:18:46.752519+00:00",
+  "camera_accessed": false,
+  "camera_installation": false,
+  "network_accessed": false,
+  "SDK_reference": {
+    "archive_basename": "dng_sdk_1_7_1_2768_20261013.zip",
+    "archive_sha256": "c1d3a545ed45b150e59af2e6aa0695c1551f0e2bed34ad87436898a05194d2b1",
+    "identity": "User-supplied 1.7.1 snapshot, not independently authenticated against Adobe distribution",
+    "original_reference_function": "RefRGBtoRGBTable3D",
+    "function_sha256": "3ec8fe2c9cfc76cc4d7b28270b21d670086aae3f0aa89a8ef3900f829eaa13e4",
+    "source_files": [
+      {
+        "file": "dng_reference.cpp",
+        "sha256": "912afda9ed871fe50ff0037a1be3361d37c1b8ee1230b907eed36d7512c422b6"
+      },
+      {
+        "file": "dng_big_table.cpp",
+        "sha256": "ffab9d6af22fd7a05ec20fb7ffa99e3f7dfce5463b392391d7ea59a344909efa"
+      },
+      {
+        "file": "dng_big_table.h",
+        "sha256": "66abcf3cf7848ab03de2caec1e8c97715944f491671d42c61525abd82d7cf1f5"
+      },
+      {
+        "file": "dng_color_space.cpp",
+        "sha256": "5d174ef271270acd1ffcff37134b083418aa41032190e81bf2172c9d76526575"
+      },
+      {
+        "file": "dng_1d_table.cpp",
+        "sha256": "fcc8c96bc20866beb0ff183d011d585dc77546c736cc329dd6f40145346f5ff0"
+      },
+      {
+        "file": "dng_1d_table.h",
+        "sha256": "ee002ad72ae68f645dd3f4680a43ea1e3a599caf96b20488b17faf6a2ac6c0da"
+      },
+      {
+        "file": "dng_xy_coord.cpp",
+        "sha256": "fc28d228f6a8811568d42be52f0d45eb714b45aa11224d6e86b09598b94a490d"
+      },
+      {
+        "file": "dng_xy_coord.h",
+        "sha256": "b36fcb3c46e4c273ca0e3e30d59e5274c4371a4fdaaac5b3a1432487c9f9651c"
+      }
+    ],
+    "license_sha256": "89d75e1bfd65269c41ec57be67adacd48926af81554574d92742f96296ed9166",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "compiler_flags": [
+      "-std=c++17",
+      "-O2",
+      "-ffp-contract=off"
+    ],
+    "scope": "Original SDK scalar function in a minimal host harness, not a full Adobe RAW renderer; wrappers implement the documented sRGB adaptation."
+  },
+  "vectors_per_profile": 42084,
+  "vector_design": "Seeded random holdouts, 17^3 grid, 4097 gray ramp, dense RGB faces/near-faces and sRGB toe boundaries",
+  "acceptance_limits": {
+    "max_RGB8_scale_error_vs_native_reference": 0.01,
+    "max_CLF_serialization_RGB8_scale_error": 0.001,
+    "max_RGB8_error_including_JPEG": 3
+  },
+  "scope": "sRGB JPEG adaptation of embedded RGBTable stage; not full DCP/Adobe RAW rendering or native Fujifilm/Sony matching.",
+  "profiles": [
+    {
+      "name": "Astia",
+      "source": {
+        "file": "Astia.xmp",
+        "source_sha256": "33b8332916ce5ba1f0a03d58cc649f5fa36104d9104d779f82e34159edc1cb4b",
+        "XMP_fingerprint_MD5": "69D40E90F90741D0F7FE8393083FF176",
+        "payload_sha256": "5cdc60241e097065b52cdbb02144dd314fef283f1fd42c79d791e19238a257d8",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "astia-srgb.clf",
+      "CLF_sha256": "2fe11e16c17e802b85e469a86df8b300daab13fa401b47a3b4be368c539183e6",
+      "CLF_bytes": 1600314,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 5.921296426595416e-05,
+        "p95_RGB8_scale": 0.00017859041690826416,
+        "p99_RGB8_scale": 0.0014306232333183289,
+        "max_RGB8_scale": 0.004158876836299896,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.3074854480691496e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.0002308376133441925,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.11282284229517102,
+        "p95_RGB8_scale": 0.37295758724212646,
+        "p99_RGB8_scale": 1.5771737694740295,
+        "max_RGB8_scale": 23.6800367385149,
+        "max_rounded_RGB8_difference": 24,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Bleach Bypass",
+      "source": {
+        "file": "Bleach Bypass.xmp",
+        "source_sha256": "011a5525dce3bda208d36b1d8ded935c7272de03e8d38b2ebce1fc3e2071766d",
+        "XMP_fingerprint_MD5": "E10CE683D852E62CC61A33CF5A622912",
+        "payload_sha256": "4565428c196ce835459690d22741f83afdef81509b911cfb79df2320688e2dfa",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "bleach-bypass-srgb.clf",
+      "CLF_sha256": "87b249d6541e7b1d81cd1fd32b36d529d90ce5a1fff544f72056dda969259de2",
+      "CLF_bytes": 1501634,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 5.8053920171127535e-05,
+        "p95_RGB8_scale": 0.00014819204807281494,
+        "p99_RGB8_scale": 0.0013261288404464722,
+        "max_RGB8_scale": 0.004147477447986603,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.251841345924362e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 7.599592208862305e-05,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.0562396666628043,
+        "p95_RGB8_scale": 0.24005591869354248,
+        "p99_RGB8_scale": 0.45589953660964966,
+        "max_RGB8_scale": 3.2813395746052265,
+        "max_rounded_RGB8_difference": 4,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Classic Chrome",
+      "source": {
+        "file": "Classic Chrome.xmp",
+        "source_sha256": "59a9934f7eeb084882ca4530ca6253b44d702d751855c7dd9449c7d2697377e7",
+        "XMP_fingerprint_MD5": "1311BE81C2780C95A5A64E17DA253DE9",
+        "payload_sha256": "3337bba46565ff7a8bfa448930d7cbc7cc920bc7cdc94d27502b2535ffe601c5",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "classic-chrome-srgb.clf",
+      "CLF_sha256": "92d53be5c1c41d81c5f1b5de351d7f942d563a972cd8984992fb5cb459f23493",
+      "CLF_bytes": 1600310,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 5.9678928299149904e-05,
+        "p95_RGB8_scale": 0.00017859041690826416,
+        "p99_RGB8_scale": 0.0014268234372138977,
+        "max_RGB8_scale": 0.00470699742436409,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.3067077484079928e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.00019616447389125824,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.09778623403913535,
+        "p95_RGB8_scale": 0.31453952193260193,
+        "p99_RGB8_scale": 1.0655160248279572,
+        "max_RGB8_scale": 27.39980723708868,
+        "max_rounded_RGB8_difference": 27,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Classic Neg",
+      "source": {
+        "file": "Classic Neg.xmp",
+        "source_sha256": "feeae55376a13e2891108d049b30b577a9cd1fc978cd7bc237561e5c394be6f9",
+        "XMP_fingerprint_MD5": "6A3ACC086E1508DDF5153E9944E5081B",
+        "payload_sha256": "51a9117c1867d1fb54ead86016c6fb1b6af92b5e3405614af1e8c89a985cac1b",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "classic-neg-srgb.clf",
+      "CLF_sha256": "a3b13ec3fa3bb06e5be10c22311071ff986d8497664f2aba411af57fe6913bcc",
+      "CLF_bytes": 1596554,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 4.932632248254605e-05,
+        "p95_RGB8_scale": 0.00011019408702850342,
+        "p99_RGB8_scale": 0.001134239137172699,
+        "max_RGB8_scale": 0.0043460167944431305,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.2408472268388316e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.00010259449481964111,
+        "max_rounded_RGB8_difference": 1
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.1044496819463432,
+        "p95_RGB8_scale": 0.34572682343423367,
+        "p99_RGB8_scale": 0.9937834739685059,
+        "max_RGB8_scale": 33.194483175175264,
+        "max_rounded_RGB8_difference": 33,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Eterna",
+      "source": {
+        "file": "Eterna.xmp",
+        "source_sha256": "ec031b910eb5a9f232a41e8a77a0fdb08bfc7e1149f244b4bd681b215eaf502f",
+        "XMP_fingerprint_MD5": "3F66B9D6213C01C493A30107550E048C",
+        "payload_sha256": "434211ec4cfb28d8ed4486d591944a45a20e30566676f5cf29ebcfe46c48b459",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "eterna-srgb.clf",
+      "CLF_sha256": "12dbd3604f2f3b82b5f818299188a4d2ea9cd68df3a97f2fb5c6d0ff055ac396",
+      "CLF_bytes": 1599323,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 5.619741728606622e-05,
+        "p95_RGB8_scale": 0.00017099082469940186,
+        "p99_RGB8_scale": 0.001183636486530304,
+        "max_RGB8_scale": 0.0042690709233284,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.4395433180448436e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.00019637227524071932,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.07493050802544744,
+        "p95_RGB8_scale": 0.26290029287338257,
+        "p99_RGB8_scale": 0.7803558139130473,
+        "max_RGB8_scale": 18.113819919526577,
+        "max_rounded_RGB8_difference": 18,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Nostalgic Neg",
+      "source": {
+        "file": "Nostalgic Neg.xmp",
+        "source_sha256": "fcc6933373dfd3d2603464bee1175c2de6b35481de71146ca14da3f500c1659d",
+        "XMP_fingerprint_MD5": "7D7CAE45BA11590DFF90D56790078E2A",
+        "payload_sha256": "46c9ede1de02de4afbfc6ff65e48e6c01387dea7e4d9b7cd101585fc00ec1f65",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "nostalgic-neg-srgb.clf",
+      "CLF_sha256": "79ab22a65065f23faeb812b6c86cf950aee406765dd8eb775ff60142f2c0c00d",
+      "CLF_bytes": 1600169,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 5.277910433042805e-05,
+        "p95_RGB8_scale": 0.00011019408702850342,
+        "p99_RGB8_scale": 0.0012662820518016815,
+        "max_RGB8_scale": 0.004146527498960495,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.3295167448193333e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 9.404495358467102e-05,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.08647592532407745,
+        "p95_RGB8_scale": 0.34072011709213257,
+        "p99_RGB8_scale": 0.9563326835632324,
+        "max_RGB8_scale": 12.309916354715824,
+        "max_rounded_RGB8_difference": 12,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Pro Neg Hi",
+      "source": {
+        "file": "Pro Neg Hi.xmp",
+        "source_sha256": "79f8e73b04bc640ec843a7467ef1a64f1cc18f7aa091d63965a5709b8a801d60",
+        "XMP_fingerprint_MD5": "C3B67CDB1E76ACD9B63A4AA0C4A9568D",
+        "payload_sha256": "d07600c287bc52a78be48e99b5a661583bb08ec946a960f5e802937b66be304d",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "pro-neg-hi-srgb.clf",
+      "CLF_sha256": "de8639735ed87db6251a7f056d6819c5afd318ab6322593a7e16c81d09c20a60",
+      "CLF_bytes": 1600304,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 5.8366636175697025e-05,
+        "p95_RGB8_scale": 0.00017099082469940186,
+        "p99_RGB8_scale": 0.0014306232333183289,
+        "max_RGB8_scale": 0.004723146557807922,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.2461421094524895e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.00014629215002059937,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.09996764509664376,
+        "p95_RGB8_scale": 0.34991562366485596,
+        "p99_RGB8_scale": 1.2296368181705475,
+        "max_RGB8_scale": 23.186904899775982,
+        "max_rounded_RGB8_difference": 23,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Pro Neg Std",
+      "source": {
+        "file": "Pro Neg Std.xmp",
+        "source_sha256": "0a80eb75aff6fe1e14eb5fc024944bf0805abc38899560a697da8cda6938c567",
+        "XMP_fingerprint_MD5": "2FB53E868348096BFEED4530CE01D63D",
+        "payload_sha256": "d2f92f87cdb21feef2fd6cd9fe1396d75f4b1346e2098ad077ab24398a11822e",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "pro-neg-std-srgb.clf",
+      "CLF_sha256": "af52789e183c802932a594d082a7fa0d364802627122ada93c7270c70f49f671",
+      "CLF_bytes": 1600316,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 6.046896001092161e-05,
+        "p95_RGB8_scale": 0.00018619000911712646,
+        "p99_RGB8_scale": 0.0014410726726055145,
+        "max_RGB8_scale": 0.0043327175080776215,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.365030520351294e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.00019663944840431213,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.0872495070930607,
+        "p95_RGB8_scale": 0.3101545572280884,
+        "p99_RGB8_scale": 0.9859292954206467,
+        "max_RGB8_scale": 24.72282708826242,
+        "max_rounded_RGB8_difference": 25,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Provia",
+      "source": {
+        "file": "Provia.xmp",
+        "source_sha256": "b28770a8ee0b1c01b061bf90cf598e46085426d8fd2a2a160a1a7665b28636c5",
+        "XMP_fingerprint_MD5": "226D6ED18A1DA9309898CAD0344B1EAB",
+        "payload_sha256": "b496bb688aa76265a0b13196d3ee690ebb92dfc48b3b57168fdc9aff20f7c8a8",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "provia-srgb.clf",
+      "CLF_sha256": "a1964a9476657eabf5fd982aba5cfd1aec8ce4475c05aca80eb62c20aeb34e66",
+      "CLF_bytes": 1600314,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 5.5269963659856274e-05,
+        "p95_RGB8_scale": 0.00015579164028167725,
+        "p99_RGB8_scale": 0.0013280287384986877,
+        "max_RGB8_scale": 0.004243422299623489,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.2977821311328577e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.00019568949937820435,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.10965276406559647,
+        "p95_RGB8_scale": 0.34392714500427246,
+        "p99_RGB8_scale": 1.585259735584259,
+        "max_RGB8_scale": 27.823281213641167,
+        "max_rounded_RGB8_difference": 28,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Reala Ace",
+      "source": {
+        "file": "Reala Ace.xmp",
+        "source_sha256": "261f1d16b6875157d86aae049944b731bcfbc63e8dcd40b104ce1dfcd001bee2",
+        "XMP_fingerprint_MD5": "5074284950CFE8C3A5D385477BF527E0",
+        "payload_sha256": "75194157dcf276f5bb0076544e9f6d16e3782f5e71e5565c9fd9425d9a131364",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "reala-ace-srgb.clf",
+      "CLF_sha256": "6a090b6bbd24d85f65754d08331125b4cf6b48ac3a53553c65d51c847ab4a375",
+      "CLF_bytes": 1600303,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 4.6783258243865334e-05,
+        "p95_RGB8_scale": 0.00010259449481964111,
+        "p99_RGB8_scale": 0.0010183453559875488,
+        "max_RGB8_scale": 0.004142727702856064,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.1739958435982137e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.00015579164028167725,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.0816159179002405,
+        "p95_RGB8_scale": 0.3232106566429138,
+        "p99_RGB8_scale": 0.7799005508422852,
+        "max_RGB8_scale": 12.666926197707653,
+        "max_rounded_RGB8_difference": 13,
+        "accepted_for_delivery": false
+      }
+    },
+    {
+      "name": "Velvia",
+      "source": {
+        "file": "Velvia.xmp",
+        "source_sha256": "6c0b02f82b45a4df953ed608e190b88ac8369511e276b8811e915cd4e4ece2e7",
+        "XMP_fingerprint_MD5": "470BB281E22C2206F337E79D332189A7",
+        "payload_sha256": "eb58aac59033eac091236f24e19c4c6660a21e06921d223d2196dc10d37a6d9c",
+        "header_u32": [
+          1,
+          1,
+          3,
+          32
+        ],
+        "footer_u32": [
+          3,
+          1,
+          0
+        ],
+        "footer_f64": [
+          1.0,
+          1.0
+        ],
+        "stored_sample_words": 98304,
+        "primaries": "Display P3",
+        "transfer": "sRGB",
+        "gamut": "clip",
+        "amount": 1.0,
+        "sample_order": "blue-fastest, uint16 delta-predicted",
+        "color_space_ID_mapping_verified": true,
+        "Adobe_interpolation_semantics_verified": true,
+        "native_interpolation": "tetrahedral",
+        "decoding_alone_validates_sRGB_conversion": false
+      },
+      "CLF_file": "velvia-srgb.clf",
+      "CLF_sha256": "fa9647f585a2e712d1e133401c710c8e682f9732c748fa94a58183255cb0dcc9",
+      "CLF_bytes": 1600302,
+      "validated": true,
+      "vs_original_SDK_function": {
+        "mean_RGB8_scale": 4.9053938427951205e-05,
+        "p95_RGB8_scale": 0.00012919306755065918,
+        "p99_RGB8_scale": 0.0012026354670524597,
+        "max_RGB8_scale": 0.004148427397012711,
+        "max_rounded_RGB8_difference": 1
+      },
+      "CLF_serialization_error": {
+        "mean_RGB8_scale": 2.2573254134961013e-07,
+        "p95_RGB8_scale": 0.0,
+        "p99_RGB8_scale": 7.599592208862305e-06,
+        "max_RGB8_scale": 0.0001424923539161682,
+        "max_rounded_RGB8_difference": 0
+      },
+      "33_cube_flattening_diagnostic": {
+        "mean_RGB8_scale": 0.14002295804840292,
+        "p95_RGB8_scale": 0.48195093870162964,
+        "p99_RGB8_scale": 2.022160291671753,
+        "max_RGB8_scale": 27.834661602973938,
+        "max_rounded_RGB8_difference": 28,
+        "accepted_for_delivery": false
+      }
+    }
+  ],
+  "synthetic_reference_checks": [
+    {
+      "fixture": "identity",
+      "mean_RGB8_scale": 9.178830801433947e-05,
+      "p95_RGB8_scale": 0.0004996731877326965,
+      "p99_RGB8_scale": 0.0016396120190620422,
+      "max_RGB8_scale": 0.0043821148574352264,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "fixture": "permutation",
+      "mean_RGB8_scale": 5.659710727559217e-05,
+      "p95_RGB8_scale": 0.0001842901110649109,
+      "p99_RGB8_scale": 0.0012187846004962921,
+      "max_RGB8_scale": 0.004336517304182053,
+      "max_rounded_RGB8_difference": 1
+    },
+    {
+      "fixture": "nonlinear",
+      "mean_RGB8_scale": 0.00011432602783111285,
+      "p95_RGB8_scale": 0.000623166561126709,
+      "p99_RGB8_scale": 0.002290327101945877,
+      "max_RGB8_scale": 0.004298519343137741,
+      "max_rounded_RGB8_difference": 1
+    }
+  ],
+  "JPEG_proofs": [
+    {
+      "look": "astia",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09173495811410248,
+      "peak_rss_raw": 58392576,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/astia/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/astia-srgb.clf",
+          "bytes": 1600314,
+          "sha256": "2fe11e16c17e802b85e469a86df8b300daab13fa401b47a3b4be368c539183e6"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/astia/graded.jpg",
+          "bytes": 4512,
+          "sha256": "ee43fb4b1a97a09290d3f37a4ad992a55586c8bab86e06ad8bfbf738c341ced1"
+        }
+      ]
+    },
+    {
+      "look": "bleach-bypass",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09198249992914498,
+      "peak_rss_raw": 58851328,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/bleach-bypass/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/bleach-bypass-srgb.clf",
+          "bytes": 1501634,
+          "sha256": "87b249d6541e7b1d81cd1fd32b36d529d90ce5a1fff544f72056dda969259de2"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/bleach-bypass/graded.jpg",
+          "bytes": 4340,
+          "sha256": "47b5c290cea2baf5cca8cbf8888ba71af8bb70c11cb4e9f2d8e20a0a7ca639a5"
+        }
+      ]
+    },
+    {
+      "look": "classic-chrome",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09205233305692673,
+      "peak_rss_raw": 58818560,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/classic-chrome/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/classic-chrome-srgb.clf",
+          "bytes": 1600310,
+          "sha256": "92d53be5c1c41d81c5f1b5de351d7f942d563a972cd8984992fb5cb459f23493"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/classic-chrome/graded.jpg",
+          "bytes": 4469,
+          "sha256": "93e286f28a258ba36c8e5b6a480492e87626b78cd0befd857761f411c6998f47"
+        }
+      ]
+    },
+    {
+      "look": "classic-neg",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09210941684432328,
+      "peak_rss_raw": 59113472,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/classic-neg/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/classic-neg-srgb.clf",
+          "bytes": 1596554,
+          "sha256": "a3b13ec3fa3bb06e5be10c22311071ff986d8497664f2aba411af57fe6913bcc"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/classic-neg/graded.jpg",
+          "bytes": 4448,
+          "sha256": "142e6131f1260a9ca4456f0f79c41eb7be42a7e8e64d9675282206bd35c0b3b0"
+        }
+      ]
+    },
+    {
+      "look": "eterna",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09158741682767868,
+      "peak_rss_raw": 58949632,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/eterna/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/eterna-srgb.clf",
+          "bytes": 1599323,
+          "sha256": "12dbd3604f2f3b82b5f818299188a4d2ea9cd68df3a97f2fb5c6d0ff055ac396"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/eterna/graded.jpg",
+          "bytes": 4451,
+          "sha256": "714be6f72088fc353d995d16fbc3b5f9a5877720d12f51a38f45cf36ad8a00fe"
+        }
+      ]
+    },
+    {
+      "look": "nostalgic-neg",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09315904206596315,
+      "peak_rss_raw": 59293696,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/nostalgic-neg/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/nostalgic-neg-srgb.clf",
+          "bytes": 1600169,
+          "sha256": "79ab22a65065f23faeb812b6c86cf950aee406765dd8eb775ff60142f2c0c00d"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/nostalgic-neg/graded.jpg",
+          "bytes": 4420,
+          "sha256": "8c77732dbf30c97de409ddd2485d4133e6f5b7eb20aaf03d4a89ed773fe2db05"
+        }
+      ]
+    },
+    {
+      "look": "pro-neg-hi",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09150745905935764,
+      "peak_rss_raw": 59080704,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/pro-neg-hi/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/pro-neg-hi-srgb.clf",
+          "bytes": 1600304,
+          "sha256": "de8639735ed87db6251a7f056d6819c5afd318ab6322593a7e16c81d09c20a60"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/pro-neg-hi/graded.jpg",
+          "bytes": 4495,
+          "sha256": "e073272e90dc6090cf2618e43927b737f0ca568827125d54348a257ab1cc6e69"
+        }
+      ]
+    },
+    {
+      "look": "pro-neg-std",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09247704199515283,
+      "peak_rss_raw": 58998784,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/pro-neg-std/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/pro-neg-std-srgb.clf",
+          "bytes": 1600316,
+          "sha256": "af52789e183c802932a594d082a7fa0d364802627122ada93c7270c70f49f671"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/pro-neg-std/graded.jpg",
+          "bytes": 4508,
+          "sha256": "539de85bfb10d5118f2f30f0666032ac1a888a17eb6ca9fb5ee6dfbc5f3294e4"
+        }
+      ]
+    },
+    {
+      "look": "provia",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.09435287490487099,
+      "peak_rss_raw": 58638336,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/provia/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/provia-srgb.clf",
+          "bytes": 1600314,
+          "sha256": "a1964a9476657eabf5fd982aba5cfd1aec8ce4475c05aca80eb62c20aeb34e66"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/provia/graded.jpg",
+          "bytes": 4506,
+          "sha256": "401bd1e3607fca0a7e781d76a79cdb1365af2b8e88974b11864e0aa9c5a7ffa6"
+        }
+      ]
+    },
+    {
+      "look": "reala-ace",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.092279750155285,
+      "peak_rss_raw": 59047936,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/reala-ace/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/reala-ace-srgb.clf",
+          "bytes": 1600303,
+          "sha256": "6a090b6bbd24d85f65754d08331125b4cf6b48ac3a53553c65d51c847ab4a375"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/reala-ace/graded.jpg",
+          "bytes": 4427,
+          "sha256": "c6891dc5157d2f8aaded1c5515432fe34fbfac1b0f4b89b7a683dd52b2a50ea7"
+        }
+      ]
+    },
+    {
+      "look": "velvia",
+      "dimensions": [
+        256,
+        256
+      ],
+      "flat_patch_centers": 64,
+      "max_RGB8_error_including_JPEG_recompression": 1,
+      "original_unchanged": true,
+      "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+      "elapsed_seconds": 0.08944083307869732,
+      "peak_rss_raw": 58032128,
+      "peak_rss_units": "bytes",
+      "camera_performance_measurement": false,
+      "files": [
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/velvia/synthetic.jpg",
+          "bytes": 3800,
+          "sha256": "6c1e2e564294521df1a1199baca1d3d04a91549daebbedc83fad568cc3f6d1bf"
+        },
+        {
+          "path": "research/build/fujifilm-srgb/velvia-srgb.clf",
+          "bytes": 1600302,
+          "sha256": "fa9647f585a2e712d1e133401c710c8e682f9732c748fa94a58183255cb0dcc9"
+        },
+        {
+          "path": "research/build/fuji-validation-rj6sjqjo/velvia/graded.jpg",
+          "bytes": 4488,
+          "sha256": "35573ecc5564e9596682d5afa4188ed074962c375b8deda4242fe4b5f65561cc"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "photo_worker/README.md",
+      "sha256": "a46e3d349d972f866db8923d7124babf72a2fad8e7ed74a12faf0016c58d49c5"
+    },
+    {
+      "path": "photo_worker/__init__.py",
+      "sha256": "fb844d0ed139c3fcd935ad7ce62c37c1f70053f3a1194abfab4fdf374fae1ba2"
+    },
+    {
+      "path": "photo_worker/__main__.py",
+      "sha256": "c3829a0bb69ec5fd59b27fa16eb1da5c2b6558d58fc2cdc57b8356a61d918cc7"
+    },
+    {
+      "path": "photo_worker/adobe_table.py",
+      "sha256": "6fd841556282c57214039ee1c4ca7c2329d4079244dd4f201618e7015e7e6367"
+    },
+    {
+      "path": "photo_worker/clf.py",
+      "sha256": "6cffce337832018775107157b961db5042c81dea4f6dd59d26d2d791825edb22"
+    },
+    {
+      "path": "photo_worker/fujifilm.py",
+      "sha256": "8107d5e372d0f4331d338d74f6b09334cd4650664f20a561ed59804b2ea3c0db"
+    },
+    {
+      "path": "photo_worker/lens-presets.example.json",
+      "sha256": "292e6eddef010cc5f3d70d9150438ac0b3c5415cd1cdb48c41aaf6bd2a1fb674"
+    },
+    {
+      "path": "photo_worker/profiles.py",
+      "sha256": "e530dbe4389331c3087eadac49fd8a3a28b4d937054efb150c4905f2b15fa514"
+    },
+    {
+      "path": "photo_worker/requirements.txt",
+      "sha256": "37f2a311108883eab45b20778dfc259f1980a7df802751fbde57ca973edd0e53"
+    },
+    {
+      "path": "photo_worker/tests/test_adobe_table.py",
+      "sha256": "2b8154b4b647748324f37d566c1e6acf8fb7bba74e425b173d6d72ff21edaa90"
+    },
+    {
+      "path": "photo_worker/tests/test_fujifilm.py",
+      "sha256": "cc7ed307afdf5aa23ebdf41429d4f2ae15d53b00ca81e628ddef70996ac58c84"
+    },
+    {
+      "path": "photo_worker/tests/test_worker.py",
+      "sha256": "e8b8bfc3b88e909508aa342f656abc0f94538d869bf9b35df6e3e0188ea26b68"
+    },
+    {
+      "path": "photo_worker/worker.py",
+      "sha256": "9a0edd1e6159c33e0d6eb5d9f1d0ef3ab46fd2bb7a57fa30e1207ff9938bfd1b"
+    },
+    {
+      "path": "research/check_fujifilm_conversion.py",
+      "sha256": "fb487759af04f18978067868dc0a40cca4a49d488b106bac0be36d219e46313b"
+    },
+    {
+      "path": "research/adobe_rgb_table_oracle.cpp",
+      "sha256": "6f7d81ef8c435a7f6db0d944972549f18e0878583ee3ffabcf69cac809522330"
+    },
+    {
+      "path": "licenses/Adobe-DNG-SDK.txt",
+      "sha256": "89d75e1bfd65269c41ec57be67adacd48926af81554574d92742f96296ed9166"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "0557e8d06ba27934f2710f219363f80a3772ecc3cc18f52c4e38bbbcb307ab4c"
+    }
+  ],
+  "full_resolution_JPEG_proof": {
+    "look": "classic-chrome-full",
+    "dimensions": [
+      7008,
+      4672
+    ],
+    "flat_patch_centers": 64,
+    "max_RGB8_error_including_JPEG_recompression": 1,
+    "original_unchanged": true,
+    "independent_ExifTool_capture_and_manual_lens_tags": "passed",
+    "elapsed_seconds": 14.341728958068416,
+    "peak_rss_raw": 465190912,
+    "peak_rss_units": "bytes",
+    "camera_performance_measurement": false,
+    "files": [
+      {
+        "path": "research/build/fuji-validation-rj6sjqjo/classic-chrome-full/synthetic.jpg",
+        "bytes": 998869,
+        "sha256": "d0b4938d14023a24cbf3dfc7d8f4935ca5563266085abe0d35eec9d061a10f58"
+      },
+      {
+        "path": "research/build/fujifilm-srgb/classic-chrome-srgb.clf",
+        "bytes": 1600310,
+        "sha256": "92d53be5c1c41d81c5f1b5de351d7f942d563a972cd8984992fb5cb459f23493"
+      },
+      {
+        "path": "research/build/fuji-validation-rj6sjqjo/classic-chrome-full/graded.jpg",
+        "bytes": 970060,
+        "sha256": "4a6805483d702fd1eec317e17aef73d0fe1e7821f6806da065715804aee7792b"
+      }
+    ]
+  },
+  "passed": true
+}

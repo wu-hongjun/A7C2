@@ -46,7 +46,7 @@
     {
       "path": "research/build/lut-reference/alpha-output.png",
       "bytes": 1007,
-      "sha256": "e0ad51ff54a98c6868a52589d1a2f8583926cde3c4223de7fb08c18adbfd2271"
+      "sha256": "7c2c9b0a47298bbbe3ed9d3f1ada7a18371f95dc87ff3e684d77bb47193dd58d"
     },
     {
       "path": "research/build/lut-reference/cli-proof.png",
@@ -56,7 +56,7 @@
     {
       "path": "research/build/lut-reference/graded.jpg",
       "bytes": 2782,
-      "sha256": "c4c35e1d1d076ac676bf83405f7f734de684fd7935ff83bac740de20092a2a4b"
+      "sha256": "f854224457cde4ded5c0809174e291cf4d9f325d79223c5b0057b7015af9b42d"
     },
     {
       "path": "research/build/lut-reference/identity-17.cube",
@@ -66,7 +66,7 @@
     {
       "path": "research/build/lut-reference/identity.png",
       "bytes": 902,
-      "sha256": "160479a7cf57c2f88f6d84e508d4ac87a8a9068d09d7013b792535eb6362db10"
+      "sha256": "320b541109ca13690b8b421af14d04a8e994aa83a7824468f6e476c710c189e7"
     },
     {
       "path": "research/build/lut-reference/input-srgb.png",
@@ -106,22 +106,22 @@
     {
       "path": "research/build/lut-reference/oriented.png",
       "bytes": 6413,
-      "sha256": "e0bbcde7344b20a6fef59ea729c8d50be2cfe8e4d153a95dbd17fa1cc1a678b8"
+      "sha256": "6052775694abfe59e3f75242e8fe0b5600604ff5be9937849c0cc31eafa0957d"
     },
     {
       "path": "research/build/lut-reference/permuted.png",
       "bytes": 907,
-      "sha256": "2b26cb5bad46b67c0b58f915feb92589665527b60e222196d455e22380dab483"
+      "sha256": "d26dfde90c13a3e8d9d6f20322eeffe220219d0c216e4074e09f08b57cde6d29"
     },
     {
       "path": "research/build/lut-reference/tagged-output.png",
       "bytes": 902,
-      "sha256": "160479a7cf57c2f88f6d84e508d4ac87a8a9068d09d7013b792535eb6362db10"
+      "sha256": "320b541109ca13690b8b421af14d04a8e994aa83a7824468f6e476c710c189e7"
     },
     {
       "path": "research/build/lut-reference/tagged.png",
       "bytes": 902,
-      "sha256": "160479a7cf57c2f88f6d84e508d4ac87a8a9068d09d7013b792535eb6362db10"
+      "sha256": "320b541109ca13690b8b421af14d04a8e994aa83a7824468f6e476c710c189e7"
     }
   ]
 }

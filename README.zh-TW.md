@@ -2,7 +2,7 @@
 
 [English](./README.md) | 繁體中文
 
-[主機端JPEG工作程式原型](photo_worker/README.md)可對已完成照片套用sRGB CUBE及手動鏡頭EXIF預設，另存JPEG副本；已通過完整解析度離線測試，未在相機安裝或執行。使用者提供的Fujifilm Adobe RAW設定檔已完成清冊，仍需驗證過的sRGB JPEG轉換。
+[主機端JPEG工作程式原型](photo_worker/README.md)可對已完成照片套用sRGB CUBE及手動鏡頭EXIF預設，另存JPEG副本；已通過完整解析度離線測試，未在相機安裝或執行。使用者提供的11種Fujifilm RGBTable色彩階段已有[通過Adobe本機SDK數值驗證的sRGB JPEG CLF轉換](research/FUJIFILM_SRGB_CONVERSION.md)；不包含完整RAW/DCP流程，也不是機內創意外觀。
 
 [10月18日離線研究](research/CAPTURE_HANDOFF.md)追出一條輸入請求經PCIe傳輸到JPEG編碼輸入的路徑，但尚未與MLUT來源連接。[原型計畫](research/STILL_PROTOTYPE_PLAN.md)涵蓋AUTO創意外觀、Fujifilm設定檔、機內InstantLink列印及手動鏡頭EXIF切換；本次未操作相機。
 

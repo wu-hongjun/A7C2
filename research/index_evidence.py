@@ -12,7 +12,7 @@ def main():
     paths = {ROOT/row['path'] for row in data['artifacts']}
     paths.update(ROOT/name for name in ('README.md', 'README.zh-TW.md', '.gitignore', '.gitattributes'))
     research = ROOT/'research'
-    for pattern in ('*.md', '*.py', '*.mjs', 'requirements*.txt'):
+    for pattern in ('*.md', '*.py', '*.mjs', '*.cpp', 'requirements*.txt'):
         paths.update(research.glob(pattern))
     for directory in ('evidence', 'toolchains', 'rea-jobs'):
         paths.update(p for p in (research/directory).rglob('*') if p.is_file())
@@ -20,6 +20,8 @@ def main():
     for pattern in ('*.py', '*.md', 'requirements*.txt', '*.example.json'):
         paths.update(worker.glob(pattern))
     paths.update((worker/'tests').glob('test_*.py'))
+    paths.update((ROOT/'licenses').glob('*.txt'))
+    paths.add(ROOT/'NOTICE.md')
     paths.discard(output)
     data['artifacts'] = []
     for path in sorted(paths):

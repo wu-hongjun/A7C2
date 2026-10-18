@@ -24,18 +24,18 @@
     },
     {
       "path": "NOTICE.md",
-      "bytes": 1822,
-      "sha256": "902b8b7477b62de73cc79ff700f2d10981f57e87a9d9b5d5e28b5d8c1af76af4"
+      "bytes": 3062,
+      "sha256": "0557e8d06ba27934f2710f219363f80a3772ecc3cc18f52c4e38bbbcb307ab4c"
     },
     {
       "path": "README.md",
-      "bytes": 29482,
-      "sha256": "7a44836bc6b112cfc16425460f69b5a2a377585039c533a498fbd1e33e636fae"
+      "bytes": 29632,
+      "sha256": "6ed9faa5abba4b3e6cff4328b636fa9fe35d74c5ab636bbc0768e8b7d2677a5b"
     },
     {
       "path": "README.zh-TW.md",
-      "bytes": 23030,
-      "sha256": "51f9b09f1c3f08292e251e92e0350d680f8d3b943e4f6ec6f2c77516a68fb8ef"
+      "bytes": 23147,
+      "sha256": "cad3c33d3355fa8a9167c0d871a01bb7af53808e762b7a4c0a7074e86d76353b"
     },
     {
       "path": "VALIDATION.json",
@@ -53,6 +53,16 @@
       "sha256": "25cd13025306880da8935cb9aeb52a312142c8a04b8da0f13a90c9862744369f"
     },
     {
+      "path": "licenses/Adobe-DNG-SDK.txt",
+      "bytes": 5283,
+      "sha256": "89d75e1bfd65269c41ec57be67adacd48926af81554574d92742f96296ed9166"
+    },
+    {
+      "path": "licenses/Sony-PMCA-RE-MIT.txt",
+      "bytes": 1093,
+      "sha256": "f40fa84ebd3c1329fc6f4b75c11af9df6b19ae9a0485a02e85a5eeb476fcd94e"
+    },
+    {
       "path": "licenses/a7c2-fl23-macos-MIT.txt",
       "bytes": 1290,
       "sha256": "4a99d78c5a839e62af4835eaab77c6657ee206581a495b38ea9a1afa11c539fc"
@@ -64,8 +74,8 @@
     },
     {
       "path": "photo_worker/README.md",
-      "bytes": 8990,
-      "sha256": "4c5f625fa549fa2ae70597bfec32bf3fa89cd9aa6bf186c9c8dce3883ac9ae48"
+      "bytes": 10403,
+      "sha256": "a46e3d349d972f866db8923d7124babf72a2fad8e7ed74a12faf0016c58d49c5"
     },
     {
       "path": "photo_worker/__init__.py",
@@ -74,8 +84,23 @@
     },
     {
       "path": "photo_worker/__main__.py",
-      "bytes": 2195,
-      "sha256": "6730a8716fda2bcb9c9c5ef2fe8f8c629af85006e33269960d113d5c4ff6f6d2"
+      "bytes": 3081,
+      "sha256": "c3829a0bb69ec5fd59b27fa16eb1da5c2b6558d58fc2cdc57b8356a61d918cc7"
+    },
+    {
+      "path": "photo_worker/adobe_table.py",
+      "bytes": 6128,
+      "sha256": "6fd841556282c57214039ee1c4ca7c2329d4079244dd4f201618e7015e7e6367"
+    },
+    {
+      "path": "photo_worker/clf.py",
+      "bytes": 4045,
+      "sha256": "6cffce337832018775107157b961db5042c81dea4f6dd59d26d2d791825edb22"
+    },
+    {
+      "path": "photo_worker/fujifilm.py",
+      "bytes": 6485,
+      "sha256": "8107d5e372d0f4331d338d74f6b09334cd4650664f20a561ed59804b2ea3c0db"
     },
     {
       "path": "photo_worker/lens-presets.example.json",
@@ -93,14 +118,24 @@
       "sha256": "37f2a311108883eab45b20778dfc259f1980a7df802751fbde57ca973edd0e53"
     },
     {
+      "path": "photo_worker/tests/test_adobe_table.py",
+      "bytes": 3509,
+      "sha256": "2b8154b4b647748324f37d566c1e6acf8fb7bba74e425b173d6d72ff21edaa90"
+    },
+    {
+      "path": "photo_worker/tests/test_fujifilm.py",
+      "bytes": 4901,
+      "sha256": "cc7ed307afdf5aa23ebdf41429d4f2ae15d53b00ca81e628ddef70996ac58c84"
+    },
+    {
       "path": "photo_worker/tests/test_worker.py",
       "bytes": 13135,
       "sha256": "e8b8bfc3b88e909508aa342f656abc0f94538d869bf9b35df6e3e0188ea26b68"
     },
     {
       "path": "photo_worker/worker.py",
-      "bytes": 16226,
-      "sha256": "9615dae8a67f2dc044eb40a5ec8669fd090a9269edea752be5d36875c5d9985e"
+      "bytes": 16747,
+      "sha256": "9a0edd1e6159c33e0d6eb5d9f1d0ef3ab46fd2bb7a57fa30e1207ff9938bfd1b"
     },
     {
       "path": "research/A7C2_FIRMWARE_ATLAS.md",
@@ -163,6 +198,11 @@
       "sha256": "15783a0e069ff94347ee715e7c532ff25264023ed02969eb0ec3bccc51e6efb1"
     },
     {
+      "path": "research/FUJIFILM_SRGB_CONVERSION.md",
+      "bytes": 11170,
+      "sha256": "9904b756feb8c85bbc2d4eaf1ad36e7a8d42a8ef95735aab53be6834404058d7"
+    },
+    {
       "path": "research/HEIF_BINDING.md",
       "bytes": 10915,
       "sha256": "788067548d05d49e6ec57705aefd50c7d8d91faf187606e77c4af2eb9a41078d"
@@ -219,8 +259,8 @@
     },
     {
       "path": "research/README.md",
-      "bytes": 22317,
-      "sha256": "995aae2c00ef85956c95c1386d5a4d163a39a4c3fb406eea254fe0f9c1f4f359"
+      "bytes": 22611,
+      "sha256": "286d83c774549534a7993b8ff311f08d4cdef09d26c44503d7e27ff49dd53a1e"
     },
     {
       "path": "research/RECORDING_BUFFER_OWNERSHIP.md",
@@ -259,8 +299,8 @@
     },
     {
       "path": "research/STILL_PROTOTYPE_PLAN.md",
-      "bytes": 15999,
-      "sha256": "a1e8ea46ff00dd830868f21eae432b6f64fd99ddd13420818a2de644f774ad57"
+      "bytes": 16352,
+      "sha256": "0a4916a54163bafeabfb9d27d5d5903be8b62ade53d69d0d9076fe33a3c0423c"
     },
     {
       "path": "research/STILL_RECORDING_BOUNDARY.md",
@@ -271,6 +311,11 @@
       "path": "research/STILL_SINK.md",
       "bytes": 15473,
       "sha256": "868ff62c96acb0d8af843a92b05288c4197e5a461ff1cfbb33be66a5a5776fb6"
+    },
+    {
+      "path": "research/adobe_rgb_table_oracle.cpp",
+      "bytes": 5159,
+      "sha256": "6f7d81ef8c435a7f6db0d944972549f18e0878583ee3ffabcf69cac809522330"
     },
     {
       "path": "research/audit_baseline.py",
@@ -288,9 +333,14 @@
       "sha256": "195dc9ca6f077acba540327912610b8c47ce36ccb12d52e5bf8a257484ec5d53"
     },
     {
+      "path": "research/check_fujifilm_conversion.py",
+      "bytes": 13815,
+      "sha256": "fb487759af04f18978067868dc0a40cca4a49d488b106bac0be36d219e46313b"
+    },
+    {
       "path": "research/check_jpeg_worker.py",
-      "bytes": 7949,
-      "sha256": "dc4e96e79c2687c17dd57e26f4a4be61b36448672f14bcc03a2b136e25c53307"
+      "bytes": 8058,
+      "sha256": "c77f76b740b6e51c11509a16c6865d010dadb41144e25d76816b4dbc34215787"
     },
     {
       "path": "research/check_lut_reference.py",
@@ -433,9 +483,24 @@
       "sha256": "c9b5c83e9ef34e091868291f0e67756ba942fa93a5eb2c5885c33eecc5fcb030"
     },
     {
+      "path": "research/evidence/fujifilm-decoded-tables.json",
+      "bytes": 9958,
+      "sha256": "5932af47ce425ad85d33b2138d33003d6e25074a2524846ff111761243ef79f9"
+    },
+    {
       "path": "research/evidence/fujifilm-profile-pack.json",
       "bytes": 334628,
       "sha256": "788c75939f0c487c8300c1a4a9a2965fdb329e4cce7e585a534e3bd0683a99fd"
+    },
+    {
+      "path": "research/evidence/fujifilm-srgb-checks.json",
+      "bytes": 41770,
+      "sha256": "d4b07213c9c30959484d62e8fa12e0e9b4fff00f6c8f71eb06fc082ded4a1a97"
+    },
+    {
+      "path": "research/evidence/fujifilm-srgb-publication-checks.json",
+      "bytes": 3333,
+      "sha256": "596dbfc52513ceaed21debf87331f0276a99426b70c4278bd4bf4748a0fbfd85"
     },
     {
       "path": "research/evidence/heif-binding.json",
@@ -504,8 +569,8 @@
     },
     {
       "path": "research/evidence/jpeg-worker-checks.json",
-      "bytes": 3888,
-      "sha256": "3168b9624d75d08b6997f916ad449b7a90b758b5e6e6252126e68b56e9f5849d"
+      "bytes": 4702,
+      "sha256": "e6ee5f2afac9f6a518dfb007c3aa0604c458dc318b44017d0ab79fc9c92063d4"
     },
     {
       "path": "research/evidence/jpeg-worker-publication-checks.json",
@@ -515,7 +580,7 @@
     {
       "path": "research/evidence/lut-reference-checks.json",
       "bytes": 4273,
-      "sha256": "6d0bfd20fd8249a8d642464250da4d81f20ac4095292cc511e61ed49e0f8b3ac"
+      "sha256": "c6119fd6641ddfe5234ecd0f9d3e99b0af7fe693dddc53c8fe75a668bd98f518"
     },
     {
       "path": "research/evidence/lut-transfer.json",
@@ -2604,8 +2669,8 @@
     },
     {
       "path": "research/index_evidence.py",
-      "bytes": 1730,
-      "sha256": "e20c67c5089fca0c3756dc94c79b10e5776d1e3ad4d1fc29cd41acb92979896c"
+      "bytes": 1821,
+      "sha256": "63d967a781354ec1e35a19a21e6d7fbd180a37868b5eeb01fd1c33ceedf563de"
     },
     {
       "path": "research/inventory_av_cam_context.py",

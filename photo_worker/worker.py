@@ -140,7 +140,7 @@ def prepare(source, job, *, cube=None, lut_contract=None, lens_presets=None, len
             raise ValueError("Actual aperture requires a selected lens")
         number(aperture, lens['max_aperture'], 128, 'Actual shooting aperture')
     if cube is None and lut_contract is not None:
-        raise ValueError("A LUT contract requires a CUBE file")
+        raise ValueError("A LUT contract requires a LUT file")
     assets = {'input.jpg': read_limited(source, MAX_JPEG_BYTES)}
     info = jpeg_info(assets['input.jpg'])
     if not info['has_icc'] and not assume_srgb:
@@ -148,10 +148,12 @@ def prepare(source, job, *, cube=None, lut_contract=None, lens_presets=None, len
     if cube is not None:
         if lut_contract != SRGB_CONTRACT:
             raise ValueError(f"LUT requires explicit --lut-contract {SRGB_CONTRACT}; XMP/DCP are not JPEG LUTs")
-        if Path(cube).suffix.lower() != '.cube':
-            raise ValueError("Only 17/33-point 3D CUBE accepted; Adobe RAW XMP/DCP need a separate validated bake")
-        assets['look.cube'] = read_limited(cube, MAX_CUBE_BYTES)
-        parse_cube(assets['look.cube'].decode('utf-8-sig'))
+        suffix = Path(cube).suffix.lower()
+        if suffix not in ('.cube', '.clf'):
+            raise ValueError("Only 17/33-point CUBE or converter-subset CLF accepted; Adobe RAW XMP/DCP need conversion")
+        name = 'look'+suffix
+        assets[name] = read_limited(cube, MAX_CUBE_BYTES)
+        parse_lut(name, assets[name])
     payload = {'schema': 1, 'completed_asserted': True, 'input': info,
                'assets': {name: {'bytes': len(raw), 'sha256': sha(raw)} for name, raw in assets.items()},
                'lut_contract': lut_contract, 'lens': lens, 'actual_aperture': aperture,
@@ -195,7 +197,7 @@ def load_job(job):
         raise ValueError("Unsupported/incomplete job")
     if type(p['assume_srgb']) is not bool or type(p['quality']) is not int or not 1 <= p['quality'] <= 100:
         raise ValueError("Invalid job output options")
-    if not isinstance(p['assets'], dict) or set(p['assets']) not in ({'input.jpg'}, {'input.jpg', 'look.cube'}):
+    if not isinstance(p['assets'], dict) or set(p['assets']) not in ({'input.jpg'}, {'input.jpg', 'look.cube'}, {'input.jpg', 'look.clf'}):
         raise ValueError("Invalid job asset names")
     assets = {}
     for name, identity in p['assets'].items():
@@ -213,13 +215,24 @@ def load_job(job):
         if not p['lens']:
             raise ValueError("Actual aperture has no lens snapshot")
         number(p['actual_aperture'], p['lens']['max_aperture'], 128, 'Actual shooting aperture')
-    if ('look.cube' in assets and p['lut_contract'] != SRGB_CONTRACT) or ('look.cube' not in assets and p['lut_contract'] is not None):
+    has_lut = len(assets) == 2
+    if (has_lut and p['lut_contract'] != SRGB_CONTRACT) or (not has_lut and p['lut_contract'] is not None):
         raise ValueError("Invalid LUT color contract")
     return doc, assets
 
 
+def parse_lut(name, raw):
+    if name == 'look.clf':
+        from .clf import parse_clf
+        return parse_clf(raw)
+    return parse_cube(raw.decode('utf-8-sig'))
+
+
 def processor_for(cube):
     import PyOpenColorIO as ocio
+    from .clf import CLFLut, processor
+    if isinstance(cube, CLFLut):
+        return processor(cube)
     lut = ocio.Lut3DTransform(gridSize=cube.size, interpolation=ocio.INTERP_LINEAR)
     n = cube.size
     for i, row in enumerate(cube.values):
@@ -308,8 +321,9 @@ def run(job, destination, *, strip_rows=16):
                                                renderingIntent=0, outputMode='RGB')
             except (OSError, ValueError, ImageCms.PyCMSError) as exc:
                 raise ValueError("Invalid/unsupported RGB ICC profile") from exc
-        if 'look.cube' in assets:
-            rgb = grade(rgb, parse_cube(assets['look.cube'].decode('utf-8-sig')), strip_rows)
+        look_name = next((n for n in ('look.cube', 'look.clf') if n in assets), None)
+        if look_name:
+            rgb = grade(rgb, parse_lut(look_name, assets[look_name]), strip_rows)
         exif = output_exif(original, p['lens'], p['actual_aperture'], rgb.size)
         temporary = None
         try:
@@ -331,7 +345,8 @@ def run(job, destination, *, strip_rows=16):
                 temporary.unlink(missing_ok=True)
     return {'output': str(destination.resolve()), 'output_sha256': sha(destination.read_bytes()),
             'job_sha256': doc['sha256'], 'dimensions': list(rgb.size), 'lens': p['lens'],
-            'actual_aperture': p['actual_aperture'], 'lut_applied': 'look.cube' in assets,
-            'color_contract': SRGB_CONTRACT, 'interpolation': 'trilinear via OpenColorIO',
+            'actual_aperture': p['actual_aperture'], 'lut_applied': look_name is not None,
+            'color_contract': SRGB_CONTRACT,
+            'interpolation': 'CLF transfer/matrices/clamps and tetrahedral RGBTable via OpenColorIO' if look_name == 'look.clf' else 'trilinear via OpenColorIO',
             'metadata_policy': 'allowlisted capture EXIF; baked orientation; fresh sRGB ICC; no GPS/MakerNotes/thumbnail',
             'host_only': True}

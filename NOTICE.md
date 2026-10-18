@@ -11,3 +11,26 @@ macOS整合使用 [MDHan/a7c2-fl23-macos](https://github.com/MDHan/a7c2-fl23-mac
 - Sony官方 A7C II 2.01 與 Alpha 1 II 4.00 是程式／色彩資料分析來源；Sony商標與韌體資料權利仍屬原權利人。本包沒有完整Sony韌體、官方更新容器、任一機身的完整備份或校準單元。新程式碼的MIT授權不宣稱涵蓋Sony的韌體資料。
 
 這是非Sony官方的研究預覽版；發布內容與驗證狀態以對應倉庫說明及 `VALIDATION.json` 為準。
+
+## Adobe DNG SDK reference and derived color algorithms
+
+The RGBTable predictor/format interpretation, color matrices, transfer functions
+and interpolation harness in `photo_worker/adobe_table.py`,
+`photo_worker/fujifilm.py` and `research/adobe_rgb_table_oracle.cpp` use the
+user-supplied Adobe DNG SDK 1.7.1 source as their reference. Applicable Adobe
+portions retain the [DNG SDK license](licenses/Adobe-DNG-SDK.txt); this repository's
+MIT license does not replace it.
+
+Copyright 2006-2023 Adobe Systems Incorporated (dng_reference.cpp).
+Copyright 2015-2023 Adobe Systems Incorporated (dng_big_table.cpp/.h).
+Copyright 2006-2019 Adobe Systems Incorporated (dng_color_space.cpp).
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute these files in
+accordance with the terms of the Adobe license agreement accompanying them.
+
+The offline checker extracts the original reference function into an ignored
+build folder, preserving its source notice. The SDK archive, original profiles,
+demo photographs and generated profile LUT arrays remain local; committed
+evidence records their fingerprints and validation results. Fujifilm and Adobe
+names identify source material and do not imply an official rendering match.

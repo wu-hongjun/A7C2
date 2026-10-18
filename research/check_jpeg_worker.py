@@ -124,7 +124,8 @@ def main():
         evidence['Fujifilm_pack'] = {'inventory': 'research/evidence/fujifilm-profile-pack.json',
             'files_hashed': len(pack['files']), 'XMP_profiles': sum(x.get('PresetType') == 'Look' for x in profiles),
             'XMP_wrappers': sum(x.get('PresetType') == 'Normal' for x in profiles),
-            'DCP_summary_independently_crosschecked': True, 'JPEG_compatible_Fujifilm_looks': 0,
+            'DCP_summary_independently_crosschecked': True, 'original_XMPs_directly_JPEG_compatible': 0,
+            'converted_RGBTable_sRGB_CLF_validation': 'research/evidence/fujifilm-srgb-checks.json',
             'source_profile_bytes_republished': False}
     for path in sorted((ROOT/'photo_worker').rglob('*')):
         if path.is_file() and '__pycache__' not in path.parts:

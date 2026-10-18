@@ -4,7 +4,7 @@
   "camera_accessed": false,
   "network_accessed": false,
   "camera_installation": false,
-  "worker_tests": 15,
+  "worker_tests": 26,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
@@ -13,7 +13,7 @@
   "sources": [
     {
       "path": "photo_worker/README.md",
-      "sha256": "4c5f625fa549fa2ae70597bfec32bf3fa89cd9aa6bf186c9c8dce3883ac9ae48"
+      "sha256": "a46e3d349d972f866db8923d7124babf72a2fad8e7ed74a12faf0016c58d49c5"
     },
     {
       "path": "photo_worker/__init__.py",
@@ -21,7 +21,19 @@
     },
     {
       "path": "photo_worker/__main__.py",
-      "sha256": "6730a8716fda2bcb9c9c5ef2fe8f8c629af85006e33269960d113d5c4ff6f6d2"
+      "sha256": "c3829a0bb69ec5fd59b27fa16eb1da5c2b6558d58fc2cdc57b8356a61d918cc7"
+    },
+    {
+      "path": "photo_worker/adobe_table.py",
+      "sha256": "6fd841556282c57214039ee1c4ca7c2329d4079244dd4f201618e7015e7e6367"
+    },
+    {
+      "path": "photo_worker/clf.py",
+      "sha256": "6cffce337832018775107157b961db5042c81dea4f6dd59d26d2d791825edb22"
+    },
+    {
+      "path": "photo_worker/fujifilm.py",
+      "sha256": "8107d5e372d0f4331d338d74f6b09334cd4650664f20a561ed59804b2ea3c0db"
     },
     {
       "path": "photo_worker/lens-presets.example.json",
@@ -36,16 +48,24 @@
       "sha256": "37f2a311108883eab45b20778dfc259f1980a7df802751fbde57ca973edd0e53"
     },
     {
+      "path": "photo_worker/tests/test_adobe_table.py",
+      "sha256": "2b8154b4b647748324f37d566c1e6acf8fb7bba74e425b173d6d72ff21edaa90"
+    },
+    {
+      "path": "photo_worker/tests/test_fujifilm.py",
+      "sha256": "cc7ed307afdf5aa23ebdf41429d4f2ae15d53b00ca81e628ddef70996ac58c84"
+    },
+    {
       "path": "photo_worker/tests/test_worker.py",
       "sha256": "e8b8bfc3b88e909508aa342f656abc0f94538d869bf9b35df6e3e0188ea26b68"
     },
     {
       "path": "photo_worker/worker.py",
-      "sha256": "9615dae8a67f2dc044eb40a5ec8669fd090a9269edea752be5d36875c5d9985e"
+      "sha256": "9a0edd1e6159c33e0d6eb5d9f1d0ef3ab46fd2bb7a57fa30e1207ff9938bfd1b"
     },
     {
       "path": "research/check_jpeg_worker.py",
-      "sha256": "dc4e96e79c2687c17dd57e26f4a4be61b36448672f14bcc03a2b136e25c53307"
+      "sha256": "c77f76b740b6e51c11509a16c6865d010dadb41144e25d76816b4dbc34215787"
     }
   ],
   "environment": {
@@ -80,26 +100,26 @@
       "ExifIFD:ExposureTime": 0.008,
       "IFD0:Orientation": 1
     },
-    "elapsed_seconds": 13.914814124815166,
-    "peak_rss_raw": 460111872,
+    "elapsed_seconds": 14.003758582985029,
+    "peak_rss_raw": 456278016,
     "peak_rss_units": "bytes",
     "camera_measurement": false,
-    "fixture_directory": "research/build/jpeg-worker/proof-4srjk5f_",
+    "fixture_directory": "research/build/jpeg-worker/proof-kfnuulaz",
     "fixture_files": [
       {
-        "path": "research/build/jpeg-worker/proof-4srjk5f_/synthetic-input.jpg",
+        "path": "research/build/jpeg-worker/proof-kfnuulaz/synthetic-input.jpg",
         "bytes": 998869,
         "sha256": "d0b4938d14023a24cbf3dfc7d8f4935ca5563266085abe0d35eec9d061a10f58"
       },
       {
-        "path": "research/build/jpeg-worker/proof-4srjk5f_/channel-permutation.cube",
+        "path": "research/build/jpeg-worker/proof-kfnuulaz/channel-permutation.cube",
         "bytes": 88483,
         "sha256": "793ff830de35a85920e188a7eb02d75d0944b586d50df859c436cf274afbfa25"
       },
       {
-        "path": "research/build/jpeg-worker/proof-4srjk5f_/graded-lens-copy.jpg",
+        "path": "research/build/jpeg-worker/proof-kfnuulaz/graded-lens-copy.jpg",
         "bytes": 966749,
-        "sha256": "5da7c7c98bf3346e3b422f6f9702b23ae673573e8cad47ab11b25f11f75f7471"
+        "sha256": "a1268bf0154a709b7d082898a5e012caef40efe71ea5834052b8344d39dd6187"
       }
     ]
   },
@@ -109,7 +129,8 @@
     "XMP_profiles": 11,
     "XMP_wrappers": 11,
     "DCP_summary_independently_crosschecked": true,
-    "JPEG_compatible_Fujifilm_looks": 0,
+    "original_XMPs_directly_JPEG_compatible": 0,
+    "converted_RGBTable_sRGB_CLF_validation": "research/evidence/fujifilm-srgb-checks.json",
     "source_profile_bytes_republished": false
   }
 }
