@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/hongjunwu/Git/A7C2/research/evidence/rea/avbbc-encoder-transport/evidence-bundle.json\",\"bytes\":110440,\"records\":10,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/avbbc-encoder-transport/evidence-bundle.json",
+      "bytes": 110440,
+      "records": 10,
+      "unknowns": 0
+    }
+  }
+}

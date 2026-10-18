@@ -206,6 +206,42 @@ def main():
                for row in sections['alignment_cases'])
     instruction_counts['HQ_sections'] = verify_instruction_bytes({
         'source':sections['source'],'regions':sections['static_ranges']})
+    # Follow-up encoder and save-boundary evidence remains separate from the
+    # historical mappers: it must never silently strengthen their old claims.
+    bridge = core.read_json(ROOT/'research/evidence/avbbc-encoder-bridge.json')
+    heif = core.read_json(ROOT/'research/evidence/heif-encoder.json')
+    mlut_link = core.read_json(ROOT/'research/evidence/mlut-encoder-link.json')
+    save_link = core.read_json(ROOT/'research/evidence/encoder-save-link.json')
+    for followup in [bridge,heif,mlut_link,save_link]:
+        walk(followup)
+    assert not bridge['camera_access'] and not bridge['network_access'] and not bridge['codec_execution']
+    assert bridge['counts']['builder_cases'] == 256
+    assert bridge['counts']['submission_cases'] == 3 and bridge['counts']['response_cases'] == 12
+    assert bridge['conversion_cases'][0]['category'] == '0x2000'
+    assert bridge['conversion_cases'][0]['command'] == '0x4'
+    assert bridge['conversion_cases'][1]['logical_command'] == '0x534'
+    assert bridge['conversion_cases'][1]['command'] == '0xffff'
+    assert bridge['bounded_dynamic_definition_inventory']['ELF_files_inspected'] == 650
+    for table in bridge['conversion_tables']:
+        source_bytes = (ROOT/bridge['source']['path']).read_bytes()
+        raw = bytes.fromhex(table['raw_hex']); offset = table['file_offset']
+        assert source_bytes[offset:offset+len(raw)] == raw
+    instruction_counts['AP_JPEG_encoder_bridge'] = verify_instruction_bytes(bridge)
+    assert not heif['camera_access'] and not heif['network_access'] and not heif['codec_execution']
+    hc = heif['counts']
+    assert [hc[k] for k in ['enum_helper_cases','parameter_builder_cases','aspect_cases','submission_cases','response_cases','sequence_cases','open_close_request_cases','open_close_response_cases']] == [2304,288,7,3,24,16,2,9]
+    instruction_counts['AP_HEIF_encoder'] = verify_instruction_bytes({'source':heif['source'],'regions':heif['static_regions']})
+    assert not mlut_link['camera_accessed'] and not mlut_link['target_executed']
+    assert mlut_link['verification']['decoded_regions'] == 23
+    assert mlut_link['verification']['host_cases'] == 39
+    instruction_counts['CP_MLUT_pixel_encoder_link'] = verify_instruction_bytes(mlut_link)
+    assert not save_link['camera_accessed'] and not save_link['camera_transport_opened'] and not save_link['target_media_encoded']
+    assert save_link['host_dataflow_cases']['cases'] == len(save_link['host_dataflow_cases']['results']) == 18
+    instruction_counts['AP_notification_save_link'] = verify_instruction_bytes(save_link)
+    followup_counts = {'AP_JPEG_bridge':274,'AP_HEIF_encoder':sum(hc[k] for k in hc if k!='original_instruction_regions'),
+                       'CP_MLUT_pixel_link':mlut_link['verification']['host_cases'],
+                       'AP_notification_save_link':save_link['host_dataflow_cases']['cases']}
+    assert followup_counts['AP_HEIF_encoder'] == 2653
     rea = core.read_json(ROOT/'research/evidence/rea/index.json')
     for row in rea['records']:
         path = ROOT/row['path']
@@ -254,6 +290,8 @@ def main():
               'AP_file_sink_host_cases': 95, 'AP_file_sink_REA_records': 19,
               'CP_JPEG_encoder_host_cases': encoder['verification']['host_cases'],
               'new_instruction_records_byte_verified': instruction_counts,
+              'encoder_followup_host_cases': followup_counts,
+              'encoder_followup_host_cases_total': sum(followup_counts.values()),
               'HQ_converter_completed_fixtures': len(hq['cases']),
               'HQ_quantizer_samples_compared': samples,
               'HQ_identity_coordinate_samples': 24000,

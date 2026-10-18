@@ -1,0 +1,168 @@
+{
+  "camera_accessed": false,
+  "target_execution_requested": false,
+  "operations": [
+    {
+      "operation": "open_binary",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraAvbbc.so",
+        "provider_id": "ghidra"
+      },
+      "result_file": "open.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:09.816Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x1218a8"
+      },
+      "result_file": "00-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:35.880Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x121ba0"
+      },
+      "result_file": "01-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:35.906Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x1226c4"
+      },
+      "result_file": "02-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:35.945Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x122b44"
+      },
+      "result_file": "03-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:35.960Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x120e64"
+      },
+      "result_file": "04-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:35.965Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x120150"
+      },
+      "result_file": "05-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:35.996Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x1205b4"
+      },
+      "result_file": "06-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.005Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x11fdcc"
+      },
+      "result_file": "07-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.021Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x120080"
+      },
+      "result_file": "08-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.027Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x11a0b8"
+      },
+      "result_file": "09-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.056Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x11a6d8"
+      },
+      "result_file": "10-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.080Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x119fe8"
+      },
+      "result_file": "11-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.087Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x11b18c"
+      },
+      "result_file": "12-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.099Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x11b654"
+      },
+      "result_file": "13-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.123Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x11a9dc"
+      },
+      "result_file": "14-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.134Z"
+    },
+    {
+      "operation": "export_evidence_bundle",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/evidence/rea/avbbc-encoder-bridge/evidence-bundle.json"
+      },
+      "result_file": "export.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.144Z"
+    },
+    {
+      "operation": "close_binary",
+      "arguments": {},
+      "result_file": "close.json",
+      "isError": false,
+      "elapsed_at": "2026-10-18T02:10:36.647Z"
+    }
+  ],
+  "diagnostic": ""
+}

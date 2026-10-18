@@ -19,6 +19,10 @@ This is a map of inspected bytes and code relationships. Installed firmware, run
 | [Native LUT transfer](LUT_TRANSFER.md) | AP staging/destination resources, kernel DMA descriptor construction and a bounded fragmented-allocation counterexample |
 | [CP JPEG encoder boundary](STILL_ENCODER_ROUTE.md) | Named request descriptors, image geometry, work-buffer validation and unresolved MLUT join |
 | [AP saved-file sink](STILL_SINK.md) | Resolved JPEG/HEIF methods, finalization, area lists, asynchronous filesystem submission and callback |
+| [MLUT/pixel/encoder link](MLUT_ENCODER_LINK.md) | Same-context ownership, resource-ring address through pixel-port records, command-7 gate and the remaining SDYC join |
+| [AP JPEG command bridge](AVBBC_ENCODER_BRIDGE.md) | Native JPEG request/completion, dataflow envelope and missing HEIF command-conversion entry |
+| [HEIF encoder](HEIF_ENCODER.md) | MC request/result ABI, open/close and conditional 27-command resize/encode sequence |
+| [Notification-to-save link](ENCODER_SAVE_LINK.md) | Message 0x1006 descriptor copies, registered callback, queue tag 9 and RecordStill pointer identity |
 | [MLUT SRAM/register layout](MLUT_LAYOUT.md) | Named stock tables, exhaustive bank-layout comparisons and register-payload fields |
 | [Still MLUT route](STILL_MLUT_ROUTE.md) | Callback identity, selector gate, fallback sequence, resource groups, geometry sources and dimension limits |
 | [AP still-recording boundary](STILL_RECORDING_BOUNDARY.md) | Additional REA recording/parameter/virtual-interface evidence and the missing capture-buffer connection |
@@ -141,14 +145,24 @@ The resource lookup maps four ownership slots into seven single/combined indices
 
 The newer CP pass recovers a native JPEG request with firmware-named `inputYcSdsUnitType/Handle/DataOffset`, stream descriptors, `jpegImageSizeX/Y`, and an optional work-buffer extent of `2*w*h` using 32-bit arithmetic. A synthetic 7008 × 4672 request produces 65,482,752 bytes at that check. Geometry transport and capacity checks execute as isolated host cases, with descriptor resolution and common initialization stubbed. The processing chain reaches `ModuleEncodeJpeg`, `WrapJpegEncode`, a start/wait boundary and result getters. A scalar propagates into a later notification header; its relationship to a two-byte SOI addition makes encoded length a supported inference. Generic delivery occurs **after** processing and must not be described as the encoder invocation. These are software contracts and static relationships, not successful hardware encoding or a hardware-resolution claim. [CP JPEG boundary](STILL_ENCODER_ROUTE.md).
 
-The AP pass resolves JPEG/ARW/HEIF vtables and separates normal finalization at virtual slot `+0x18` from a conversion branch at `+0x40`. Both construct area records consumed by the asynchronous file writer. The normal JPEG finalizer copies a supplied area descriptor rather than providing a demonstrated RGB hook. The writer consumes object `+0x11f0` / `+0x11f8`, builds pointer/length vectors and calls `Fsys_WriteDirectFileAsyncV2`, with a separate callback into a write-finished queue. The preceding AP queue handler also classifies two 0x2fc-byte result records and forwards JPEG/RAW/HEIF pointers into `RecordStill`; its event producer and CP message correspondence remain unknown. These file-side endpoints are now explicit, but their encoded-image areas have not been joined to the CP JPEG result or selected MLUT frame buffer. [AP recording boundary](STILL_RECORDING_BOUNDARY.md), [resolved saved-file sink](STILL_SINK.md).
+The AP pass resolves JPEG/ARW/HEIF vtables and separates normal finalization at virtual slot `+0x18` from a conversion branch at `+0x40`. Both construct area records consumed by the asynchronous file writer. The normal JPEG finalizer copies a supplied area descriptor rather than providing a demonstrated RGB hook. The writer consumes object `+0x11f0` / `+0x11f8`, builds pointer/length vectors and calls `Fsys_WriteDirectFileAsyncV2`, with a separate callback into a write-finished queue. The preceding AP queue handler classifies two 0x2fc-byte result records and forwards JPEG/RAW/HEIF pointers into `RecordStill`. [AP recording boundary](STILL_RECORDING_BOUNDARY.md), [resolved saved-file sink](STILL_SINK.md).
+
+The latest follow-up closes the **notification-to-save descriptor link**: AP message `0x1006` supplies two typed image records, the worker copies them into an allocated payload, and a registered callback passes that same pointer through queue tag 9 to the recording handler. Eighteen host cases cover all JPEG/RAW/HEIF pairs in both diagnostic-preprocessor branches. The producer connecting a codec result to that incoming notification remains unknown. [Notification/save evidence](ENCODER_SAVE_LINK.md).
+
+On the imaging side, a resource ring now supplies the selected context's address, which passes unchanged to four pixel-port parameter blocks with the context dimensions. MLUT and pixel configuration receive the same context/resource owner. The logical SDYC handle-to-backing-address join remains unproved. The CP JPEG inner-command-7 gate and named fields align with AP JPEG command fields displaced by `0x1c`, but the actual receive dispatch/prefix construction is still missing. [MLUT/pixel trace](MLUT_ENCODER_LINK.md), [AP command/transport trace](AVBBC_ENCODER_BRIDGE.md).
+
+The HEIF encoder is now distinct from container finalization: named MC command classes construct a 96-byte frame request, handle a completion scalar and build a conditional main/thumbnail/screen sequence with session open/close. **This does not establish a callable custom-program API:** the local conversion table lacks its logical `0x534` request and returns `0xffff` under tested local bindings. Runtime routing/activation, pixel ownership and encoded-image-area joins remain unresolved. JPEG and HEIF completion length fields have matching offsets in separately keyed parameter blocks; their memory must not be assumed to alias. [HEIF encoder evidence](HEIF_ENCODER.md).
 
 ```mermaid
 flowchart LR
-  A[Selected CP MLUT sequence] -. missing input buffer join .-> B[CP JPEG processing]
-  B -. missing result handoff .-> C[AP JPEG image areas]
-  A -. unresolved .-> H[HEIF encoder unresolved]
-  H -. missing result handoff .-> I[AP HEIF image areas]
+  A[Selected CP MLUT context] --> P[Resource ring and pixel-port parameters]
+  P -. missing SDYC backing join .-> B[CP JPEG processing]
+  P -. missing input ownership .-> H[AP MC HEIF commands]
+  B -. missing producer .-> N[AP still-info message 0x1006]
+  H -. missing binding and producer .-> N
+  N --> Q[Callback and queue tag 9]
+  Q --> C[RecordStill JPEG areas]
+  Q --> I[RecordStill HEIF areas]
   C --> D[JPEG finalizer]
   I --> J[HEIF finalizer]
   D --> E[Media object area list]
@@ -169,7 +183,7 @@ The FL2/FL3 port modifies native look dispatch, tone curves, chroma and matrices
 
 [Toolchain identities](toolchains/rea.json), [the static-query driver](run_rea.mjs), and [the evidence index](evidence/rea/index.json) retain the boundaries. The REA firmware-region adapters require Linux tooling in this release; Sony container decoding used the already-pinned fwtool instead. Mixed ARM/Thumb CP analysis used an explicit recovered map and Capstone rather than claiming unsupported raw-Thumb REA results.
 
-The retained results comprise **71 successful REA Evidence records, including 64 pseudocode records, across six binary identities**. Default Ghidra analysis completed for the large `appFw.so`; its main LUT selection helper corroborates the instruction map. The separate procam helper was not recognized as a procedure by that database, so its failed query is retained and its instructions remain separately labeled Capstone evidence. The alternate profile without automatic switch recovery was stopped after the default run completed; no results are claimed from it. All fifteen sessions in the retained REA index have explicit successful close receipts. The new HQ session explicitly disables `Decompiler Switch Analysis` and has a distinct analysis-profile digest; its focused coverage is not equivalent to the earlier default-analysis run. Two preliminary HQ attempts were stopped before any successful function result and their diagnostics remain in ignored build storage. Earlier JDK setup failures are documented separately in the toolchain record.
+The retained results comprise **99 successful REA Evidence records, including 92 pseudocode records, across eight binary identities**. Default Ghidra analysis completed for the large `appFw.so`; its main LUT selection helper corroborates the instruction map. The separate procam helper was not recognized as a procedure by that database, so its failed query is retained and its instructions remain separately labeled Capstone evidence. The alternate profile without automatic switch recovery was stopped after the default run completed; no results are claimed from it. All eighteen sessions in the retained REA index have explicit successful close receipts. The HQ session explicitly disables `Decompiler Switch Analysis` and has a distinct analysis-profile digest; its focused coverage is not equivalent to the earlier default-analysis run. Two preliminary HQ attempts were stopped before any successful function result and their diagnostics remain in ignored build storage. Earlier JDK setup failures are documented separately in the toolchain record.
 
 Pseudocode was checked against instruction-level evidence. In particular, missing output-pointer effects can make the CUBE prefix length appear zero, and an incompletely modeled virtual call can make metadata branches appear unreachable. These are decompiler-model limitations, not proof that the firmware lacks those effects. Failed selector requests are retained separately and excluded from successful Evidence counts.
 
@@ -195,6 +209,10 @@ The [verification record](evidence/deep-dive-verification.json) checks concrete 
 .venv-research/bin/python research/trace_lut_transfer.py
 .venv-research/bin/python research/trace_still_encoder.py
 .venv-research/bin/python research/trace_still_sink.py
+.venv-research/bin/python research/trace_mlut_encoder_link.py
+.venv-research/bin/python research/trace_heif_encoder.py
+.venv-research/bin/python research/trace_avbbc_encoder_bridge.py
+.venv-research/bin/python research/trace_encoder_save_link.py
 .venv-research/bin/python research/check_lut_reference.py
 .venv-research/bin/python research/summarize_rea.py
 .venv-research/bin/python research/verify_deep_dive.py
@@ -215,6 +233,8 @@ The CP mapper includes its bounded host-emulation cases. The retained REA result
 | What is the native LUT payload? | Ordinary packing recovered; HQ executes offline and serializes a populated 20³ grid plus 128 register bytes; upstream resampling remains partial |
 | Does supplied LUT state reach imaging-control code? | Snapshot/builder and callback identity structurally joined for one variant; its selector gate and the selected alternative prevent a live-frame claim |
 | Can arbitrary LUTs be baked into full-resolution stills? | Unresolved: actual selected still route, buffer/color domain and ownership/completion contract |
+| How does a completed still reach recording? | AP notification 0x1006 → copied descriptor payload → callback/queue tag 9 → RecordStill traced; encoder-to-notification producer remains missing |
+| Is a HEIF encoder API identified? | MC command structure and sequence recovered; command conversion/activation and saved-image ownership remain unresolved |
 | Can the official update be repacked and accepted? | Not established; decryptability and CRC checks do not prove authenticity/signature acceptance |
 | Can a damaged camera always be recovered? | Not established; neither a complete flash backup nor a verified power-loss recovery procedure exists |
 

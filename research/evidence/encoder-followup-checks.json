@@ -1,0 +1,49 @@
+{
+  "date_utc": "2026-10-18T02:20:50.089293+00:00",
+  "starting_commit": "0b1425475ac3381c86c31373dae7a2d46160479c",
+  "camera_session_opened": false,
+  "camera_commands_sent": false,
+  "camera_upload_or_installation": false,
+  "research_network_requests": false,
+  "publication_network_scope": "User-authorized Git publication to existing GitHub origin only",
+  "checks": {
+    "new_host_cases": {
+      "AP_JPEG_bridge": 274,
+      "AP_HEIF_encoder": 2653,
+      "CP_MLUT_pixel_link": 39,
+      "AP_notification_save_link": 18
+    },
+    "new_host_cases_total": 2984,
+    "new_instruction_regions": 60,
+    "new_instruction_records_byte_verified": 5801,
+    "all_retained_instruction_records_byte_verified": 17420,
+    "regression_unit_tests": 24,
+    "package_check_passed": true,
+    "pinned_source_archives": 9,
+    "pinned_source_files": 4132,
+    "supporting_source_metadata_files": 21,
+    "REA_successful_records": 99,
+    "REA_pseudocode_records": 92,
+    "REA_closed_sessions": 18,
+    "local_markdown_links_existing": 208,
+    "preexisting_missing_historical_ZIP_link": true,
+    "high_confidence_credential_patterns_found": 0,
+    "deployment_assets_unchanged": true
+  },
+  "findings": {
+    "selected_MLUT_context_to_pixel_port_transport": true,
+    "AP_still_info_notification_to_RecordStill_descriptor_transport": true,
+    "JPEG_command_and_completion_ABI_recovered": true,
+    "HEIF_MC_command_sequence_recovered": true,
+    "local_MC_logical_0x534_conversion_returns_0xffff": true,
+    "MLUT_backing_buffer_to_encoder_input_proven": false,
+    "encoder_result_to_still_info_producer_proven": false,
+    "full_resolution_saved_still_MLUT_route_proven": false
+  },
+  "official_firmware_and_private_backups_excluded_from_publication": true,
+  "limits": [
+    "Host fixtures execute selected original instructions with named external service stubs; no hardware, codec or live image runs.",
+    "AP/CP layout alignment does not establish receive dispatch; static HEIF command names do not establish a callable API.",
+    "Input/output parameter blocks with matching offsets are not assumed to alias; referenced pixel-buffer ownership remains unresolved."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/dataflowInfraFramework.so",
+  "output_directory": "research/evidence/rea/dataflow-encoder-envelope",
+  "queries": [
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x32564"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x31ff0"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x3223c"
+      }
+    }
+  ],
+  "export_bundle": true
+}

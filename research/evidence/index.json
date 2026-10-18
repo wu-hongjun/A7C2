@@ -14,8 +14,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 26048,
-      "sha256": "73c1224251017e01c979bd68bb32cf8f26e296a81cac2a93c943b5770c582dc0"
+      "bytes": 26129,
+      "sha256": "54735f1916f50881e2d21f6520bab256666fd4e1ec0d34f9ac87dd83bfad421c"
     },
     {
       "path": "README.zh-TW.md",
@@ -29,8 +29,8 @@
     },
     {
       "path": "research/A7C2_FIRMWARE_ATLAS.md",
-      "bytes": 27730,
-      "sha256": "229974af52b01bb437900e2e32e6df88b8ee2f03ba8d7b183572f4381c0fd99d"
+      "bytes": 30626,
+      "sha256": "a6766b47f56d7ac6ddfa605a0a472b709944da960bf4e96c992069a580af9cdd"
     },
     {
       "path": "research/AP_INTERFACES.md",
@@ -43,6 +43,11 @@
       "sha256": "b069eae9200c0a63be446facbc08a1a4c6f6b977f16cfd59d4826ba16bb85fa8"
     },
     {
+      "path": "research/AVBBC_ENCODER_BRIDGE.md",
+      "bytes": 6328,
+      "sha256": "8601be0edaae19eaea0469c17c09608be2b98c0719c3914ddb8ddfdd74047d60"
+    },
+    {
       "path": "research/CP_ARCHITECTURE.md",
       "bytes": 24811,
       "sha256": "978172bcce2ac36fc7fcfd8b38395e1ac60d4cc62ce37b0dffe672c3e359151d"
@@ -53,6 +58,11 @@
       "sha256": "b27ccb63e616be2e50fea26c3a4e01110c97314639ebc109a2b98ff4694e6b5c"
     },
     {
+      "path": "research/ENCODER_SAVE_LINK.md",
+      "bytes": 10145,
+      "sha256": "be9895d4185aff0eeb495c5d8870b9226d39e919b48afdc0d8a44ecd3b6570ba"
+    },
+    {
       "path": "research/FIRMWARE_STRUCTURE.md",
       "bytes": 21085,
       "sha256": "148e8a0f9a6e14e941aa6da62253e9daeb56a1c0738077d3e143be636cf3ce19"
@@ -61,6 +71,11 @@
       "path": "research/FIXES.md",
       "bytes": 4711,
       "sha256": "ebbd255c6f66bfee31ef0a73970ab2e61a7019c906d4a47d42aed75198495305"
+    },
+    {
+      "path": "research/HEIF_ENCODER.md",
+      "bytes": 12142,
+      "sha256": "198efdfcaba9fb7dc23b2370fe22349e182820068d7f38913d621a4b8a289731"
     },
     {
       "path": "research/HQ_LUT_FORMAT.md",
@@ -78,6 +93,11 @@
       "sha256": "f298bcedb1df50f3d15affe87f5deb55f7a009c48bef0e6cc986efeb46674964"
     },
     {
+      "path": "research/MLUT_ENCODER_LINK.md",
+      "bytes": 9722,
+      "sha256": "f8c2aa50470d783d8e33e546e35dd7d89f54bb852e31cf4af62f7b0018a88ed6"
+    },
+    {
       "path": "research/MLUT_LAYOUT.md",
       "bytes": 12265,
       "sha256": "f050134e29efbdd9c0bb69add926c45d95095c585f035a53e35822f58d0e303f"
@@ -89,8 +109,8 @@
     },
     {
       "path": "research/README.md",
-      "bytes": 17267,
-      "sha256": "62ba1ca7e0b9d30e61bae074ad5ecf4c5eb5ef0cc534694b15f1c4f64c50a1d7"
+      "bytes": 17875,
+      "sha256": "e3eb14af776b89aa7bd8ea629a2d13e9837c3e73fd6cb3941ddc94383091b935"
     },
     {
       "path": "research/STILL_ENCODER_ROUTE.md",
@@ -148,6 +168,11 @@
       "sha256": "06f8cc9d7cda55487c10eb60de675b50c8cf21d085af6a9856d9a2ab9596e03f"
     },
     {
+      "path": "research/evidence/avbbc-encoder-bridge.json",
+      "bytes": 437884,
+      "sha256": "66e3dd64db7a6a2960ffc07c7a4b8cac341c648fc9a4072d10694a6ec25dd6cc"
+    },
+    {
       "path": "research/evidence/baseline-audit-fixed.json",
       "bytes": 4575,
       "sha256": "8080de0c9e0896f91d3beb02c7720016ad9d5285f9c45a7534318c70fa5aeca3"
@@ -189,8 +214,18 @@
     },
     {
       "path": "research/evidence/deep-dive-verification.json",
-      "bytes": 2913,
-      "sha256": "0e1c1f07c0558a40ae572806ce0225114c0e8716da351dde9a756ae820f82783"
+      "bytes": 3264,
+      "sha256": "a219b94ad68151ff97aee20c8dd14da66fa7df83acd8dd895cbdbe8fcb7ada71"
+    },
+    {
+      "path": "research/evidence/encoder-followup-checks.json",
+      "bytes": 2175,
+      "sha256": "bd01276a7b7a9d84fb819001710c7332705539e1223abacad86fdb3a57744adf"
+    },
+    {
+      "path": "research/evidence/encoder-save-link.json",
+      "bytes": 253460,
+      "sha256": "7edea0e125cb9b4834606164c4c02c16ccbf7698a45cf694b4c37eefcdb4a35b"
     },
     {
       "path": "research/evidence/firmware-audit-fixed.json",
@@ -221,6 +256,11 @@
       "path": "research/evidence/fix-build.json.log",
       "bytes": 785,
       "sha256": "c9b5c83e9ef34e091868291f0e67756ba942fa93a5eb2c5885c33eecc5fcb030"
+    },
+    {
+      "path": "research/evidence/heif-encoder.json",
+      "bytes": 943501,
+      "sha256": "9c01017dfd35db08260a7bef164a2f1ed1731c4be40d87920a03781c8ed1064a"
     },
     {
       "path": "research/evidence/host-guard-review-fixed.json",
@@ -281,6 +321,11 @@
       "path": "research/evidence/lut-transfer.json",
       "bytes": 242199,
       "sha256": "8b027b485289cbe2e8aff0626c62a8187ebcf0316ac78fc8866ff424d32a6040"
+    },
+    {
+      "path": "research/evidence/mlut-encoder-link.json",
+      "bytes": 748743,
+      "sha256": "dd797a09bb8e2af5298bb26385564af55f6a658c82fcec66ea270d3081e1409b"
     },
     {
       "path": "research/evidence/mlut-layout.json",
@@ -408,6 +453,191 @@
       "sha256": "ec57f762279aa513ba625dcdb0cf6c4c3bdd6a957ebca753f9dc00898dfe4d37"
     },
     {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/00-procedure_pseudo_code.json",
+      "bytes": 26273,
+      "sha256": "159ffe82b47793bed34df45fcfbe0dbf0947f4cb5cce1db09ca454a5c1b0d905"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/01-procedure_pseudo_code.json",
+      "bytes": 30669,
+      "sha256": "419c5f45e50203ce29316cedb3595854107133436627969b607b0c3ce39401d5"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/02-procedure_pseudo_code.json",
+      "bytes": 31447,
+      "sha256": "5e3fdbc1f41a9193b51d606f2d54681672f1a8382efd42fec6456a716db1df36"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/03-procedure_pseudo_code.json",
+      "bytes": 22415,
+      "sha256": "ef78de8ffc48ab4a3900a578faf0bbb32204a77eb997be55d824bf014336c037"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/04-procedure_pseudo_code.json",
+      "bytes": 9727,
+      "sha256": "5aab9eceb3779deba3c19797f4bb2d8a13cc3cc603b07e32eccf4db8fb6cd2c1"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/05-procedure_pseudo_code.json",
+      "bytes": 40261,
+      "sha256": "bc26aa6942d23bfad1e2b97b4b19c4926b21509050fa52dfeda25cbd4d3568a4"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/06-procedure_pseudo_code.json",
+      "bytes": 12743,
+      "sha256": "c29a53f42dfc9dbdaa62e35931562ac0780b73c94a2d0e38821765b9c194f870"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/07-procedure_pseudo_code.json",
+      "bytes": 22245,
+      "sha256": "9c18558a5865b052cd418e365e4ce3f0ffc23745d3bfca16157e8bebaba90ceb"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/08-procedure_pseudo_code.json",
+      "bytes": 10699,
+      "sha256": "06dd7de9cbebccb79b388cdadf65d50bbbf8b6199451f03933994fee516e84e7"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/09-procedure_pseudo_code.json",
+      "bytes": 40739,
+      "sha256": "3e690c7bf6db980daa51b703612ad0eec63dccca9eb0bee188fba404fc397670"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/10-procedure_pseudo_code.json",
+      "bytes": 24247,
+      "sha256": "47c6c84f71e39bcb400fa333993469e78a5eb25ebc107dd79a55295a9f81b43d"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/11-procedure_pseudo_code.json",
+      "bytes": 9609,
+      "sha256": "314ffaeacff3a9f9e19d58e4c652c24bd1b92bab45df97b584507ee411e9a648"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/12-procedure_pseudo_code.json",
+      "bytes": 22109,
+      "sha256": "0035423bf8f4391dacf95b0cd2e459a5072d1126a7ea3be5a65b09cc15fd7e98"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/13-procedure_pseudo_code.json",
+      "bytes": 25267,
+      "sha256": "967d68fa48b84f9ab6755474333f04577c8f1cbe74ba06a4124f82040deeab43"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/14-procedure_pseudo_code.json",
+      "bytes": 19333,
+      "sha256": "d021b85d43587fb26a26a077a680eac56db77b52e25da8b70170c05d3ff90593"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/close.json",
+      "bytes": 251,
+      "sha256": "fb3beac94c0871148d4cdb98bf38d13aafaa4e281a422cb0995a943c16648a51"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/evidence-bundle.json",
+      "bytes": 162900,
+      "sha256": "bd63bea1aeeed2176071e42c9695ac7ec89c717b5fa6968d1f0bff0f63595c59"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/export.json",
+      "bytes": 461,
+      "sha256": "e76cb6856348b8d34d86c033b00f27183e9b025273b2417b0ac080b72f76057b"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/open.json",
+      "bytes": 880,
+      "sha256": "9e173e378a78e6ddc09cedad266a7a2757ef8754e3b0e20deb1a55b6ced599b1"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/receipts.json",
+      "bytes": 4807,
+      "sha256": "6e021eaaad7b7e611919d94faab510e3700c54fcc2584fe01108a00c6529788d"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-bridge/tool-schemas.json",
+      "bytes": 929971,
+      "sha256": "ec57f762279aa513ba625dcdb0cf6c4c3bdd6a957ebca753f9dc00898dfe4d37"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/00-procedure_pseudo_code.json",
+      "bytes": 9161,
+      "sha256": "b40d4f57158e9cdd29db8f6d52eef95c204628cbb7edeea568612c0125426178"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/01-procedure_pseudo_code.json",
+      "bytes": 29706,
+      "sha256": "4ffd66ef9cca7599ea05a4a8fefe520796341661d446f19f8e67c2c15ae0f2b7"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/02-procedure_pseudo_code.json",
+      "bytes": 9479,
+      "sha256": "5335d17653423acb0d6b2aec684545d6e6ee57c24e425940fe485e8321e5205f"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/03-procedure_pseudo_code.json",
+      "bytes": 9471,
+      "sha256": "53ada380f15a3323aa4a21c1799feb4d663303d9ba7827d537fb1ff7682250d4"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/04-procedure_pseudo_code.json",
+      "bytes": 57069,
+      "sha256": "274274d411b3ca9922f5b9e0f09704049605ba13856582acf3e28b47b9ef2aaa"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/05-procedure_pseudo_code.json",
+      "bytes": 70083,
+      "sha256": "58f65780a33bbec64f82d2bdbb1f4c39948744f7bf39c868e614be65e79206f7"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/06-procedure_pseudo_code.json",
+      "bytes": 18882,
+      "sha256": "1829d2bcfbf59ad5f4b06e574056a98d23e63cf9cfab8bab409d839fe5403139"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/07-procedure_pseudo_code.json",
+      "bytes": 12061,
+      "sha256": "b16cc2b75369306d729a5d953e989c40c93a1e5791a6ae349ab82704141f44eb"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/08-procedure_pseudo_code.json",
+      "bytes": 9479,
+      "sha256": "1affd87138d83de3759634fcd092aab728211f832e5c1023b28c474feb8f7248"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/09-procedure_pseudo_code.json",
+      "bytes": 9479,
+      "sha256": "4038acb8ea1c38b4f772a0c481b1e48c663881b14d3abca48f4a419d9ffc123a"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/close.json",
+      "bytes": 251,
+      "sha256": "fb3beac94c0871148d4cdb98bf38d13aafaa4e281a422cb0995a943c16648a51"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/evidence-bundle.json",
+      "bytes": 110440,
+      "sha256": "2ef2413172afd5219fad9adf9ddf82cadb6ee47cfdcd97a1b497cd3595badb62"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/export.json",
+      "bytes": 467,
+      "sha256": "d368f0e993626c00311849b44ba3acbc200c02ce6f8120f6d6bcb04ece541eab"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/open.json",
+      "bytes": 880,
+      "sha256": "9e173e378a78e6ddc09cedad266a7a2757ef8754e3b0e20deb1a55b6ced599b1"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/receipts.json",
+      "bytes": 3530,
+      "sha256": "2f01367d002056b8463129b6bfa32d450b6aece9899f42420982d0139bd67b4e"
+    },
+    {
+      "path": "research/evidence/rea/avbbc-encoder-transport/tool-schemas.json",
+      "bytes": 929971,
+      "sha256": "ec57f762279aa513ba625dcdb0cf6c4c3bdd6a957ebca753f9dc00898dfe4d37"
+    },
+    {
       "path": "research/evidence/rea/bootin/00-binary_overview.json",
       "bytes": 19486,
       "sha256": "9c8df6bc80862c4cfaf1e4861741d408d3e1905d82058e125c7abdc4d60cd629"
@@ -484,6 +714,51 @@
     },
     {
       "path": "research/evidence/rea/bootin-launch/tool-schemas.json",
+      "bytes": 929971,
+      "sha256": "ec57f762279aa513ba625dcdb0cf6c4c3bdd6a957ebca753f9dc00898dfe4d37"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/00-procedure_pseudo_code.json",
+      "bytes": 14537,
+      "sha256": "a49851351357d266acd48fb15d29c07a406e7b1b7c035708e4e4acd985c4dfb5"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/01-procedure_pseudo_code.json",
+      "bytes": 15709,
+      "sha256": "1daa76f6b37cd315e3e83e6aca19b4d1a937f4525bf9ed4bc5f11e942e69328e"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/02-procedure_pseudo_code.json",
+      "bytes": 10783,
+      "sha256": "90856a27afb37ee93e43ed26d03b13d2a2f7382385e9c49e30f4dc5a28a2b585"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/close.json",
+      "bytes": 251,
+      "sha256": "fb3beac94c0871148d4cdb98bf38d13aafaa4e281a422cb0995a943c16648a51"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/evidence-bundle.json",
+      "bytes": 18815,
+      "sha256": "9d335848aee1d94256c6f295bad9a742f5c015360035d772289a9bad7769c6a2"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/export.json",
+      "bytes": 467,
+      "sha256": "f67c730d4a9d4e84405a80e0f2b455ec306ba045327f84dbc570aa82af960ab5"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/open.json",
+      "bytes": 898,
+      "sha256": "bd132108f4eaf4d6520e340dc528f68ab97c0548b59b0c024bb5e5b7b9b7b16a"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/receipts.json",
+      "bytes": 1746,
+      "sha256": "eecaa36f5dd8679ab039cfc925a81cacd9ec34f7addae204d314a7aa44e692fe"
+    },
+    {
+      "path": "research/evidence/rea/dataflow-encoder-envelope/tool-schemas.json",
       "bytes": 929971,
       "sha256": "ec57f762279aa513ba625dcdb0cf6c4c3bdd6a957ebca753f9dc00898dfe4d37"
     },
@@ -669,8 +944,8 @@
     },
     {
       "path": "research/evidence/rea/index.json",
-      "bytes": 302168,
-      "sha256": "0d9b1ee83b550c113ae295c5ef9308cde5f7509611c868942f423710c38488be"
+      "bytes": 420257,
+      "sha256": "6431673d73ad540e56dc5d75ae87cb5b2532f4aaa1992e8dcae0e4f9f3beb43c"
     },
     {
       "path": "research/evidence/rea/jiritsu/00-procedure_pseudo_code.json",
@@ -993,6 +1268,131 @@
       "sha256": "8d9bb425f6b42173c0dcb0d2639a6e2f053b5a952d110bf0c5dcfd369e9db9cf"
     },
     {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-00-procedure_pseudo_code.c",
+      "bytes": 4568,
+      "sha256": "01ad085ea74b4eb23ad67981d461ee92698b379c7b9688ca770147f2a68a751e"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-01-procedure_pseudo_code.c",
+      "bytes": 5596,
+      "sha256": "3e7121a96d9c00dcb83ee94f3044e231db4de5053a6e20ed18b425ac9ab2a97f"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-02-procedure_pseudo_code.c",
+      "bytes": 5711,
+      "sha256": "91a2e1bcd00288c83733b13787ffaa6225aefa1f96cc63b2b545108ca63665c6"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-03-procedure_pseudo_code.c",
+      "bytes": 3571,
+      "sha256": "8d6df7ba76b733f8661f745795f0acec35e4b31fcf79deb7f91134f82651568e"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-04-procedure_pseudo_code.c",
+      "bytes": 588,
+      "sha256": "f3c5d6327023adf826dc429552938735bca02082327bc816cdc88d480b633d53"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-05-procedure_pseudo_code.c",
+      "bytes": 7930,
+      "sha256": "51bad0c95d5cc52df9aa2d53acf07c9f5f9a45d5885cd35956261544c596cb59"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-06-procedure_pseudo_code.c",
+      "bytes": 1310,
+      "sha256": "ac404b26363cdd39a917c995b974a1f1818daa32aeaa131876118a7974e74271"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-07-procedure_pseudo_code.c",
+      "bytes": 3529,
+      "sha256": "4122b2e56efcb4a7e8d5fa73d534c40b01074492d6e80c22599dbec3aa30a026"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-08-procedure_pseudo_code.c",
+      "bytes": 832,
+      "sha256": "98d447b2a5794bfd118ede7d27e45bbaf2c4873d134c7f39eab06a1b9df62fe9"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-09-procedure_pseudo_code.c",
+      "bytes": 7980,
+      "sha256": "8e51cb4d19b388da1ffb9bfec392bc580367bbcbb0c25167b549552d0bb92de0"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-10-procedure_pseudo_code.c",
+      "bytes": 4012,
+      "sha256": "d79f97ea139ceee5784f3a2b7854a9d828eaf827c5cc31ae4bed5531e736b271"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-11-procedure_pseudo_code.c",
+      "bytes": 560,
+      "sha256": "f9df86981ca6bc45c75a3baf06b33d8d5676c349939a5fe277cd89f58cb016b6"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-12-procedure_pseudo_code.c",
+      "bytes": 3555,
+      "sha256": "4da7b25ff436ac8f078770248ed09f381a0f2276b6f91d2c39870eff3f63b5d5"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-13-procedure_pseudo_code.c",
+      "bytes": 4255,
+      "sha256": "53f8b23347c6af037e1ca1e06b2f1821d6ce6e8be8f5b5df08c655dfbe7a1877"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-bridge-14-procedure_pseudo_code.c",
+      "bytes": 2883,
+      "sha256": "ff03ae28cdb90cff836205a45b72023d107c0d64f3da843a8ada97da34b2648e"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-00-procedure_pseudo_code.c",
+      "bytes": 455,
+      "sha256": "23321fefc6d040d7de9e7d5f44c4e0b56d8759ea9afb17e525f6cd36889feb56"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-01-procedure_pseudo_code.c",
+      "bytes": 1607,
+      "sha256": "650bc54198627e5d112dd2164d69e9e15ffde515768291f80d2f29864723c98f"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-02-procedure_pseudo_code.c",
+      "bytes": 533,
+      "sha256": "46ae49708758c8b0748d554fd76ac72295acd3aba78d0ac69e3454f0b945df6e"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-03-procedure_pseudo_code.c",
+      "bytes": 531,
+      "sha256": "1a929721e358fb1c56fcd78bd0b7f3b03452f57c2c29eb555c2b3d57a8ef896c"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-04-procedure_pseudo_code.c",
+      "bytes": 11947,
+      "sha256": "39c8fc5a6c1ad7e51b2ea94e8ac7412c46f9b365127b8680f66478d424bd30bf"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-05-procedure_pseudo_code.c",
+      "bytes": 15186,
+      "sha256": "332b2a82d05278d1ebb0325f39ddf384de9503cacfbc64909cb78441fd61a9e9"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-06-procedure_pseudo_code.c",
+      "bytes": 2491,
+      "sha256": "313bebf9b16652f4a770959271dfb803fcbcc542996d4dc4905171205cfbe4ef"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-07-procedure_pseudo_code.c",
+      "bytes": 1149,
+      "sha256": "200ee53ab6452a561c06d0e9291a6c907bb7274668bae7b6ffb11e9c3c59dc07"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-08-procedure_pseudo_code.c",
+      "bytes": 533,
+      "sha256": "c61bf533ddfd79aa621cfc66fc56b7a24ca3c152aad358e5c0a5fe2c5c8b8d75"
+    },
+    {
+      "path": "research/evidence/rea/readable/avbbc-encoder-transport-09-procedure_pseudo_code.c",
+      "bytes": 533,
+      "sha256": "6b983f1d9232e700f0191d16969610117410bf5895ed4f9e748581fa1a29add6"
+    },
+    {
       "path": "research/evidence/rea/readable/bootin-01-procedure_pseudo_code.c",
       "bytes": 1107,
       "sha256": "9a2a5f0a628d7a582ecfbe18047c25e6143b6f83e532a9ad8768e2193872e69b"
@@ -1006,6 +1406,21 @@
       "path": "research/evidence/rea/readable/bootin-launch-01-procedure_pseudo_code.c",
       "bytes": 797,
       "sha256": "3c9844edf0cc33a8ac3eca4f5a404ee205ac03a65a109a523920d9f14d78c001"
+    },
+    {
+      "path": "research/evidence/rea/readable/dataflow-encoder-envelope-00-procedure_pseudo_code.c",
+      "bytes": 1744,
+      "sha256": "f532ad639055b3085f223793ae44e2dc4543d20ebdebc4baa23bfb704daa37fa"
+    },
+    {
+      "path": "research/evidence/rea/readable/dataflow-encoder-envelope-01-procedure_pseudo_code.c",
+      "bytes": 2022,
+      "sha256": "e2f6c77f1ec398867cc7b67130e980f2cdaf1493f74282c6532b2008c8eb9ecc"
+    },
+    {
+      "path": "research/evidence/rea/readable/dataflow-encoder-envelope-02-procedure_pseudo_code.c",
+      "bytes": 837,
+      "sha256": "f575fbcad0dfd5f25050fb93910a97c70d3b90342647eeae1807f31d049137a7"
     },
     {
       "path": "research/evidence/rea/readable/hq-lut-00-procedure_pseudo_code.c",
@@ -1603,6 +2018,16 @@
       "sha256": "00e90bd42ca131e292fd62ff96de48445e2d557bac2849ba1cad72ccdb39ace4"
     },
     {
+      "path": "research/rea-jobs/avbbc-encoder-bridge.json",
+      "bytes": 2119,
+      "sha256": "cbe6e508f36761dd76a15d1c195856271a799fcb96f23d821b3a7efd90f454de"
+    },
+    {
+      "path": "research/rea-jobs/avbbc-encoder-transport.json",
+      "bytes": 1497,
+      "sha256": "e3f897525d50ea817037bbbfcb4b65db472cf893c01469c7e4b7a2bf65dd0648"
+    },
+    {
       "path": "research/rea-jobs/bootin-launch.json",
       "bytes": 460,
       "sha256": "36bf7d7950a47708f16f00f9996381e873d4fbae1473fab6de9426b0acc8db2c"
@@ -1611,6 +2036,11 @@
       "path": "research/rea-jobs/bootin.json",
       "bytes": 408,
       "sha256": "598902b7d88b231710a9ab4841b6d2ea0c350f6032f47774642f297d40a461b6"
+    },
+    {
+      "path": "research/rea-jobs/dataflow-encoder-envelope.json",
+      "bytes": 630,
+      "sha256": "d38a93a157547212eb833f5f0caeba2914dc72f7789d501275efff8c0361e3b1"
     },
     {
       "path": "research/rea-jobs/hq-lut.json",
@@ -1723,6 +2153,21 @@
       "sha256": "ea9c066c9736b71502007df659788beb82e61986c2e284b4442c05c197a36aa9"
     },
     {
+      "path": "research/trace_avbbc_encoder_bridge.py",
+      "bytes": 10610,
+      "sha256": "82b685067a33eb173c5d6a472748a4e3d1bb480ddddc4de95a2e0b0fdb77e2f0"
+    },
+    {
+      "path": "research/trace_encoder_save_link.py",
+      "bytes": 14682,
+      "sha256": "6a3e5f4e18a2ba67ead2057f128c704ae85a916fad0690d130a5f063367121dc"
+    },
+    {
+      "path": "research/trace_heif_encoder.py",
+      "bytes": 22745,
+      "sha256": "0ea874efd2f59d14b10d3a028313e66a326a34d58ac582d9a53cdc4d886c52c2"
+    },
+    {
       "path": "research/trace_hq_coordinates.py",
       "bytes": 7107,
       "sha256": "7d0efd3b4d9434056537633d9bd2359c26a5487821f590ddbabb4120be1e03b4"
@@ -1741,6 +2186,11 @@
       "path": "research/trace_lut_transfer.py",
       "bytes": 16883,
       "sha256": "e8731367612599086afad9fca6e02ace6f2108a71ab561d14e7cdabd2074dd3c"
+    },
+    {
+      "path": "research/trace_mlut_encoder_link.py",
+      "bytes": 20756,
+      "sha256": "c5498b8ed569f3c0dccc95edd6734aedfe03f091e1688c64dfd466d735c7a316"
     },
     {
       "path": "research/trace_mlut_layout.py",
@@ -1774,8 +2224,8 @@
     },
     {
       "path": "research/verify_deep_dive.py",
-      "bytes": 17384,
-      "sha256": "2d576d2ab14dd467255fe11db797c64ba4f6e23b4eb566c921c59f8358636df0"
+      "bytes": 20469,
+      "sha256": "7ba6acc3a056adf13ff7e2962a11534ba87bd7ef36c09bf9d41775896d2fdcd3"
     },
     {
       "path": "research/verify_sources.py",

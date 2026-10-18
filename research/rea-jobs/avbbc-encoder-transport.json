@@ -1,0 +1,67 @@
+{
+  "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraAvbbc.so",
+  "output_directory": "research/evidence/rea/avbbc-encoder-transport",
+  "queries": [
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x141a34"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x14234c"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x141b18"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x141b98"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x139158"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x1241fc"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x1206a4"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x120864"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x141ad8"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x141a58"
+      }
+    }
+  ],
+  "export_bundle": true
+}

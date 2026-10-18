@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_69d142f44b1028a6eac4edfd1475251ad93e671cec5f00214ada223a3610a303\",\"subject\":{\"name\":\"dataflowInfraFramework.so\",\"digest\":{\"sha256\":\"620e04a9cd51e65bd190ed1d5459b7235ff5a4109bc6498df342972621991d47\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/dataflowInfraFramework.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\"},\"digest\":\"73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"file-offset:0x31ff0\"},\"raw_result\":{\"value\":\"\\nundefined8 _ZN18DataflowInfraMsgEx14SetDataflowMsgEPvt(long param_1,void *param_2,ushort param_3)\\n\\n{\\n  int iVar1;\\n  ushort uVar2;\\n  bool bVar3;\\n  undefined8 uVar4;\\n  long lVar5;\\n  long lVar6;\\n  \\n  lVar6 = *(long *)(param_1 + 0x18);\\n  if (lVar6 == 0) {\\n    _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x42,0xffffffec);\\n    uVar4 = 0xffffffec;\\n  }\\n  else {\\n    iVar1 = *(int *)(param_1 + 8);\\n    if (iVar1 == 2) {\\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x4b,0xffffffe2);\\n      uVar4 = 0xffffffe2;\\n    }\\n    else if ((iVar1 == 1) && (*(int *)(lVar6 + 0xc) != 0x18)) {\\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x53,0xffffffe3);\\n      uVar4 = 0xffffffe3;\\n    }\\n    else {\\n      bVar3 = *(ushort *)((long)param_2 + 4) != param_3;\\n      if ((!bVar3 && 6 < param_3) && (bVar3 || param_3 != 7)) {\\n        if (iVar1 == 0) {\\n          _ZN18DataflowInfraMsgEx18MakeDataflowHeaderEv(param_1);\\n          *(undefined4 *)(param_1 + 8) = 1;\\n        }\\n        uVar2 = *(ushort *)((long)param_2 + 4);\\n        if ((uint)*(ushort *)(lVar6 + 10) + (uint)uVar2 < 0x1e0) {\\n          lVar5 = *(long *)(param_1 + 0x18);\\n          *(short *)(lVar6 + 8) = *(short *)(lVar6 + 8) + 1;\\n          *(ushort *)(lVar6 + 10) = param_3 + *(ushort *)(lVar6 + 10);\\n          memcpy((void *)(lVar5 + (ulong)*(uint *)(lVar6 + 0x10)),param_2,(ulong)uVar2);\\n          *(uint *)(lVar6 + 0x10) = *(int *)(lVar6 + 0x10) + (uint)*(ushort *)((long)param_2 + 4);\\n          uVar4 = 0;\\n        }\\n        else {\\n          _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x66,0xffffffe4);\\n          uVar4 = 0xffffffe4;\\n        }\\n      }\\n      else {\\n        _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x5a,0xffffffe0);\\n        uVar4 = 0xffffffe0;\\n      }\\n    }\\n  }\\n  return uVar4;\\n}\\n\\n\",\"limitations\":[],\"selection\":{\"file_offset\":204784,\"mapped_address\":\"0x131ff0\",\"procedure_address\":\"0x131ff0\"}},\"normalized_result\":\"\\nundefined8 _ZN18DataflowInfraMsgEx14SetDataflowMsgEPvt(long param_1,void *param_2,ushort param_3)\\n\\n{\\n  int iVar1;\\n  ushort uVar2;\\n  bool bVar3;\\n  undefined8 uVar4;\\n  long lVar5;\\n  long lVar6;\\n  \\n  lVar6 = *(long *)(param_1 + 0x18);\\n  if (lVar6 == 0) {\\n    _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x42,0xffffffec);\\n    uVar4 = 0xffffffec;\\n  }\\n  else {\\n    iVar1 = *(int *)(param_1 + 8);\\n    if (iVar1 == 2) {\\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x4b,0xffffffe2);\\n      uVar4 = 0xffffffe2;\\n    }\\n    else if ((iVar1 == 1) && (*(int *)(lVar6 + 0xc) != 0x18)) {\\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x53,0xffffffe3);\\n      uVar4 = 0xffffffe3;\\n    }\\n    else {\\n      bVar3 = *(ushort *)((long)param_2 + 4) != param_3;\\n      if ((!bVar3 && 6 < param_3) && (bVar3 || param_3 != 7)) {\\n        if (iVar1 == 0) {\\n          _ZN18DataflowInfraMsgEx18MakeDataflowHeaderEv(param_1);\\n          *(undefined4 *)(param_1 + 8) = 1;\\n        }\\n        uVar2 = *(ushort *)((long)param_2 + 4);\\n        if ((uint)*(ushort *)(lVar6 + 10) + (uint)uVar2 < 0x1e0) {\\n          lVar5 = *(long *)(param_1 + 0x18);\\n          *(short *)(lVar6 + 8) = *(short *)(lVar6 + 8) + 1;\\n          *(ushort *)(lVar6 + 10) = param_3 + *(ushort *)(lVar6 + 10);\\n          memcpy((void *)(lVar5 + (ulong)*(uint *)(lVar6 + 0x10)),param_2,(ulong)uVar2);\\n          *(uint *)(lVar6 + 0x10) = *(int *)(lVar6 + 0x10) + (uint)*(ushort *)((long)param_2 + 4);\\n          uVar4 = 0;\\n        }\\n        else {\\n          _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x66,0xffffffe4);\\n          uVar4 = 0xffffffe4;\\n        }\\n      }\\n      else {\\n        _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x5a,0xffffffe0);\\n        uVar4 = 0xffffffe0;\\n      }\\n    }\\n  }\\n  return uVar4;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[{\"kind\":\"file-offset\",\"offset\":204784},{\"kind\":\"address\",\"address\":\"0x131ff0\"},{\"kind\":\"address\",\"address\":\"0x131ff0\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_69d142f44b1028a6eac4edfd1475251ad93e671cec5f00214ada223a3610a303",
+    "subject": {
+      "name": "dataflowInfraFramework.so",
+      "digest": {
+        "sha256": "620e04a9cd51e65bd190ed1d5459b7235ff5a4109bc6498df342972621991d47"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/dataflowInfraFramework.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "arm64",
+        "available_architectures": [
+          "arm64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-v1",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default"
+      },
+      "digest": "73e1cb475c2e2db20fa06886ffd7e09089e3c060afaeb5a952facaabce0566f5"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "file-offset:0x31ff0"
+    },
+    "raw_result": {
+      "value": "\nundefined8 _ZN18DataflowInfraMsgEx14SetDataflowMsgEPvt(long param_1,void *param_2,ushort param_3)\n\n{\n  int iVar1;\n  ushort uVar2;\n  bool bVar3;\n  undefined8 uVar4;\n  long lVar5;\n  long lVar6;\n  \n  lVar6 = *(long *)(param_1 + 0x18);\n  if (lVar6 == 0) {\n    _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x42,0xffffffec);\n    uVar4 = 0xffffffec;\n  }\n  else {\n    iVar1 = *(int *)(param_1 + 8);\n    if (iVar1 == 2) {\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x4b,0xffffffe2);\n      uVar4 = 0xffffffe2;\n    }\n    else if ((iVar1 == 1) && (*(int *)(lVar6 + 0xc) != 0x18)) {\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x53,0xffffffe3);\n      uVar4 = 0xffffffe3;\n    }\n    else {\n      bVar3 = *(ushort *)((long)param_2 + 4) != param_3;\n      if ((!bVar3 && 6 < param_3) && (bVar3 || param_3 != 7)) {\n        if (iVar1 == 0) {\n          _ZN18DataflowInfraMsgEx18MakeDataflowHeaderEv(param_1);\n          *(undefined4 *)(param_1 + 8) = 1;\n        }\n        uVar2 = *(ushort *)((long)param_2 + 4);\n        if ((uint)*(ushort *)(lVar6 + 10) + (uint)uVar2 < 0x1e0) {\n          lVar5 = *(long *)(param_1 + 0x18);\n          *(short *)(lVar6 + 8) = *(short *)(lVar6 + 8) + 1;\n          *(ushort *)(lVar6 + 10) = param_3 + *(ushort *)(lVar6 + 10);\n          memcpy((void *)(lVar5 + (ulong)*(uint *)(lVar6 + 0x10)),param_2,(ulong)uVar2);\n          *(uint *)(lVar6 + 0x10) = *(int *)(lVar6 + 0x10) + (uint)*(ushort *)((long)param_2 + 4);\n          uVar4 = 0;\n        }\n        else {\n          _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x66,0xffffffe4);\n          uVar4 = 0xffffffe4;\n        }\n      }\n      else {\n        _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x5a,0xffffffe0);\n        uVar4 = 0xffffffe0;\n      }\n    }\n  }\n  return uVar4;\n}\n\n",
+      "limitations": [],
+      "selection": {
+        "file_offset": 204784,
+        "mapped_address": "0x131ff0",
+        "procedure_address": "0x131ff0"
+      }
+    },
+    "normalized_result": "\nundefined8 _ZN18DataflowInfraMsgEx14SetDataflowMsgEPvt(long param_1,void *param_2,ushort param_3)\n\n{\n  int iVar1;\n  ushort uVar2;\n  bool bVar3;\n  undefined8 uVar4;\n  long lVar5;\n  long lVar6;\n  \n  lVar6 = *(long *)(param_1 + 0x18);\n  if (lVar6 == 0) {\n    _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x42,0xffffffec);\n    uVar4 = 0xffffffec;\n  }\n  else {\n    iVar1 = *(int *)(param_1 + 8);\n    if (iVar1 == 2) {\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x4b,0xffffffe2);\n      uVar4 = 0xffffffe2;\n    }\n    else if ((iVar1 == 1) && (*(int *)(lVar6 + 0xc) != 0x18)) {\n      _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x53,0xffffffe3);\n      uVar4 = 0xffffffe3;\n    }\n    else {\n      bVar3 = *(ushort *)((long)param_2 + 4) != param_3;\n      if ((!bVar3 && 6 < param_3) && (bVar3 || param_3 != 7)) {\n        if (iVar1 == 0) {\n          _ZN18DataflowInfraMsgEx18MakeDataflowHeaderEv(param_1);\n          *(undefined4 *)(param_1 + 8) = 1;\n        }\n        uVar2 = *(ushort *)((long)param_2 + 4);\n        if ((uint)*(ushort *)(lVar6 + 10) + (uint)uVar2 < 0x1e0) {\n          lVar5 = *(long *)(param_1 + 0x18);\n          *(short *)(lVar6 + 8) = *(short *)(lVar6 + 8) + 1;\n          *(ushort *)(lVar6 + 10) = param_3 + *(ushort *)(lVar6 + 10);\n          memcpy((void *)(lVar5 + (ulong)*(uint *)(lVar6 + 0x10)),param_2,(ulong)uVar2);\n          *(uint *)(lVar6 + 0x10) = *(int *)(lVar6 + 0x10) + (uint)*(ushort *)((long)param_2 + 4);\n          uVar4 = 0;\n        }\n        else {\n          _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x66,0xffffffe4);\n          uVar4 = 0xffffffe4;\n        }\n      }\n      else {\n        _ZN16DataflowInfraLog14Seterr_generalEjji(0x5847534d,0x5a,0xffffffe0);\n        uVar4 = 0xffffffe0;\n      }\n    }\n  }\n  return uVar4;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [
+      {
+        "kind": "file-offset",
+        "offset": 204784
+      },
+      {
+        "kind": "address",
+        "address": "0x131ff0"
+      },
+      {
+        "kind": "address",
+        "address": "0x131ff0"
+      }
+    ],
+    "evidence_links": []
+  }
+}
