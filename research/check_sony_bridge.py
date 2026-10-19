@@ -87,12 +87,14 @@ def main():
     rows.append({'case':'stale-path-with-earlier-identity-declined','status':'passed'})
     proof=json.loads((ROOT/'research/evidence/sony-integration.json').read_text())
     assert len(proof['isolated_original_instruction_cases'])==34
-    names=['camera_worker/sony_bridge.h','camera_worker/sony_bridge.cc','camera_worker/build_sony_bridge.py',
+    names=['camera_worker/sony_bridge.h','camera_worker/sony_bridge.cc','camera_worker/sony_identity.h','camera_worker/tests/sony_identity_cases.h','camera_worker/build_sony_bridge.py',
            'camera_worker/tests/sony_bridge_test.cc','camera_worker/tests/sony_bridge_threads.cc','research/check_sony_bridge.py','research/trace_sony_integration.py']
     report={'schema':1,'camera_accessed':False,'network_accessed':False,'installed':False,
       'cases':rows,'builds':builds,'original_firmware_instruction_cases':34,
       'original_firmware_evidence_sha256':sha(ROOT/'research/evidence/sony-integration.json'),
       'sources':{n:sha(ROOT/n) for n in names},
+      'capture_identity_original_instruction_cases':len(json.loads((ROOT/'research/evidence/capture-identity.json').read_text())['original_instruction_cases']),
+      'capture_identity_evidence_sha256':sha(ROOT/'research/evidence/capture-identity.json'),
       'limits':['No Sony input hook, GUI renderer, shutter association or filesystem close hook installed or validated on hardware.',
                 'Native worker replay uses explicitly synthetic request/frame/close and prebound file identities.',
                 'ARM64 syscall emulation is not actual Linux/camera execution; only stdout/startup syscalls occur.',

@@ -7,6 +7,16 @@ The [native integration core](../camera_worker/SONY_INTEGRATION.md) implements
 the verified decoding/selection portions and leaves the unresolved capture,
 identity and installation boundaries explicit. No camera was accessed.
 
+## Capture/file identity follow-up
+
+[CAPTURE_FILE_IDENTITY.md](CAPTURE_FILE_IDENTITY.md) adds the returned ID →
+selected MPR recording object → cookie join and a same-request FSYS open/real
+close observation design, including deferred close. Its separate evidence has
+45 new original-instruction cases. No hook or same-open encoded-byte snapshot
+producer is installed. Earlier descriptions of missing identity edges below
+refer to the initial observer core; the follow-up states the current proof
+boundaries and corrects the timing of `mpr::Capture`.
+
 ## Evidence and coordinate system
 
 [trace_sony_integration.py](trace_sony_integration.py) pins the full SHA-256 of

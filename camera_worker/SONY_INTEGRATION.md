@@ -12,6 +12,17 @@ per-file callback and explain why registering a new high-level callback would
 break Sony's existing owner. The recovered addresses are research coordinates,
 not runtime addresses to call or patch.
 
+## Capture and close identity follow-up
+
+The [source-backed capture/file trace](../research/CAPTURE_FILE_IDENTITY.md)
+and [identity ledger](sony_identity.h) now recover the returned capture ID,
+selected MPR record, per-format/media cookie and same-request FSYS open/real
+close. The ledger supplies checked metadata candidates. It does not install
+hooks or provide encoded-byte ownership. A complete early request/ID ingress,
+per-frame preset fan-out, scoped trampoline and same-open snapshot producer
+remain required before automatic enqueue. `mpr::Capture` occurs after data
+arrival and must not be used as the pre-exposure arming point.
+
 ## Selector behavior
 
 `PresetMenu` is a native view/controller model with two rows: look and manual
@@ -127,7 +138,7 @@ archive member and links its exported entries into the self-test; Apple's `ar`
 can otherwise silently omit a Linux ELF member. The repository retains a
 rebuild receipt, linkable ARM64 archive and standalone self-test under `dist/`.
 
-[Acceptance evidence](../research/evidence/sony-bridge-checks.json) includes
+[Initial acceptance evidence](../research/evidence/sony-bridge-checks.json) includes
 native release/ASan/UBSan checks, a four-producer callback-forwarding stress test,
 execution of the actual ARM64 self-test under restricted Unicorn syscall models,
 and native launcher/worker replay with distinct LUT/lens choices, reversed JPEG/
@@ -136,3 +147,11 @@ HIF completions, 10-bit HIF decode and stale-path rejection. The separate
 original instruction cases and preserves eight relocation-backed menu records.
 These tests establish the offline model's behavior, not camera compatibility of
 the missing hooks, GUI, storage or scheduler.
+
+
+The [current identity acceptance run](../research/evidence/sony-identity-checks.json)
+adds 680 native assertions in release, ASan/UBSan and ARM64 emulation, plus the
+same seven launcher/worker integration groups. The
+[capture/file findings](../research/CAPTURE_FILE_IDENTITY.md) retain 45 additional
+original-instruction cases. `IdentityLedger201::take` still returns metadata
+only; no automatic worker enqueue or Sony hook is included.

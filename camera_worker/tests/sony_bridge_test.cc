@@ -24,7 +24,7 @@ static void result(uint8_t* p,const char* path) { std::memset(p,0,FsysResultByte
 
 static void tests() {
     uint8_t raw[0x58]{};AppStillFinished201 app{};
-    CHECK(!std::strcmp(a7_sony_bridge_version(),"a7-sony-observer-201-v1-offline"));
+    CHECK(!std::strcmp(a7_sony_bridge_version(),"a7-sony-observer-201-v2-offline"));
     CHECK(!a7_decode_app_still201(nullptr,0,&app));CHECK(!a7_decode_app_still201(raw,sizeof(raw),nullptr));
     CHECK(!a7_observe_fsys201(nullptr,0,0,nullptr,0));
     CHECK(!decode_app_still201(nullptr,sizeof(raw),app));CHECK(!decode_app_still201(raw,sizeof(raw)-1,app));
@@ -115,8 +115,11 @@ static void scenario() {
     CHECK(j.selection_generation==1 && h.selection_generation==2);
     std::printf("{\"scope\":\"synthetic normalized bindings; no Sony hook installed\",\"menu_choices\":[[%u,%u],[%u,%u]],\"completion_order\":[\"%s\",\"%s\"],\"paths\":[\"%s\",\"%s\"]}\n",a.choice.look,a.choice.lens,b.choice.look,b.choice.lens,h.event_id,j.event_id,j.relative_path,h.relative_path);
 }
+
+#include "sony_identity_cases.h"
 int main(int argc,char** argv) {
     tests();
+    identity_tests();
     if (argc==2 && !std::strcmp(argv[1],"--scenario")) scenario();
     else std::printf("{\"checks\":%d,\"status\":\"passed\",\"camera_accessed\":false}\n",checks);
 }

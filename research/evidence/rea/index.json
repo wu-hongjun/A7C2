@@ -1,8 +1,8 @@
 {
   "mode": "offline_REA_Ghidra_analysis",
   "camera_accessed": false,
-  "successful_evidence_records": 133,
-  "pseudocode_records": 126,
+  "successful_evidence_records": 138,
+  "pseudocode_records": 131,
   "subjects_by_sha256": [
     "14f3cd439bf27a6878b97d155c3cd97cc534a57395f922aed56e59a5b8b32f31",
     "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b",
@@ -6602,6 +6602,366 @@
       "pseudocode_warnings": []
     },
     {
+      "path": "research/evidence/rea/sony-capture-allocation/00-procedure_pseudo_code.json",
+      "sha256": "cc9529b1d20775c75a58a3851cefbb5870407df8986afd94edf1b33b2d349773",
+      "evidence_id": "ev_2e8ef4961152d79a5016e2f4e0e53e348ac02a77fca4579aa960df99eaec303e",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xeb948"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/sony-capture-allocation-00-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/01-procedure_pseudo_code.json",
+      "sha256": "4a9b0c75db16bb4d6e72de1853c9279b33ce78f98b9d622699898c96ae50635b",
+      "evidence_id": "ev_0e2ff81ec33c89ddf5b3ede91f77294280d904a6463f2e044c96e6e05aa9b2b0",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xe3938"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/sony-capture-allocation-01-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/02-procedure_pseudo_code.json",
+      "sha256": "0bcbbd85dfb7139448d07ede09351b706852b5b17aba990ebbe7995ebef27468",
+      "evidence_id": "ev_abb833323aa7226c9b285505a616b076590324754e3424dbac4637b8f2a471d6",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xe61d4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/sony-capture-allocation-02-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/03-procedure_pseudo_code.json",
+      "sha256": "6886dbc923af6a8bde2326b0aa248c164437710d189d6aaa94aab4b8ba6eaa20",
+      "evidence_id": "ev_48444d80fc944c0ddd4317004c083cf4320547f64b625eb6714a727d8ad9bf5a",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xe3edc"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/sony-capture-allocation-03-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/00-procedure_pseudo_code.json",
+      "sha256": "848a061cbd3dc3d28aa31d0f35433c7ef78eb2ce0aaa9938f02938447ab71ea0",
+      "evidence_id": "ev_4df7acb937603845a260f23974024ab82c15e4a1c4246c036b396f86eb2f1095",
+      "operation": "procedure_pseudo_code",
+      "subject": {
+        "name": "libmpr.so",
+        "digest": {
+          "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9"
+        },
+        "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "architecture": "arm64"
+      },
+      "parameters": {
+        "procedure": "file-offset:0xeb260"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "elf",
+          "architecture": "arm64",
+          "available_architectures": [
+            "arm64"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "returning-imports-decoded-return-v2",
+          "process_launch": "inspected-jvm-launch-support-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+          "analysis_options": {
+            "disabled_analyzers": [
+              "Decompiler Switch Analysis"
+            ]
+          }
+        },
+        "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+      ],
+      "relationship_coverage": null,
+      "readable_pseudocode": "research/evidence/rea/readable/sony-capture-record-00-procedure_pseudo_code.c",
+      "pseudocode_warnings": []
+    },
+    {
       "path": "research/evidence/rea/sony-fsys-completion/00-procedure_pseudo_code.json",
       "sha256": "ca358bd241ed96b2b5e80e7dd973be450c95d4e94d545747b72bbe5b80bf207d",
       "evidence_id": "ev_5a7b060589883f4149344b9ddb06b7078cc8db42b84e0ab1880aaa9eaaa50fb9",
@@ -9341,6 +9701,18 @@
       "operations": 3
     },
     {
+      "session": "sony-capture-allocation",
+      "closed": true,
+      "exported_bundle": true,
+      "operations": 7
+    },
+    {
+      "session": "sony-capture-record",
+      "closed": true,
+      "exported_bundle": true,
+      "operations": 4
+    },
+    {
       "session": "sony-fsys-completion",
       "closed": true,
       "exported_bundle": true,
@@ -9819,6 +10191,52 @@
         "format": "elf",
         "kind": "executable",
         "sha256": "2ea02f7ecbc5bb917316fe8ef4ce5ffd87eb66efaae78ba2ce11420552df539b",
+        "architecture": "arm64"
+      }
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/close.json",
+      "result": null
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/export.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/build/capture-identity/rea-mpr-capture/evidence-bundle.json",
+        "bytes": 116602,
+        "records": 4,
+        "unknowns": 0
+      }
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/open.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "kind": "executable",
+        "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9",
+        "architecture": "arm64"
+      }
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/close.json",
+      "result": null
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/export.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/build/capture-identity/rea-mpr-record/evidence-bundle.json",
+        "bytes": 16930,
+        "records": 1,
+        "unknowns": 0
+      }
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/open.json",
+      "result": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libmpr.so",
+        "format": "elf",
+        "kind": "executable",
+        "sha256": "4fb6d886c1ac620399d09c9c2ffc074315968cf0ada764062913c4e0783fc7f9",
         "architecture": "arm64"
       }
     },

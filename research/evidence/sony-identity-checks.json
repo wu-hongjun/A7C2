@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "camera_accessed": false,
+  "network_accessed": false,
+  "installed": false,
+  "cases": [
+    {
+      "case": "host-core-and-linked-archive-selftest",
+      "checks": 680,
+      "status": "passed",
+      "camera_accessed": false
+    },
+    {
+      "case": "asan-core-and-linked-archive-selftest",
+      "checks": 680,
+      "status": "passed",
+      "camera_accessed": false
+    },
+    {
+      "case": "ARM64-core-and-linked-archive-selftest",
+      "exit_code": 0,
+      "stdout": "{\"checks\":680,\"status\":\"passed\",\"camera_accessed\":false}\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "ioctl": 1,
+        "writev": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [],
+      "peak_mapped_guest_bytes": 8495104,
+      "elapsed_host_seconds": 0.12563208304345608,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution.",
+      "ELF": {
+        "machine": "EM_AARCH64",
+        "type": "ET_EXEC",
+        "ELF_bits": 64,
+        "little_endian": true,
+        "interpreter": null,
+        "dynamic_dependencies": [],
+        "writable_executable_load_segments": false,
+        "executable_stack": false,
+        "bytes": 91512,
+        "sha256": "d500672c72d48de82424feb65ada99c0c1c9066da66078f999f3ca10d10b200d"
+      }
+    },
+    {
+      "case": "host-MPSC-forwarding-ASan-UBSan",
+      "rounds": 100,
+      "forwarded": 3200,
+      "observations_consumed": 6400,
+      "contention_fault_rounds": 0,
+      "status": "passed"
+    },
+    {
+      "case": "synthetic-callback-replay-to-native-HIF10",
+      "status": "passed",
+      "look": "bleach-bypass-srgb",
+      "lens": "example-takumar-50",
+      "shooting_aperture": "unknown",
+      "source_unchanged": true,
+      "identity_proof": "synthetic fixture digest known before replay; not inferred from a late pathname",
+      "output_sha256": "07a258d34db2b09a07829ee649c20161223222d9f44e2b1965e4f1b2ec05e1a1",
+      "focal_length_mm": 50
+    },
+    {
+      "case": "synthetic-callback-replay-to-native-JPEG",
+      "status": "passed",
+      "look": "astia-srgb",
+      "lens": "example-helios-58",
+      "shooting_aperture": "unknown",
+      "source_unchanged": true,
+      "identity_proof": "synthetic fixture digest known before replay; not inferred from a late pathname",
+      "output_sha256": "533dd6b76fb65fa1142219c429a7d373941f093ab4108aecf595795b79354e49",
+      "focal_length_mm": 58
+    },
+    {
+      "case": "stale-path-with-earlier-identity-declined",
+      "status": "passed"
+    }
+  ],
+  "builds": {
+    "host": {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": false,
+      "network_accessed": false,
+      "camera_accessed": false,
+      "target": "native macOS",
+      "scope": "Transport-neutral core/self-test only; no Sony module, UI renderer, hook, loader, callback registration or installation",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "archiver": "zig 0.16.0 ar rcsD",
+      "sources": {
+        "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
+        "camera_worker/sony_bridge.cc": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43",
+        "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
+        "camera_worker/tests/sony_identity_cases.h": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952",
+        "camera_worker/tests/sony_bridge_test.cc": "0486c38e91af4f47f6ff6fa9f37350dd08ff1a618a55a5fd594a4e95a4efe412",
+        "camera_worker/build_sony_bridge.py": "b683d31686ee0a214b16204ef2f0890d4fa3315bb82b04670d7e1d72bb82f67e"
+      },
+      "artifacts": {
+        "libsony_bridge.a": {
+          "sha256": "cdc4764b2d4f97cd2cfe6db2e0d1b0251a1697347a33ab7aaf5d38a641705c75",
+          "bytes": 2608
+        },
+        "sony-bridge-test-host": {
+          "sha256": "b4beec2e2bf43628979185d1528fd263e7a8b4aa2c25c2e6d83a167501642338",
+          "bytes": 93464
+        }
+      }
+    },
+    "asan": {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": true,
+      "network_accessed": false,
+      "camera_accessed": false,
+      "target": "native macOS",
+      "scope": "Transport-neutral core/self-test only; no Sony module, UI renderer, hook, loader, callback registration or installation",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "archiver": "zig 0.16.0 ar rcsD",
+      "sources": {
+        "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
+        "camera_worker/sony_bridge.cc": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43",
+        "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
+        "camera_worker/tests/sony_identity_cases.h": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952",
+        "camera_worker/tests/sony_bridge_test.cc": "0486c38e91af4f47f6ff6fa9f37350dd08ff1a618a55a5fd594a4e95a4efe412",
+        "camera_worker/build_sony_bridge.py": "b683d31686ee0a214b16204ef2f0890d4fa3315bb82b04670d7e1d72bb82f67e"
+      },
+      "artifacts": {
+        "libsony_bridge.a": {
+          "sha256": "e186732fe8ff2b10d663db57f6d04576bbf736a3b9d4d41476095d166ddf848a",
+          "bytes": 63136
+        },
+        "sony-bridge-test-host": {
+          "sha256": "5696f9550dcd16f4349dd0dff4ff103a43f56ddcec3e9cf6da4075a80b552e83",
+          "bytes": 253976
+        }
+      }
+    },
+    "linux": {
+      "schema": 1,
+      "host_variant": false,
+      "sanitizers": false,
+      "network_accessed": false,
+      "camera_accessed": false,
+      "target": "generic ARMv8-A aarch64-linux-musl",
+      "scope": "Transport-neutral core/self-test only; no Sony module, UI renderer, hook, loader, callback registration or installation",
+      "compiler": "Homebrew clang version 21.1.8",
+      "archiver": "zig 0.16.0 ar rcsD",
+      "sources": {
+        "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
+        "camera_worker/sony_bridge.cc": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43",
+        "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
+        "camera_worker/tests/sony_identity_cases.h": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952",
+        "camera_worker/tests/sony_bridge_test.cc": "0486c38e91af4f47f6ff6fa9f37350dd08ff1a618a55a5fd594a4e95a4efe412",
+        "camera_worker/build_sony_bridge.py": "b683d31686ee0a214b16204ef2f0890d4fa3315bb82b04670d7e1d72bb82f67e"
+      },
+      "artifacts": {
+        "libsony_bridge.a": {
+          "sha256": "909dcd5c59a4bd42e8b6407620cbf20d0b662f33220c801b82cd8cb4e3ea1cb5",
+          "bytes": 4244
+        },
+        "sony-bridge-test-aarch64": {
+          "sha256": "d500672c72d48de82424feb65ada99c0c1c9066da66078f999f3ca10d10b200d",
+          "bytes": 91512
+        }
+      }
+    }
+  },
+  "original_firmware_instruction_cases": 34,
+  "original_firmware_evidence_sha256": "e5598d5934457750d78020dc68b69e786673d3cbb71011f65180c2bb13c35348",
+  "sources": {
+    "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
+    "camera_worker/sony_bridge.cc": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43",
+    "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
+    "camera_worker/tests/sony_identity_cases.h": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952",
+    "camera_worker/build_sony_bridge.py": "b683d31686ee0a214b16204ef2f0890d4fa3315bb82b04670d7e1d72bb82f67e",
+    "camera_worker/tests/sony_bridge_test.cc": "0486c38e91af4f47f6ff6fa9f37350dd08ff1a618a55a5fd594a4e95a4efe412",
+    "camera_worker/tests/sony_bridge_threads.cc": "76e3822890ae1df679ebf03cec8a8e57817035498772244adef4cb2027233aef",
+    "research/check_sony_bridge.py": "b2abc690ffbc6536d5b88abb0edce37cdb5582c55894dd20fbc3a2126e0e5489",
+    "research/trace_sony_integration.py": "6cb471bfab65648f6055911801abe6e3ba17847c6ade0462c22c177373e62b41"
+  },
+  "capture_identity_original_instruction_cases": 45,
+  "capture_identity_evidence_sha256": "bb6946e449d242701808af2bdbfbad0a2dba9f5e4a81879b098877a575901805",
+  "limits": [
+    "No Sony input hook, GUI renderer, shutter association or filesystem close hook installed or validated on hardware.",
+    "Native worker replay uses explicitly synthetic request/frame/close and prebound file identities.",
+    "ARM64 syscall emulation is not actual Linux/camera execution; only stdout/startup syscalls occur.",
+    "ASan/UBSan are memory/undefined-behavior checks, not a thread race detector."
+  ]
+}

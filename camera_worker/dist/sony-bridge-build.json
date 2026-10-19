@@ -10,18 +10,20 @@
   "archiver": "zig 0.16.0 ar rcsD",
   "sources": {
     "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
-    "camera_worker/sony_bridge.cc": "e27215157983aea95d1ad680b64b342fa79366bfd1777be333e3ad9ff663ccde",
-    "camera_worker/tests/sony_bridge_test.cc": "dde0a6978af985aa59504abc662294baeec54750761f7fe3366c7db229138f21",
-    "camera_worker/build_sony_bridge.py": "250fedd08ba8ba64531e157f36434aeb62e140677c5b4893d2df36172af551a6"
+    "camera_worker/sony_bridge.cc": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43",
+    "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
+    "camera_worker/tests/sony_identity_cases.h": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952",
+    "camera_worker/tests/sony_bridge_test.cc": "0486c38e91af4f47f6ff6fa9f37350dd08ff1a618a55a5fd594a4e95a4efe412",
+    "camera_worker/build_sony_bridge.py": "b683d31686ee0a214b16204ef2f0890d4fa3315bb82b04670d7e1d72bb82f67e"
   },
   "artifacts": {
     "libsony_bridge.a": {
-      "sha256": "a6976662d11d8aad27f6443789f49c2290350e8172d3c4e31e133343191d8643",
-      "bytes": 2506
+      "sha256": "909dcd5c59a4bd42e8b6407620cbf20d0b662f33220c801b82cd8cb4e3ea1cb5",
+      "bytes": 4244
     },
     "sony-bridge-test-aarch64": {
-      "sha256": "4747852adf5d30d6653ffdf30d4c55e7a7184c664a8e9c05ceccef02744673b7",
-      "bytes": 60024
+      "sha256": "d500672c72d48de82424feb65ada99c0c1c9066da66078f999f3ca10d10b200d",
+      "bytes": 91512
     }
   }
 }

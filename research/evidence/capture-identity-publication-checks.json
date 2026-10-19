@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "starting_commit": "19ca672a42862c8b2434ab1f3813590c669c881d",
+  "scope": "Offline source-backed capture/record/cookie/open/real-close metadata model; no installed hooks or automatic photo handoff",
+  "camera_accessed": false,
+  "mounted_media_accessed": false,
+  "installed": false,
+  "firmware_or_settings_changed": false,
+  "network_during_tests": false,
+  "publication_network_exception": "User-authorized Git push and remote-ref verification only",
+  "checks": {
+    "native_release_assertions": 680,
+    "ASan_UBSan_assertions": 680,
+    "ARM64_emulated_assertions": 680,
+    "original_identity_instruction_cases": 45,
+    "original_callback_menu_instruction_cases_retained": 34,
+    "source_bound_identity_instruction_ranges": 31,
+    "native_integration_groups": 7,
+    "JPEG_and_HIF10_replay": "passed with synthetic prebound byte identities; originals unchanged",
+    "stale_path_rejection": "passed",
+    "root_tests": 41,
+    "photo_worker_tests": 26,
+    "camera_worker_tests": 8,
+    "two_target_builds_byte_identical": true,
+    "local_document_links": 93,
+    "source_and_artifact_receipts": "passed"
+  },
+  "remaining_gates": [
+    "AP capture-start request acceptance, AV ingress and per-exposure behavior across drive modes",
+    "Scoped process-local trampoline, source lifetime, reentrancy, original forwarding and owned event transport",
+    "Same-open encoded-byte ownership and Sony-to-POSIX worker storage handoff",
+    "Per-file jobs derived from one frozen selection; idle/resource policy",
+    "Bounded-session identity reuse/reclamation and unsupported TNtfs backing lease"
+  ],
+  "safe_automatic_worker_enqueue": false,
+  "preserved_preexisting_edit": "research/A7C2_FIRMWARE_ATLAS.md excluded",
+  "evidence_sha256": {
+    "research/evidence/sony-identity-checks.json": "ec5de11679b7476b0ebbc40d14987d15244308bc6f3cae98d8dd4ddce8ff025f",
+    "research/evidence/capture-identity.json": "bb6946e449d242701808af2bdbfbad0a2dba9f5e4a81879b098877a575901805",
+    "camera_worker/dist/sony-bridge-build.json": "8243453f59b27816fe676dbabd16006a1d403a348c3340d2262ccbc2042f876d",
+    "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
+    "research/trace_capture_identity.py": "50a017e558146375b2dfa43941b1b6a2f77a6c109b47b9173feeaaff0756612e"
+  }
+}

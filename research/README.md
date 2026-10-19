@@ -20,6 +20,12 @@ JPEG/10-bit HIF launcher. It does not install a hook or establish the remaining
 shutter/file-identity and Sony GUI boundaries. Original instruction tests and
 synthetic native replay are explicitly distinguished from hardware validation.
 
+The [capture/file identity follow-up](CAPTURE_FILE_IDENTITY.md) adds a checked
+returned-ID → MPR record → write cookie → FSYS open → real-close model,
+including deferred close and a conservative PrFILE-only lease. It retains
+45 additional original-instruction cases. Early arming across modes, scoped
+hooks and owned encoded bytes still gate automatic worker handoff.
+
 The [standalone ARM64 JPEG-worker candidate](../camera_worker/README.md) now
 replaces the host runtime for processing exported jobs: static musl/libjpeg,
 native 11-look LUT evaluation, frozen lens EXIF and bounded scanline memory.

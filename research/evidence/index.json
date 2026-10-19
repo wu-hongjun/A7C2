@@ -64,13 +64,13 @@
     },
     {
       "path": "camera_worker/README.md",
-      "bytes": 12151,
-      "sha256": "104648a40030799b99a3b6ca581b56f727f7ac3beb91b20537a521f251f1c286"
+      "bytes": 12498,
+      "sha256": "b2c924a6b71a01e9be7ff34e8539322faf953c30994f080b366169b0d7c2d082"
     },
     {
       "path": "camera_worker/SONY_INTEGRATION.md",
-      "bytes": 8532,
-      "sha256": "71da5f8488f27aeddc3ae51fe64421974b0d82ebe28e0c9bd6f46d8eb9b6867b"
+      "bytes": 9619,
+      "sha256": "7d778c48501dfda9ce14e78f506bc4c11a24bd81a5bfe698a877d8eb0efd8f9a"
     },
     {
       "path": "camera_worker/build.py",
@@ -89,8 +89,8 @@
     },
     {
       "path": "camera_worker/build_sony_bridge.py",
-      "bytes": 3544,
-      "sha256": "250fedd08ba8ba64531e157f36434aeb62e140677c5b4893d2df36172af551a6"
+      "bytes": 3620,
+      "sha256": "b683d31686ee0a214b16204ef2f0890d4fa3315bb82b04670d7e1d72bb82f67e"
     },
     {
       "path": "camera_worker/bundle.py",
@@ -129,8 +129,8 @@
     },
     {
       "path": "camera_worker/dist/libsony_bridge.a",
-      "bytes": 2506,
-      "sha256": "a6976662d11d8aad27f6443789f49c2290350e8172d3c4e31e133343191d8643"
+      "bytes": 4244,
+      "sha256": "909dcd5c59a4bd42e8b6407620cbf20d0b662f33220c801b82cd8cb4e3ea1cb5"
     },
     {
       "path": "camera_worker/dist/photo-launcher-aarch64",
@@ -139,13 +139,13 @@
     },
     {
       "path": "camera_worker/dist/sony-bridge-build.json",
-      "bytes": 1145,
-      "sha256": "29f901d5faa9de9ec2c38806faeda4869b2215863cd5f36a5a30cfd1ceb12660"
+      "bytes": 1367,
+      "sha256": "8243453f59b27816fe676dbabd16006a1d403a348c3340d2262ccbc2042f876d"
     },
     {
       "path": "camera_worker/dist/sony-bridge-test-aarch64",
-      "bytes": 60024,
-      "sha256": "4747852adf5d30d6653ffdf30d4c55e7a7184c664a8e9c05ceccef02744673b7"
+      "bytes": 91512,
+      "sha256": "d500672c72d48de82424feb65ada99c0c1c9066da66078f999f3ca10d10b200d"
     },
     {
       "path": "camera_worker/heif_core.h",
@@ -209,13 +209,18 @@
     },
     {
       "path": "camera_worker/sony_bridge.cc",
-      "bytes": 707,
-      "sha256": "e27215157983aea95d1ad680b64b342fa79366bfd1777be333e3ad9ff663ccde"
+      "bytes": 1038,
+      "sha256": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43"
     },
     {
       "path": "camera_worker/sony_bridge.h",
       "bytes": 15596,
       "sha256": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6"
+    },
+    {
+      "path": "camera_worker/sony_identity.h",
+      "bytes": 11670,
+      "sha256": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736"
     },
     {
       "path": "camera_worker/srgb_profile.h",
@@ -234,13 +239,18 @@
     },
     {
       "path": "camera_worker/tests/sony_bridge_test.cc",
-      "bytes": 9544,
-      "sha256": "dde0a6978af985aa59504abc662294baeec54750761f7fe3366c7db229138f21"
+      "bytes": 9600,
+      "sha256": "0486c38e91af4f47f6ff6fa9f37350dd08ff1a618a55a5fd594a4e95a4efe412"
     },
     {
       "path": "camera_worker/tests/sony_bridge_threads.cc",
       "bytes": 1987,
       "sha256": "76e3822890ae1df679ebf03cec8a8e57817035498772244adef4cb2027233aef"
+    },
+    {
+      "path": "camera_worker/tests/sony_identity_cases.h",
+      "bytes": 9604,
+      "sha256": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952"
     },
     {
       "path": "camera_worker/tests/test_launcher_build.py",
@@ -423,6 +433,11 @@
       "sha256": "47c175442fcab225faf010f0b7c7751ade0858457eacde88af2b243aca8c4cd2"
     },
     {
+      "path": "research/CAPTURE_FILE_IDENTITY.md",
+      "bytes": 15101,
+      "sha256": "63556371b2fb604d8f271fd9e97e5a99e127efab116c38a5cf6995667c099658"
+    },
+    {
       "path": "research/CAPTURE_HANDOFF.md",
       "bytes": 8829,
       "sha256": "cfc07d6e0ece49036323b661bc8b6244086851cda9056fa9f5a2923a21a785d5"
@@ -514,8 +529,8 @@
     },
     {
       "path": "research/README.md",
-      "bytes": 23764,
-      "sha256": "05ac6d03ccb0445ff40cb66f1331529ffbf067993e4db1902f17f3c2e7384873"
+      "bytes": 24141,
+      "sha256": "0c3785f9b9149f7b34e637ea263a0d2ebfb91e5533b449c51f9f30fba4bf3ceb"
     },
     {
       "path": "research/RECORDING_BUFFER_OWNERSHIP.md",
@@ -534,8 +549,8 @@
     },
     {
       "path": "research/SONY_MENU_COMPLETION.md",
-      "bytes": 11189,
-      "sha256": "98fa2682fff211ded3e92a72d926e95e8d69ae1f76767180f195bf2a8c322435"
+      "bytes": 11745,
+      "sha256": "617bad9a338ecde66fddda798ed24e3d9c6546863485b784a92e087f4da509d8"
     },
     {
       "path": "research/STILL_ENCODER_ROUTE.md",
@@ -629,8 +644,8 @@
     },
     {
       "path": "research/check_sony_bridge.py",
-      "bytes": 7426,
-      "sha256": "545251d25c93c85b2d755347357bab4f9ba4a8acf38f72ba1525c9248cf1be23"
+      "bytes": 7757,
+      "sha256": "b2abc690ffbc6536d5b88abb0edce37cdb5582c55894dd20fbc3a2126e0e5489"
     },
     {
       "path": "research/emulate_camera_worker.py",
@@ -716,6 +731,16 @@
       "path": "research/evidence/capture-handoff.json",
       "bytes": 116028,
       "sha256": "7ac1445b0366f9ee244a85623aaff1867384210d87f24d5a1dc4d11baa9681e2"
+    },
+    {
+      "path": "research/evidence/capture-identity-publication-checks.json",
+      "bytes": 2339,
+      "sha256": "ce91478db60cef1daa1264d4719d5207bf36192478fd4fe22ec926e94b937445"
+    },
+    {
+      "path": "research/evidence/capture-identity.json",
+      "bytes": 176771,
+      "sha256": "bb6946e449d242701808af2bdbfbad0a2dba9f5e4a81879b098877a575901805"
     },
     {
       "path": "research/evidence/cp-architecture.json",
@@ -1634,8 +1659,8 @@
     },
     {
       "path": "research/evidence/rea/index.json",
-      "bytes": 569470,
-      "sha256": "67ebfb44f6facd096f9346863f8ac8a8c5ca47f1d5faa7c2d24490982672ca22"
+      "bytes": 591956,
+      "sha256": "30d957f8433619ba7d5f466578d02f3976ae396675b08224b56fea5fc627a26f"
     },
     {
       "path": "research/evidence/rea/jiritsu/00-procedure_pseudo_code.json",
@@ -2398,6 +2423,31 @@
       "sha256": "bf79796b69ba1e2459b15ece3e72dbbabddecc64d1de79a747ca6dedd7189ec4"
     },
     {
+      "path": "research/evidence/rea/readable/sony-capture-allocation-00-procedure_pseudo_code.c",
+      "bytes": 35332,
+      "sha256": "e0a4f9a3b742805939733c788a45ea094e18a07d45a35df3e20dce5335470474"
+    },
+    {
+      "path": "research/evidence/rea/readable/sony-capture-allocation-01-procedure_pseudo_code.c",
+      "bytes": 4015,
+      "sha256": "f205e0108decb1fbc523e0253c1ef5ba4f12765f3d541f5fefa05aed3f6b1b0a"
+    },
+    {
+      "path": "research/evidence/rea/readable/sony-capture-allocation-02-procedure_pseudo_code.c",
+      "bytes": 1433,
+      "sha256": "12c469a88530890702257e05449aa35d114548e0ffbd8911c287b9fa856c3f50"
+    },
+    {
+      "path": "research/evidence/rea/readable/sony-capture-allocation-03-procedure_pseudo_code.c",
+      "bytes": 9669,
+      "sha256": "e5a320adcc52a93f850bacada919356c064e61dcac13673ba688f1e3a08159ff"
+    },
+    {
+      "path": "research/evidence/rea/readable/sony-capture-record-00-procedure_pseudo_code.c",
+      "bytes": 6582,
+      "sha256": "0f40ea9d3a48143747902c5167d8b82e12b23cdd5c2d8e88a4c39632038f391f"
+    },
+    {
       "path": "research/evidence/rea/readable/sony-fsys-completion-00-procedure_pseudo_code.c",
       "bytes": 1205,
       "sha256": "067dca780b5d230afd170aa7fa720253e1a398231b8716c7d027ddae613a0820"
@@ -2756,6 +2806,81 @@
       "path": "research/evidence/rea/sony-app-completion-attempt/receipts.json",
       "bytes": 912,
       "sha256": "039cfe8361a6f1baf905ed3e5d6a8b08175015e12d6045259b1eb05be34cb3b4"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/00-procedure_pseudo_code.json",
+      "bytes": 154934,
+      "sha256": "cc9529b1d20775c75a58a3851cefbb5870407df8986afd94edf1b33b2d349773"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/01-procedure_pseudo_code.json",
+      "bytes": 24348,
+      "sha256": "4a9b0c75db16bb4d6e72de1853c9279b33ce78f98b9d622699898c96ae50635b"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/02-procedure_pseudo_code.json",
+      "bytes": 13664,
+      "sha256": "0bcbbd85dfb7139448d07ede09351b706852b5b17aba990ebbe7995ebef27468"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/03-procedure_pseudo_code.json",
+      "bytes": 47954,
+      "sha256": "6886dbc923af6a8bde2326b0aa248c164437710d189d6aaa94aab4b8ba6eaa20"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/close.json",
+      "bytes": 251,
+      "sha256": "fb3beac94c0871148d4cdb98bf38d13aafaa4e281a422cb0995a943c16648a51"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/evidence-bundle.json",
+      "bytes": 116602,
+      "sha256": "08a38459e4d4c831d1fb33b8a7b8389f7d92d17e4ecc4943ddb10b0a59784943"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/export.json",
+      "bytes": 469,
+      "sha256": "73d1b7329ee2335270dbfde2b80348160b041b1f78ce3b2130934386f93cdcf1"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/open.json",
+      "bytes": 866,
+      "sha256": "fa85d97629de87aace8516e1a9589bb4981a8cc489cec26e4dd7421eeefb7a07"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-allocation/receipts.json",
+      "bytes": 1985,
+      "sha256": "156be664a23895ce85cb4aa8bce717481f1756e15c819fc84125d20f29a57e6c"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/00-procedure_pseudo_code.json",
+      "bytes": 34968,
+      "sha256": "848a061cbd3dc3d28aa31d0f35433c7ef78eb2ce0aaa9938f02938447ab71ea0"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/close.json",
+      "bytes": 251,
+      "sha256": "fb3beac94c0871148d4cdb98bf38d13aafaa4e281a422cb0995a943c16648a51"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/evidence-bundle.json",
+      "bytes": 16930,
+      "sha256": "4f3528cadee878d7be4c3ddaa7719b1c3150d635ee515ead7867f348e4adac73"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/export.json",
+      "bytes": 465,
+      "sha256": "9ad8dea81b4e3b2f5640a58a7bbf673b32984f3f018570c8a80a50a680ec7f33"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/open.json",
+      "bytes": 866,
+      "sha256": "fa85d97629de87aace8516e1a9589bb4981a8cc489cec26e4dd7421eeefb7a07"
+    },
+    {
+      "path": "research/evidence/rea/sony-capture-record/receipts.json",
+      "bytes": 1219,
+      "sha256": "681a6e88f645e3533fd65a4482043c8743d3df2f5edfe94a8d62c66817c93fee"
     },
     {
       "path": "research/evidence/rea/sony-fsys-completion/00-procedure_pseudo_code.json",
@@ -3168,6 +3293,11 @@
       "sha256": "df7f72d11727592b8647b00fcb0c9769a5e219a3ac279aa83badfc49e9af173c"
     },
     {
+      "path": "research/evidence/sony-identity-checks.json",
+      "bytes": 8897,
+      "sha256": "ec5de11679b7476b0ebbc40d14987d15244308bc6f3cae98d8dd4ddce8ff025f"
+    },
+    {
       "path": "research/evidence/sony-integration-publication-checks.json",
       "bytes": 1981,
       "sha256": "a38fa24455da8b1002a950da5de12de01796d244413355690ce1ac9c201f80ed"
@@ -3413,6 +3543,16 @@
       "sha256": "13b4b26c177d2a1c3ab8e394fc128e17e8ffc3e5b11dbe744564ffbe454ab21d"
     },
     {
+      "path": "research/rea-jobs/sony-capture-allocation.json",
+      "bytes": 832,
+      "sha256": "41b600fa15de30f5cacdbbbb3db980c6a7b6d25ca646959a6ddfa05c9af20431"
+    },
+    {
+      "path": "research/rea-jobs/sony-capture-record.json",
+      "bytes": 456,
+      "sha256": "58c6103471918f9c6a9d359b442898696de6cdda2acc659ec37d11b7a7cd2fa5"
+    },
+    {
       "path": "research/rea-jobs/sony-fsys-completion.json",
       "bytes": 820,
       "sha256": "bda54b12dd650e99aec461f7e4a744eebfafc0dd24741680011deffd95a707d2"
@@ -3536,6 +3676,11 @@
       "path": "research/trace_capture_handoff.py",
       "bytes": 12506,
       "sha256": "bc58bb0f4d0394490dae1040475c1dd01ea5adb06e01dbf52f02ba3877a3dc69"
+    },
+    {
+      "path": "research/trace_capture_identity.py",
+      "bytes": 14272,
+      "sha256": "50a017e558146375b2dfa43941b1b6a2f77a6c109b47b9173feeaaff0756612e"
     },
     {
       "path": "research/trace_encoder_save_link.py",

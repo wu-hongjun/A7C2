@@ -197,3 +197,10 @@ selector and bounded per-file callback observation, with original-firmware
 instruction tests and JPEG/10-bit HIF launcher replay. It remains an offline
 candidate: physical button routing, Sony rendering, shutter/request identity,
 same-file completion proof and a loadable hook are still required before use.
+
+
+The [capture/file identity follow-up](../research/CAPTURE_FILE_IDENTITY.md)
+adds a checked recording-object/cookie/open/real-close ledger for JPEG/HIF.
+It remains an offline model: early arming across modes, scoped Sony hooks,
+owned encoded bytes and resource-safe dispatch still block automatic capture
+processing. No installation is included.
