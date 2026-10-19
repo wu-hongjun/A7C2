@@ -1,5 +1,6 @@
 """Index retained REA MCP results and render pseudocode for offline review."""
 import json
+import argparse
 from pathlib import Path
 import re
 import sys
@@ -10,6 +11,10 @@ import core
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--normalize-readable-prefix', default='',
+                        help='Trim whitespace only in derived C views for matching session names; raw Evidence stays unchanged')
+    args = parser.parse_args()
     base = ROOT / 'research/evidence/rea'
     readable = base / 'readable'
     readable.mkdir(exist_ok=True)
@@ -50,6 +55,8 @@ def main():
             code = parsed['normalized_result']
             if not isinstance(code, str):
                 raise ValueError('Unexpected pseudocode representation')
+            if args.normalize_readable_prefix and path.parent.name.startswith(args.normalize_readable_prefix):
+                code = '\n'.join(line.rstrip() for line in code.splitlines()).rstrip() + '\n'
             filename = path.parent.name + '-' + path.stem + '.c'
             output = readable / filename
             output.write_text('// Decompiled pseudocode, not original source.\n'

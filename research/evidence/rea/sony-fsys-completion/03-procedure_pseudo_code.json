@@ -1,0 +1,116 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_42b72fdc24d01213a92c061a7bf2818364057bd25511587c3bae9fdcb583ad29\",\"subject\":{\"name\":\"libInfraFsys.so\",\"digest\":{\"sha256\":\"33451a884b65f946ac8aca44b620cd3cec677d05752c52f2ff0e212a01824bfa\"},\"local_path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraFsys.so\",\"format\":\"elf\",\"architecture\":\"arm64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"arm64\",\"available_architectures\":[\"arm64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-v1\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v3\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default+disabled:Decompiler Switch Analysis\",\"analysis_options\":{\"disabled_analyzers\":[\"Decompiler Switch Analysis\"]}},\"digest\":\"8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"file-offset:0x2b46c\"},\"raw_result\":{\"value\":\"\\nundefined8 _ZN13InfraFsysMcmd17IFSYS_WriteDirectEiPPc(int param_1,long param_2)\\n\\n{\\n  char cVar1;\\n  int iVar2;\\n  undefined8 uVar3;\\n  ulong uVar4;\\n  ulong uVar5;\\n  ulong uVar6;\\n  char *pcVar7;\\n  undefined4 *puVar8;\\n  uint uVar9;\\n  undefined8 *puVar10;\\n  undefined8 local_58;\\n  undefined8 uStack_50;\\n  undefined4 local_48;\\n  undefined2 local_44;\\n  undefined8 local_40;\\n  undefined8 uStack_38;\\n  undefined8 local_30;\\n  undefined8 uStack_28;\\n  undefined8 local_20;\\n  undefined8 uStack_18;\\n  undefined8 local_10;\\n  undefined8 uStack_8;\\n  \\n  if (param_1 < 4) {\\n    _ZNK7MonCtrl12ConPutFewArgEv(_ZN13InfraFsysMcmd6mp_msgE);\\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\\n              (_ZN13InfraFsysMcmd6mp_msgE,\\n               \\\"writedirect [path] [filesize], [listcount] (add1, size1, addr2, size2, .....)\\\\n\\\");\\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\\n              (_ZN13InfraFsysMcmd6mp_msgE,\\n               \\\"  <path>    : /dev/mmca, /dev/mmca1 /dev/sxs_blk0, /dev/sxs_blk1,...\\\\n\\\");\\n  }\\n  else {\\n    local_44 = 0;\\n    local_48 = 0;\\n    local_58 = 0;\\n    uStack_50 = 0;\\n    cVar1 = _ZN13InfraFsysMcmd14GetCuttentTimeER8FSYSTIME();\\n    if (cVar1 == '\\\\0') {\\n      _ZNK7MonCtrl9ConPrintfEPKcz\\n                (_ZN13InfraFsysMcmd6mp_msgE,\\\"%s %d: GetCuttentTime Error.\\\\n\\\",\\\"IFSYS_WriteDirect\\\",\\n                 0x5b7);\\n    }\\n    else {\\n      uVar3 = *(undefined8 *)(param_2 + 8);\\n      uVar4 = strtol(*(char **)(param_2 + 0x10),(char **)0x0,0);\\n      uVar5 = strtol(*(char **)(param_2 + 0x18),(char **)0x0,0);\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\\\"filepath  = %s \\\\n\\\",uVar3);\\n      _ZNK7MonCtrl9ConPrintfEPKcz\\n                (_ZN13InfraFsysMcmd6mp_msgE,\\\"filesize  = 0x%x \\\\n\\\",uVar4 & 0xffffffff);\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\\\"listcount = %d \\\\n\\\",uVar5 & 0xffffffff)\\n      ;\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\\\"[FSYS_DIRECT_AREA List]\\\\n\\\");\\n      local_40 = 0;\\n      uStack_38 = 0;\\n      local_30 = 0;\\n      uStack_28 = 0;\\n      local_20 = 0;\\n      uStack_18 = 0;\\n      local_10 = 0;\\n      uStack_8 = 0;\\n      puVar8 = (undefined4 *)((long)&local_40 + 4);\\n      puVar10 = (undefined8 *)(param_2 + 0x20);\\n      for (uVar9 = 0; uVar9 < (uint)uVar5; uVar9 = uVar9 + 1) {\\n        uVar6 = strtoul((char *)*puVar10,(char **)0x0,0);\\n        puVar8[-1] = (int)uVar6;\\n        uVar6 = strtoul((char *)puVar10[1],(char **)0x0,0);\\n        *puVar8 = (int)uVar6;\\n        _ZNK7MonCtrl9ConPrintfEPKcz\\n                  (_ZN13InfraFsysMcmd6mp_msgE,\\\"list[%d].addr = 0x%08x \\\\n\\\",uVar9,puVar8[-1]);\\n        _ZNK7MonCtrl9ConPrintfEPKcz\\n                  (_ZN13InfraFsysMcmd6mp_msgE,\\\"list[%d].size = 0x%08x \\\\n\\\",uVar9,*puVar8);\\n        puVar8 = puVar8 + 2;\\n        puVar10 = puVar10 + 2;\\n      }\\n      iVar2 = Fsys_WriteDirectFile(uVar3,&local_58,uVar4 & 0xffffffff,&local_40,uVar5 & 0xffffffff);\\n      if (iVar2 == 0) {\\n        iVar2 = 0;\\n        pcVar7 = \\\"Fsys_WriteDirectFile OK\\\\n\\\";\\n      }\\n      else {\\n        pcVar7 = \\\"Fsys_WriteDirectFile Error(0x%08x)\\\\n\\\";\\n      }\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,pcVar7,iVar2);\\n    }\\n  }\\n  return 1;\\n}\\n\\n\",\"limitations\":[],\"selection\":{\"file_offset\":177260,\"mapped_address\":\"0x12b46c\",\"procedure_address\":\"0x12b46c\"}},\"normalized_result\":\"\\nundefined8 _ZN13InfraFsysMcmd17IFSYS_WriteDirectEiPPc(int param_1,long param_2)\\n\\n{\\n  char cVar1;\\n  int iVar2;\\n  undefined8 uVar3;\\n  ulong uVar4;\\n  ulong uVar5;\\n  ulong uVar6;\\n  char *pcVar7;\\n  undefined4 *puVar8;\\n  uint uVar9;\\n  undefined8 *puVar10;\\n  undefined8 local_58;\\n  undefined8 uStack_50;\\n  undefined4 local_48;\\n  undefined2 local_44;\\n  undefined8 local_40;\\n  undefined8 uStack_38;\\n  undefined8 local_30;\\n  undefined8 uStack_28;\\n  undefined8 local_20;\\n  undefined8 uStack_18;\\n  undefined8 local_10;\\n  undefined8 uStack_8;\\n  \\n  if (param_1 < 4) {\\n    _ZNK7MonCtrl12ConPutFewArgEv(_ZN13InfraFsysMcmd6mp_msgE);\\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\\n              (_ZN13InfraFsysMcmd6mp_msgE,\\n               \\\"writedirect [path] [filesize], [listcount] (add1, size1, addr2, size2, .....)\\\\n\\\");\\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\\n              (_ZN13InfraFsysMcmd6mp_msgE,\\n               \\\"  <path>    : /dev/mmca, /dev/mmca1 /dev/sxs_blk0, /dev/sxs_blk1,...\\\\n\\\");\\n  }\\n  else {\\n    local_44 = 0;\\n    local_48 = 0;\\n    local_58 = 0;\\n    uStack_50 = 0;\\n    cVar1 = _ZN13InfraFsysMcmd14GetCuttentTimeER8FSYSTIME();\\n    if (cVar1 == '\\\\0') {\\n      _ZNK7MonCtrl9ConPrintfEPKcz\\n                (_ZN13InfraFsysMcmd6mp_msgE,\\\"%s %d: GetCuttentTime Error.\\\\n\\\",\\\"IFSYS_WriteDirect\\\",\\n                 0x5b7);\\n    }\\n    else {\\n      uVar3 = *(undefined8 *)(param_2 + 8);\\n      uVar4 = strtol(*(char **)(param_2 + 0x10),(char **)0x0,0);\\n      uVar5 = strtol(*(char **)(param_2 + 0x18),(char **)0x0,0);\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\\\"filepath  = %s \\\\n\\\",uVar3);\\n      _ZNK7MonCtrl9ConPrintfEPKcz\\n                (_ZN13InfraFsysMcmd6mp_msgE,\\\"filesize  = 0x%x \\\\n\\\",uVar4 & 0xffffffff);\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\\\"listcount = %d \\\\n\\\",uVar5 & 0xffffffff)\\n      ;\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\\\"[FSYS_DIRECT_AREA List]\\\\n\\\");\\n      local_40 = 0;\\n      uStack_38 = 0;\\n      local_30 = 0;\\n      uStack_28 = 0;\\n      local_20 = 0;\\n      uStack_18 = 0;\\n      local_10 = 0;\\n      uStack_8 = 0;\\n      puVar8 = (undefined4 *)((long)&local_40 + 4);\\n      puVar10 = (undefined8 *)(param_2 + 0x20);\\n      for (uVar9 = 0; uVar9 < (uint)uVar5; uVar9 = uVar9 + 1) {\\n        uVar6 = strtoul((char *)*puVar10,(char **)0x0,0);\\n        puVar8[-1] = (int)uVar6;\\n        uVar6 = strtoul((char *)puVar10[1],(char **)0x0,0);\\n        *puVar8 = (int)uVar6;\\n        _ZNK7MonCtrl9ConPrintfEPKcz\\n                  (_ZN13InfraFsysMcmd6mp_msgE,\\\"list[%d].addr = 0x%08x \\\\n\\\",uVar9,puVar8[-1]);\\n        _ZNK7MonCtrl9ConPrintfEPKcz\\n                  (_ZN13InfraFsysMcmd6mp_msgE,\\\"list[%d].size = 0x%08x \\\\n\\\",uVar9,*puVar8);\\n        puVar8 = puVar8 + 2;\\n        puVar10 = puVar10 + 2;\\n      }\\n      iVar2 = Fsys_WriteDirectFile(uVar3,&local_58,uVar4 & 0xffffffff,&local_40,uVar5 & 0xffffffff);\\n      if (iVar2 == 0) {\\n        iVar2 = 0;\\n        pcVar7 = \\\"Fsys_WriteDirectFile OK\\\\n\\\";\\n      }\\n      else {\\n        pcVar7 = \\\"Fsys_WriteDirectFile Error(0x%08x)\\\\n\\\";\\n      }\\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,pcVar7,iVar2);\\n    }\\n  }\\n  return 1;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state.\"],\"relationship_coverage\":null,\"locations\":[{\"kind\":\"file-offset\",\"offset\":177260},{\"kind\":\"address\",\"address\":\"0x12b46c\"},{\"kind\":\"address\",\"address\":\"0x12b46c\"}],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_42b72fdc24d01213a92c061a7bf2818364057bd25511587c3bae9fdcb583ad29",
+    "subject": {
+      "name": "libInfraFsys.so",
+      "digest": {
+        "sha256": "33451a884b65f946ac8aca44b620cd3cec677d05752c52f2ff0e212a01824bfa"
+      },
+      "local_path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraFsys.so",
+      "format": "elf",
+      "architecture": "arm64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "arm64",
+        "available_architectures": [
+          "arm64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-v1",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default+disabled:Decompiler Switch Analysis",
+        "analysis_options": {
+          "disabled_analyzers": [
+            "Decompiler Switch Analysis"
+          ]
+        }
+      },
+      "digest": "8ef2c2edbec129968ba4fc374262df4e0dc09e396cd0a868926a4e105ca804ba"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "file-offset:0x2b46c"
+    },
+    "raw_result": {
+      "value": "\nundefined8 _ZN13InfraFsysMcmd17IFSYS_WriteDirectEiPPc(int param_1,long param_2)\n\n{\n  char cVar1;\n  int iVar2;\n  undefined8 uVar3;\n  ulong uVar4;\n  ulong uVar5;\n  ulong uVar6;\n  char *pcVar7;\n  undefined4 *puVar8;\n  uint uVar9;\n  undefined8 *puVar10;\n  undefined8 local_58;\n  undefined8 uStack_50;\n  undefined4 local_48;\n  undefined2 local_44;\n  undefined8 local_40;\n  undefined8 uStack_38;\n  undefined8 local_30;\n  undefined8 uStack_28;\n  undefined8 local_20;\n  undefined8 uStack_18;\n  undefined8 local_10;\n  undefined8 uStack_8;\n  \n  if (param_1 < 4) {\n    _ZNK7MonCtrl12ConPutFewArgEv(_ZN13InfraFsysMcmd6mp_msgE);\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\n              (_ZN13InfraFsysMcmd6mp_msgE,\n               \"writedirect [path] [filesize], [listcount] (add1, size1, addr2, size2, .....)\\n\");\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\n              (_ZN13InfraFsysMcmd6mp_msgE,\n               \"  <path>    : /dev/mmca, /dev/mmca1 /dev/sxs_blk0, /dev/sxs_blk1,...\\n\");\n  }\n  else {\n    local_44 = 0;\n    local_48 = 0;\n    local_58 = 0;\n    uStack_50 = 0;\n    cVar1 = _ZN13InfraFsysMcmd14GetCuttentTimeER8FSYSTIME();\n    if (cVar1 == '\\0') {\n      _ZNK7MonCtrl9ConPrintfEPKcz\n                (_ZN13InfraFsysMcmd6mp_msgE,\"%s %d: GetCuttentTime Error.\\n\",\"IFSYS_WriteDirect\",\n                 0x5b7);\n    }\n    else {\n      uVar3 = *(undefined8 *)(param_2 + 8);\n      uVar4 = strtol(*(char **)(param_2 + 0x10),(char **)0x0,0);\n      uVar5 = strtol(*(char **)(param_2 + 0x18),(char **)0x0,0);\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\"filepath  = %s \\n\",uVar3);\n      _ZNK7MonCtrl9ConPrintfEPKcz\n                (_ZN13InfraFsysMcmd6mp_msgE,\"filesize  = 0x%x \\n\",uVar4 & 0xffffffff);\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\"listcount = %d \\n\",uVar5 & 0xffffffff)\n      ;\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\"[FSYS_DIRECT_AREA List]\\n\");\n      local_40 = 0;\n      uStack_38 = 0;\n      local_30 = 0;\n      uStack_28 = 0;\n      local_20 = 0;\n      uStack_18 = 0;\n      local_10 = 0;\n      uStack_8 = 0;\n      puVar8 = (undefined4 *)((long)&local_40 + 4);\n      puVar10 = (undefined8 *)(param_2 + 0x20);\n      for (uVar9 = 0; uVar9 < (uint)uVar5; uVar9 = uVar9 + 1) {\n        uVar6 = strtoul((char *)*puVar10,(char **)0x0,0);\n        puVar8[-1] = (int)uVar6;\n        uVar6 = strtoul((char *)puVar10[1],(char **)0x0,0);\n        *puVar8 = (int)uVar6;\n        _ZNK7MonCtrl9ConPrintfEPKcz\n                  (_ZN13InfraFsysMcmd6mp_msgE,\"list[%d].addr = 0x%08x \\n\",uVar9,puVar8[-1]);\n        _ZNK7MonCtrl9ConPrintfEPKcz\n                  (_ZN13InfraFsysMcmd6mp_msgE,\"list[%d].size = 0x%08x \\n\",uVar9,*puVar8);\n        puVar8 = puVar8 + 2;\n        puVar10 = puVar10 + 2;\n      }\n      iVar2 = Fsys_WriteDirectFile(uVar3,&local_58,uVar4 & 0xffffffff,&local_40,uVar5 & 0xffffffff);\n      if (iVar2 == 0) {\n        iVar2 = 0;\n        pcVar7 = \"Fsys_WriteDirectFile OK\\n\";\n      }\n      else {\n        pcVar7 = \"Fsys_WriteDirectFile Error(0x%08x)\\n\";\n      }\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,pcVar7,iVar2);\n    }\n  }\n  return 1;\n}\n\n",
+      "limitations": [],
+      "selection": {
+        "file_offset": 177260,
+        "mapped_address": "0x12b46c",
+        "procedure_address": "0x12b46c"
+      }
+    },
+    "normalized_result": "\nundefined8 _ZN13InfraFsysMcmd17IFSYS_WriteDirectEiPPc(int param_1,long param_2)\n\n{\n  char cVar1;\n  int iVar2;\n  undefined8 uVar3;\n  ulong uVar4;\n  ulong uVar5;\n  ulong uVar6;\n  char *pcVar7;\n  undefined4 *puVar8;\n  uint uVar9;\n  undefined8 *puVar10;\n  undefined8 local_58;\n  undefined8 uStack_50;\n  undefined4 local_48;\n  undefined2 local_44;\n  undefined8 local_40;\n  undefined8 uStack_38;\n  undefined8 local_30;\n  undefined8 uStack_28;\n  undefined8 local_20;\n  undefined8 uStack_18;\n  undefined8 local_10;\n  undefined8 uStack_8;\n  \n  if (param_1 < 4) {\n    _ZNK7MonCtrl12ConPutFewArgEv(_ZN13InfraFsysMcmd6mp_msgE);\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\n              (_ZN13InfraFsysMcmd6mp_msgE,\n               \"writedirect [path] [filesize], [listcount] (add1, size1, addr2, size2, .....)\\n\");\n    _ZNK7MonCtrl16ConPrintfMessageEPKcz\n              (_ZN13InfraFsysMcmd6mp_msgE,\n               \"  <path>    : /dev/mmca, /dev/mmca1 /dev/sxs_blk0, /dev/sxs_blk1,...\\n\");\n  }\n  else {\n    local_44 = 0;\n    local_48 = 0;\n    local_58 = 0;\n    uStack_50 = 0;\n    cVar1 = _ZN13InfraFsysMcmd14GetCuttentTimeER8FSYSTIME();\n    if (cVar1 == '\\0') {\n      _ZNK7MonCtrl9ConPrintfEPKcz\n                (_ZN13InfraFsysMcmd6mp_msgE,\"%s %d: GetCuttentTime Error.\\n\",\"IFSYS_WriteDirect\",\n                 0x5b7);\n    }\n    else {\n      uVar3 = *(undefined8 *)(param_2 + 8);\n      uVar4 = strtol(*(char **)(param_2 + 0x10),(char **)0x0,0);\n      uVar5 = strtol(*(char **)(param_2 + 0x18),(char **)0x0,0);\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\"filepath  = %s \\n\",uVar3);\n      _ZNK7MonCtrl9ConPrintfEPKcz\n                (_ZN13InfraFsysMcmd6mp_msgE,\"filesize  = 0x%x \\n\",uVar4 & 0xffffffff);\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\"listcount = %d \\n\",uVar5 & 0xffffffff)\n      ;\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,\"[FSYS_DIRECT_AREA List]\\n\");\n      local_40 = 0;\n      uStack_38 = 0;\n      local_30 = 0;\n      uStack_28 = 0;\n      local_20 = 0;\n      uStack_18 = 0;\n      local_10 = 0;\n      uStack_8 = 0;\n      puVar8 = (undefined4 *)((long)&local_40 + 4);\n      puVar10 = (undefined8 *)(param_2 + 0x20);\n      for (uVar9 = 0; uVar9 < (uint)uVar5; uVar9 = uVar9 + 1) {\n        uVar6 = strtoul((char *)*puVar10,(char **)0x0,0);\n        puVar8[-1] = (int)uVar6;\n        uVar6 = strtoul((char *)puVar10[1],(char **)0x0,0);\n        *puVar8 = (int)uVar6;\n        _ZNK7MonCtrl9ConPrintfEPKcz\n                  (_ZN13InfraFsysMcmd6mp_msgE,\"list[%d].addr = 0x%08x \\n\",uVar9,puVar8[-1]);\n        _ZNK7MonCtrl9ConPrintfEPKcz\n                  (_ZN13InfraFsysMcmd6mp_msgE,\"list[%d].size = 0x%08x \\n\",uVar9,*puVar8);\n        puVar8 = puVar8 + 2;\n        puVar10 = puVar10 + 2;\n      }\n      iVar2 = Fsys_WriteDirectFile(uVar3,&local_58,uVar4 & 0xffffffff,&local_40,uVar5 & 0xffffffff);\n      if (iVar2 == 0) {\n        iVar2 = 0;\n        pcVar7 = \"Fsys_WriteDirectFile OK\\n\";\n      }\n      else {\n        pcVar7 = \"Fsys_WriteDirectFile Error(0x%08x)\\n\";\n      }\n      _ZNK7MonCtrl9ConPrintfEPKcz(_ZN13InfraFsysMcmd6mp_msgE,pcVar7,iVar2);\n    }\n  }\n  return 1;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "macOS sessions require a matching executable Ghidra native decompiler; REA checks for it but does not build native components or change Gatekeeper quarantine state."
+    ],
+    "relationship_coverage": null,
+    "locations": [
+      {
+        "kind": "file-offset",
+        "offset": 177260
+      },
+      {
+        "kind": "address",
+        "address": "0x12b46c"
+      },
+      {
+        "kind": "address",
+        "address": "0x12b46c"
+      }
+    ],
+    "evidence_links": []
+  }
+}

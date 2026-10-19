@@ -1,0 +1,69 @@
+{
+  "camera_accessed": false,
+  "target_execution_requested": false,
+  "operations": [
+    {
+      "operation": "open_binary",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraFsys.so",
+        "provider_id": "ghidra"
+      },
+      "result_file": "open.json",
+      "isError": false,
+      "elapsed_at": "2026-10-19T01:20:45.011Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x32eac"
+      },
+      "result_file": "00-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-19T01:21:00.809Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26720"
+      },
+      "result_file": "01-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-19T01:21:00.829Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26ea4"
+      },
+      "result_file": "02-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-19T01:21:00.839Z"
+    },
+    {
+      "operation": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x2b46c"
+      },
+      "result_file": "03-procedure_pseudo_code.json",
+      "isError": false,
+      "elapsed_at": "2026-10-19T01:21:00.861Z"
+    },
+    {
+      "operation": "export_evidence_bundle",
+      "arguments": {
+        "path": "/Users/hongjunwu/Git/A7C2/research/build/sony-integration/rea-fsys/evidence-bundle.json"
+      },
+      "result_file": "export.json",
+      "isError": false,
+      "elapsed_at": "2026-10-19T01:21:00.874Z"
+    },
+    {
+      "operation": "close_binary",
+      "arguments": {},
+      "result_file": "close.json",
+      "isError": false,
+      "elapsed_at": "2026-10-19T01:21:01.382Z"
+    }
+  ],
+  "diagnostic": ""
+}

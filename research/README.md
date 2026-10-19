@@ -12,6 +12,14 @@ The later controlled Mac trial installed the revised 0.1.1 payload on one A7C II
 
 ## Offline firmware investigation
 
+The [Sony menu/completion pass](SONY_MENU_COMPLETION.md) now traces the actual
+per-file FSYS callback, its conditional close/fsync path, the AP singleton
+completion delegate and relocation-backed UIBIZ keys. A [native observer/menu
+core](../camera_worker/SONY_INTEGRATION.md) is tested offline through the existing
+JPEG/10-bit HIF launcher. It does not install a hook or establish the remaining
+shutter/file-identity and Sony GUI boundaries. Original instruction tests and
+synthetic native replay are explicitly distinguished from hardware validation.
+
 The [standalone ARM64 JPEG-worker candidate](../camera_worker/README.md) now
 replaces the host runtime for processing exported jobs: static musl/libjpeg,
 native 11-look LUT evaluation, frozen lens EXIF and bounded scanline memory.

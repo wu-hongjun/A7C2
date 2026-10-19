@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "host_variant": false,
+  "sanitizers": false,
+  "network_accessed": false,
+  "camera_accessed": false,
+  "target": "generic ARMv8-A aarch64-linux-musl",
+  "scope": "Transport-neutral core/self-test only; no Sony module, UI renderer, hook, loader, callback registration or installation",
+  "compiler": "Homebrew clang version 21.1.8",
+  "archiver": "zig 0.16.0 ar rcsD",
+  "sources": {
+    "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
+    "camera_worker/sony_bridge.cc": "e27215157983aea95d1ad680b64b342fa79366bfd1777be333e3ad9ff663ccde",
+    "camera_worker/tests/sony_bridge_test.cc": "dde0a6978af985aa59504abc662294baeec54750761f7fe3366c7db229138f21",
+    "camera_worker/build_sony_bridge.py": "250fedd08ba8ba64531e157f36434aeb62e140677c5b4893d2df36172af551a6"
+  },
+  "artifacts": {
+    "libsony_bridge.a": {
+      "sha256": "a6976662d11d8aad27f6443789f49c2290350e8172d3c4e31e133343191d8643",
+      "bytes": 2506
+    },
+    "sony-bridge-test-aarch64": {
+      "sha256": "4747852adf5d30d6653ffdf30d4c55e7a7184c664a8e9c05ceccef02744673b7",
+      "bytes": 60024
+    }
+  }
+}

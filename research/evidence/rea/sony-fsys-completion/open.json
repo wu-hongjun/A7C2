@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraFsys.so\",\"format\":\"elf\",\"kind\":\"executable\",\"sha256\":\"33451a884b65f946ac8aca44b620cd3cec677d05752c52f2ff0e212a01824bfa\",\"architecture\":\"arm64\"}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/hongjunwu/Git/A7C2/research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraFsys.so",
+      "format": "elf",
+      "kind": "executable",
+      "sha256": "33451a884b65f946ac8aca44b620cd3cec677d05752c52f2ff0e212a01824bfa",
+      "architecture": "arm64"
+    }
+  }
+}

@@ -189,3 +189,11 @@ This software is based in part on the work of the Independent JPEG Group.
 [Third-party notices and licenses](../NOTICE.md) cover libjpeg-turbo, musl, Zig
 and applicable Adobe algorithm portions. No Sony executable or firmware data is
 included in the worker binary.
+
+## Sony integration follow-up
+
+The [native Sony adapter core](SONY_INTEGRATION.md) adds a two-row LUT/lens
+selector and bounded per-file callback observation, with original-firmware
+instruction tests and JPEG/10-bit HIF launcher replay. It remains an offline
+candidate: physical button routing, Sony rendering, shutter/request identity,
+same-file completion proof and a loadable hook are still required before use.

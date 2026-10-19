@@ -12,6 +12,12 @@ firmware file-close callback.** The CLI is the selector/control interface for a
 future adapter. There is no watcher, shell, automatic startup, firmware patch,
 settings write, capture interception or DCF/playback registration.
 
+The next [Sony integration candidate](SONY_INTEGRATION.md) adds a native
+LUT/lens menu model, source-bound callback decoding, original-handler forwarding
+and bounded completion matching. It still supplies no installed Sony hook or
+renderer, and releases only candidates pending same-file identity proof. See
+the [recovered callback/menu boundaries](../research/SONY_MENU_COMPLETION.md).
+
 ## Per-photo association and completion
 
 A trusted future adapter must perform these steps for the same unique event ID:

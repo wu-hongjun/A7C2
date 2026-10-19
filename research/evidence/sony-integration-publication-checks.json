@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "starting_commit": "08253abd2fcef3c5713c0e0aa5f5867e40e21613",
+  "scope": "Offline Sony 2.01 callback/menu evidence, native selector/observer core and synthetic launcher replay; no installed Sony integration",
+  "camera_accessed": false,
+  "installed": false,
+  "firmware_or_settings_changed": false,
+  "network_during_tests": false,
+  "publication_network_exception": "User-authorized Git push and remote-ref verification only",
+  "checks": {
+    "native_release_assertions": 172,
+    "ASan_UBSan_assertions": 172,
+    "ARM64_emulated_assertions": 172,
+    "MPSC_forwarded_callbacks": 3200,
+    "MPSC_consumed_observations": 6400,
+    "MPSC_contention_faults": 0,
+    "original_firmware_instruction_cases": 34,
+    "relocation_backed_UIBIZ_records": 8,
+    "native_integration_groups": 7,
+    "root_tests": 41,
+    "photo_worker_tests": 26,
+    "camera_worker_tests": 8,
+    "JPEG_HIF10_replay": "passed, source bytes unchanged",
+    "stale_filename_rejection": "passed",
+    "two_target_builds_byte_identical": true,
+    "new_document_local_links": 16,
+    "source_and_artifact_receipts": "passed"
+  },
+  "open_hardware_gates": [
+    "Sony physical input/focus/rendering and edge mapping",
+    "pre-exposure frame to full-original write request association",
+    "actual fclose handle-to-cookie association and same-file identity seal",
+    "module/process, ASLR, trampoline/IPC, lifetime and quiescence",
+    "storage, idle/power/thermal/RAM policy and optional media registration"
+  ],
+  "preserved_preexisting_edit": "research/A7C2_FIRMWARE_ATLAS.md remains outside this commit",
+  "evidence_sha256": {
+    "research/evidence/sony-bridge-checks.json": "e851e19d9d5405cb8ff2935d9b40679c4613aadf5756a20242fb9bf3a81bc3c5",
+    "research/evidence/sony-integration.json": "e5598d5934457750d78020dc68b69e786673d3cbb71011f65180c2bb13c35348",
+    "camera_worker/dist/sony-bridge-build.json": "29f901d5faa9de9ec2c38806faeda4869b2215863cd5f36a5a30cfd1ceb12660"
+  }
+}

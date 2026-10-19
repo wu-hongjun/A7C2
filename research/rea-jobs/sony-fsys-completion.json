@@ -1,0 +1,34 @@
+{
+  "path": "research/extracted/ILCE-7CM2-2.01/firmware.tar_unpacked/0700_part_image/dev/nflasha15_unpacked/lib/libInfraFsys.so",
+  "output_directory": "research/build/sony-integration/replay-sony-fsys-completion",
+  "disabled_analyzers": [
+    "Decompiler Switch Analysis"
+  ],
+  "queries": [
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x32eac"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26720"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x26ea4"
+      }
+    },
+    {
+      "name": "procedure_pseudo_code",
+      "arguments": {
+        "procedure": "file-offset:0x2b46c"
+      }
+    }
+  ],
+  "export_bundle": true
+}
