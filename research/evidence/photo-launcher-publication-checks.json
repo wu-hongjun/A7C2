@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "starting_commit": "a730b5453f58746f5457d7a16336408722a3b1c5",
+  "scope": "Native ARM64 CLI launcher, preset catalog/selector, arm-frozen completion handoff and JPEG/HIF dispatch; hardware untested",
+  "camera_accessed": false,
+  "camera_installation": false,
+  "firmware_or_settings_changed": false,
+  "network_during_builds_or_tests": false,
+  "publication_network_exception": "User-authorized Git push and remote-ref verification only",
+  "checks": {
+    "launcher_integration": 44,
+    "launcher_and_linked_parser_sanitizer_cases": 37,
+    "original_ARM64_startup_selector_scenarios": 5,
+    "repository_tests": 41,
+    "photo_worker_tests": 26,
+    "native_packer_and_build_cache_guard_tests": 8,
+    "LUT_reference_groups": 8,
+    "JPEG_worker_regression": "11 looks x 42084 vectors, 14 faults, 7 ELF scenarios, full-resolution; passed",
+    "HIF_worker_regression": "11 looks x 42084 vectors, 16 guard/fault cases, full-resolution and independent decode; passed",
+    "full_resolution_native_handoff": [
+      "7008x4672 JPEG",
+      "4672x7008 displayed / 7008x4672 raw 10-bit HIF"
+    ],
+    "frozen_selection_reverse_completion": "passed",
+    "source_identity_reuse_and_mutation": "passed",
+    "ENOSPC_fork_exec_injection": "passed",
+    "SIGTERM_and_parent_SIGKILL_lease": "passed",
+    "original_bytes_unchanged": true,
+    "all_source_artifact_receipts": "passed",
+    "local_document_links": 80,
+    "compileall": "passed",
+    "existing_installer_asset_check": "passed; no camera connection"
+  },
+  "ARM64_artifacts": {
+    "photo-launcher-aarch64": "ff5a24c2d8dd306535244bce7d7b21cc3db0fb8be3276ba552ff86d8ec84c01e",
+    "jpeg-worker-aarch64": "6d57291b80ccc98d146869a31bfb1cf162f3f08f0656fd8ff580c6803e1d0783",
+    "hif-worker-aarch64": "98ba054102d4e2ad6fc0054113ed4d979556159baa3c9da4e497b127f1924da1"
+  },
+  "limitations": [
+    "No Sony menu/button/service-loader/capture-file-close adapter implemented or installed",
+    "Arm and close identity are trusted producer contracts, not proof of shutter-time or firmware completion",
+    "ARM64 ingress/fork/exec and HEVC codec threading not executed on Linux/camera",
+    "Private POSIX storage/exec permissions, target locks/fsync/rename, RAM/power/thermal scheduling and playback registration remain unproved"
+  ],
+  "unrelated_working_atlas": "Preserved and excluded; index retains committed HEAD identity"
+}

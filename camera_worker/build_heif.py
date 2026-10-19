@@ -22,7 +22,7 @@ def sha(path):
     with Path(path).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 
 
-def build(downloads,output,cmake,host=False,codecs_only=False,worker_only=False):
+def build(downloads,output,cmake,host=False,codecs_only=False,worker_only=False,sanitize=False):
     downloads,output,cmake=Path(downloads).resolve(),Path(output).resolve(),Path(cmake).resolve()
     output.mkdir(parents=True,exist_ok=True);sources=output/'sources';sources.mkdir(exist_ok=True)
     for name,(expected,url) in ARCHIVES.items():
@@ -31,6 +31,12 @@ def build(downloads,output,cmake,host=False,codecs_only=False,worker_only=False)
         if not worker_only:
             with tarfile.open(archive) as t:t.extractall(sources,filter='data')
     prefix=output/'prefix';prefix.mkdir(exist_ok=True)
+    if worker_only:
+        previous=json.loads((output/'build.json').read_text())
+        if previous['host_variant']!=host or bool(previous.get('sanitizers',False))!=sanitize:
+            raise ValueError('Cached codec target/sanitizer configuration mismatch; rebuild codecs in a separate output')
+        for name,expected in previous['static_library_sha256'].items():
+            if sha(prefix/'lib'/name)!=expected:raise ValueError('Cached codec library hash mismatch: '+name)
     toolchain=output/'toolchain.cmake'
     if host:
         toolchain.write_text('set(CMAKE_C_COMPILER clang)\nset(CMAKE_CXX_COMPILER clang++)\n')
@@ -55,11 +61,13 @@ set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 ''')
+    if sanitize and not host:raise ValueError('Sanitizers are host-only')
+    sanitizer_flags=' -fsanitize=address,undefined -fno-omit-frame-pointer' if sanitize else ''
     common=[str(cmake),'-DCMAKE_TOOLCHAIN_FILE='+str(toolchain),'-DCMAKE_BUILD_TYPE=Release',
         '-DCMAKE_INSTALL_PREFIX='+str(prefix),'-DCMAKE_INSTALL_LIBDIR=lib','-DBUILD_SHARED_LIBS=OFF',
         '-DCMAKE_POLICY_VERSION_MINIMUM=3.5','-DCMAKE_EXPORT_COMPILE_COMMANDS=ON',
-        '-DCMAKE_C_FLAGS=-ffp-contract=off -fno-fast-math',
-        '-DCMAKE_CXX_FLAGS=-ffp-contract=off -fno-fast-math']
+        '-DCMAKE_C_FLAGS=-ffp-contract=off -fno-fast-math'+sanitizer_flags,
+        '-DCMAKE_CXX_FLAGS=-ffp-contract=off -fno-fast-math'+sanitizer_flags]
     env=os.environ.copy();env['SOURCE_DATE_EPOCH']='1792281600';env['PKG_CONFIG_LIBDIR']=str(prefix/'lib/pkgconfig')
     def stage(name,source,flags,target='install'):
         folder=output/name
@@ -82,22 +90,23 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
                      'OPENJPH_ENCODER','UNCOMPRESSED_CODEC','WEBCODECS']:flags.append('-DWITH_'+name+'=OFF')
         stage('heif',sources/'libheif-1.23.6',flags)
     if codecs_only:return
+    instrument=['-fsanitize=address,undefined','-fno-omit-frame-pointer'] if sanitize else []
     c=['clang'] if host else [str(output/'cc')]
     cpp=['clang++'] if host else [str(output/'cxx')]
     obj=output/'heif_core.o'
-    subprocess.run(c+['-O2','-std=c11','-DA7_HIF_CORE','-D_GNU_SOURCE','-ffp-contract=off','-fno-fast-math',
+    subprocess.run(c+instrument+['-O2','-std=c11','-DA7_HIF_CORE','-D_GNU_SOURCE','-ffp-contract=off','-fno-fast-math',
         '-fno-strict-aliasing','-c',str(ROOT/'camera_worker/worker.c'),'-o',str(obj)],check=True)
     binary=output/('hif-worker-host' if host else 'hif-worker-aarch64')
-    subprocess.run(cpp+['-O2','-std=c++20','-D_GNU_SOURCE','-ffp-contract=off','-fno-fast-math',
+    subprocess.run(cpp+instrument+['-O2','-std=c++20','-D_GNU_SOURCE','-ffp-contract=off','-fno-fast-math',
         '-I'+str(prefix/'include'),str(ROOT/'camera_worker/heif_worker.cc'),str(obj),
         str(prefix/'lib/libheif.a'),str(prefix/'lib/libde265.a'),str(prefix/'lib/libx265.a'),
         '-lpthread','-lm']+([] if host else ['-static','-s','-Wl,-z,noexecstack'])+['-o',str(binary)],check=True)
-    record={'schema':1,'host_variant':host,'network_during_build':False,'camera_accessed':False,
+    record={'schema':1,'sanitizers':sanitize,'host_variant':host,'network_during_build':False,'camera_accessed':False,
         'archives':[{'file':name,'sha256':value[0],'url':value[1]} for name,value in ARCHIVES.items()],
         'target':'native macOS' if host else 'aarch64-linux-musl static generic ARMv8-A',
         'binary':{'name':binary.name,'bytes':binary.stat().st_size,'sha256':sha(binary)},
         'source_files':[{'path':name,'sha256':sha(ROOT/name)} for name in ['camera_worker/build_heif.py',
-            'camera_worker/heif_worker.cc','camera_worker/heif_core.h','camera_worker/worker.c','native/sha256.h']],
+            'camera_worker/heif_worker.cc','camera_worker/heif_io.h','camera_worker/heif_core.h','camera_worker/worker.c','native/sha256.h']],
         'reused_codec_build':worker_only,
         'static_library_sha256':{p.name:sha(p) for p in (prefix/'lib').glob('*.a')},
         'CMake_version':subprocess.check_output([str(cmake),'--version'],text=True).splitlines()[0],
@@ -111,4 +120,4 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--downloads',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True);p.add_argument('--cmake',type=Path,required=True)
     p.add_argument('--host',action='store_true');p.add_argument('--codecs-only',action='store_true');p.add_argument('--worker-only',action='store_true',help='Reuse a previously built local codec prefix; record its library hashes')
-    a=p.parse_args();build(a.downloads,a.output,a.cmake,a.host,a.codecs_only,a.worker_only)
+    p.add_argument('--sanitize',action='store_true');a=p.parse_args();build(a.downloads,a.output,a.cmake,a.host,a.codecs_only,a.worker_only,a.sanitize)

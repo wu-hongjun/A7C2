@@ -55,7 +55,7 @@
   "worker_sources": [
     {
       "path": "camera_worker/worker.c",
-      "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+      "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
     },
     {
       "path": "camera_worker/build.py",
@@ -73,6 +73,6 @@
   "executable": {
     "file": "jpeg-worker-aarch64",
     "bytes": 491656,
-    "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+    "sha256": "6d57291b80ccc98d146869a31bfb1cf162f3f08f0656fd8ff580c6803e1d0783"
   }
 }

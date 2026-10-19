@@ -4,6 +4,8 @@ October 18, 2026. This pass used the local original A7C II 2.01 firmware and the
 
 **The manually invoked host completed-JPEG worker is now implemented:** [usage and limits](../photo_worker/README.md), [checks](evidence/jpeg-worker-checks.json). It snapshots custom sRGB CUBE and manual-lens selections, processes a separate JPEG copy and preserves allowlisted capture EXIF. A full 7008×4672 synthetic test and independent ExifTool readback pass. The Python implementation remains the host preparer/reference. A separate [static ARM64 native runner](../camera_worker/README.md) now passes host/sanitizer/emulator checks with scanline memory. Hardware execution, an autonomous job producer, UI/playback integration and printing remain separate work. These features do not require the still-unresolved MLUT-to-encoder link.
 
+The [native launcher/handoff candidate](../camera_worker/LAUNCHER.md) now performs explicit arm/completed-file association, native LUT/lens selection, bounded JPEG/HIF metadata/job preparation and one-worker dispatch. Offline tests pass. It has no camera UI, service invocation bridge or recovered firmware file-close callback; hardware execution and scheduling remain unproved.
+
 The repository already has a [working computer-only CUBE reference](lut_reference.py), with [independent numerical/image checks](evidence/lut-reference-checks.json). It accepts 17³/33³ 3D-only CUBE grids, uses red-fastest trilinear interpolation, handles domain limits and ICC/orientation, and writes a separate JPEG/PNG. It is a correctness reference, **not an installed camera program**: Pillow holds whole images, metadata is deliberately not preserved, and no camera-side memory/time or playback integration is established.
 
 ## What is available and what remains

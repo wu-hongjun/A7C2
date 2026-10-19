@@ -6,6 +6,7 @@ This models selected Linux syscalls; it is not a camera kernel or filesystem.
 """
 from collections import Counter
 import errno
+import fcntl
 import io
 import os
 from pathlib import Path
@@ -20,16 +21,19 @@ from unicorn.arm64_const import UC_ARM64_REG_X0, UC_ARM64_REG_X8, UC_ARM64_REG_S
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE=4096
-NAMES={25:'fcntl',29:'ioctl',35:'unlinkat',56:'openat',57:'close',62:'lseek',63:'read',64:'write',
+NAMES={32:'flock',38:'renameat',25:'fcntl',29:'ioctl',35:'unlinkat',56:'openat',57:'close',62:'lseek',63:'read',64:'write',
        65:'readv',66:'writev',79:'newfstatat',80:'fstat',82:'fsync',93:'exit',94:'exit_group',
        96:'set_tid_address',98:'futex',99:'set_robust_list',113:'clock_gettime',123:'sched_getaffinity',134:'rt_sigaction',
        135:'rt_sigprocmask',172:'getpid',174:'getuid',175:'geteuid',176:'getgid',177:'getegid',178:'gettid',
        214:'brk',215:'munmap',222:'mmap',226:'mprotect',233:'madvise',261:'prlimit64',276:'renameat2',278:'getrandom'}
 
 
-def execute(executable, job=None, mode='--version', count=150_000_000, fault=None):
+def execute(executable, job=None, mode='--version', count=150_000_000, fault=None, launcher_selection=None):
     if fault not in (None,'output_ENOSPC','publication_unsupported','directory_sync'):
         raise ValueError('Unknown emulator fault')
+    if launcher_selection is not None:
+        if mode not in ('--list','--select') or (mode=='--list' and launcher_selection!=[]) or (mode=='--select' and (len(launcher_selection)!=3 or not all(re.fullmatch(r'[a-z0-9_.-]{1,64}',s) for s in launcher_selection))):
+            raise ValueError('Only bounded launcher list/select emulation is enabled')
     job = Path(job).resolve() if job else None
     if job and (not job.is_relative_to(ROOT/'research/build') or not job.is_dir()):
         raise ValueError('Emulator accepts only explicitly generated offline build jobs')
@@ -52,6 +56,7 @@ def execute(executable, job=None, mode='--version', count=150_000_000, fault=Non
         nonlocal cursor
         cursor-=len(raw);u.mem_write(cursor,raw);return cursor
     args=['jpeg-worker',mode]+(['/job'] if job else [])
+    if launcher_selection is not None:args+=launcher_selection
     pointers=[put(a.encode()+b'\0') for a in args]
     random=put(bytes(range(16)));base=min(s['p_vaddr']-s['p_offset'] for s in loads)
     aux=[(3,base+elf['e_phoff']),(4,elf['e_phentsize']),(5,elf['e_phnum']),(6,PAGE),
@@ -62,6 +67,7 @@ def execute(executable, job=None, mode='--version', count=150_000_000, fault=Non
     fds={};nextfd=3;stdout=bytearray();stderr=bytearray();calls=Counter();exitcode=None;limits=[]
     heap=0x10000000;brk=0x50000000;brk_end=brk
     allowed=re.compile(r'(job\.bin|input\.jpg|metadata\.exif|look\.bin|vectors\.(in|out)|result\.jpg|\.jpeg-worker-[0-9]+-[0-9]+\.tmp)\Z')
+    if launcher_selection is not None:allowed=re.compile(r'(catalog\.bin|selection\.bin(?:\.next)?|lock)\Z')
     def string(addr):
         raw=bytearray()
         for i in range(256):
@@ -96,8 +102,16 @@ def execute(executable, job=None, mode='--version', count=150_000_000, fault=Non
             else:
                 if p.name in ('job.bin','input.jpg','metadata.exif','look.bin','vectors.in') and a[2]&(3|0o100|0o1000):
                     raise RuntimeError('Attempt to mutate input')
+                if launcher_selection is not None and p.name not in ('selection.bin','selection.bin.next') and a[2]&(3|0o100|0o1000):raise RuntimeError('Mutation outside launcher selection')
                 value=os.open(p,flags,a[3]&0o777)
             fd=nextfd;nextfd+=1;fds[fd]=value;return fd
+        if n==32 and launcher_selection is not None:
+            if a[1] not in (1,2,5,6,8):raise RuntimeError('Unexpected flock operation')
+            fcntl.flock(fds[a[0]],a[1]);return 0
+        if n==38 and launcher_selection is not None:
+            source,target=path(a[0],a[1]),path(a[2],a[3])
+            if source.name!='selection.bin.next' or target.name!='selection.bin':raise RuntimeError('Unexpected launcher rename')
+            os.replace(source,target);return 0
         if n==57:
             value=fds.pop(a[0]);
             if isinstance(value,int):os.close(value)

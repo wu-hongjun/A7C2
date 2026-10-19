@@ -45,8 +45,8 @@
     },
     {
       "path": "research/build/lut-reference/alpha-output.png",
-      "bytes": 1009,
-      "sha256": "165c1af76b3b27660862549007db13327c1b36cc60b457fabcd2ac9e6ec8225d"
+      "bytes": 1006,
+      "sha256": "cd700ffc97cd9f056abccf3ee4c8da59bf2974cddda8f11e88ba3473b88726a1"
     },
     {
       "path": "research/build/lut-reference/cli-proof.png",
@@ -56,7 +56,7 @@
     {
       "path": "research/build/lut-reference/graded.jpg",
       "bytes": 2782,
-      "sha256": "b2a456e6b4fa5385117f21369c69f431b52df771d9fb27fd7aed9a6698ce6337"
+      "sha256": "4ce3760b39d0f369a700acf9b48e11dc97c8b8016d9dbb2e84d9562a4fff85d7"
     },
     {
       "path": "research/build/lut-reference/identity-17.cube",
@@ -65,8 +65,8 @@
     },
     {
       "path": "research/build/lut-reference/identity.png",
-      "bytes": 904,
-      "sha256": "31b8e11a9485b8809dd0c270cbc13102549e3717c9e81a2d766bcd5f10ee16bb"
+      "bytes": 901,
+      "sha256": "7d29eb48e9622ee5b3c1f85e6d3d5b28158e786c77788ad4730b76b59135812e"
     },
     {
       "path": "research/build/lut-reference/input-srgb.png",
@@ -105,23 +105,23 @@
     },
     {
       "path": "research/build/lut-reference/oriented.png",
-      "bytes": 6415,
-      "sha256": "dbaf94214d989549186c8e346dceb07ba70d272969cd146ff1b24b89e0e937f7"
+      "bytes": 6412,
+      "sha256": "32e1b522c6b40395d4b53f51385c9a78e3e7f996651e2f5c90fe9b2e5dc9d161"
     },
     {
       "path": "research/build/lut-reference/permuted.png",
-      "bytes": 909,
-      "sha256": "4f5bfe523dbb92e99e3b567ddc5196fbed4309c138152f58dabfa1de70789f33"
+      "bytes": 906,
+      "sha256": "05be1bc2bda8b2aff360c9f1d706a42547a44b54b4ea25e2daca676d97f79ebb"
     },
     {
       "path": "research/build/lut-reference/tagged-output.png",
-      "bytes": 904,
-      "sha256": "31b8e11a9485b8809dd0c270cbc13102549e3717c9e81a2d766bcd5f10ee16bb"
+      "bytes": 901,
+      "sha256": "7d29eb48e9622ee5b3c1f85e6d3d5b28158e786c77788ad4730b76b59135812e"
     },
     {
       "path": "research/build/lut-reference/tagged.png",
-      "bytes": 904,
-      "sha256": "31b8e11a9485b8809dd0c270cbc13102549e3717c9e81a2d766bcd5f10ee16bb"
+      "bytes": 901,
+      "sha256": "7d29eb48e9622ee5b3c1f85e6d3d5b28158e786c77788ad4730b76b59135812e"
     }
   ]
 }

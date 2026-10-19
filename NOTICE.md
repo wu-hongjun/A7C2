@@ -70,3 +70,9 @@ The static target also uses Zig's LLVM C++ runtime components; their
 [libunwind](licenses/LLVM-libunwind.txt) notices are retained, in addition to
 the musl/Zig notices above. The HIF executable contains no Sony program or
 Fujifilm LUT table; the selected profile table is a private job asset.
+
+The separate `photo-launcher-aarch64` links the same static HEIF/de265/x265 and
+LLVM/musl components under the same combined GPL-3.0-or-later distribution
+terms. Its complete project sources include `camera_worker/launcher.cc`,
+`ingest_exif.h`, `heif_io.h`, `heif_core.h`, `worker.c`, `native/sha256.h` and
+`camera_worker/build_launcher.py`, alongside the pinned codec archives above.

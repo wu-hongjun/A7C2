@@ -1,0 +1,571 @@
+{
+  "schema": 1,
+  "launchers": [
+    {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": false,
+      "target": "native macOS",
+      "camera_accessed": false,
+      "network_during_build": false,
+      "binary": {
+        "name": "photo-launcher-host",
+        "bytes": 4271104,
+        "sha256": "1b1fa1139d7eda68f7c941c33e367e449f278e6b14e3fa0ed96471401de95416"
+      },
+      "sources": {
+        "camera_worker/launcher.cc": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38",
+        "camera_worker/ingest_exif.h": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af",
+        "camera_worker/heif_io.h": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e",
+        "camera_worker/heif_core.h": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133",
+        "camera_worker/worker.c": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1",
+        "native/sha256.h": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e",
+        "camera_worker/build_launcher.py": "063da36f6b4be52927f2c056ba868f089ba23b4aba79c5e94de7de08ddb8ff6d"
+      },
+      "codec_build_receipt_sha256": "18c07e69cbcae53953af3a628fba84245498313d5f1cf6123039dcb4be994b25",
+      "static_library_sha256": {
+        "libx265.a": "5b41f65e78fc55d7489d43ed37737e1fb829fa9e517489a0ff9413e6c9de8100",
+        "libde265.a": "36c0609a4d76d0a4fb6f925ac6293744b6dcf5e7f447b2d19568ebc15ce4a8be",
+        "libheif.a": "1730d3fdc0e40dd159111e54dbf59a3e0bcc6a79ebe49aaad28bc372df67bbb9"
+      },
+      "archives": [
+        {
+          "file": "libheif-1.23.6.tar.gz",
+          "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125",
+          "url": "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+        },
+        {
+          "file": "libde265-1.1.3.tar.gz",
+          "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905",
+          "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz"
+        },
+        {
+          "file": "x265_4.2.tar.gz",
+          "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+          "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
+        }
+      ],
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "scope": "Native manual CLI and explicit completed-file ingress; no firmware capture hook or camera UI adapter installed",
+      "distribution_license": "GPL-3.0-or-later combined artifact; codec sources/notices accompany repository"
+    },
+    {
+      "schema": 1,
+      "host_variant": false,
+      "sanitizers": false,
+      "target": "static generic ARMv8-A aarch64-linux-musl",
+      "camera_accessed": false,
+      "network_during_build": false,
+      "binary": {
+        "name": "photo-launcher-aarch64",
+        "bytes": 3627864,
+        "sha256": "ff5a24c2d8dd306535244bce7d7b21cc3db0fb8be3276ba552ff86d8ec84c01e"
+      },
+      "sources": {
+        "camera_worker/launcher.cc": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38",
+        "camera_worker/ingest_exif.h": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af",
+        "camera_worker/heif_io.h": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e",
+        "camera_worker/heif_core.h": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133",
+        "camera_worker/worker.c": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1",
+        "native/sha256.h": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e",
+        "camera_worker/build_launcher.py": "063da36f6b4be52927f2c056ba868f089ba23b4aba79c5e94de7de08ddb8ff6d"
+      },
+      "codec_build_receipt_sha256": "9deb926b9ef2a09f46e541aa2cfe43b1576fe1d26db3bc0e71df55ace9b26f99",
+      "static_library_sha256": {
+        "libx265.a": "5aed66989f121dc62d2591b95065339bed289f308fed7c77a02ef498cc0ec2f7",
+        "libde265.a": "21f61c70802c574b73a9848a9c0ea2cea1cbc6506dd653259a2f3d62f5036bed",
+        "libheif.a": "3e65b407b21c9ba6a86d28c6844a1f84c3d4017f9aabae16849f9df14d1817db"
+      },
+      "archives": [
+        {
+          "file": "libheif-1.23.6.tar.gz",
+          "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125",
+          "url": "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+        },
+        {
+          "file": "libde265-1.1.3.tar.gz",
+          "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905",
+          "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz"
+        },
+        {
+          "file": "x265_4.2.tar.gz",
+          "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+          "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
+        }
+      ],
+      "compiler": "Homebrew clang version 21.1.8",
+      "scope": "Native manual CLI and explicit completed-file ingress; no firmware capture hook or camera UI adapter installed",
+      "distribution_license": "GPL-3.0-or-later combined artifact; codec sources/notices accompany repository"
+    },
+    {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": true,
+      "target": "native macOS",
+      "camera_accessed": false,
+      "network_during_build": false,
+      "binary": {
+        "name": "photo-launcher-host",
+        "bytes": 30950592,
+        "sha256": "8deb4aaf06afe65adcf759668129b1679d1195f7203305522cad8b0b49ce374f"
+      },
+      "sources": {
+        "camera_worker/launcher.cc": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38",
+        "camera_worker/ingest_exif.h": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af",
+        "camera_worker/heif_io.h": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e",
+        "camera_worker/heif_core.h": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133",
+        "camera_worker/worker.c": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1",
+        "native/sha256.h": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e",
+        "camera_worker/build_launcher.py": "063da36f6b4be52927f2c056ba868f089ba23b4aba79c5e94de7de08ddb8ff6d"
+      },
+      "codec_build_receipt_sha256": "aabf3c04cf7f0d28300b55b941dd77f9324bfdbde2ffaf914ba7036e514d2ce9",
+      "static_library_sha256": {
+        "libx265.a": "538722fbe3922c59e6c2b88ed51ffae0aa852da5a36e0690185f3f0751870e45",
+        "libde265.a": "65cfbc99852bced8a93d4b00b5c7ded808bd16411f660657091d7c43d072128c",
+        "libheif.a": "65c9951f861cf1f04f519a5918d24ad74b7bed585f43e4c3db338ad563e205e7"
+      },
+      "archives": [
+        {
+          "file": "libheif-1.23.6.tar.gz",
+          "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125",
+          "url": "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+        },
+        {
+          "file": "libde265-1.1.3.tar.gz",
+          "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905",
+          "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz"
+        },
+        {
+          "file": "x265_4.2.tar.gz",
+          "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+          "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
+        }
+      ],
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "scope": "Native manual CLI and explicit completed-file ingress; no firmware capture hook or camera UI adapter installed",
+      "distribution_license": "GPL-3.0-or-later combined artifact; codec sources/notices accompany repository"
+    }
+  ],
+  "HEIF_codecs_and_workers": [
+    {
+      "schema": 1,
+      "sanitizers": false,
+      "host_variant": true,
+      "network_during_build": false,
+      "camera_accessed": false,
+      "archives": [
+        {
+          "file": "libheif-1.23.6.tar.gz",
+          "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125",
+          "url": "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+        },
+        {
+          "file": "libde265-1.1.3.tar.gz",
+          "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905",
+          "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz"
+        },
+        {
+          "file": "x265_4.2.tar.gz",
+          "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+          "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
+        }
+      ],
+      "target": "native macOS",
+      "binary": {
+        "name": "hif-worker-host",
+        "bytes": 4215008,
+        "sha256": "c82decc8a19c080fa8fe151a6857426b8d457b60af02f87551271bfe67e8990f"
+      },
+      "source_files": [
+        {
+          "path": "camera_worker/build_heif.py",
+          "sha256": "d7f858c420df810a3a276743751986d0bade4af6288efee82948ab338009d3c5"
+        },
+        {
+          "path": "camera_worker/heif_worker.cc",
+          "sha256": "4cb0b5b4f90ab7c0ef2402d9fce240774175ed9563545df5576117ef41cc3287"
+        },
+        {
+          "path": "camera_worker/heif_io.h",
+          "sha256": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e"
+        },
+        {
+          "path": "camera_worker/heif_core.h",
+          "sha256": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133"
+        },
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "reused_codec_build": true,
+      "static_library_sha256": {
+        "libx265.a": "5b41f65e78fc55d7489d43ed37737e1fb829fa9e517489a0ff9413e6c9de8100",
+        "libde265.a": "36c0609a4d76d0a4fb6f925ac6293744b6dcf5e7f447b2d19568ebc15ce4a8be",
+        "libheif.a": "1730d3fdc0e40dd159111e54dbf59a3e0bcc6a79ebe49aaad28bc372df67bbb9"
+      },
+      "CMake_version": "cmake version 4.2.0",
+      "compiler_version": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "codec_configurations": "Scalar de265, 10-bit-only x265, static HEIF/de265/x265, plugins and optional codecs disabled",
+      "distribution_license": "GPL-3.0-or-later combined HIF executable; corresponding sources supplied separately"
+    },
+    {
+      "schema": 1,
+      "sanitizers": false,
+      "host_variant": false,
+      "network_during_build": false,
+      "camera_accessed": false,
+      "archives": [
+        {
+          "file": "libheif-1.23.6.tar.gz",
+          "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125",
+          "url": "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+        },
+        {
+          "file": "libde265-1.1.3.tar.gz",
+          "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905",
+          "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz"
+        },
+        {
+          "file": "x265_4.2.tar.gz",
+          "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+          "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
+        }
+      ],
+      "target": "aarch64-linux-musl static generic ARMv8-A",
+      "binary": {
+        "name": "hif-worker-aarch64",
+        "bytes": 3585816,
+        "sha256": "98ba054102d4e2ad6fc0054113ed4d979556159baa3c9da4e497b127f1924da1"
+      },
+      "source_files": [
+        {
+          "path": "camera_worker/build_heif.py",
+          "sha256": "d7f858c420df810a3a276743751986d0bade4af6288efee82948ab338009d3c5"
+        },
+        {
+          "path": "camera_worker/heif_worker.cc",
+          "sha256": "4cb0b5b4f90ab7c0ef2402d9fce240774175ed9563545df5576117ef41cc3287"
+        },
+        {
+          "path": "camera_worker/heif_io.h",
+          "sha256": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e"
+        },
+        {
+          "path": "camera_worker/heif_core.h",
+          "sha256": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133"
+        },
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "reused_codec_build": true,
+      "static_library_sha256": {
+        "libx265.a": "5aed66989f121dc62d2591b95065339bed289f308fed7c77a02ef498cc0ec2f7",
+        "libde265.a": "21f61c70802c574b73a9848a9c0ea2cea1cbc6506dd653259a2f3d62f5036bed",
+        "libheif.a": "3e65b407b21c9ba6a86d28c6844a1f84c3d4017f9aabae16849f9df14d1817db"
+      },
+      "CMake_version": "cmake version 4.2.0",
+      "compiler_version": "Homebrew clang version 21.1.8",
+      "codec_configurations": "Scalar de265, 10-bit-only x265, static HEIF/de265/x265, plugins and optional codecs disabled",
+      "distribution_license": "GPL-3.0-or-later combined HIF executable; corresponding sources supplied separately"
+    },
+    {
+      "schema": 1,
+      "sanitizers": true,
+      "host_variant": true,
+      "network_during_build": false,
+      "camera_accessed": false,
+      "archives": [
+        {
+          "file": "libheif-1.23.6.tar.gz",
+          "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125",
+          "url": "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+        },
+        {
+          "file": "libde265-1.1.3.tar.gz",
+          "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905",
+          "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz"
+        },
+        {
+          "file": "x265_4.2.tar.gz",
+          "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+          "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
+        }
+      ],
+      "target": "native macOS",
+      "binary": {
+        "name": "hif-worker-host",
+        "bytes": 30634784,
+        "sha256": "64192ba2750a604bc9a08378c57ae2e676bda8d6505db702b0f2009485b4486e"
+      },
+      "source_files": [
+        {
+          "path": "camera_worker/build_heif.py",
+          "sha256": "d7f858c420df810a3a276743751986d0bade4af6288efee82948ab338009d3c5"
+        },
+        {
+          "path": "camera_worker/heif_worker.cc",
+          "sha256": "4cb0b5b4f90ab7c0ef2402d9fce240774175ed9563545df5576117ef41cc3287"
+        },
+        {
+          "path": "camera_worker/heif_io.h",
+          "sha256": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e"
+        },
+        {
+          "path": "camera_worker/heif_core.h",
+          "sha256": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133"
+        },
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "reused_codec_build": true,
+      "static_library_sha256": {
+        "libx265.a": "538722fbe3922c59e6c2b88ed51ffae0aa852da5a36e0690185f3f0751870e45",
+        "libde265.a": "65cfbc99852bced8a93d4b00b5c7ded808bd16411f660657091d7c43d072128c",
+        "libheif.a": "65c9951f861cf1f04f519a5918d24ad74b7bed585f43e4c3db338ad563e205e7"
+      },
+      "CMake_version": "cmake version 4.2.0",
+      "compiler_version": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "codec_configurations": "Scalar de265, 10-bit-only x265, static HEIF/de265/x265, plugins and optional codecs disabled",
+      "distribution_license": "GPL-3.0-or-later combined HIF executable; corresponding sources supplied separately"
+    }
+  ],
+  "JPEG_workers": [
+    {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": false,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "native host",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "zig_version": null,
+      "compiler_executable_sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+      "compiler_target_arguments": [],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src"
+      ],
+      "link_flags": [],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-host",
+        "bytes": 495136,
+        "sha256": "2eb0ee31302d33e920321a876be389aad9ae21c6ac32ce8bc46534e14a9d00b5"
+      }
+    },
+    {
+      "schema": 1,
+      "host_variant": false,
+      "sanitizers": false,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "aarch64-linux-musl static, generic ARMv8-A",
+      "compiler": "Homebrew clang version 21.1.8",
+      "zig_version": "0.16.0",
+      "compiler_executable_sha256": "71cc3995a7586753ebf82c66dfb8bef43df446517550678781834586a960f8c9",
+      "compiler_target_arguments": [
+        "cc",
+        "-target",
+        "aarch64-linux-musl",
+        "-mcpu=generic"
+      ],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src"
+      ],
+      "link_flags": [
+        "-static",
+        "-s",
+        "-Wl,-z,noexecstack",
+        "-Wl,--build-id=sha1"
+      ],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-aarch64",
+        "bytes": 491656,
+        "sha256": "6d57291b80ccc98d146869a31bfb1cf162f3f08f0656fd8ff580c6803e1d0783"
+      }
+    },
+    {
+      "schema": 1,
+      "host_variant": true,
+      "sanitizers": true,
+      "camera_accessed": false,
+      "network_accessed": false,
+      "codec_archive_basename": "turbojpeg-sys-1.2.0.crate",
+      "codec_archive_sha256": "49b5a974bc59382d35927e3a07eef2ba9a24fe7227cefe52ec44b508e1b90f86",
+      "codec": "libjpeg-turbo 3.1.0 from turbojpeg-sys 1.2.0 crate; scalar, arithmetic disabled",
+      "target": "native host",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "zig_version": null,
+      "compiler_executable_sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+      "compiler_target_arguments": [],
+      "compile_flags": [
+        "-O2",
+        "-std=c11",
+        "-D_GNU_SOURCE",
+        "-ffp-contract=off",
+        "-fno-fast-math",
+        "-fno-strict-aliasing",
+        "-DNDEBUG",
+        "-ffile-prefix-map=<build>/codec=CODEC",
+        "-ffile-prefix-map=<repo>/camera_worker=WORKER",
+        "-I<build>/include",
+        "-I<build>/codec/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer"
+      ],
+      "link_flags": [],
+      "objects": 98,
+      "codec_source_tree_sha256": "6f938b97cdd86cf187b1e05d3a7b4ab301a660529a1d6d2e7f372800d0a2c6b9",
+      "generated_headers": [
+        {
+          "file": "jconfig.h",
+          "sha256": "ff377713f5e470c56d9f61d1446598f86bb87743161949fba80fbe2831af9178"
+        },
+        {
+          "file": "jconfigint.h",
+          "sha256": "acd339ba35c711a5da7ffe9d84399e8642c403e4861f6f455286643d488773cd"
+        },
+        {
+          "file": "jversion.h",
+          "sha256": "7e1c15351d3a9bea7a0fef108e10f7d643bc5bb7f47c65195ef4730466c019ab"
+        }
+      ],
+      "worker_sources": [
+        {
+          "path": "camera_worker/worker.c",
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
+        },
+        {
+          "path": "camera_worker/build.py",
+          "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+        },
+        {
+          "path": "camera_worker/srgb_profile.h",
+          "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
+        },
+        {
+          "path": "native/sha256.h",
+          "sha256": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e"
+        }
+      ],
+      "executable": {
+        "file": "jpeg-worker-host",
+        "bytes": 6317472,
+        "sha256": "c0d0d2bbc59bb254bcef1b02b10f2faa1b8953bcf3290e9d479e28f769ba5df6"
+      }
+    }
+  ],
+  "hardware_tested": false,
+  "camera_accessed": false,
+  "network_during_builds": false,
+  "sources": "camera_worker plus pinned codec archives and notices"
+}

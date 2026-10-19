@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "host_variant": false,
+  "sanitizers": false,
+  "target": "static generic ARMv8-A aarch64-linux-musl",
+  "camera_accessed": false,
+  "network_during_build": false,
+  "binary": {
+    "name": "photo-launcher-aarch64",
+    "bytes": 3627864,
+    "sha256": "ff5a24c2d8dd306535244bce7d7b21cc3db0fb8be3276ba552ff86d8ec84c01e"
+  },
+  "sources": {
+    "camera_worker/launcher.cc": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38",
+    "camera_worker/ingest_exif.h": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af",
+    "camera_worker/heif_io.h": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e",
+    "camera_worker/heif_core.h": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133",
+    "camera_worker/worker.c": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1",
+    "native/sha256.h": "85dc96693857e6f4b9f9035e5c5b02b80a49ab44082f0c19dc46cd5c0400238e",
+    "camera_worker/build_launcher.py": "063da36f6b4be52927f2c056ba868f089ba23b4aba79c5e94de7de08ddb8ff6d"
+  },
+  "codec_build_receipt_sha256": "9deb926b9ef2a09f46e541aa2cfe43b1576fe1d26db3bc0e71df55ace9b26f99",
+  "static_library_sha256": {
+    "libx265.a": "5aed66989f121dc62d2591b95065339bed289f308fed7c77a02ef498cc0ec2f7",
+    "libde265.a": "21f61c70802c574b73a9848a9c0ea2cea1cbc6506dd653259a2f3d62f5036bed",
+    "libheif.a": "3e65b407b21c9ba6a86d28c6844a1f84c3d4017f9aabae16849f9df14d1817db"
+  },
+  "archives": [
+    {
+      "file": "libheif-1.23.6.tar.gz",
+      "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125",
+      "url": "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+    },
+    {
+      "file": "libde265-1.1.3.tar.gz",
+      "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905",
+      "url": "https://github.com/strukturag/libde265/releases/download/v1.1.3/libde265-1.1.3.tar.gz"
+    },
+    {
+      "file": "x265_4.2.tar.gz",
+      "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+      "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
+    }
+  ],
+  "compiler": "Homebrew clang version 21.1.8",
+  "scope": "Native manual CLI and explicit completed-file ingress; no firmware capture hook or camera UI adapter installed",
+  "distribution_license": "GPL-3.0-or-later combined artifact; codec sources/notices accompany repository"
+}

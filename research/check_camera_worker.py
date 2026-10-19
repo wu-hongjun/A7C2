@@ -169,7 +169,7 @@ def main():
         'camera_installation':False,'network_accessed':False,'ELF':elf_check(linux),'LUT_checks':[],
         'JPEG_checks':[],'emulation':[],'sources':[],'limitations':['Hardware untested; Unicorn syscall models are not the camera kernel/filesystem.',
         'Host prepares immutable jobs and presets; no on-camera job producer, shutter hook, menu or media registration.',
-        'Native runner accepts sequential 8-bit RGB/YCbCr sRGB/orientation-1 JPEG only; normalization, when explicitly requested, occurs on host.',
+        'Native JPEG runner preserves EXIF orientations 1-8; legacy host packer still normalizes non-1 input explicitly. Sequential 8-bit sRGB RGB/YCbCr only.',
         'Linux renameat2(RENAME_NOREPLACE) and directory fsync need actual target-filesystem verification before installation.']}
     builds=[]
     for directory in (a.linux_build,a.host_build,a.asan_build):

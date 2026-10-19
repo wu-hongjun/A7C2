@@ -11,7 +11,7 @@ tests. The existing installer and firmware assets do not use this binary.
 There is no installer, launch script, shared-library constructor, capture watcher,
 background process or firmware/settings operation in this worker.
 
-A separate [10-bit HIF-to-HIF worker](HEIF.md) now supports the same CLF and lens presets, with its own codec build, job format and offline evidence. The JPEG executable remains byte-identical.
+A separate [10-bit HIF-to-HIF worker](HEIF.md) now supports the same CLF and lens presets, with its own codec build, job format and offline evidence. The [native launcher](LAUNCHER.md) now prepares completed-photo jobs and selects LUT/lens presets without Python; it preserves valid JPEG EXIF orientations 1–8.
 
 ## What is implemented
 
@@ -30,8 +30,8 @@ A separate [10-bit HIF-to-HIF worker](HEIF.md) now supports the same CLF and len
   416-KiB LUT; no full-image RGB or coefficient allocation for accepted inputs.
   Sequential 8-bit RGB/YCbCr JPEGs, at most 8192 per side / 40 million pixels and
   64 MiB compressed. Progressive, multi-scan, lossless, arithmetic, grayscale and
-  CMYK inputs are declined. The input contract is rendered sRGB, orientation 1.
-- **Fresh output metadata:** sRGB ICC, sRGB EXIF ColorSpace, orientation 1,
+  CMYK inputs are declined. The native input contract is rendered sRGB; output EXIF may preserve orientation 1–8. The legacy host packer still normalizes non-1 inputs explicitly.
+- **Fresh output metadata:** sRGB ICC, sRGB EXIF ColorSpace, validated orientation 1–8,
   dimensions and the frozen lens/capture tags. GPS, MakerNotes, serial numbers,
   old thumbnails and XMP are excluded. JPEG quality is snapshotted, default 95,
   with 4:4:4 sampling and a scalar integer DCT. Recompression is lossy.
@@ -155,9 +155,7 @@ SIMD are disabled. No CMake or external target sysroot is needed.
 
 Use new build/output directory names. The retained [build record](dist/build.json)
 pins the compiler executable, target, flags, codec tree, generated headers,
-worker source hashes and final ELF. [Two clean builds](../research/evidence/camera-worker-reproducibility.json)
-produced identical 491,656-byte binaries with SHA-256
-`6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0`.
+worker source hashes and final ELF. [The earlier two-clean-build receipt](../research/evidence/camera-worker-reproducibility.json) applies to the original orientation-1 build. The current artifact was rebuilt for native orientation-preserving handoff; its current hash is in `dist/build.json` and its regression checks were rerun.
 
 ## Results and next gates
 

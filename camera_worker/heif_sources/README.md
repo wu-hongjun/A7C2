@@ -20,7 +20,11 @@ Adobe notices applicable to the shared color code remain in `NOTICE.md`.
 The static C++ runtime's LLVM notices are included too.
 
 Complete corresponding source for the HIF artifact consists of these three
-archives, `camera_worker/{worker.c,heif_core.h,heif_worker.cc,build_heif.py,srgb_profile.h}`,
+archives, `camera_worker/{worker.c,heif_core.h,heif_io.h,heif_worker.cc,build_heif.py,srgb_profile.h}`,
 `native/sha256.h`, and their accompanying notices. The public archives have no
 Sony firmware, user photo, Fujifilm profile table or per-camera backup data.
 The project scripts supply the build configuration; no binary-only codec is needed.
+
+The linked native launcher additionally includes `launcher.cc`, `ingest_exif.h`
+and `build_launcher.py`; its controller/bundle sources and license notices are
+in the same repository.

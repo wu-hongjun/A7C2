@@ -126,7 +126,10 @@ static void validate_exif(void) {
             if(type==2&&value[bytes-1]!=0)die("exif_ascii");
             if(type==5||type==10)for(u32 j=0;j<items;j++)if(!tiff(value+8*j+4,4,big))die("exif_rational");
             if(tag==0x8769){if(level||type!=4||items!=1)die("exif_ifd");sub=tiff(value,4,big);}
-            if(tag==0x0112){if(type!=3||items!=1||tiff(value,2,big)!=1)die("orientation");orientation=1;}
+            if(tag==0x0112){if(type!=3||items!=1||(tiff(value,2,big)<1||tiff(value,2,big)>8))die("orientation");orientation=1;}
+#ifdef A7_HIF_CORE
+            if(tag==0x0112&&tiff(value,2,big)!=1)die("hif_exif_orientation");
+#endif
             if(tag==0xa001){if(type!=3||items!=1||tiff(value,2,big)!=1)die("color_space");color=1;}
             if(tag==0xa002||tag==0xa003) {
                 if((type!=3&&type!=4)||items!=1||tiff(value,(int)width,big)!=(tag==0xa002?S.width:S.height))die("exif_dimensions");

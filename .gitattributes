@@ -5,3 +5,4 @@ research/evidence/*.png binary
 camera_worker/dist/jpeg-worker-aarch64 binary
 camera_worker/dist/hif-worker-aarch64 binary
 camera_worker/heif_sources/*.tar.gz binary
+camera_worker/dist/photo-launcher-aarch64 binary

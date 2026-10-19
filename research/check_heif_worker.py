@@ -174,7 +174,7 @@ def main():
         stacks=[s for s in elf.iter_segments() if s.header.p_type=='PT_GNU_STACK'];assert stacks and not stacks[0].header.p_flags&1
     report={'schema':1,'scope':'offline Mac HEVC execution and structural static ARM64 validation; no camera execution',
         'sample_copied_read_only':bool(a.sample),'camera_transport_or_installation':False,'network_during_tests':False,
-        'sources':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in ('camera_worker/worker.c','camera_worker/heif_worker.cc','camera_worker/heif_core.h','camera_worker/heif_pack.py','camera_worker/build_heif.py','camera_worker/tests/heif_fixture.cc','research/check_heif_worker.py')},
+        'sources':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in ('camera_worker/worker.c','camera_worker/heif_worker.cc','camera_worker/heif_io.h','camera_worker/heif_core.h','camera_worker/heif_pack.py','camera_worker/build_heif.py','camera_worker/tests/heif_fixture.cc','research/check_heif_worker.py')},
         'binary_sha256':hashlib.sha256(binary.read_bytes()).hexdigest(),'target_sha256':hashlib.sha256(a.elf.read_bytes()).hexdigest(),
         'looks':look_records,'geometry_and_unknown_aperture':records,'grayscale_output_levels_of_1024':levels,
         'independent_FFmpeg_RGB16_levels':len(set(independent[::3])),'faults':faults,'full_resolution':full,

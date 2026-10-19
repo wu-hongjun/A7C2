@@ -3,6 +3,7 @@
   "builds": [
     {
       "schema": 1,
+      "sanitizers": false,
       "host_variant": true,
       "network_during_build": false,
       "camera_accessed": false,
@@ -27,16 +28,20 @@
       "binary": {
         "name": "hif-worker-host",
         "bytes": 4215008,
-        "sha256": "2d2688c8322755bd0d0fe9c15850f0998417960db210378efcaebb9e3107358d"
+        "sha256": "c82decc8a19c080fa8fe151a6857426b8d457b60af02f87551271bfe67e8990f"
       },
       "source_files": [
         {
           "path": "camera_worker/build_heif.py",
-          "sha256": "8da003205bb5dcaa2ad42e640f3628da0de34030ffa37a43c6e1a21952bba6a4"
+          "sha256": "d7f858c420df810a3a276743751986d0bade4af6288efee82948ab338009d3c5"
         },
         {
           "path": "camera_worker/heif_worker.cc",
-          "sha256": "f237109e6b2c374270a289a8794298349fa439080b04eb2c9a8f29ac8d2a3842"
+          "sha256": "4cb0b5b4f90ab7c0ef2402d9fce240774175ed9563545df5576117ef41cc3287"
+        },
+        {
+          "path": "camera_worker/heif_io.h",
+          "sha256": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e"
         },
         {
           "path": "camera_worker/heif_core.h",
@@ -44,7 +49,7 @@
         },
         {
           "path": "camera_worker/worker.c",
-          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
         },
         {
           "path": "native/sha256.h",
@@ -64,6 +69,7 @@
     },
     {
       "schema": 1,
+      "sanitizers": false,
       "host_variant": false,
       "network_during_build": false,
       "camera_accessed": false,
@@ -87,17 +93,21 @@
       "target": "aarch64-linux-musl static generic ARMv8-A",
       "binary": {
         "name": "hif-worker-aarch64",
-        "bytes": 3585776,
-        "sha256": "414653b46381f5bdf5c590edb60a5cb9be9103c6b64b530a0038eb2400875237"
+        "bytes": 3585816,
+        "sha256": "98ba054102d4e2ad6fc0054113ed4d979556159baa3c9da4e497b127f1924da1"
       },
       "source_files": [
         {
           "path": "camera_worker/build_heif.py",
-          "sha256": "8da003205bb5dcaa2ad42e640f3628da0de34030ffa37a43c6e1a21952bba6a4"
+          "sha256": "d7f858c420df810a3a276743751986d0bade4af6288efee82948ab338009d3c5"
         },
         {
           "path": "camera_worker/heif_worker.cc",
-          "sha256": "f237109e6b2c374270a289a8794298349fa439080b04eb2c9a8f29ac8d2a3842"
+          "sha256": "4cb0b5b4f90ab7c0ef2402d9fce240774175ed9563545df5576117ef41cc3287"
+        },
+        {
+          "path": "camera_worker/heif_io.h",
+          "sha256": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e"
         },
         {
           "path": "camera_worker/heif_core.h",
@@ -105,7 +115,7 @@
         },
         {
           "path": "camera_worker/worker.c",
-          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
         },
         {
           "path": "native/sha256.h",
@@ -126,11 +136,5 @@
   ],
   "artifact": "camera_worker/dist/hif-worker-aarch64",
   "codec_sources": "camera_worker/heif_sources",
-  "CMake_download": {
-    "version": "4.2.0",
-    "url": "https://github.com/Kitware/CMake/releases/download/v4.2.0/cmake-4.2.0-macos-universal.tar.gz",
-    "sha256": "b8b040a06343b2b6bc090b03a9c2bb4e98037518846989fb7c40ebbf30655c5d",
-    "verified_against": "Official cmake-4.2.0-SHA-256.txt",
-    "build_tool_only_not_redistributed": true
-  }
+  "scope": "Refreshed native handoff shared-reader/core build; no new codec downloads"
 }

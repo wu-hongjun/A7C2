@@ -5,7 +5,7 @@ manual-lens EXIF presets to a **separate 10-bit HIF copy**. The static
 [ARM64 Linux candidate](dist/hif-worker-aarch64) is built for the firmware's
 AArch64/Linux environment. It has **not run on the camera or under real Linux**.
 Its ARM64 startup runs in Unicorn; complete codec processing runs on this Mac.
-There is no installer, camera transport, capture watcher or firmware hook.
+The separate [native launcher](LAUNCHER.md) now supplies local preset selection and completed-file job preparation. There is no installer, camera transport, capture watcher or firmware hook.
 
 The user authorized reading a sample from EXTREME. One 9,715,712-byte existing
 A7C2 HIF was copied to ignored private test storage; source-before, source-after
@@ -115,8 +115,7 @@ the linked release codec libraries are not sanitizer-instrumented.
 archives, libraries, tools and artifacts. [ARM64 startup evidence](../research/evidence/heif-worker-startup.json)
 only proves actual target startup/version instructions in a restricted Unicorn
 syscall model; it does not exercise threaded HEVC encoding or Linux scheduling.
-The unchanged JPEG executable was rebuilt byte-for-byte and its own full
-regression/emulator checks rerun after the shared-core changes.
+The earlier HIF-only pass retained the JPEG executable byte-for-byte. The later native launcher pass adds JPEG EXIF orientation preservation and reruns both workers’ full regressions.
 
 The HIF artifact includes GPL/LGPL codec components. Complete pinned codec
 source archives, project sources/build script and notices accompany the binary;

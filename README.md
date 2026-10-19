@@ -4,6 +4,8 @@ English | [繁體中文](./README.zh-TW.md)
 
 For custom LUTs and manual-lens EXIF on completed photos, use the [host JPEG worker prototype](photo_worker/README.md). It creates separate JPEG copies and has full-resolution offline checks; it does not install or run on the camera. All 11 supplied Fujifilm RGBTable stages now have [validated sRGB JPEG CLF adaptations](research/FUJIFILM_SRGB_CONVERSION.md), checked against Adobe’s local SDK reference. These exclude the full RAW/DCP pipeline and are not native camera looks. A separate [static ARM64 JPEG-worker build](camera_worker/README.md) now processes prepared jobs with these LUTs and lens EXIF using scanline memory; it passes offline host/emulator tests but remains hardware untested, with no camera installation.
 The [10-bit HIF-to-HIF prototype](camera_worker/HEIF.md) now applies those LUTs and manual-lens EXIF to separate HIF copies. It passes offline full-resolution A7C2, 10-bit precision, orientation and independent decoder checks. The static ARM64 build remains hardware untested; nothing was installed on the camera.
+The [native launcher and completed-photo handoff](camera_worker/LAUNCHER.md) now freezes LUT/lens selections per armed event, validates completed-file identity, prepares JPEG/HIF jobs on the target without Python, and starts one worker at a time. Offline integration/sanitizer/ARM64 selector checks pass; Sony menu and capture callback wiring remain unimplemented, and nothing was installed.
+
 
 
 For macOS, start with the [Mac operating guide](MACOS.md). The [installation findings and lessons](research/MACOS_INSTALLATION_LESSONS.md) document the actual USB failures, host crash, preservation review and WBI recovery that this successful trial required.

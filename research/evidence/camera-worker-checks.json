@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at_utc": "2026-10-19T00:15:14.366293+00:00",
+  "generated_at_utc": "2026-10-19T01:02:12.521005+00:00",
   "camera_accessed": false,
   "camera_installation": false,
   "network_accessed": false,
@@ -14,7 +14,7 @@
     "writable_executable_load_segments": false,
     "executable_stack": false,
     "bytes": 491656,
-    "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+    "sha256": "6d57291b80ccc98d146869a31bfb1cf162f3f08f0656fd8ff580c6803e1d0783"
   },
   "LUT_checks": [
     {
@@ -231,7 +231,7 @@
       },
       "requested_resource_limits": [],
       "peak_mapped_guest_bytes": 8929280,
-      "elapsed_host_seconds": 0.0029754589777439833,
+      "elapsed_host_seconds": 0.002659875201061368,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -286,7 +286,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 20.13812829204835,
+      "elapsed_host_seconds": 11.61532587511465,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -340,7 +340,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 17.0725557920523,
+      "elapsed_host_seconds": 9.452018084004521,
       "injected_fault": "output_ENOSPC",
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -396,7 +396,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 15.71483395807445,
+      "elapsed_host_seconds": 11.122792083071545,
       "injected_fault": "publication_unsupported",
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -451,7 +451,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 16.21448429208249,
+      "elapsed_host_seconds": 10.821980292210355,
       "injected_fault": "directory_sync",
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -499,7 +499,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9424896,
-      "elapsed_host_seconds": 7.552714874967933,
+      "elapsed_host_seconds": 3.1091407500207424,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -551,15 +551,19 @@
         }
       ],
       "peak_mapped_guest_bytes": 9551872,
-      "elapsed_host_seconds": 5.939693040912971,
+      "elapsed_host_seconds": 4.034761083079502,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     }
   ],
   "sources": [
     {
+      "path": "camera_worker/HEIF.md",
+      "sha256": "03b2c9a792e238c08e2411d544700e3e1744bbdb003fdca8f9b0b39cc11090e3"
+    },
+    {
       "path": "camera_worker/README.md",
-      "sha256": "7b0b78edf8be998fc80c30e4be83305e9d8855686e913bc8b6c7e73c705a6233"
+      "sha256": "734cc0282ae57c813d67b9737bad54d73cb1374bbc8af6dd2e1431e2e5737400"
     },
     {
       "path": "camera_worker/build.py",
@@ -567,7 +571,11 @@
     },
     {
       "path": "camera_worker/build_heif.py",
-      "sha256": "8da003205bb5dcaa2ad42e640f3628da0de34030ffa37a43c6e1a21952bba6a4"
+      "sha256": "e88a7400f7981c18e213e1b17184d755dacd809a80877b7e51524de7f4ad181c"
+    },
+    {
+      "path": "camera_worker/build_launcher.py",
+      "sha256": "063da36f6b4be52927f2c056ba868f089ba23b4aba79c5e94de7de08ddb8ff6d"
     },
     {
       "path": "camera_worker/bundle.py",
@@ -579,15 +587,35 @@
     },
     {
       "path": "camera_worker/dist/build.json",
-      "sha256": "759357d5d059d1ca6a029509f40972960ebabb87c54d89894072fc62f9449312"
+      "sha256": "669bc0a1ceafe122dd86d726e80d5d41c2ac75f0c3081e0e8ceb9a4a83fa1f58"
+    },
+    {
+      "path": "camera_worker/dist/heif-build.json",
+      "sha256": "509853390fa2a7519a7461487d8ad8f9261e5c0f16a2be3020caf663d4946301"
+    },
+    {
+      "path": "camera_worker/dist/hif-worker-aarch64",
+      "sha256": "98ba054102d4e2ad6fc0054113ed4d979556159baa3c9da4e497b127f1924da1"
     },
     {
       "path": "camera_worker/dist/jpeg-worker-aarch64",
-      "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+      "sha256": "6d57291b80ccc98d146869a31bfb1cf162f3f08f0656fd8ff580c6803e1d0783"
+    },
+    {
+      "path": "camera_worker/dist/launcher-build.json",
+      "sha256": "b06e05f6cd3df8f53bed3ee780151e05d1f50485fdd41ffedd016657bee9d9a0"
+    },
+    {
+      "path": "camera_worker/dist/photo-launcher-aarch64",
+      "sha256": "ff5a24c2d8dd306535244bce7d7b21cc3db0fb8be3276ba552ff86d8ec84c01e"
     },
     {
       "path": "camera_worker/heif_core.h",
       "sha256": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133"
+    },
+    {
+      "path": "camera_worker/heif_io.h",
+      "sha256": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e"
     },
     {
       "path": "camera_worker/heif_pack.py",
@@ -611,7 +639,19 @@
     },
     {
       "path": "camera_worker/heif_worker.cc",
-      "sha256": "f237109e6b2c374270a289a8794298349fa439080b04eb2c9a8f29ac8d2a3842"
+      "sha256": "4cb0b5b4f90ab7c0ef2402d9fce240774175ed9563545df5576117ef41cc3287"
+    },
+    {
+      "path": "camera_worker/ingest_exif.h",
+      "sha256": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af"
+    },
+    {
+      "path": "camera_worker/launcher.cc",
+      "sha256": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38"
+    },
+    {
+      "path": "camera_worker/launcher_bundle.py",
+      "sha256": "f02066a6ab7b62e6b083193713c01c407c9adf1e32122df8c9fd890686f043dd"
     },
     {
       "path": "camera_worker/pack.py",
@@ -626,20 +666,24 @@
       "sha256": "c9861ced2e1db31d442e28c2a825ea30f761d5ce871cbf6a58ac4ae55ff7477e"
     },
     {
+      "path": "camera_worker/tests/launcher_faults.c",
+      "sha256": "1341d093f622b167885c5f0916908b595f9d8421472072472e5d9f34eb226d28"
+    },
+    {
       "path": "camera_worker/tests/test_pack.py",
       "sha256": "beb7cb5186edc0c5d4679ddad235546c75ba415e682f9997b21b3fac2f499c6e"
     },
     {
       "path": "camera_worker/worker.c",
-      "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+      "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
     },
     {
       "path": "research/check_camera_worker.py",
-      "sha256": "9691d2a16806baf34325c07499ec9d72afbe16d43be1db8e9be387f391ad860e"
+      "sha256": "90015b399ea1e6bdaadb3330c3f8f9268ce577e16f47e4d47219c0dd19dcd93e"
     },
     {
       "path": "research/emulate_camera_worker.py",
-      "sha256": "0f3f9ccfc7baf2f68c5b949c1e028e465dbc077946f5aa25a885c47077bf7385"
+      "sha256": "a4fe04a3665bd1680d7970935347b2d79eaf94d2d7eb2e02f8dc8b434e3b1dad"
     },
     {
       "path": "photo_worker/clf.py",
@@ -657,7 +701,7 @@
   "limitations": [
     "Hardware untested; Unicorn syscall models are not the camera kernel/filesystem.",
     "Host prepares immutable jobs and presets; no on-camera job producer, shutter hook, menu or media registration.",
-    "Native runner accepts sequential 8-bit RGB/YCbCr sRGB/orientation-1 JPEG only; normalization, when explicitly requested, occurs on host.",
+    "Native JPEG runner preserves EXIF orientations 1-8; legacy host packer still normalizes non-1 input explicitly. Sequential 8-bit sRGB RGB/YCbCr only.",
     "Linux renameat2(RENAME_NOREPLACE) and directory fsync need actual target-filesystem verification before installation."
   ],
   "builds": [
@@ -718,7 +762,7 @@
       "worker_sources": [
         {
           "path": "camera_worker/worker.c",
-          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
         },
         {
           "path": "camera_worker/build.py",
@@ -736,7 +780,7 @@
       "executable": {
         "file": "jpeg-worker-aarch64",
         "bytes": 491656,
-        "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+        "sha256": "6d57291b80ccc98d146869a31bfb1cf162f3f08f0656fd8ff580c6803e1d0783"
       }
     },
     {
@@ -786,7 +830,7 @@
       "worker_sources": [
         {
           "path": "camera_worker/worker.c",
-          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
         },
         {
           "path": "camera_worker/build.py",
@@ -804,7 +848,7 @@
       "executable": {
         "file": "jpeg-worker-host",
         "bytes": 495136,
-        "sha256": "d220663ce1b553661711b39c0212647024f95476a4dc1f84d0f321ce27db00a4"
+        "sha256": "2eb0ee31302d33e920321a876be389aad9ae21c6ac32ce8bc46534e14a9d00b5"
       }
     },
     {
@@ -856,7 +900,7 @@
       "worker_sources": [
         {
           "path": "camera_worker/worker.c",
-          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+          "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
         },
         {
           "path": "camera_worker/build.py",
@@ -874,7 +918,7 @@
       "executable": {
         "file": "jpeg-worker-host",
         "bytes": 6317472,
-        "sha256": "443589235625d04ddf88f508d104e85d654658d5b8558deceecfed16feabbcf3"
+        "sha256": "c0d0d2bbc59bb254bcef1b02b10f2faa1b8953bcf3290e9d479e28f769ba5df6"
       }
     }
   ],
@@ -1005,20 +1049,20 @@
       "returncode": 0,
       "stdout": "{\"status\":\"ok\",\"width\":7008,\"height\":4672,\"published\":true,\"image_row_bytes\":21024}\n",
       "stderr": "",
-      "seconds": 3.378880458883941,
-      "peak_RSS_raw": 3325952,
+      "seconds": 2.231225833063945,
+      "peak_RSS_raw": 3342336,
       "RSS_units": "bytes"
     },
     "host_performance_only": true,
     "native_RGB_row_bytes": 21024,
     "files": [
       {
-        "path": "research/build/camera-worker-check-hz31l7wf/full-native/native/input.jpg",
+        "path": "research/build/camera-worker-check-78xbwmo4/full-native/native/input.jpg",
         "bytes": 998863,
         "sha256": "f38754d5bf2ce73f41941f6ed0fd38ddf78daf0fa65cdaf4e8d577fe54aea354"
       },
       {
-        "path": "research/build/camera-worker-check-hz31l7wf/full-native/native/result.jpg",
+        "path": "research/build/camera-worker-check-78xbwmo4/full-native/native/result.jpg",
         "bytes": 970060,
         "sha256": "5855d41d1f56b6e4303d0e67ddea221677bb81f8da62436ccc4cb8ac89a5510d"
       }

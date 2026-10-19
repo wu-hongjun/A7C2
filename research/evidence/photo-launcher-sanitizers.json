@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "scope": "Native Mac launcher prepares jobs and execs actual JPEG/HIF workers; tests offline in synthetic local workspace",
+  "camera_accessed": false,
+  "camera_installation": false,
+  "network_during_tests": false,
+  "originals_unchanged": true,
+  "cases": [
+    {
+      "case": "native-ingest-astia-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 1.4549816846847534
+    },
+    {
+      "case": "native-ingest-bleach-bypass-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 0.6339511871337891
+    },
+    {
+      "case": "native-ingest-classic-chrome-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 1.340833067893982
+    },
+    {
+      "case": "native-ingest-classic-neg-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 1.3936760425567627
+    },
+    {
+      "case": "native-ingest-eterna-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 1.0567236244678497
+    },
+    {
+      "case": "native-ingest-nostalgic-neg-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 0.9772312343120575
+    },
+    {
+      "case": "native-ingest-pro-neg-hi-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 1
+    },
+    {
+      "case": "native-ingest-pro-neg-std-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 1.3632026314735413
+    },
+    {
+      "case": "native-ingest-provia-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 0.38765817880630493
+    },
+    {
+      "case": "native-ingest-reala-ace-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 0.9388917684555054
+    },
+    {
+      "case": "native-ingest-velvia-srgb",
+      "status": "passed",
+      "max_JPEG_RGB8_error": 1.4318861663341522
+    },
+    {
+      "case": "arm-frozen-selection-reverse-completion-and-unknown-aperture",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-1",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-2",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-3",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-4",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-5",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-6",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-7",
+      "status": "passed"
+    },
+    {
+      "case": "orientation-8",
+      "status": "passed"
+    },
+    {
+      "case": "full-resolution-32MP-JPEG-native-ingest-and-child-worker",
+      "status": "passed"
+    },
+    {
+      "case": "TIFF-rational-upper-bound-and-sub-f1-aperture",
+      "status": "passed"
+    },
+    {
+      "case": "HIF-completed-ingest-to-real-child-worker-independent-decode",
+      "status": "passed"
+    },
+    {
+      "case": "invalid-selection-aperture-cannot-change-state",
+      "status": "passed"
+    },
+    {
+      "case": "no-implicit-completion-duplicate-id-or-result-overwrite",
+      "status": "passed"
+    },
+    {
+      "case": "confined-source-.._one.JPG",
+      "status": "rejected"
+    },
+    {
+      "case": "confined-source-_tmp_one.JPG",
+      "status": "rejected"
+    },
+    {
+      "case": "confined-source-link.JPG",
+      "status": "rejected"
+    },
+    {
+      "case": "confined-source-alias_one.JPG",
+      "status": "rejected"
+    },
+    {
+      "case": "confined-source-one.ARW",
+      "status": "rejected"
+    },
+    {
+      "case": "reject-progressive",
+      "status": "passed"
+    },
+    {
+      "case": "reject-adobe",
+      "status": "passed"
+    },
+    {
+      "case": "producer-digest-rejects-stale-or-reused-filename",
+      "status": "passed"
+    },
+    {
+      "case": "per-job-selection-binding",
+      "status": "passed"
+    },
+    {
+      "case": "real-control-and-worker-locks",
+      "status": "passed"
+    },
+    {
+      "case": "worker-hash-before-exec",
+      "status": "passed"
+    },
+    {
+      "case": "interrupted-running-needs-manual-review",
+      "status": "passed"
+    }
+  ],
+  "source_sha256": {
+    "camera_worker/launcher.cc": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38",
+    "camera_worker/ingest_exif.h": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af",
+    "camera_worker/launcher_bundle.py": "0235c71ba971ad0c1920b938623f95d17a2c3534a8b62fc2cf8068a927d32421",
+    "camera_worker/heif_io.h": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e",
+    "camera_worker/worker.c": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1",
+    "research/check_photo_launcher.py": "2a886234128a1199d63fd87f1cd45f63e25f77b1897ba6a21e7fcc333c18ad23"
+  },
+  "binary_sha256": "a05a63d09c583b8116db0df44094c8487df1c73a7f6f4fa37db32acd6d117a71",
+  "limits": [
+    "Actual camera startup/menu/capture callback not implemented or executed",
+    "Explicit arm/closed-event contract tested; no inference of firmware completion",
+    "ARM64/Linux process semantics require separate target validation"
+  ]
+}

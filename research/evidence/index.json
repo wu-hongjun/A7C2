@@ -4,8 +4,8 @@
   "artifacts": [
     {
       "path": ".gitattributes",
-      "bytes": 284,
-      "sha256": "4bfd8717635fd666aac3af942f3f12b93bf2a26590d7096dbb3de8052ae95301"
+      "bytes": 333,
+      "sha256": "f2d39b1575c951f1f9bc8f21ce310f093d2880d714d9ec7fd15f16771cfde1f9"
     },
     {
       "path": ".gitignore",
@@ -24,13 +24,13 @@
     },
     {
       "path": "NOTICE.md",
-      "bytes": 5074,
-      "sha256": "2237215a2e2883ac99f3a4880b90818e7b9409538ead7b8a2cc91bb58f41161d"
+      "bytes": 5460,
+      "sha256": "33685991fbe48a9c0af580dd465e500aae029a26ed26c8f88ad5844ad6bf39d3"
     },
     {
       "path": "README.md",
-      "bytes": 30195,
-      "sha256": "83e234f50ff5f393457756e81031ad8d6c15ced3b34557b40058a129f99112fa"
+      "bytes": 30588,
+      "sha256": "b2b0e5e7765c3016d0dffd6ec1127732a0c1af8e5f2549575c6644491cc2e67b"
     },
     {
       "path": "README.zh-TW.md",
@@ -54,13 +54,18 @@
     },
     {
       "path": "camera_worker/HEIF.md",
-      "bytes": 7798,
-      "sha256": "03b2c9a792e238c08e2411d544700e3e1744bbdb003fdca8f9b0b39cc11090e3"
+      "bytes": 7963,
+      "sha256": "b01567848effb227aec79c1cdfc3f921e9027f31e2c7de6634523f315215c37a"
+    },
+    {
+      "path": "camera_worker/LAUNCHER.md",
+      "bytes": 10956,
+      "sha256": "3888569df5465fc2438e3dddd9a7c0f1e133656bd621ceb8e2dbd7c7a7da7b29"
     },
     {
       "path": "camera_worker/README.md",
-      "bytes": 11404,
-      "sha256": "734cc0282ae57c813d67b9737bad54d73cb1374bbc8af6dd2e1431e2e5737400"
+      "bytes": 11735,
+      "sha256": "8103cd6b4fb135c222a3ad9c3ca438316dc1cdd788160bf09b966da7fafae407"
     },
     {
       "path": "camera_worker/build.py",
@@ -69,8 +74,13 @@
     },
     {
       "path": "camera_worker/build_heif.py",
-      "bytes": 7780,
-      "sha256": "8da003205bb5dcaa2ad42e640f3628da0de34030ffa37a43c6e1a21952bba6a4"
+      "bytes": 8703,
+      "sha256": "d7f858c420df810a3a276743751986d0bade4af6288efee82948ab338009d3c5"
+    },
+    {
+      "path": "camera_worker/build_launcher.py",
+      "bytes": 3563,
+      "sha256": "063da36f6b4be52927f2c056ba868f089ba23b4aba79c5e94de7de08ddb8ff6d"
     },
     {
       "path": "camera_worker/bundle.py",
@@ -85,27 +95,42 @@
     {
       "path": "camera_worker/dist/build.json",
       "bytes": 2369,
-      "sha256": "4657db9a713f7bbd0b26bb47a81a84f13b9edeea1ff4b9e09cc67c66c823cc5d"
+      "sha256": "669bc0a1ceafe122dd86d726e80d5d41c2ac75f0c3081e0e8ceb9a4a83fa1f58"
     },
     {
       "path": "camera_worker/dist/heif-build.json",
-      "bytes": 2389,
-      "sha256": "7b7143ab040ab84f8976ef6256d6d4ea803f3c55e14f2f96991736efd0a98c59"
+      "bytes": 2549,
+      "sha256": "9deb926b9ef2a09f46e541aa2cfe43b1576fe1d26db3bc0e71df55ace9b26f99"
     },
     {
       "path": "camera_worker/dist/hif-worker-aarch64",
-      "bytes": 3585776,
-      "sha256": "414653b46381f5bdf5c590edb60a5cb9be9103c6b64b530a0038eb2400875237"
+      "bytes": 3585816,
+      "sha256": "98ba054102d4e2ad6fc0054113ed4d979556159baa3c9da4e497b127f1924da1"
     },
     {
       "path": "camera_worker/dist/jpeg-worker-aarch64",
       "bytes": 491656,
-      "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+      "sha256": "6d57291b80ccc98d146869a31bfb1cf162f3f08f0656fd8ff580c6803e1d0783"
+    },
+    {
+      "path": "camera_worker/dist/launcher-build.json",
+      "bytes": 2442,
+      "sha256": "aadf4462e31b8adc93797b4f3c21957d5c06047a5be6a32e1f75bfd53292cdcf"
+    },
+    {
+      "path": "camera_worker/dist/photo-launcher-aarch64",
+      "bytes": 3627864,
+      "sha256": "ff5a24c2d8dd306535244bce7d7b21cc3db0fb8be3276ba552ff86d8ec84c01e"
     },
     {
       "path": "camera_worker/heif_core.h",
       "bytes": 583,
       "sha256": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133"
+    },
+    {
+      "path": "camera_worker/heif_io.h",
+      "bytes": 8266,
+      "sha256": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e"
     },
     {
       "path": "camera_worker/heif_pack.py",
@@ -114,8 +139,8 @@
     },
     {
       "path": "camera_worker/heif_sources/README.md",
-      "bytes": 1867,
-      "sha256": "6f63bcfb35d2c2f64fcbbc134ecb65eabe654bc023445d2e6dc4d1473fc078c0"
+      "bytes": 2061,
+      "sha256": "f67fac2ecf212a5f1e3da785473e5e43b9718ad7d5a1476064da961cba838ebf"
     },
     {
       "path": "camera_worker/heif_sources/libde265-1.1.3.tar.gz",
@@ -134,8 +159,23 @@
     },
     {
       "path": "camera_worker/heif_worker.cc",
-      "bytes": 16011,
-      "sha256": "f237109e6b2c374270a289a8794298349fa439080b04eb2c9a8f29ac8d2a3842"
+      "bytes": 7830,
+      "sha256": "4cb0b5b4f90ab7c0ef2402d9fce240774175ed9563545df5576117ef41cc3287"
+    },
+    {
+      "path": "camera_worker/ingest_exif.h",
+      "bytes": 7171,
+      "sha256": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af"
+    },
+    {
+      "path": "camera_worker/launcher.cc",
+      "bytes": 21369,
+      "sha256": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38"
+    },
+    {
+      "path": "camera_worker/launcher_bundle.py",
+      "bytes": 5688,
+      "sha256": "0235c71ba971ad0c1920b938623f95d17a2c3534a8b62fc2cf8068a927d32421"
     },
     {
       "path": "camera_worker/pack.py",
@@ -153,14 +193,24 @@
       "sha256": "c9861ced2e1db31d442e28c2a825ea30f761d5ce871cbf6a58ac4ae55ff7477e"
     },
     {
+      "path": "camera_worker/tests/launcher_faults.c",
+      "bytes": 1548,
+      "sha256": "1341d093f622b167885c5f0916908b595f9d8421472072472e5d9f34eb226d28"
+    },
+    {
+      "path": "camera_worker/tests/test_launcher_build.py",
+      "bytes": 1596,
+      "sha256": "2cc79891aa2fc5cc49d36d21a1a8b74f52951799faddf7597440e5c9bd916f23"
+    },
+    {
       "path": "camera_worker/tests/test_pack.py",
       "bytes": 4757,
       "sha256": "beb7cb5186edc0c5d4679ddad235546c75ba415e682f9997b21b3fac2f499c6e"
     },
     {
       "path": "camera_worker/worker.c",
-      "bytes": 17491,
-      "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
+      "bytes": 17617,
+      "sha256": "73559f49588c576d1d0913a27792048f695aa573968cd91c3e0571dba37ca4a1"
     },
     {
       "path": "licenses/Adobe-DNG-SDK.txt",
@@ -459,8 +509,8 @@
     },
     {
       "path": "research/STILL_PROTOTYPE_PLAN.md",
-      "bytes": 16698,
-      "sha256": "008a131f527eafd8f369fe85055baebc732c9a74913aa4f447b2a6acab370dfc"
+      "bytes": 17078,
+      "sha256": "4c042abbccabe24e943de79e105b490c5f66ca5717a179c86ff881749c68c2bc"
     },
     {
       "path": "research/STILL_RECORDING_BOUNDARY.md",
@@ -494,8 +544,8 @@
     },
     {
       "path": "research/check_camera_worker.py",
-      "bytes": 18455,
-      "sha256": "9691d2a16806baf34325c07499ec9d72afbe16d43be1db8e9be387f391ad860e"
+      "bytes": 18468,
+      "sha256": "90015b399ea1e6bdaadb3330c3f8f9268ce577e16f47e4d47219c0dd19dcd93e"
     },
     {
       "path": "research/check_fujifilm_conversion.py",
@@ -504,8 +554,8 @@
     },
     {
       "path": "research/check_heif_worker.py",
-      "bytes": 13265,
-      "sha256": "a17262828f25a5820e272e3a8c113d1bc63f2cb3f787eb6904a8ed166c08515f"
+      "bytes": 13291,
+      "sha256": "ca8681d85e234df020f0d5596ba8db066dd46b762e88d47f654f975fdaa5fd01"
     },
     {
       "path": "research/check_jpeg_worker.py",
@@ -513,14 +563,24 @@
       "sha256": "c77f76b740b6e51c11509a16c6865d010dadb41144e25d76816b4dbc34215787"
     },
     {
+      "path": "research/check_launcher_emulation.py",
+      "bytes": 2147,
+      "sha256": "a1841cddf393952ab4718706be8867c4e8b72857813da7b4ad010fa3d6ee9a8a"
+    },
+    {
       "path": "research/check_lut_reference.py",
       "bytes": 14047,
       "sha256": "2bc92e29875039b496b980ef9b428ac6c409dffb3662388202d7f983733e290b"
     },
     {
+      "path": "research/check_photo_launcher.py",
+      "bytes": 16779,
+      "sha256": "2a886234128a1199d63fd87f1cd45f63e25f77b1897ba6a21e7fcc333c18ad23"
+    },
+    {
       "path": "research/emulate_camera_worker.py",
-      "bytes": 10376,
-      "sha256": "0f3f9ccfc7baf2f68c5b949c1e028e465dbc077946f5aa25a885c47077bf7385"
+      "bytes": 11631,
+      "sha256": "a4fe04a3665bd1680d7970935347b2d79eaf94d2d7eb2e02f8dc8b434e3b1dad"
     },
     {
       "path": "research/evidence/allocation-ownership-followup-checks.json",
@@ -584,8 +644,8 @@
     },
     {
       "path": "research/evidence/camera-worker-checks.json",
-      "bytes": 33725,
-      "sha256": "475942f84ddd4afadc0ad02e36fd1420be50a3cb10a063d12d9c181a9c41d564"
+      "bytes": 35341,
+      "sha256": "bc9e80723b9fb15b15879aa21e299706de146a69d90cc72ba4f16cd65e11d024"
     },
     {
       "path": "research/evidence/camera-worker-publication-checks.json",
@@ -709,13 +769,13 @@
     },
     {
       "path": "research/evidence/heif-worker-builds.json",
-      "bytes": 5738,
-      "sha256": "2a8958f64906a1ecf122d3253e6db4fbae84ed3171c5e6940fab7eef0cbe0dc5"
+      "bytes": 5840,
+      "sha256": "48e91af89bc0971924f1cbc5ae6a50ed22c82bac158c5563202d88b689ebe619"
     },
     {
       "path": "research/evidence/heif-worker-checks.json",
-      "bytes": 13710,
-      "sha256": "b3300b4305ee42b6e72aa03db7f93d9c5ec8971b8283544dbfe02e283a904b41"
+      "bytes": 13810,
+      "sha256": "a7e9b73e9b6d63e8ee7eea67134838c527aa1352309ae5a70ad9f195f507747d"
     },
     {
       "path": "research/evidence/heif-worker-publication-checks.json",
@@ -795,7 +855,7 @@
     {
       "path": "research/evidence/lut-reference-checks.json",
       "bytes": 4273,
-      "sha256": "20fc0f45b40eca253132a7675783ec05e0aa1001ae3693feb75630202c12e42a"
+      "sha256": "dcb7180ce2b888a8d82f30fa72538258c02598696ebffa0d048ae800ea6611fd"
     },
     {
       "path": "research/evidence/lut-transfer.json",
@@ -886,6 +946,31 @@
       "path": "research/evidence/package-check.log",
       "bytes": 49,
       "sha256": "9048993b67e420d6c0254db8ebffd469b4676eb89f5b46d55abbdf740f5a6232"
+    },
+    {
+      "path": "research/evidence/photo-launcher-builds.json",
+      "bytes": 24229,
+      "sha256": "507c4b8d238b4c51881304a277456d4f9533e57b73a5970d05bec6b12fd22d2e"
+    },
+    {
+      "path": "research/evidence/photo-launcher-checks.json",
+      "bytes": 6007,
+      "sha256": "277312a246a00d4c88d911e8c9fd1127ba41c5bb0930780a47342104be0d3fad"
+    },
+    {
+      "path": "research/evidence/photo-launcher-emulation.json",
+      "bytes": 8104,
+      "sha256": "d53dce6673a2497fa0e13b432ffc63a72988407fceeaa4af4865f02b74bb70be"
+    },
+    {
+      "path": "research/evidence/photo-launcher-publication-checks.json",
+      "bytes": 2400,
+      "sha256": "990730db861bb26adcf8718379bfa5779a62c6d04de75722d75d0bb557fc56e1"
+    },
+    {
+      "path": "research/evidence/photo-launcher-sanitizers.json",
+      "bytes": 4936,
+      "sha256": "b0e2d578b18af172a8c70a88f0339912f1ec26136c94066e1e07fee57445147d"
     },
     {
       "path": "research/evidence/printer-transport.json",
