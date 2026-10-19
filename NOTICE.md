@@ -51,3 +51,22 @@ The ARM64 executable statically links Zig's bundled musl runtime. Its
 does not link or redistribute any Sony executable or library. Its output ICC
 marker is a fixed-date generated sRGB profile; no LittleCMS library is linked
 into the native executable.
+
+## Separate 10-bit HIF worker
+
+The standalone `hif-worker-aarch64` links libheif 1.23.6 (LGPL-3.0-or-later),
+libde265 1.1.3 (LGPL-3.0-or-later) and x265 4.2 (GPL-2.0-or-later).
+The combined HIF executable is provided under GPL-3.0-or-later; this does not
+replace the licenses of separate repository components or their attribution
+requirements. Complete pinned codec sources and build instructions accompany
+it in [camera_worker/heif_sources](camera_worker/heif_sources/README.md).
+Upstream notices are retained verbatim inside those archives. Full
+[LGPL/GPL version 3 texts](licenses/libheif-LGPL3-GPL3.txt),
+[libde265 notices](licenses/libde265-COPYING.txt) and
+[x265 GPL version 2 text](licenses/x265-GPL2.txt) are included.
+
+The static target also uses Zig's LLVM C++ runtime components; their
+[libc++](licenses/LLVM-libcxx.txt), [libc++abi](licenses/LLVM-libcxxabi.txt) and
+[libunwind](licenses/LLVM-libunwind.txt) notices are retained, in addition to
+the musl/Zig notices above. The HIF executable contains no Sony program or
+Fujifilm LUT table; the selected profile table is a private job asset.

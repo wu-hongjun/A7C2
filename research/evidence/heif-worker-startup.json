@@ -1,0 +1,20 @@
+{
+  "exit_code": 0,
+  "stdout": "A7C2 HIF Worker 0.1.0; 10-bit HEVC/4:2:2; hardware untested; GPL-3.0-or-later\n",
+  "stderr": "",
+  "syscalls": {
+    "set_tid_address": 1,
+    "gettid": 5,
+    "sched_getaffinity": 1,
+    "mmap": 4,
+    "munmap": 4,
+    "ioctl": 1,
+    "writev": 1,
+    "exit_group": 1
+  },
+  "requested_resource_limits": [],
+  "peak_mapped_guest_bytes": 12402688,
+  "elapsed_host_seconds": 5.0583252077922225,
+  "injected_fault": null,
+  "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+}

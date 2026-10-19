@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at_utc": "2026-10-18T23:47:43.334115+00:00",
+  "generated_at_utc": "2026-10-19T00:15:14.366293+00:00",
   "camera_accessed": false,
   "camera_installation": false,
   "network_accessed": false,
@@ -231,7 +231,7 @@
       },
       "requested_resource_limits": [],
       "peak_mapped_guest_bytes": 8929280,
-      "elapsed_host_seconds": 0.0032504170667380095,
+      "elapsed_host_seconds": 0.0029754589777439833,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -286,7 +286,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 8.458540125051513,
+      "elapsed_host_seconds": 20.13812829204835,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -340,7 +340,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 6.692744583124295,
+      "elapsed_host_seconds": 17.0725557920523,
       "injected_fault": "output_ENOSPC",
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -396,7 +396,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 10.665455459151417,
+      "elapsed_host_seconds": 15.71483395807445,
       "injected_fault": "publication_unsupported",
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -451,7 +451,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9945088,
-      "elapsed_host_seconds": 11.206937042064965,
+      "elapsed_host_seconds": 16.21448429208249,
       "injected_fault": "directory_sync",
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -499,7 +499,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9424896,
-      "elapsed_host_seconds": 2.882619749987498,
+      "elapsed_host_seconds": 7.552714874967933,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     },
@@ -551,7 +551,7 @@
         }
       ],
       "peak_mapped_guest_bytes": 9551872,
-      "elapsed_host_seconds": 4.768896625144407,
+      "elapsed_host_seconds": 5.939693040912971,
       "injected_fault": null,
       "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
     }
@@ -564,6 +564,10 @@
     {
       "path": "camera_worker/build.py",
       "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+    },
+    {
+      "path": "camera_worker/build_heif.py",
+      "sha256": "8da003205bb5dcaa2ad42e640f3628da0de34030ffa37a43c6e1a21952bba6a4"
     },
     {
       "path": "camera_worker/bundle.py",
@@ -582,6 +586,34 @@
       "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
     },
     {
+      "path": "camera_worker/heif_core.h",
+      "sha256": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133"
+    },
+    {
+      "path": "camera_worker/heif_pack.py",
+      "sha256": "f74fdbc8dce10f677c5f8ed358db788eb01cb2670643b54219dcda22d0c6e19f"
+    },
+    {
+      "path": "camera_worker/heif_sources/README.md",
+      "sha256": "6f63bcfb35d2c2f64fcbbc134ecb65eabe654bc023445d2e6dc4d1473fc078c0"
+    },
+    {
+      "path": "camera_worker/heif_sources/libde265-1.1.3.tar.gz",
+      "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905"
+    },
+    {
+      "path": "camera_worker/heif_sources/libheif-1.23.6.tar.gz",
+      "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125"
+    },
+    {
+      "path": "camera_worker/heif_sources/x265_4.2.tar.gz",
+      "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210"
+    },
+    {
+      "path": "camera_worker/heif_worker.cc",
+      "sha256": "f237109e6b2c374270a289a8794298349fa439080b04eb2c9a8f29ac8d2a3842"
+    },
+    {
       "path": "camera_worker/pack.py",
       "sha256": "58e9ef03a46998503e41ad1e6e13f09cf3317ea1e947bb685e4b1772aedc4c78"
     },
@@ -590,12 +622,16 @@
       "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
     },
     {
+      "path": "camera_worker/tests/heif_fixture.cc",
+      "sha256": "c9861ced2e1db31d442e28c2a825ea30f761d5ce871cbf6a58ac4ae55ff7477e"
+    },
+    {
       "path": "camera_worker/tests/test_pack.py",
       "sha256": "beb7cb5186edc0c5d4679ddad235546c75ba415e682f9997b21b3fac2f499c6e"
     },
     {
       "path": "camera_worker/worker.c",
-      "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+      "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
     },
     {
       "path": "research/check_camera_worker.py",
@@ -682,7 +718,7 @@
       "worker_sources": [
         {
           "path": "camera_worker/worker.c",
-          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
         },
         {
           "path": "camera_worker/build.py",
@@ -750,7 +786,7 @@
       "worker_sources": [
         {
           "path": "camera_worker/worker.c",
-          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
         },
         {
           "path": "camera_worker/build.py",
@@ -820,7 +856,7 @@
       "worker_sources": [
         {
           "path": "camera_worker/worker.c",
-          "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+          "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
         },
         {
           "path": "camera_worker/build.py",
@@ -838,7 +874,7 @@
       "executable": {
         "file": "jpeg-worker-host",
         "bytes": 6317472,
-        "sha256": "6766af60761a77564cb0f45b10146ac166f7b51c93cd6758352bda2b403a321b"
+        "sha256": "443589235625d04ddf88f508d104e85d654658d5b8558deceecfed16feabbcf3"
       }
     }
   ],
@@ -969,20 +1005,20 @@
       "returncode": 0,
       "stdout": "{\"status\":\"ok\",\"width\":7008,\"height\":4672,\"published\":true,\"image_row_bytes\":21024}\n",
       "stderr": "",
-      "seconds": 2.1353726249653846,
-      "peak_RSS_raw": 3096576,
+      "seconds": 3.378880458883941,
+      "peak_RSS_raw": 3325952,
       "RSS_units": "bytes"
     },
     "host_performance_only": true,
     "native_RGB_row_bytes": 21024,
     "files": [
       {
-        "path": "research/build/camera-worker-check-w4zw86d2/full-native/native/input.jpg",
+        "path": "research/build/camera-worker-check-hz31l7wf/full-native/native/input.jpg",
         "bytes": 998863,
         "sha256": "f38754d5bf2ce73f41941f6ed0fd38ddf78daf0fa65cdaf4e8d577fe54aea354"
       },
       {
-        "path": "research/build/camera-worker-check-w4zw86d2/full-native/native/result.jpg",
+        "path": "research/build/camera-worker-check-hz31l7wf/full-native/native/result.jpg",
         "bytes": 970060,
         "sha256": "5855d41d1f56b6e4303d0e67ddea221677bb81f8da62436ccc4cb8ac89a5510d"
       }

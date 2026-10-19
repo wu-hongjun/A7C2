@@ -18,22 +18,30 @@
 #ifdef __linux__
 #include <sys/syscall.h>
 #endif
+#ifndef A7_HIF_CORE
 #include <jpeglib.h>
+#endif
 typedef uint8_t u8; typedef uint32_t u32; typedef uint64_t u64;
 #include "../native/sha256.h"
 #include "srgb_profile.h"
 #define LUT_FLOATS (36+4097*2+32*32*32*3)
 #define LUT_BYTES (16+LUT_FLOATS*4)
 #define JPEG_LIMIT (64ULL*1024*1024)
+#ifdef A7_HIF_CORE
+static u8 hif_input_hash[32];
+#endif
 static volatile sig_atomic_t cancelled;
 static jmp_buf failure;
 static const char *reason="unknown";
 static struct {
     int dirfd,infd,outfd,created,dec_live,enc_live,published;
     FILE *infile,*outfile;
+
+#ifndef A7_HIF_CORE
     struct jpeg_decompress_struct dec;
     struct jpeg_compress_struct enc;
     struct jpeg_error_mgr err;
+#endif
     u8 *exif,*look,*row; float *floats;
     u32 width,height,quality,exif_size,look_size; u64 input_size;
     char temp[64];
@@ -138,7 +146,12 @@ static void load(const char *directory) {
     ssize_t got=read(fd,header,sizeof(header));close(fd);
     if(got!=(ssize_t)sizeof(header))die("job_header_read");
     hash_bytes(header,144,digest);
-    if(memcmp(header,"A7JOBS01",8)||le32(header+8)!=1||memcmp(digest,header+144,32))die("job_header");
+#ifdef A7_HIF_CORE
+    const char *magic="A7HIFS01";
+#else
+    const char *magic="A7JOBS01";
+#endif
+    if(memcmp(header,magic,8)||le32(header+8)!=1||memcmp(digest,header+144,32))die("job_header");
     u32 flags=le32(header+12);S.quality=le32(header+16);S.width=le32(header+20);S.height=le32(header+24);
     S.exif_size=le32(header+28);S.look_size=le32(header+32);S.input_size=le64(header+40);
     if(flags>1||le32(header+36)||!S.quality||S.quality>100||!S.width||!S.height||S.width>8192||S.height>8192||
@@ -154,7 +167,15 @@ static void load(const char *directory) {
             if(!isfinite(f)||f<lo||f>hi)die("lut_values");
         }
     } else {hash_bytes((const u8*)"",0,digest);if(memcmp(digest,header+112,32))die("empty_lut_hash");}
-    S.infd=ordinary(S.dirfd,"input.jpg",S.input_size);hash_fd(S.infd,S.input_size,header+48);
+#ifdef A7_HIF_CORE
+    const char *input_name="input.HIF";
+#else
+    const char *input_name="input.jpg";
+#endif
+    S.infd=ordinary(S.dirfd,input_name,S.input_size);hash_fd(S.infd,S.input_size,header+48);
+#ifdef A7_HIF_CORE
+    memcpy(hif_input_hash,header+48,32);
+#endif
 }
 static float clip(float x) {return x<0?0:x>1?1:x;}
 static float gamma_at(const float *p,float x) {
@@ -182,6 +203,7 @@ static void apply(float p[3]) {
     matrix(p,m+18);for(int k=0;k<3;k++)p[k]=clip(p[k]);
     matrix(p,m+27);for(int k=0;k<3;k++)p[k]=gamma_at(enc,p[k]);
 }
+#ifndef A7_HIF_CORE
 static void jpeg_failure(j_common_ptr p) {(void)p;die("jpeg_error");}
 static void jpeg_warning(j_common_ptr p,int level) {(void)p;if(level<0)die("jpeg_warning_or_truncation");}
 static void header_check(void) {
@@ -194,11 +216,19 @@ static void decoder(FILE *input) {
     jpeg_stdio_src(&S.dec,input);if(jpeg_read_header(&S.dec,TRUE)!=JPEG_HEADER_OK)die("jpeg_header");header_check();
     S.dec.out_color_space=JCS_RGB;S.dec.dct_method=JDCT_ISLOW;S.dec.do_fancy_upsampling=TRUE;
 }
+#endif
+#ifdef A7_HIF_CORE
+#define RESULT_NAME "result.HIF"
+#define TEMP_PREFIX ".hif-worker"
+#else
+#define RESULT_NAME "result.jpg"
+#define TEMP_PREFIX ".jpeg-worker"
+#endif
 static void reserve_output(void) {
     struct stat st;
-    if(fstatat(S.dirfd,"result.jpg",&st,AT_SYMLINK_NOFOLLOW)==0||errno!=ENOENT)die("output_exists_or_unavailable");
+    if(fstatat(S.dirfd,RESULT_NAME,&st,AT_SYMLINK_NOFOLLOW)==0||errno!=ENOENT)die("output_exists_or_unavailable");
     for(unsigned i=0;i<100;i++) {
-        snprintf(S.temp,sizeof(S.temp),".jpeg-worker-%ld-%u.tmp",(long)getpid(),i);
+        snprintf(S.temp,sizeof(S.temp),TEMP_PREFIX "-%ld-%u.tmp",(long)getpid(),i);
         S.outfd=openat(S.dirfd,S.temp,O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC,0600);
         if(S.outfd>=0){S.created=1;return;}if(errno!=EEXIST)die("output_reservation");
     }die("output_reservation");
@@ -206,15 +236,16 @@ static void reserve_output(void) {
 static void publish(void) {
     if(cancelled)die("cancelled");
 #ifdef __linux__
-    if(syscall(SYS_renameat2,S.dirfd,S.temp,S.dirfd,"result.jpg",1))die("no_replace_publication");
+    if(syscall(SYS_renameat2,S.dirfd,S.temp,S.dirfd,RESULT_NAME,1))die("no_replace_publication");
 #else
-    if(linkat(S.dirfd,S.temp,S.dirfd,"result.jpg",0))die("no_replace_publication");
+    if(linkat(S.dirfd,S.temp,S.dirfd,RESULT_NAME,0))die("no_replace_publication");
     S.published=1;
     if(unlinkat(S.dirfd,S.temp,0))die("published_temp_cleanup");
 #endif
     S.published=1;S.created=0;
     if(fsync(S.dirfd))die("published_directory_sync_unconfirmed");
 }
+#ifndef A7_HIF_CORE
 static void process(void) {
     S.infile=fdopen(S.infd,"rb");if(!S.infile)die("input_stream");S.infd=-1;
     decoder(S.infile);reserve_output();S.row=malloc(S.width*3);if(!S.row)die("row_allocation");
@@ -261,13 +292,17 @@ static void vectors(void) {
     }
     if(ferror(S.infile))die("vectors_read");
 }
+#endif
 static void cleanup(void) {
+#ifndef A7_HIF_CORE
     if(S.enc_live)jpeg_destroy_compress(&S.enc);if(S.dec_live)jpeg_destroy_decompress(&S.dec);
+#endif
     if(S.infile)fclose(S.infile);if(S.outfile)fclose(S.outfile);
     if(S.infd>=0)close(S.infd);if(S.outfd>=0)close(S.outfd);
     if(S.created&&!S.published)unlinkat(S.dirfd,S.temp,0);if(S.dirfd>=0)close(S.dirfd);
     free(S.exif);free(S.look);free(S.row);
 }
+#ifndef A7_HIF_CORE
 int main(int argc,char **argv) {
     S.dirfd=S.infd=S.outfd=-1;
     if(argc==2&&!strcmp(argv[1],"--version")){puts("A7C2 JPEG Worker native 0.1.0; static ARM64 candidate; offline-only validation");return 0;}
@@ -286,3 +321,29 @@ int main(int argc,char **argv) {
     printf("{\"status\":\"ok\",\"width\":%u,\"height\":%u,\"published\":%s,\"image_row_bytes\":%u}\n",S.width,S.height,S.published?"true":"false",S.width*3);
     cleanup();return 0;
 }
+
+#else
+/* Every longjmp ends within its own C wrapper; never crosses C++ frames. */
+#include "heif_core.h"
+int a7_load(const char *directory) {
+    S.dirfd=S.infd=S.outfd=-1;signal(SIGINT,stop);signal(SIGTERM,stop);
+    if(setjmp(failure))return -1;
+    load(directory);return 0;
+}
+const char *a7_error(void){return reason;}
+void a7_cleanup(void){cleanup();}
+int a7_input(void){return S.infd;}
+int a7_verify_snapshot(const unsigned char *data,unsigned long long size){
+    u8 got[32];if(size!=S.input_size)return -1;hash_bytes(data,(size_t)size,got);return memcmp(got,hif_input_hash,32)?-1:0;
+}
+unsigned a7_width(void){return S.width;}
+unsigned a7_height(void){return S.height;}
+unsigned a7_quality(void){return S.quality;}
+const unsigned char *a7_exif(void){return S.exif;}
+unsigned a7_exif_size(void){return S.exif_size;}
+int a7_cancelled(void){return cancelled;}
+void a7_apply(float p[3]){apply(p);}
+int a7_reserve(void){if(setjmp(failure))return -1;reserve_output();return S.outfd;}
+int a7_publish(void){if(setjmp(failure))return -1;publish();return 0;}
+int a7_published(void){return S.published;}
+#endif

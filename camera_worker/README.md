@@ -11,6 +11,8 @@ tests. The existing installer and firmware assets do not use this binary.
 There is no installer, launch script, shared-library constructor, capture watcher,
 background process or firmware/settings operation in this worker.
 
+A separate [10-bit HIF-to-HIF worker](HEIF.md) now supports the same CLF and lens presets, with its own codec build, job format and offline evidence. The JPEG executable remains byte-identical.
+
 ## What is implemented
 
 - **All 11 Fujifilm JPEG adaptations:** the previously validated CLF pipeline is

@@ -4,8 +4,8 @@
   "artifacts": [
     {
       "path": ".gitattributes",
-      "bytes": 196,
-      "sha256": "84b2e63e404dccc79b957d42d99f6a27378371feb3470ef006755073a186b7ca"
+      "bytes": 284,
+      "sha256": "4bfd8717635fd666aac3af942f3f12b93bf2a26590d7096dbb3de8052ae95301"
     },
     {
       "path": ".gitignore",
@@ -24,13 +24,13 @@
     },
     {
       "path": "NOTICE.md",
-      "bytes": 3970,
-      "sha256": "1519391be83fb6c97473ba45f6fd2a6ab7657376f2abd7be5af85a5c92f36f66"
+      "bytes": 5074,
+      "sha256": "2237215a2e2883ac99f3a4880b90818e7b9409538ead7b8a2cc91bb58f41161d"
     },
     {
       "path": "README.md",
-      "bytes": 29880,
-      "sha256": "65f0a3a44bb38fda650f364220909c5eb0ca6c1856b29ee5b54a890ad0881746"
+      "bytes": 30195,
+      "sha256": "83e234f50ff5f393457756e81031ad8d6c15ced3b34557b40058a129f99112fa"
     },
     {
       "path": "README.zh-TW.md",
@@ -53,14 +53,24 @@
       "sha256": "25cd13025306880da8935cb9aeb52a312142c8a04b8da0f13a90c9862744369f"
     },
     {
+      "path": "camera_worker/HEIF.md",
+      "bytes": 7798,
+      "sha256": "03b2c9a792e238c08e2411d544700e3e1744bbdb003fdca8f9b0b39cc11090e3"
+    },
+    {
       "path": "camera_worker/README.md",
-      "bytes": 11209,
-      "sha256": "7b0b78edf8be998fc80c30e4be83305e9d8855686e913bc8b6c7e73c705a6233"
+      "bytes": 11404,
+      "sha256": "734cc0282ae57c813d67b9737bad54d73cb1374bbc8af6dd2e1431e2e5737400"
     },
     {
       "path": "camera_worker/build.py",
       "bytes": 6688,
       "sha256": "b4341f3d5dc4fd5ebdd9db95d7e7e94d9b1e58b1c917b60dc82f481ca5c5ad3f"
+    },
+    {
+      "path": "camera_worker/build_heif.py",
+      "bytes": 7780,
+      "sha256": "8da003205bb5dcaa2ad42e640f3628da0de34030ffa37a43c6e1a21952bba6a4"
     },
     {
       "path": "camera_worker/bundle.py",
@@ -75,12 +85,57 @@
     {
       "path": "camera_worker/dist/build.json",
       "bytes": 2369,
-      "sha256": "759357d5d059d1ca6a029509f40972960ebabb87c54d89894072fc62f9449312"
+      "sha256": "4657db9a713f7bbd0b26bb47a81a84f13b9edeea1ff4b9e09cc67c66c823cc5d"
+    },
+    {
+      "path": "camera_worker/dist/heif-build.json",
+      "bytes": 2389,
+      "sha256": "7b7143ab040ab84f8976ef6256d6d4ea803f3c55e14f2f96991736efd0a98c59"
+    },
+    {
+      "path": "camera_worker/dist/hif-worker-aarch64",
+      "bytes": 3585776,
+      "sha256": "414653b46381f5bdf5c590edb60a5cb9be9103c6b64b530a0038eb2400875237"
     },
     {
       "path": "camera_worker/dist/jpeg-worker-aarch64",
       "bytes": 491656,
       "sha256": "6ecc540feb74a78fc9fa5f0b9a6f2dde43fb49d13b4a6d2252f231928c52dff0"
+    },
+    {
+      "path": "camera_worker/heif_core.h",
+      "bytes": 583,
+      "sha256": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133"
+    },
+    {
+      "path": "camera_worker/heif_pack.py",
+      "bytes": 4358,
+      "sha256": "f74fdbc8dce10f677c5f8ed358db788eb01cb2670643b54219dcda22d0c6e19f"
+    },
+    {
+      "path": "camera_worker/heif_sources/README.md",
+      "bytes": 1867,
+      "sha256": "6f63bcfb35d2c2f64fcbbc134ecb65eabe654bc023445d2e6dc4d1473fc078c0"
+    },
+    {
+      "path": "camera_worker/heif_sources/libde265-1.1.3.tar.gz",
+      "bytes": 324452,
+      "sha256": "554228bd17788c99a7e63b37ab5634722190e6e2bf60c1dcb01cef328e133905"
+    },
+    {
+      "path": "camera_worker/heif_sources/libheif-1.23.6.tar.gz",
+      "bytes": 2373898,
+      "sha256": "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125"
+    },
+    {
+      "path": "camera_worker/heif_sources/x265_4.2.tar.gz",
+      "bytes": 1833442,
+      "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210"
+    },
+    {
+      "path": "camera_worker/heif_worker.cc",
+      "bytes": 16011,
+      "sha256": "f237109e6b2c374270a289a8794298349fa439080b04eb2c9a8f29ac8d2a3842"
     },
     {
       "path": "camera_worker/pack.py",
@@ -93,19 +148,39 @@
       "sha256": "49dc8abdec317f397ac3187abadfe325e262f110d1d1c26ed93faaed671b4c9b"
     },
     {
+      "path": "camera_worker/tests/heif_fixture.cc",
+      "bytes": 3417,
+      "sha256": "c9861ced2e1db31d442e28c2a825ea30f761d5ce871cbf6a58ac4ae55ff7477e"
+    },
+    {
       "path": "camera_worker/tests/test_pack.py",
       "bytes": 4757,
       "sha256": "beb7cb5186edc0c5d4679ddad235546c75ba415e682f9997b21b3fac2f499c6e"
     },
     {
       "path": "camera_worker/worker.c",
-      "bytes": 15733,
-      "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+      "bytes": 17491,
+      "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
     },
     {
       "path": "licenses/Adobe-DNG-SDK.txt",
       "bytes": 5283,
       "sha256": "89d75e1bfd65269c41ec57be67adacd48926af81554574d92742f96296ed9166"
+    },
+    {
+      "path": "licenses/LLVM-libcxx.txt",
+      "bytes": 16703,
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+    },
+    {
+      "path": "licenses/LLVM-libcxxabi.txt",
+      "bytes": 16706,
+      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
+    },
+    {
+      "path": "licenses/LLVM-libunwind.txt",
+      "bytes": 16706,
+      "sha256": "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d"
     },
     {
       "path": "licenses/Sony-PMCA-RE-MIT.txt",
@@ -123,6 +198,16 @@
       "sha256": "4a99d78c5a839e62af4835eaab77c6657ee206581a495b38ea9a1afa11c539fc"
     },
     {
+      "path": "licenses/libde265-COPYING.txt",
+      "bytes": 44339,
+      "sha256": "02cc1585a20677992e0ba578fa692635dc193735f2691dc81de924b51c4e8020"
+    },
+    {
+      "path": "licenses/libheif-LGPL3-GPL3.txt",
+      "bytes": 44366,
+      "sha256": "fa81ce652315b013359d6e8e4744335f31a50c7c192907176d3632f78a3b4596"
+    },
+    {
       "path": "licenses/libjpeg-turbo-LICENSE.md",
       "bytes": 5620,
       "sha256": "96f5b328adbb78eeaaec6980d73fd558cb1e4d62560ed615646bc3cf5e532430"
@@ -136,6 +221,11 @@
       "path": "licenses/musl-COPYRIGHT.txt",
       "bytes": 6204,
       "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+    },
+    {
+      "path": "licenses/x265-GPL2.txt",
+      "bytes": 18120,
+      "sha256": "d8afb1bcc7a2cfc603683b168d6987ef0a48e59e0da3693bf55c5d33b67e2b49"
     },
     {
       "path": "macos_fl23.py",
@@ -413,6 +503,11 @@
       "sha256": "fb487759af04f18978067868dc0a40cca4a49d488b106bac0be36d219e46313b"
     },
     {
+      "path": "research/check_heif_worker.py",
+      "bytes": 13265,
+      "sha256": "a17262828f25a5820e272e3a8c113d1bc63f2cb3f787eb6904a8ed166c08515f"
+    },
+    {
       "path": "research/check_jpeg_worker.py",
       "bytes": 8058,
       "sha256": "c77f76b740b6e51c11509a16c6865d010dadb41144e25d76816b4dbc34215787"
@@ -489,8 +584,8 @@
     },
     {
       "path": "research/evidence/camera-worker-checks.json",
-      "bytes": 32388,
-      "sha256": "50c3faae0dacbd7d6fd745a3b5c9242fee4fa2d0850a11ef2c5fbc7a38561419"
+      "bytes": 33725,
+      "sha256": "475942f84ddd4afadc0ad02e36fd1420be50a3cb10a063d12d9c181a9c41d564"
     },
     {
       "path": "research/evidence/camera-worker-publication-checks.json",
@@ -613,6 +708,31 @@
       "sha256": "7e3ebebdb89189b4f3e2312a87327ecad5fa19ccba9ad7e6392ad46a64eac81f"
     },
     {
+      "path": "research/evidence/heif-worker-builds.json",
+      "bytes": 5738,
+      "sha256": "2a8958f64906a1ecf122d3253e6db4fbae84ed3171c5e6940fab7eef0cbe0dc5"
+    },
+    {
+      "path": "research/evidence/heif-worker-checks.json",
+      "bytes": 13710,
+      "sha256": "b3300b4305ee42b6e72aa03db7f93d9c5ec8971b8283544dbfe02e283a904b41"
+    },
+    {
+      "path": "research/evidence/heif-worker-publication-checks.json",
+      "bytes": 2086,
+      "sha256": "d8776448bff9fbcdb961fee58e603bdcf27ebdee7ce0a687b791c4ef49f08a6a"
+    },
+    {
+      "path": "research/evidence/heif-worker-sanitizers.json",
+      "bytes": 3248,
+      "sha256": "aff01904bde77f50addfb1ae3eb4b94d7a977f874f873af6c06736981951af18"
+    },
+    {
+      "path": "research/evidence/heif-worker-startup.json",
+      "bytes": 607,
+      "sha256": "b521e76883eca1ae01390de780532f87f3ced2ad924b54fab75521a96c19c065"
+    },
+    {
       "path": "research/evidence/host-guard-review-fixed.json",
       "bytes": 287,
       "sha256": "322becb7994c753441c809e9ee7e433901f6b8c69fa9072914e4af5885aaaa40"
@@ -675,7 +795,7 @@
     {
       "path": "research/evidence/lut-reference-checks.json",
       "bytes": 4273,
-      "sha256": "620891c341ccb506928711614ec8826cf1b80ff503564c06dd0f2c79305a5165"
+      "sha256": "20fc0f45b40eca253132a7675783ec05e0aa1001ae3693feb75630202c12e42a"
     },
     {
       "path": "research/evidence/lut-transfer.json",

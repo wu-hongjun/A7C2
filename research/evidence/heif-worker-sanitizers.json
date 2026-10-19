@@ -1,0 +1,151 @@
+{
+  "scope": "Address/undefined sanitizer instrumentation of shared C core and C++ worker; linked release codec archives are not instrumented",
+  "binary_sha256": "2d09032229b8869702439b0d0b3386a34de0e42404883b3a23d0a24f980d8387",
+  "cases": [
+    {
+      "case": "astia-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "bleach-bypass-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "classic-chrome-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "classic-neg-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "eterna-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-existing-output",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-header-hash",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-input-hash",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-jpeg-job",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-look-hash",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-malformed-container",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-nonfinite-lut",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-symlink-input",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "fault-symlink-output",
+      "exit_code": 1,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "gray-identity",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "nostalgic-neg-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-1",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-2",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-3",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-4",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-5",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-6",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-7",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "oriented-8",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "pro-neg-hi-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "pro-neg-std-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "provia-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "reala-ace-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    },
+    {
+      "case": "velvia-srgb",
+      "exit_code": 0,
+      "sanitizer_diagnostic": false
+    }
+  ]
+}

@@ -55,7 +55,7 @@
   "worker_sources": [
     {
       "path": "camera_worker/worker.c",
-      "sha256": "94ee1ea2f556904f249d4357cad8c5b200c4f6662f00d2aca36ac9a7e8a564dd"
+      "sha256": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df"
     },
     {
       "path": "camera_worker/build.py",

@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "starting_commit": "4118575359190c71b4a7b64882549bcb75c91849",
+  "scope": "Offline 10-bit sRGB HIF-to-HIF worker with Fujifilm CLFs and manual-lens EXIF",
+  "camera_filesystem_read": "One user-authorized sample copied from mounted card; source/copy hashes verified privately",
+  "originals_written": false,
+  "camera_transport_commands": false,
+  "camera_installation": false,
+  "camera_execution": false,
+  "network_exception": "User-authorized official codec/tool source downloads, Git push and remote-ref verification",
+  "builds_and_tests_offline": true,
+  "tests": {
+    "repository": 41,
+    "photo_worker": 26,
+    "native_packer": 6,
+    "LUT_reference": 8,
+    "HIF_LUTs": 11,
+    "vectors_per_LUT": 42084,
+    "orientations": 8,
+    "HIF_faults": 16,
+    "HIF_sanitizer_cases": 29,
+    "full_resolution_real_A7C2_HIF": true,
+    "gray_levels_retained": 1024,
+    "independent_FFmpeg_10bit_full_image_and_transforms": "passed",
+    "independent_ExifTool": "passed",
+    "JPEG_regression": "11 looks, 14 fault cases, full-resolution, 7 actual ELF scenarios; passed",
+    "JPEG_binary_unchanged": true,
+    "source_artifact_hash_checks": "passed",
+    "local_document_links": 48,
+    "existing_installer_asset_check": "passed; check-package does not connect to camera",
+    "compileall": "passed"
+  },
+  "target": {
+    "artifact": "camera_worker/dist/hif-worker-aarch64",
+    "sha256": "414653b46381f5bdf5c590edb60a5cb9be9103c6b64b530a0038eb2400875237",
+    "bytes": 3585776,
+    "validation": "Static AArch64 structure and original target startup under Unicorn; codec path executed on Mac only"
+  },
+  "limits": [
+    "Hardware/Linux threaded codec execution untested",
+    "512 MiB Linux address-space limit; actual camera resources and filesystem semantics unproven",
+    "sRGB SDR only; HLG/PQ/ICC/8bit/12bit/alpha/arbitrary crops declined",
+    "Lossy re-encode; host-frozen presets, no shutter hook/DCF/playback registration"
+  ],
+  "unrelated_working_atlas": "Existing user changes preserved and excluded; evidence index retains HEAD atlas identity"
+}

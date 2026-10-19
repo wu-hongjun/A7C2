@@ -1,0 +1,405 @@
+{
+  "schema": 1,
+  "scope": "offline Mac HEVC execution and structural static ARM64 validation; no camera execution",
+  "sample_copied_read_only": true,
+  "camera_transport_or_installation": false,
+  "network_during_tests": false,
+  "sources": {
+    "camera_worker/worker.c": "eda19f6ba3936cce87f38acb74084531cae6e2540a90c25a4ca1f04bf4b779df",
+    "camera_worker/heif_worker.cc": "f237109e6b2c374270a289a8794298349fa439080b04eb2c9a8f29ac8d2a3842",
+    "camera_worker/heif_core.h": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133",
+    "camera_worker/heif_pack.py": "f74fdbc8dce10f677c5f8ed358db788eb01cb2670643b54219dcda22d0c6e19f",
+    "camera_worker/build_heif.py": "8da003205bb5dcaa2ad42e640f3628da0de34030ffa37a43c6e1a21952bba6a4",
+    "camera_worker/tests/heif_fixture.cc": "c9861ced2e1db31d442e28c2a825ea30f761d5ce871cbf6a58ac4ae55ff7477e",
+    "research/check_heif_worker.py": "a17262828f25a5820e272e3a8c113d1bc63f2cb3f787eb6904a8ed166c08515f"
+  },
+  "binary_sha256": "2d2688c8322755bd0d0fe9c15850f0998417960db210378efcaebb9e3107358d",
+  "target_sha256": "414653b46381f5bdf5c590edb60a5cb9be9103c6b64b530a0038eb2400875237",
+  "looks": [
+    {
+      "look": "astia-srgb",
+      "CLF_sha256": "2fe11e16c17e802b85e469a86df8b300daab13fa401b47a3b4be368c539183e6",
+      "packed_look_sha256": "1fadb083980a642468843e34b7c0dc5b153fa3ef685bbbbd25f9f4347c4a6a9e",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.0912229508226824e-05,
+        "p95_RGB8_scale": 3.7997961044311523e-05,
+        "p99_RGB8_scale": 7.599592208862305e-05,
+        "max_RGB8_scale": 0.0011781742796301842,
+        "max_rounded_RGB8_difference": 0
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.8913699229552147,
+        "p99_RGB10_error": 3.61283840239048,
+        "max_RGB10_error": 391
+      }
+    },
+    {
+      "look": "bleach-bypass-srgb",
+      "CLF_sha256": "87b249d6541e7b1d81cd1fd32b36d529d90ce5a1fff544f72056dda969259de2",
+      "packed_look_sha256": "7af9cd378b8bba7f317fb74dfdb551842cec41f0e8223e2e494dd7de7278b2a1",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.1555043989336808e-05,
+        "p95_RGB8_scale": 3.039836883544922e-05,
+        "p99_RGB8_scale": 5.6996941566467285e-05,
+        "max_RGB8_scale": 0.00022798776626586914,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.7269377886850229,
+        "p99_RGB10_error": 2.323258638381958,
+        "max_RGB10_error": 237.56193746614736
+      }
+    },
+    {
+      "look": "classic-chrome-srgb",
+      "CLF_sha256": "92d53be5c1c41d81c5f1b5de351d7f942d563a972cd8984992fb5cb459f23493",
+      "packed_look_sha256": "0ae818330c16cf76c7db393c3c82b3610cda3cb0e16f8ff92e89a471b329845a",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.1744674210012214e-05,
+        "p95_RGB8_scale": 3.7997961044311523e-05,
+        "p99_RGB8_scale": 7.599592208862305e-05,
+        "max_RGB8_scale": 0.001080092042684555,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.8645620604256482,
+        "p99_RGB10_error": 3.0218018293380737,
+        "max_RGB10_error": 288.44227378908545
+      }
+    },
+    {
+      "look": "classic-neg-srgb",
+      "CLF_sha256": "a3b13ec3fa3bb06e5be10c22311071ff986d8497664f2aba411af57fe6913bcc",
+      "packed_look_sha256": "ecda7534506e69998f691e19f1a784883136b89cfefe80c0df0ca4da5cdfac73",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.1744361128438747e-05,
+        "p95_RGB8_scale": 3.039836883544922e-05,
+        "p99_RGB8_scale": 7.599592208862305e-05,
+        "max_RGB8_scale": 0.00216018408536911,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.8053557159226846,
+        "p99_RGB10_error": 3.077740900218487,
+        "max_RGB10_error": 294
+      }
+    },
+    {
+      "look": "eterna-srgb",
+      "CLF_sha256": "12dbd3604f2f3b82b5f818299188a4d2ea9cd68df3a97f2fb5c6d0ff055ac396",
+      "packed_look_sha256": "c1072368dcf02a0557a17771dea7692a274364b54be454244fc761c88c705753",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.1752866788631646e-05,
+        "p95_RGB8_scale": 3.039836883544922e-05,
+        "p99_RGB8_scale": 6.839632987976074e-05,
+        "max_RGB8_scale": 0.0010734423995018005,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.7825840147226693,
+        "p99_RGB10_error": 2.6600823625922203,
+        "max_RGB10_error": 247
+      }
+    },
+    {
+      "look": "nostalgic-neg-srgb",
+      "CLF_sha256": "79ab22a65065f23faeb812b6c86cf950aee406765dd8eb775ff60142f2c0c00d",
+      "packed_look_sha256": "7c2b754ec1d60b5998359bf463119ad85180a8424d155b7f69c659b1d50d462b",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.1809313327076944e-05,
+        "p95_RGB8_scale": 3.039836883544922e-05,
+        "p99_RGB8_scale": 6.079673767089844e-05,
+        "max_RGB8_scale": 0.0003928039222955704,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.8334457613061262,
+        "p99_RGB10_error": 2.6868078112602234,
+        "max_RGB10_error": 317.9515435062349
+      }
+    },
+    {
+      "look": "pro-neg-hi-srgb",
+      "CLF_sha256": "de8639735ed87db6251a7f056d6819c5afd318ab6322593a7e16c81d09c20a60",
+      "packed_look_sha256": "b548f769e203de3ad4bb2da53348bd3e06deaa9d5e4b0132319ecab9b58b3838",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.0721963173609215e-05,
+        "p95_RGB8_scale": 3.419816493988037e-05,
+        "p99_RGB8_scale": 7.599592208862305e-05,
+        "max_RGB8_scale": 0.0017179828137159348,
+        "max_rounded_RGB8_difference": 0
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.7646095273816872,
+        "p99_RGB10_error": 3,
+        "max_RGB10_error": 362.6068596583791
+      }
+    },
+    {
+      "look": "pro-neg-std-srgb",
+      "CLF_sha256": "af52789e183c802932a594d082a7fa0d364802627122ada93c7270c70f49f671",
+      "packed_look_sha256": "001c236de088857f37545eab18e0bdb63b7531525416b667edb7855b988737b9",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.1146506049631513e-05,
+        "p95_RGB8_scale": 3.7997961044311523e-05,
+        "p99_RGB8_scale": 7.599592208862305e-05,
+        "max_RGB8_scale": 0.0013375282287597656,
+        "max_rounded_RGB8_difference": 0
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.7532542584052063,
+        "p99_RGB10_error": 2.872157633304596,
+        "max_RGB10_error": 284.6573356221197
+      }
+    },
+    {
+      "look": "provia-srgb",
+      "CLF_sha256": "a1964a9476657eabf5fd982aba5cfd1aec8ce4475c05aca80eb62c20aeb34e66",
+      "packed_look_sha256": "bb146cd8a038d33c3788452d35548079e5de0917d598e1c7fc53a241f6d2c129",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.0532318815023521e-05,
+        "p95_RGB8_scale": 3.681052476167679e-05,
+        "p99_RGB8_scale": 7.599592208862305e-05,
+        "max_RGB8_scale": 0.0017490936443209648,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.7717065231467585,
+        "p99_RGB10_error": 3.066039189696312,
+        "max_RGB10_error": 358
+      }
+    },
+    {
+      "look": "reala-ace-srgb",
+      "CLF_sha256": "6a090b6bbd24d85f65754d08331125b4cf6b48ac3a53553c65d51c847ab4a375",
+      "packed_look_sha256": "975e1bc436ac628e9d28d24ee19ed7cb029ef2ab04c0e06fc32321aea5cff4ae",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.1192742722524036e-05,
+        "p95_RGB8_scale": 3.039836883544922e-05,
+        "p99_RGB8_scale": 5.319714546203613e-05,
+        "max_RGB8_scale": 0.0003020837903022766,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.8005290039654717,
+        "p99_RGB10_error": 2.561156928539276,
+        "max_RGB10_error": 376.2875945311971
+      }
+    },
+    {
+      "look": "velvia-srgb",
+      "CLF_sha256": "fa9647f585a2e712d1e133401c710c8e682f9732c748fa94a58183255cb0dcc9",
+      "packed_look_sha256": "14445e443ec83f13514f23fc05e2dbff4310288742f8e3dd1e95dba69c0f67aa",
+      "vectors": 42084,
+      "numeric_OCIO": {
+        "mean_RGB8_scale": 1.0134185704786326e-05,
+        "p95_RGB8_scale": 4.1797757148742676e-05,
+        "p99_RGB8_scale": 7.599592208862305e-05,
+        "max_RGB8_scale": 0.0012088101357221603,
+        "max_rounded_RGB8_difference": 1
+      },
+      "codec_roundtrip": {
+        "mean_RGB10_error": 0.7794139937386548,
+        "p99_RGB10_error": 3.257609188556671,
+        "max_RGB10_error": 391
+      }
+    }
+  ],
+  "geometry_and_unknown_aperture": [
+    {
+      "raw_pixel_mean_RGB10_error": 0.1612675984700521,
+      "independent_transformed_pixel_mean_RGB10_error": 1.7131353616714478,
+      "orientation": 1,
+      "input_chroma": "420",
+      "status": "passed"
+    },
+    {
+      "raw_pixel_mean_RGB10_error": 0.15000406901041666,
+      "independent_transformed_pixel_mean_RGB10_error": 0.1495441993077596,
+      "orientation": 2,
+      "input_chroma": "422",
+      "status": "passed"
+    },
+    {
+      "raw_pixel_mean_RGB10_error": 0.1612675984700521,
+      "independent_transformed_pixel_mean_RGB10_error": 1.7132788101832073,
+      "orientation": 3,
+      "input_chroma": "420",
+      "status": "passed"
+    },
+    {
+      "raw_pixel_mean_RGB10_error": 0.15000406901041666,
+      "independent_transformed_pixel_mean_RGB10_error": 0.1495441993077596,
+      "orientation": 4,
+      "input_chroma": "422",
+      "status": "passed"
+    },
+    {
+      "raw_pixel_mean_RGB10_error": 0.1612675984700521,
+      "independent_transformed_pixel_mean_RGB10_error": 0.6044402519861857,
+      "orientation": 5,
+      "input_chroma": "420",
+      "status": "passed"
+    },
+    {
+      "raw_pixel_mean_RGB10_error": 0.15000406901041666,
+      "independent_transformed_pixel_mean_RGB10_error": 0.1495441993077596,
+      "orientation": 6,
+      "input_chroma": "422",
+      "status": "passed"
+    },
+    {
+      "raw_pixel_mean_RGB10_error": 0.1612675984700521,
+      "independent_transformed_pixel_mean_RGB10_error": 0.6044696172078451,
+      "orientation": 7,
+      "input_chroma": "420",
+      "status": "passed"
+    },
+    {
+      "raw_pixel_mean_RGB10_error": 0.15000406901041666,
+      "independent_transformed_pixel_mean_RGB10_error": 0.1495441993077596,
+      "orientation": 8,
+      "input_chroma": "422",
+      "status": "passed"
+    }
+  ],
+  "grayscale_output_levels_of_1024": 1024,
+  "independent_FFmpeg_RGB16_levels": 1024,
+  "faults": [
+    {
+      "case": "header-hash",
+      "status": "rejected_without_publication",
+      "diagnostic": "HIF worker: job_header; published=false"
+    },
+    {
+      "case": "input-hash",
+      "status": "rejected_without_publication",
+      "diagnostic": "HIF worker: asset_hash; published=false"
+    },
+    {
+      "case": "look-hash",
+      "status": "rejected_without_publication",
+      "diagnostic": "HIF worker: asset_hash; published=false"
+    },
+    {
+      "case": "malformed-container",
+      "status": "rejected_without_publication",
+      "diagnostic": "HIF worker: codec: Invalid input: Unspecified: File size too small.; published=false"
+    },
+    {
+      "case": "symlink-input",
+      "status": "rejected_without_publication",
+      "diagnostic": "HIF worker: asset_open; published=false"
+    },
+    {
+      "case": "jpeg-job",
+      "status": "rejected_without_publication",
+      "diagnostic": "HIF worker: job_header; published=false"
+    },
+    {
+      "case": "nonfinite-lut",
+      "status": "rejected_without_publication",
+      "diagnostic": "HIF worker: lut_values; published=false"
+    },
+    {
+      "case": "existing-output",
+      "status": "preserved"
+    },
+    {
+      "case": "symlink-output",
+      "status": "preserved"
+    },
+    {
+      "case": "reject-transfer-16",
+      "status": "rejected"
+    },
+    {
+      "case": "reject-transfer-18",
+      "status": "rejected"
+    },
+    {
+      "case": "non-sRGB-transfer",
+      "status": "rejected"
+    },
+    {
+      "case": "non-709-primaries",
+      "status": "rejected"
+    },
+    {
+      "case": "unsupported-matrix",
+      "status": "rejected"
+    },
+    {
+      "case": "declared-8bit",
+      "status": "rejected"
+    },
+    {
+      "case": "SIGTERM-after-output-reservation",
+      "status": "cancelled_cleanly"
+    }
+  ],
+  "full_resolution": {
+    "input": {
+      "width": 4672,
+      "height": 7008,
+      "raw_width": 7008,
+      "raw_height": 4672,
+      "orientation": 8,
+      "bits": 10,
+      "tiles": [
+        2,
+        3
+      ],
+      "tile_size": [
+        3520,
+        1600
+      ],
+      "nclx": [
+        1,
+        13,
+        5,
+        1
+      ]
+    },
+    "output": {
+      "width": 4672,
+      "height": 7008,
+      "raw_width": 7008,
+      "raw_height": 4672,
+      "orientation": 8,
+      "bits": 10,
+      "tiles": [
+        8,
+        6
+      ],
+      "tile_size": [
+        880,
+        800
+      ],
+      "nclx": [
+        1,
+        13,
+        6,
+        1
+      ]
+    },
+    "host_seconds": 34.71228783298284,
+    "host_peak_RSS_bytes": 242860032,
+    "input_unchanged": true,
+    "independent_full_FFmpeg_decode": "passed",
+    "ExifTool_lens_and_depth": "passed",
+    "private_photo_not_published": true
+  },
+  "ARM64_validation": "ELF64 AArch64, static, non-executable stack. Full HEVC path not executed on Linux/camera.",
+  "limits": "sRGB SDR 10-bit YCbCr 420/422 only; crop/ICC/HDR unsupported. Lossy re-encode, host-selected presets; no shutter hook/playback claim."
+}
