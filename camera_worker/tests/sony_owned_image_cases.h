@@ -1,4 +1,5 @@
 #include "../sony_owned_image.h"
+#include "../sony_native_probe.h"
 #include <vector>
 static void complete_owned_fixture(IdentityFixture& f,IdentityLedger201& l) {
     CHECK(l.prfile_close_enter(0x55550000,f.file,sizeof(f.file)));
@@ -90,26 +91,37 @@ static void owned_replay(const char* jpeg,const char* hif,const char* directory,
         std::vector<uint8_t> original(size_t(n),0);CHECK(std::fread(original.data(),1,original.size(),input)==original.size());CHECK(!std::fclose(input));
         size_t padded=(original.size()+4095)/4096*4096;std::vector<uint8_t> scratch(padded,0xa5),owned(padded);
         std::memcpy(scratch.data(),original.data(),original.size());
-        auto& f=fs[k];OwnedPhoto201 out{};uint64_t cookie=0x22220000+k,handle=0x81+k*0x20,slot=0x55550000+k;
+        auto& f=fs[k];OwnedPhoto201 out{};uint64_t cookie=0x22220000+k,handle=0x81+k*0x20,slot=reinterpret_cast<uintptr_t>(f.file);
+        uint8_t drive[0x66a8]{},pf[64]{},frame[0x108]{},stream[0x58]{};
+        uint64_t desc=reinterpret_cast<uintptr_t>(stream);
+        put64(f.file+0x18,reinterpret_cast<uintptr_t>(drive));put64(f.file+0x40,reinterpret_cast<uintptr_t>(pf));
         put64(f.request+0x500,cookie);put64(f.file+0x20,handle);
         CHECK(l.submit(0x11110000,f.record,sizeof(f.record),f.request,sizeof(f.request),cookie,f.cookie,sizeof(f.cookie)));
         CHECK(l.submission_return(cookie,0));CHECK(l.opened(cookie,slot,f.file,sizeof(f.file),0));
         OwnedWriteImage201 image(owned.data(),owned.size(),cookie,handle);
-        CHECK(image.start_at(cookie,handle,0,0)); // synthetic same-open position
+        NativeProbe201 probe{};probe.image=&image;probe.read=a7_read_self201;probe.cookie=cookie;probe.handle=handle;
+        probe.slot=slot;probe.drive=reinterpret_cast<uintptr_t>(drive);probe.backing=reinterpret_cast<uintptr_t>(pf);
+        probe.windows[0]={0x30000000,reinterpret_cast<uintptr_t>(scratch.data()),padded};
+        put64(drive+0x66a0,desc);put32(stream,2);put32(stream+4,1);put64(stream+8,desc+0x38);put64(stream+0x10,desc+0x48);
+        put64(stream+0x18,1);put64(stream+0x20,padded+1);put64(stream+0x38,0x30000000);put64(stream+0x40,padded);
+        put32(pf,1);put64(pf+0x18,0x12340000);CHECK(probe.capture_stream(desc));
+        ProbeRegisters201 registers{};registers.x[25]=probe.backing;registers.x[29]=reinterpret_cast<uintptr_t>(frame);registers.pc=0x7af08;
+        uint64_t scope=a7_probe_enter_request201(&probe,reinterpret_cast<uintptr_t>(f.request));CHECK(scope);
         for(size_t off=0;off<padded;) {
             size_t count=std::min(size_t(4096),padded-off);
-            CHECK(image.chunk_enter(cookie,handle,off,scratch.data()+off,count));
-            CHECK(image.chunk_return(cookie,handle,int32_t(count)));off+=count;
+            put64(frame+0xe0,count);put64(frame+0xe8,1);put64(frame+0xf0,off+1);put64(pf+0x38,off);
+            a7_probe_locked_write201(&registers);CHECK(!probe.failed&&probe.pending);
+            CHECK(a7_probe_write_return201(int32_t(count))==int32_t(count)&&!probe.failed&&!probe.pending);off+=count;
         }
         std::memset(scratch.data(),0xee,scratch.size()); // prove no late source dependency
-        CHECK(image.truncate_return(cookie,handle,original.size(),0));CHECK(!image.take(l,out));
+        CHECK(image.truncate_return(cookie,handle,original.size(),0));CHECK(!probe.take(l,out));
         CHECK(l.prfile_close_enter(slot,f.file,sizeof(f.file)));CHECK(l.close_return(slot,0));
         CHECK(l.completed(cookie,0,f.response,sizeof(f.response)));
-        CHECK(image.take(l,out));CHECK(out.size==original.size()&&!std::memcmp(out.bytes,original.data(),out.size));
+        CHECK(!probe.take(l,out));CHECK(a7_probe_leave201(scope));CHECK(probe.take(l,out));CHECK(out.size==original.size()&&!std::memcmp(out.bytes,original.data(),out.size));
         std::string path=std::string(directory)+(k?"/owned-hif.HIF":"/owned-jpeg.JPG");
         FILE* output=std::fopen(path.c_str(),"wbx");CHECK(output);CHECK(std::fwrite(out.bytes,1,out.size,output)==out.size);CHECK(!std::fclose(output));
         std::printf("%s{\"frame\":%u,\"token\":%llu,\"generation\":%llu,\"group\":%u,\"media\":%u,\"bytes\":%zu,\"path\":\"%s\"}",k?",":"",out.identity.frame,
           (unsigned long long)out.identity.token,(unsigned long long)out.identity.generation,out.identity.write.format_group,out.identity.write.media,out.size,k?"owned-hif.HIF":"owned-jpeg.JPG");
     }
-    std::puts("],\"owned_snapshots\":2,\"scratch_destroyed_before_completion\":true,\"padding_removed\":true,\"scope\":\"synthetic owned-byte replay, no Sony hooks\"}");
+    std::puts("],\"owned_snapshots\":2,\"scratch_destroyed_before_completion\":true,\"padding_removed\":true,\"native_stream_cursor_resolved\":true,\"kernel_self_reader\":true,\"scope\":\"synthetic native-probe replay, no Sony hooks attached\"}");
 }

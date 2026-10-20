@@ -24,7 +24,7 @@
     {
       "ELF_VA": "0x2eef0",
       "end_exclusive": "0x2ef34",
-      "scope": "logical size, alignment and scratch acquisition",
+      "scope": "logical size, alignment and stream-lease acquisition",
       "sha256": "5d394c330ea9cce0dff3701fa3bbaf1ef46990e41b39b2fb712fc1fb3bcd85bc",
       "instructions": [
         {
@@ -134,7 +134,7 @@
     {
       "ELF_VA": "0x2ef54",
       "end_exclusive": "0x2ef90",
-      "scope": "scratch lifetime and release after loop",
+      "scope": "stream lifetime and release after loop",
       "sha256": "c9f2db24847e55adffcbd3635aaa79ba6e0210a51d78a61b409e731e1e5e82df",
       "instructions": [
         {
@@ -236,7 +236,7 @@
     {
       "ELF_VA": "0x2f054",
       "end_exclusive": "0x2f0d8",
-      "scope": "scratch offset, checked exact count and advance",
+      "scope": "stream cursor offset, checked exact count and advance",
       "sha256": "520fe648c956d98a5e25cb8d0124e766dd80067e692af769e6310d2d2efbc1fd",
       "instructions": [
         {
@@ -1630,9 +1630,9 @@
     }
   ],
   "conclusions": {
-    "candidate_copy_point": "0x2f088, original request scope; x1=scratch+x6, w2=chunk count, x0=full FSYS handle",
+    "candidate_copy_point": "CORRECTED: 0x2f088 x1 is stream cursor+offset; not a CPU pointer. Resolve mode-2 vectors at the native locked probe before copying.",
     "acceptance": "exact successful count at 0x2f0bc..0x2f0c4, successful logical truncation, ledger acceptance/close/completion",
-    "scratch_lifetime": "copy before native write returns/releases scratch; never retain scratch until async completion",
+    "scratch_lifetime": "Stream descriptor released before async completion; cursor and vector leases cannot be retained without ownership.",
     "implemented": "owned-buffer reconstruction model and synthetic worker replay; no Sony hook",
     "remaining": [
       "Runtime readable span, same-open initial zero position and reentrancy/lock-safe native adapter not established.",

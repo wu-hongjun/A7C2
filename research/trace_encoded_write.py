@@ -1,4 +1,8 @@
-"""Pinned original FSYS scratch bytes -> checked write -> truncate -> release.
+"""Pinned original FSYS cursor arithmetic -> checked write -> truncate -> release.
+
+CORRECTION: native-probe-trace establishes that the assigned callback returns
+stream cursor 1. The synthetic base below exercises arithmetic, NOT readable
+CPU memory. Use the native vector probe, never dereference this cursor.
 
 All external calls are synthetic. No Sony execution, camera, USB, media or G HUB.
 Run with the local research interpreter: python research/trace_encoded_write.py.
@@ -12,9 +16,9 @@ from map_ap_interfaces import Image, LIB
 from trace_sony_integration import machine, execute_slice, BASE, REG, PINS
 
 ROOT=Path(__file__).resolve().parents[1]
-REGIONS=[(0x2eef0,0x2ef34,'logical size, alignment and scratch acquisition'),
-         (0x2ef54,0x2ef90,'scratch lifetime and release after loop'),
-         (0x2f054,0x2f0d8,'scratch offset, checked exact count and advance'),
+REGIONS=[(0x2eef0,0x2ef34,'logical size, alignment and stream-lease acquisition'),
+         (0x2ef54,0x2ef90,'stream lifetime and release after loop'),
+         (0x2f054,0x2f0d8,'stream cursor offset, checked exact count and advance'),
          (0x2f108,0x2f144,'logical-size final truncation'),
          (0x2ebe0,0x2ec3c,'PrFILE versus TNtfs writer dispatch'),
          (0x44b84,0x44bdc,'PrFILE aligned write and restore logical length'),
@@ -74,9 +78,9 @@ def main():
     doc={'schema':1,'camera_accessed':False,'ghub_accessed':False,'network_during_tests':False,'installed':False,
          'source':'libInfraFsys.so','source_sha256':PINS['libInfraFsys.so'],'PLT_symbols':symbols,'ranges':ranges,
          'original_instruction_cases':rows,'conclusions':{
-           'candidate_copy_point':'0x2f088, original request scope; x1=scratch+x6, w2=chunk count, x0=full FSYS handle',
+           'candidate_copy_point':'CORRECTED: 0x2f088 x1 is stream cursor+offset; not a CPU pointer. Resolve mode-2 vectors at the native locked probe before copying.',
            'acceptance':'exact successful count at 0x2f0bc..0x2f0c4, successful logical truncation, ledger acceptance/close/completion',
-           'scratch_lifetime':'copy before native write returns/releases scratch; never retain scratch until async completion',
+           'scratch_lifetime':'Stream descriptor released before async completion; cursor and vector leases cannot be retained without ownership.',
            'implemented':'owned-buffer reconstruction model and synthetic worker replay; no Sony hook',
            'remaining':['Runtime readable span, same-open initial zero position and reentrancy/lock-safe native adapter not established.',
                         'Pre-exposure selection association across all drive modes remains unproved.',

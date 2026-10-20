@@ -11,8 +11,8 @@ struct OwnedPhoto201 {
 };
 // One instance per tracked write; controller-serialized. Storage is a dedicated
 // caller-owned lease, allocated BEFORE capture and retained through consumption.
-// Never hand a DMM address to chunk_enter: the future adapter must establish the
-// readable CPU scratch span at libInfraFsys 0x2f088 in this request's scope.
+// Never hand a DMM address or FSYS cursor to chunk_enter. 0x2f088 x1 can be
+// cursor 1+offset, NOT a CPU pointer. Native input uses chunk_enter_resolved.
 class OwnedWriteImage201 {
     uint8_t* storage_;
     size_t capacity_,written_=0,pending_=0,logical_=0;
@@ -25,24 +25,34 @@ public:
         if (!storage || !capacity || capacity>EncodedPhotoLimit201 || !cookie || !handle) failed_=true;
     }
     bool failed() const noexcept { return failed_; }
+    // Resolver copies from a verified native stream lease. A failed/partial
+    // copy poisons this image; the partially filled storage is never released.
+    using CopyInto=bool(*)(void*,uint8_t*,size_t) noexcept;
+    bool chunk_enter_resolved(uint64_t cookie,uint64_t handle,size_t offset,size_t n,
+                              CopyInto copy,void* context) noexcept {
+        if (failed_ || released_) return false;
+        if (!started_ || cookie!=cookie_ || handle!=handle_ || pending_ || trimmed_ ||
+            !n || !copy || offset!=written_ || n>capacity_-written_) return fail();
+        if (!copy(context,storage_+written_,n)) return fail();
+        pending_=n;return true;
+    }
     // Explicit same-open zero-position proof, never inferred from x6==0 or a
-    // filename. Recovering this observation in Sony's backend is a deployment
-    // gate; passing zero in an offline fixture does not establish it on camera.
+    // filename. NativeProbe201 reads backing+0x38 at the pinned locked writer
+    // site; live attachment/ownership remains a separate deployment gate.
     bool start_at(uint64_t cookie,uint64_t handle,uint64_t position,int32_t status) noexcept {
         if (failed_ || released_) return false;
         if (started_ || cookie!=cookie_ || handle!=handle_ || position || status) return fail();
         started_=true;return true;
     }
-    // BEFORE the synchronous 0x2eaf4 call at 0x2f0a0. offset is x6 and
-    // count is w27 from that exact loop, not a file position guessed by time.
-    // Copy now: the scratch allocation is released at 0x2ef8c before callback.
-    // data must be readable for exactly n bytes and must not alias our lease.
+    // Generic already-owned/readable CPU-span ingress, not a native FSYS hook.
+    // The source must be readable for exactly n bytes and not alias our lease.
+    // Native cursor/vector input MUST use a checked resolver instead.
     bool chunk_enter(uint64_t cookie,uint64_t handle,size_t offset,const void* data,size_t n) noexcept {
         if (failed_ || released_) return false;
         if (!started_ || cookie!=cookie_ || handle!=handle_ || pending_ || trimmed_ || !n || !data ||
             offset!=written_ || n>capacity_-written_) return fail();
         auto begin=reinterpret_cast<uintptr_t>(data),own=reinterpret_cast<uintptr_t>(storage_);
-        if (n>UINTPTR_MAX-begin || capacity_>UINTPTR_MAX-own ||
+        if (begin<4096 || n>UINTPTR_MAX-begin || capacity_>UINTPTR_MAX-own ||
             (begin<own+capacity_ && own<begin+n)) return fail();
         std::memcpy(storage_+written_,data,n);pending_=n;return true;
     }

@@ -1,5 +1,10 @@
 # Standalone ARM64 JPEG worker — offline-validated candidate
 
+Current [native capture probe findings](../research/NATIVE_CAPTURE_PROBES.md)
+correct an earlier FSYS cursor/readable-buffer assumption. Native handoff now
+uses bounded vector resolution and a source-bound locked position observation;
+the probe remains uninstalled and hardware unvalidated.
+
 This is a **camera-targeted build, not a hardware-validated camera application**.
 The 491,656-byte [ARM64 Linux executable](dist/jpeg-worker-aarch64) is statically
 linked with musl and libjpeg-turbo. It has no Python, Pillow, OpenColorIO, C++

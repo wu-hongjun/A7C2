@@ -5,27 +5,30 @@
   "network_accessed": false,
   "camera_accessed": false,
   "target": "generic ARMv8-A aarch64-linux-musl",
-  "scope": "Transport-neutral core/self-test only; no Sony module, UI renderer, hook, loader, callback registration or installation",
+  "scope": "Observer and explicitly invoked native-probe/self-reader core; no Sony module, installed hook, UI renderer, loader or installation",
   "compiler": "Homebrew clang version 21.1.8",
   "archiver": "zig 0.16.0 ar rcsD",
   "sources": {
     "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
     "camera_worker/sony_bridge.cc": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43",
     "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
-    "camera_worker/sony_owned_image.h": "2ab8175673cf3faede3b2f5a92527731527cf72da194bba627b94bbb011411c2",
-    "camera_worker/tests/sony_owned_image_cases.h": "6f621285f9e9f7f4c7163b373124147b7fa4cafe917f48770dd570cf9b30e60a",
+    "camera_worker/sony_owned_image.h": "4ad973db1732fe130f84cf78038e46b4d8e73b672a4d8289c2a3d234fe23295c",
+    "camera_worker/sony_native_probe.h": "34df6bf899fac036bd879cdb621f362112863c48a31a7037b287024b588d2ccf",
+    "camera_worker/sony_native_probe.cc": "7bac95ae79df66a6e15666d58c7ca2b9c9039f6bb4fa97256faa9d8baf394b59",
+    "camera_worker/tests/sony_native_probe_cases.h": "f5c9a8289e32d8cfc31bd47b0df7bd98cb9b5c8a75e82b398939778299758cb1",
+    "camera_worker/tests/sony_owned_image_cases.h": "f3edf6737715068af0cf08a3e68f745007b30185551900cd1dca6826d823cea1",
     "camera_worker/tests/sony_identity_cases.h": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952",
-    "camera_worker/tests/sony_bridge_test.cc": "27148d340a97c7dffcfd6aa66343e50870c0b2ec6957af80c1482fce0934b46c",
-    "camera_worker/build_sony_bridge.py": "a95ee57ef9eea2840ae0633c99892bbb47893e8cb3baba3c5801eed9fbfcd601"
+    "camera_worker/tests/sony_bridge_test.cc": "b9fd6cd133ccf60c9e57e3fdbe18e377f02abe1c8b22397e8089c92a185658ff",
+    "camera_worker/build_sony_bridge.py": "dc9a1432ad89a583c1886c42a8d7cb3e6df20779ab3cab15886af8d5c9d04f7f"
   },
   "artifacts": {
     "libsony_bridge.a": {
-      "sha256": "909dcd5c59a4bd42e8b6407620cbf20d0b662f33220c801b82cd8cb4e3ea1cb5",
-      "bytes": 4244
+      "sha256": "3779cee4fc1475061aa386c61f2746456e32bc1942c105e309417572165199ea",
+      "bytes": 13744
     },
     "sony-bridge-test-aarch64": {
-      "sha256": "67d24276f3eb798c6ad4d7920411a0d09eb46bcf4b47e314d297c1c5eaef6dfc",
-      "bytes": 290680
+      "sha256": "eef0585a77323b7555b9ffd7bd781c3d8d0790281c7d7fce39c0e4e66b53615b",
+      "bytes": 310800
     }
   }
 }

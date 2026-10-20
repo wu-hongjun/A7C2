@@ -1,5 +1,11 @@
 # A7C II firmware research baseline
 
+The [native capture-probe follow-up](NATIVE_CAPTURE_PROBES.md) corrects the FSYS
+cursor/pointer assumption, resolves bounded stream vectors, identifies the
+same-open position field under the native writer lock, and adds fault-contained
+self-reads, nested request scopes and an offline ABI-preserving probe veneer.
+No hook is installed, and no camera or G HUB access occurs.
+
 The [October 20 completed-photo handoff](COMPLETED_PHOTO_HANDOFF.md) adds native
 frozen-frame fan-out and a bounded owned-byte reconstruction core for JPEG/HIF,
 with original FSYS instruction tests and offline worker replay. It also reviews

@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "camera_accessed": false,
+  "ghub_accessed": false,
+  "network_during_tests": false,
+  "installed": false,
+  "cases": [
+    {
+      "case": "native-stream-probe-and-ledger-to-owned-JPEG-HIF-bytes",
+      "status": "passed",
+      "replay": {
+        "photos": [
+          {
+            "frame": 73,
+            "token": 7,
+            "generation": 1,
+            "group": 0,
+            "media": 0,
+            "bytes": 2108,
+            "path": "owned-jpeg.JPG"
+          },
+          {
+            "frame": 73,
+            "token": 7,
+            "generation": 1,
+            "group": 1,
+            "media": 3,
+            "bytes": 46124,
+            "path": "owned-hif.HIF"
+          }
+        ],
+        "owned_snapshots": 2,
+        "scratch_destroyed_before_completion": true,
+        "padding_removed": true,
+        "native_stream_cursor_resolved": true,
+        "kernel_self_reader": true,
+        "scope": "synthetic native-probe replay, no Sony hooks attached"
+      }
+    },
+    {
+      "case": "eight-file-fanout-preserves-frame-selection-after-global-switch",
+      "status": "passed",
+      "files": 8
+    },
+    {
+      "case": "owned-snapshot-to-HIF10-media-3",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "f5e79e8cb0691e8287eb490ad2e66e72ca0dae75e038782976200c2721c91749"
+    },
+    {
+      "case": "owned-snapshot-to-HIF10-media-2",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "f5e79e8cb0691e8287eb490ad2e66e72ca0dae75e038782976200c2721c91749"
+    },
+    {
+      "case": "owned-snapshot-to-HIF10-media-1",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "f5e79e8cb0691e8287eb490ad2e66e72ca0dae75e038782976200c2721c91749"
+    },
+    {
+      "case": "owned-snapshot-to-HIF10-media-0",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "f5e79e8cb0691e8287eb490ad2e66e72ca0dae75e038782976200c2721c91749"
+    },
+    {
+      "case": "owned-snapshot-to-JPEG-media-3",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "8fc361c95adb8ad3edcc241eacacd72698c003116d2c866b967ec6496014b454"
+    },
+    {
+      "case": "owned-snapshot-to-JPEG-media-2",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "8fc361c95adb8ad3edcc241eacacd72698c003116d2c866b967ec6496014b454"
+    },
+    {
+      "case": "owned-snapshot-to-JPEG-media-1",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "8fc361c95adb8ad3edcc241eacacd72698c003116d2c866b967ec6496014b454"
+    },
+    {
+      "case": "owned-snapshot-to-JPEG-media-0",
+      "status": "passed",
+      "frozen_lens": "example-helios-58",
+      "actual_aperture": "unknown",
+      "output_sha256": "8fc361c95adb8ad3edcc241eacacd72698c003116d2c866b967ec6496014b454"
+    },
+    {
+      "case": "duplicates-nonframes-bounds-malformed-parent-and-parent-ingress-declined",
+      "status": "passed"
+    },
+    {
+      "case": "incorrect-owned-snapshot-digest-never-ready",
+      "status": "passed"
+    }
+  ],
+  "artifacts": {
+    "bridge": "d126d438b33ce76d5094c8db0b857b8fe2f24ba5dd083727eac8cecf2285d21e",
+    "launcher": "98d6ff4eddc3a7c9832db02a11973cc864adfa4c9a6a893ad19c8045f986a805",
+    "jpeg": "2eb0ee31302d33e920321a876be389aad9ae21c6ac32ce8bc46534e14a9d00b5",
+    "hif": "c82decc8a19c080fa8fe151a6857426b8d457b60af02f87551271bfe67e8990f",
+    "fixture": "a03363cee682663a890211beddc989daf63751748bd872876aaff23c534953c2"
+  },
+  "sources": {
+    "camera_worker/launcher.cc": "fc24ec34734de054ce6de3e55b9d84db71c7d384d56fc86dbf791dc5d6fdd4b6",
+    "camera_worker/sony_owned_image.h": "4ad973db1732fe130f84cf78038e46b4d8e73b672a4d8289c2a3d234fe23295c",
+    "camera_worker/sony_native_probe.h": "34df6bf899fac036bd879cdb621f362112863c48a31a7037b287024b588d2ccf",
+    "camera_worker/sony_native_probe.cc": "7bac95ae79df66a6e15666d58c7ca2b9c9039f6bb4fa97256faa9d8baf394b59",
+    "camera_worker/tests/sony_owned_image_cases.h": "f3edf6737715068af0cf08a3e68f745007b30185551900cd1dca6826d823cea1",
+    "research/check_capture_handoff.py": "2733b949b7bb8891691fcf37bdb80fe94cd5487b4531fdd9103e352672b2ad61",
+    "research/trace_encoded_write.py": "2729eaad7107cf208fc826323583bddca61727ac3ef7d88900c3628e6b0f2df1"
+  },
+  "encoded_write_evidence_sha256": "b747c1a32a85575be34f736930ae9944bae85830004218c978243e9268333726",
+  "native_probe_evidence_sha256": "d821d80182c88bb78b52a4face228233118b5a4bed346aa377cc0d20dfddcf5c",
+  "limits": [
+    "Generated photos, native register frames and physical mappings; no attached Sony hook or live allocation/cache-visibility proof.",
+    "sRGB is an explicit fixture contract; HLG/PQ and full DCP reproduction are outside this test.",
+    "HEIF decode/encode is real on the host; ARM64 tests are separate, not camera execution."
+  ]
+}

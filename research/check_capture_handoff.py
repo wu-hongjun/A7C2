@@ -45,12 +45,13 @@ def main():
     generation=struct.unpack_from('<Q',frozen,32)[0]
     replay=json.loads(call([a.bridge.resolve(),'--owned-replay',jpg,hif,owned,generation]).stdout)
     assert replay['scratch_destroyed_before_completion'] and replay['padding_removed']
+    assert replay['native_stream_cursor_resolved'] and replay['kernel_self_reader']
     assert [(r['group'],r['media']) for r in replay['photos']]==[(0,0),(1,3)]
     for row in replay['photos']:
         assert row['frame']==73 and row['token']==7 and row['generation']==generation
         path=owned/row['path'];source=hif if path.suffix=='.HIF' else jpg
         assert sha(path)==original_hashes[source.name] and path.stat().st_size==row['bytes']
-    rows.append({'case':'source-bound-ledger-gates-to-owned-JPEG-HIF-bytes','status':'passed','replay':replay})
+    rows.append({'case':'native-stream-probe-and-ledger-to-owned-JPEG-HIF-bytes','status':'passed','replay':replay})
     # Discard the generated source names before worker ingress. Only owned bytes
     # survive; no source pathname is ever passed to the launcher after this point.
     jpg.unlink();hif.unlink();assert not jpg.exists() and not hif.exists()
@@ -94,12 +95,13 @@ def main():
     command('--arm','stale');call([launcher,'--enqueue-completed-srgb',root,owned,'owned-jpeg.JPG','stale','0'*64],ok=False)
     assert not (root/'jobs/stale/job.bin').exists()
     rows.append({'case':'incorrect-owned-snapshot-digest-never-ready','status':'passed'})
-    names=['camera_worker/launcher.cc','camera_worker/sony_owned_image.h','camera_worker/tests/sony_owned_image_cases.h',
+    names=['camera_worker/launcher.cc','camera_worker/sony_owned_image.h','camera_worker/sony_native_probe.h','camera_worker/sony_native_probe.cc','camera_worker/tests/sony_owned_image_cases.h',
         'research/check_capture_handoff.py','research/trace_encoded_write.py']
     report={'schema':1,'camera_accessed':False,'ghub_accessed':False,'network_during_tests':False,'installed':False,
         'cases':rows,'artifacts':{n:sha(getattr(a,n)) for n in ['bridge','launcher','jpeg','hif','fixture']},
         'sources':{n:sha(ROOT/n) for n in names},'encoded_write_evidence_sha256':sha(ROOT/'research/evidence/encoded-write.json'),
-        'limits':['Generated photos and synthetic Sony identity events; no runtime hook or readable-memory proof.',
+        'native_probe_evidence_sha256':sha(ROOT/'research/evidence/native-probe-trace.json'),
+        'limits':['Generated photos, native register frames and physical mappings; no attached Sony hook or live allocation/cache-visibility proof.',
                   'sRGB is an explicit fixture contract; HLG/PQ and full DCP reproduction are outside this test.',
                   'HEIF decode/encode is real on the host; ARM64 tests are separate, not camera execution.']}
     a.report.write_text(json.dumps(report,indent=2)+'\n');print(f'{len(rows)} offline owned-byte/fan-out integration groups passed')

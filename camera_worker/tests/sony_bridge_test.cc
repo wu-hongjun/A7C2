@@ -119,10 +119,13 @@ static void scenario() {
 
 #include "sony_identity_cases.h"
 #include "sony_owned_image_cases.h"
+#include "sony_native_probe_cases.h"
 int main(int argc,char** argv) {
     tests();
     identity_tests();
     owned_image_tests();
+    native_probe_tests();
+    if(argc==2&&!std::strcmp(argv[1],"--self-read-tests")){native_self_read_tests();return 0;}
     if (argc==6 && !std::strcmp(argv[1],"--owned-replay")) {
         char* end=nullptr;auto generation=std::strtoull(argv[5],&end,10);CHECK(end&&*end==0&&end!=argv[5]);
         owned_replay(argv[2],argv[3],argv[4],generation);return 0;

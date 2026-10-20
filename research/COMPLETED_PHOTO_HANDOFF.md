@@ -1,5 +1,10 @@
 # Owned JPEG/HIF bytes and frozen frame fan-out
 
+**Native-probe follow-up and correction:** [stream bounds and locked file position](NATIVE_CAPTURE_PROBES.md)
+shows that FSYS `0x2f088` can carry stream cursor `1`, not a CPU buffer. The
+current native collector resolves checked vectors instead. Earlier 885-assertion
+receipts below describe the preceding offline model, not the current probe.
+
 October 20, 2026. All execution tests use generated local files or synthetic
 memory. No camera, mounted media, USB enumeration, Sony process or G HUB access.
 
@@ -16,14 +21,14 @@ External filesystem calls are recorded stubs; the tests execute no Sony I/O.
 
 | Observation | Source and implication |
 | --- | --- |
-| Scratch allocation | `0x2eef0..0x2ef34` checks logical length against available data, rounds transfer length and calls the drive's scratch acquisition function. Incoming DMM/vector addresses are not treated as C pointers. |
-| Contiguous transfer | At `0x2f088..0x2f0a0`, `x0` is the same full FSYS handle, `x1` is scratch base plus loop offset `x6`, `w2` is chunk length `w27`, and `x5` is the drive. This is a candidate copy boundary inside the synchronous worker. |
+| Stream allocation | `0x2eef0..0x2ef34` checks logical length, rounds transfer length and acquires a stream lease. Its installed callback can return cursor `1`. |
+| Transfer arithmetic | At `0x2f088..0x2f0a0`, `x0` is the same full FSYS handle, `x1` is cursor plus offset `x6`, `w2` is chunk length `w27`, and `x5` is the drive. **This does not establish a readable copy boundary.** |
 | Native acceptance | `0x2f0bc..0x2f0c4` rejects a negative result or a returned count different from the requested length. The loop advances only after exact success. Its native maximum chunk is 1 GiB; our smaller memory limit must decline unsupported transfers. |
-| Backend byte ABI | PrFILE dispatch leads to `0x3cf6c..0x3cf80`, calling relocation-resolved `pf2_fwrite(data, 1, count, backing)`. The backing value is opaque, not a Linux descriptor. |
+| Backend byte ABI | PrFILE dispatch leads to `0x3cf6c..0x3cf80`, calling relocation-resolved `pf2_fwrite(data, 1, count, backing)`. Data may still be a stream cursor. The backing is not a Linux descriptor. |
 | Logical end | `0x2f11c..0x2f128` calls relocation-resolved `PrFILE_ftruncate(drive, slot, request[+0x42c])`. Alignment bytes beyond that logical length must be excluded. |
-| Lifetime | `0x2ef80..0x2ef8c` releases scratch before the later async completion. Retaining that pointer until completion would be unsafe. |
+| Lifetime | `0x2ef80..0x2ef8c` releases the stream lease before async completion. Retaining its descriptor or cursor without ownership would be unsafe. |
 
-The [collector](../camera_worker/sony_owned_image.h) copies readable chunks into
+The generic [collector](../camera_worker/sony_owned_image.h) copies verified CPU chunks into
 a dedicated caller-owned lease **before** their synchronous writes return. It
 requires contiguous offsets, matching cookie and generated handle, exact write
 counts, successful logical truncation and the
@@ -33,10 +38,10 @@ and destination memory, out-of-order chunks, repeats and capacity exhaustion
 cannot release an image. Final logical length excludes padding.
 
 An explicit `start_at` gate requires a successful **same-open zero-position**
-observation before any chunk. Loop offset zero alone does not prove the backend
-file position is zero. Recovering that observation is still a deployment gate;
-fixtures supply it synthetically. Open flags and `fpstat` are not relabelled as
-position proof.
+observation before any chunk. Loop offset zero alone does not prove file position.
+The follow-up now reads backing `+0x38` at the native locked writer point;
+attachment and actual allocation lifetime remain deployment gates. Open flags
+and `fpstat` are not relabelled as position proof.
 
 The collector allocates nothing and performs no I/O. Its caller supplies at most
 64 MiB of dedicated storage and retains that lease until consumption finishes.

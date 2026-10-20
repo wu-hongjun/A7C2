@@ -1,5 +1,10 @@
 # Offline build artifact
 
+The [native probe follow-up](../../research/NATIVE_CAPTURE_PROBES.md) supersedes
+the observer archive/self-test hashes with an explicitly invoked scoped probe
+and fault-contained self-reader. It supplies no loader or installer. The veneer
+generator is source-only and never patches an executable automatically.
+
 `jpeg-worker-aarch64` is the static ARM64 Linux prototype, with its exact build
 record in [build.json](build.json). It is **hardware untested** and is not used by
 the repository's camera installer. No installation or launch script is included.
