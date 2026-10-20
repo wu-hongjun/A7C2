@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <initializer_list>
+#include <string>
 
 using namespace a7;
 static int checks=0;
@@ -117,9 +118,15 @@ static void scenario() {
 }
 
 #include "sony_identity_cases.h"
+#include "sony_owned_image_cases.h"
 int main(int argc,char** argv) {
     tests();
     identity_tests();
+    owned_image_tests();
+    if (argc==6 && !std::strcmp(argv[1],"--owned-replay")) {
+        char* end=nullptr;auto generation=std::strtoull(argv[5],&end,10);CHECK(end&&*end==0&&end!=argv[5]);
+        owned_replay(argv[2],argv[3],argv[4],generation);return 0;
+    }
     if (argc==2 && !std::strcmp(argv[1],"--scenario")) scenario();
     else std::printf("{\"checks\":%d,\"status\":\"passed\",\"camera_accessed\":false}\n",checks);
 }

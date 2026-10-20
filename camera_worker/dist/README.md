@@ -14,3 +14,11 @@ identify the binary; ELF compatibility alone does not prove camera operation.
 Sony observer/menu core and its standalone self-test. They contain no Sony
 firmware, UI renderer, hook installer or loadable camera module. See
 [integration scope](../SONY_INTEGRATION.md) before using these research artifacts.
+
+The October 20 [handoff build receipts](../../research/evidence/completed-handoff-builds.json)
+supersede earlier launcher/observer artifact hashes. Launcher 0.2 adds frozen
+frame-to-file fan-out; the observer self-test includes the header-defined owned
+encoded-byte collector. Host/ASan/UBSan and ARM64 core tests are retained in the
+[handoff findings](../../research/COMPLETED_PHOTO_HANDOFF.md). There is still no
+Sony capture hook, installed runtime or hardware validation. ARM64 launcher
+emulation covers startup/list/select, not capture ingress or encoder execution.

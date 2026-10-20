@@ -1,5 +1,11 @@
 # A7C II firmware research baseline
 
+The [October 20 completed-photo handoff](COMPLETED_PHOTO_HANDOFF.md) adds native
+frozen-frame fan-out and a bounded owned-byte reconstruction core for JPEG/HIF,
+with original FSYS instruction tests and offline worker replay. It also reviews
+the newly linked native custom-look implementation. No camera or G HUB access
+occurred; a real Sony hook and storage/lifetime observations are still required.
+
 Baseline research date: October 17, 2026. Documentation updated October 18, 2026. Starting commit: `370bf0b5b9b23d3d50dd381b562a736035c6690a`.
 
 ## October 18 hardware installation

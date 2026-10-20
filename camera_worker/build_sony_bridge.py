@@ -37,7 +37,7 @@ def build(output, *, codecs=None, host=False, sanitize=False):
     binary=output/('sony-bridge-test-host' if host else 'sony-bridge-test-aarch64')
     subprocess.run(compiler+flags+[str(ROOT/'camera_worker/tests/sony_bridge_test.cc'),str(archive)]+
                    ([] if host else ['-static','-s','-Wl,-z,noexecstack'])+['-o',str(binary)],check=True)
-    names=['camera_worker/sony_bridge.h','camera_worker/sony_bridge.cc','camera_worker/sony_identity.h','camera_worker/tests/sony_identity_cases.h','camera_worker/tests/sony_bridge_test.cc','camera_worker/build_sony_bridge.py']
+    names=['camera_worker/sony_bridge.h','camera_worker/sony_bridge.cc','camera_worker/sony_identity.h','camera_worker/sony_owned_image.h','camera_worker/tests/sony_owned_image_cases.h','camera_worker/tests/sony_identity_cases.h','camera_worker/tests/sony_bridge_test.cc','camera_worker/build_sony_bridge.py']
     def digest(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
     doc={'schema':1,'host_variant':host,'sanitizers':sanitize,'network_accessed':False,'camera_accessed':False,
          'target':'native macOS' if host else 'generic ARMv8-A aarch64-linux-musl',

@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "date": "2026-10-20",
+  "starting_commit": "df4ac77b92683af484c02381c69af307165d3e2f",
+  "camera_accessed": false,
+  "mounted_media_accessed": false,
+  "ghub_accessed": false,
+  "installed": false,
+  "network_during_tests": false,
+  "network_exceptions": [
+    "User-requested public reference repository review",
+    "User-authorized Git push and remote-ref verification"
+  ],
+  "checks": {
+    "core_host_assertions": 885,
+    "core_ASan_UBSan_assertions": 885,
+    "core_ARM64_emulated_assertions": 885,
+    "host_handoff_groups": 12,
+    "sanitizer_handoff_groups": 12,
+    "native_frame_file_jobs_per_variant": 8,
+    "original_FS_write_instruction_cases": 19,
+    "pinned_instruction_ranges": 8,
+    "launcher_native_regression_cases_including_fault_injection": 41,
+    "ARM64_launcher_startup_list_select_cases": 5,
+    "root_tests": 41,
+    "photo_worker_tests": 26,
+    "camera_worker_tests": 8,
+    "local_document_links": 112,
+    "build_source_artifact_receipts_verified": true,
+    "unrelated_atlas_unchanged": true
+  },
+  "evidence_sha256": {
+    "completed-handoff-checks.json": "1f1fe85e1ab1626120164f8453646501c9a9f7e849f6cff92827cd7801cddef3",
+    "completed-handoff-sanitizers.json": "284fd38a7755187b0a033606167f7b3c258007cb6bc83d2384115eab841afea3",
+    "completed-handoff-arm64.json": "7494ead797c4b2ce65ee3e37b8953070d9d8725aa86dbdef51f84312eeb18781",
+    "completed-handoff-launcher-arm64.json": "6a5a3622095e9befecabba92a8f3fd3fc63ce8f80551a75e12acb7f3012d76f0",
+    "completed-handoff-launcher-regression.json": "66f2dd1003a5336819e107b26fcb0b95872b632cf5b729a8882c566b1d373a6e",
+    "completed-handoff-builds.json": "0f25c43bdd5c55dc0ec97dbf3214f78792ee2cb936cb0d5da55a2184fe9e2392",
+    "encoded-write.json": "b622f562566167bb66dfd08da4b06070d0114805ddda5dd866244141b1b0e94b",
+    "qaqleonard-custom-looks-review.json": "d73b3fc92f0149fe66bd53d770f67bd7ccfd6a54db52ef8e71766fc152020f46"
+  },
+  "safe_automatic_camera_enqueue": false,
+  "remaining": [
+    "Process-local native hooks and reentrant owned event transport",
+    "Actual readable scratch spans, same-open initial position and no concurrent seek/overwrite",
+    "Pre-exposure request association across supported drive modes",
+    "Private storage, idle/power scheduling and measured capture resource budget"
+  ],
+  "target_limit": "ARM64 core tests execute under syscall emulation. Target launcher ingress, fan-out filesystem syscalls and encoder processes are not executed on a camera."
+}

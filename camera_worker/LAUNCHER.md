@@ -92,6 +92,7 @@ Lens EXIF changes apply to the copy only; this does not configure IBIS or ARW.
 | State | Meaning / allowed next operation |
 | --- | --- |
 | `armed` | Immutable selection exists; one explicit completion may be submitted |
+| `frame-armed` | Frozen parent selection; derive distinct group/media children, never encode the parent |
 | `preparing` | Snapshot/metadata/ready marker construction in progress; never runnable |
 | `ready` | Hash-bound completed job is durable; one run may begin |
 | `running` | Persisted before child launch; an interrupted/abandoned run requires review |
@@ -131,6 +132,13 @@ The lease does not coordinate with Sony capture or establish available RAM,
 battery/thermal policy, privilege, persistence or capture coexistence.
 
 ## Build and local bundle
+
+The [October 20 handoff follow-up](../research/COMPLETED_PHOTO_HANDOFF.md) adds
+`--arm-frame ROOT FRAME_ID` and `--derive-file ROOT FRAME_ID GROUP MEDIA`.
+The latter creates a separate child event from the parent's frozen selection,
+with group 0–1 and media 0–3. It never reads the current global selection.
+Frame parents have state `frame-armed` and cannot be encoded directly. This
+controller API is for idle preparation/fan-out; no Sony callback is registered.
 
 Build JPEG/HIF candidates as documented in [README](README.md) and [HEIF](HEIF.md).
 The launcher reuses that build's pinned local HEIF/de265/x265 static prefix:

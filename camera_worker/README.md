@@ -204,3 +204,9 @@ adds a checked recording-object/cookie/open/real-close ledger for JPEG/HIF.
 It remains an offline model: early arming across modes, scoped Sony hooks,
 owned encoded bytes and resource-safe dispatch still block automatic capture
 processing. No installation is included.
+
+The [owned-byte handoff follow-up](../research/COMPLETED_PHOTO_HANDOFF.md) traces
+the synchronous FSYS scratch-write boundary, adds a bounded encoded-image
+collector, and implements frozen frame-to-file fan-out in the launcher. Offline
+JPEG/10-bit HIF replay survives destruction of scratch/source names. The native
+adapter, same-open initial position and readable-memory proof remain required.

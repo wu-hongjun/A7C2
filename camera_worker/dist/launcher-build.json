@@ -7,11 +7,11 @@
   "network_during_build": false,
   "binary": {
     "name": "photo-launcher-aarch64",
-    "bytes": 3627864,
-    "sha256": "ff5a24c2d8dd306535244bce7d7b21cc3db0fb8be3276ba552ff86d8ec84c01e"
+    "bytes": 3634208,
+    "sha256": "5af4479e8d20282b626479c81236a9e91bd464014ee595abdcb0675c28666834"
   },
   "sources": {
-    "camera_worker/launcher.cc": "56334e6b9ebf72aa004dd7abbb54e4c4ebdc0ff30a4d16731532b5b06d6a5d38",
+    "camera_worker/launcher.cc": "fc24ec34734de054ce6de3e55b9d84db71c7d384d56fc86dbf791dc5d6fdd4b6",
     "camera_worker/ingest_exif.h": "071f3fff869ce83a8662091cd9ad05ecaf812c51a4664979fda4ee0f5f1c46af",
     "camera_worker/heif_io.h": "7f7c0697faf8e9bc4512abf355a0dc21f13abe4fea1637a8fe3509041ba3d79e",
     "camera_worker/heif_core.h": "cf2a715b750a5fa1708371c13ae70463b474fc2b441337672451254644dee133",

@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "scope": "Exact cross-built ELF startup/list/select under Unicorn and restricted syscall models; not a Linux/camera process test",
+  "ELF": {
+    "machine": "EM_AARCH64",
+    "type": "ET_EXEC",
+    "ELF_bits": 64,
+    "little_endian": true,
+    "interpreter": null,
+    "dynamic_dependencies": [],
+    "writable_executable_load_segments": false,
+    "executable_stack": false,
+    "bytes": 3634208,
+    "sha256": "5af4479e8d20282b626479c81236a9e91bd464014ee595abdcb0675c28666834"
+  },
+  "cases": [
+    {
+      "case": "startup",
+      "exit_code": 0,
+      "stdout": "A7C2 Photo Launcher 0.2.0; frozen frame fan-out; offline-tested candidate; hardware untested\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "gettid": 5,
+        "sched_getaffinity": 1,
+        "mmap": 4,
+        "munmap": 4,
+        "ioctl": 1,
+        "writev": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [],
+      "peak_mapped_guest_bytes": 12447744,
+      "elapsed_host_seconds": 3.4775116669989075,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "case": "catalog-menu",
+      "exit_code": 0,
+      "stdout": "look none No LUT\nlook astia-srgb Astia\nlook bleach-bypass-srgb Bleach Bypass\nlook classic-chrome-srgb Classic Chrome\nlook classic-neg-srgb Classic Neg\nlook eterna-srgb Eterna\nlook nostalgic-neg-srgb Nostalgic Neg\nlook pro-neg-hi-srgb Pro Neg Hi\nlook pro-neg-std-srgb Pro Neg Std\nlook provia-srgb Provia\nlook reala-ace-srgb Reala Ace\nlook velvia-srgb Velvia\nlens none Preserve source lens\nlens example-helios-58 Example: Helios 44-2 58mm f/2\nlens example-takumar-50 Example: Super-Takumar 50mm f/1.4\nselected generation=0 look=none lens=none aperture=0\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "gettid": 5,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 9,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "prlimit64": 3,
+        "openat": 4,
+        "fcntl": 1,
+        "fstat": 6,
+        "getuid": 1,
+        "flock": 1,
+        "lseek": 2,
+        "read": 2,
+        "close": 4,
+        "ioctl": 1,
+        "writev": 2,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            536870912,
+            536870912
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            1800,
+            1800
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 12775424,
+      "elapsed_host_seconds": 9.713757000004989,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "case": "native-selection-CRC-and-generation",
+      "exit_code": 0,
+      "stdout": "selected generation=1 look=classic-chrome-srgb lens=example-helios-58 aperture=4\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "gettid": 5,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 9,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "prlimit64": 3,
+        "openat": 5,
+        "fcntl": 1,
+        "fstat": 6,
+        "getuid": 1,
+        "flock": 1,
+        "lseek": 2,
+        "read": 2,
+        "close": 5,
+        "write": 1,
+        "fsync": 2,
+        "renameat": 1,
+        "ioctl": 1,
+        "writev": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            536870912,
+            536870912
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            1800,
+            1800
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 12775424,
+      "elapsed_host_seconds": 8.564166291995207,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "case": "readback",
+      "exit_code": 0,
+      "stdout": "look none No LUT\nlook astia-srgb Astia\nlook bleach-bypass-srgb Bleach Bypass\nlook classic-chrome-srgb Classic Chrome\nlook classic-neg-srgb Classic Neg\nlook eterna-srgb Eterna\nlook nostalgic-neg-srgb Nostalgic Neg\nlook pro-neg-hi-srgb Pro Neg Hi\nlook pro-neg-std-srgb Pro Neg Std\nlook provia-srgb Provia\nlook reala-ace-srgb Reala Ace\nlook velvia-srgb Velvia\nlens none Preserve source lens\nlens example-helios-58 Example: Helios 44-2 58mm f/2\nlens example-takumar-50 Example: Super-Takumar 50mm f/1.4\nselected generation=1 look=classic-chrome-srgb lens=example-helios-58 aperture=4\n",
+      "stderr": "",
+      "syscalls": {
+        "set_tid_address": 1,
+        "gettid": 5,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 9,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "prlimit64": 3,
+        "openat": 4,
+        "fcntl": 1,
+        "fstat": 6,
+        "getuid": 1,
+        "flock": 1,
+        "lseek": 2,
+        "read": 2,
+        "close": 4,
+        "ioctl": 1,
+        "writev": 2,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            536870912,
+            536870912
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            1800,
+            1800
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 12775424,
+      "elapsed_host_seconds": 7.865395583001373,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    },
+    {
+      "case": "invalid-selection-preserves-current",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "photo-launcher: invalid_actual_aperture\n",
+      "syscalls": {
+        "set_tid_address": 1,
+        "gettid": 5,
+        "sched_getaffinity": 1,
+        "mmap": 9,
+        "munmap": 9,
+        "rt_sigprocmask": 1,
+        "rt_sigaction": 2,
+        "prlimit64": 3,
+        "openat": 4,
+        "fcntl": 1,
+        "fstat": 6,
+        "getuid": 1,
+        "flock": 1,
+        "lseek": 2,
+        "read": 2,
+        "close": 4,
+        "writev": 1,
+        "exit_group": 1
+      },
+      "requested_resource_limits": [
+        {
+          "resource": 9,
+          "limits": [
+            536870912,
+            536870912
+          ]
+        },
+        {
+          "resource": 0,
+          "limits": [
+            1800,
+            1800
+          ]
+        },
+        {
+          "resource": 1,
+          "limits": [
+            134217728,
+            134217728
+          ]
+        }
+      ],
+      "peak_mapped_guest_bytes": 12775424,
+      "elapsed_host_seconds": 15.947562167006254,
+      "injected_fault": null,
+      "scope": "Original cross-built ELF in Unicorn with selected syscall models and generated-job-only host file I/O; not actual Linux/camera execution."
+    }
+  ],
+  "camera_accessed": false,
+  "network_accessed": false,
+  "model_limits": "No camera/file tree outside explicit build workspace, no device/network/process syscalls; lock/rename/fsync models do not establish target filesystem semantics",
+  "source_sha256": {
+    "research/check_launcher_emulation.py": "a1841cddf393952ab4718706be8867c4e8b72857813da7b4ad010fa3d6ee9a8a",
+    "research/emulate_camera_worker.py": "a4fe04a3665bd1680d7970935347b2d79eaf94d2d7eb2e02f8dc8b434e3b1dad"
+  }
+}

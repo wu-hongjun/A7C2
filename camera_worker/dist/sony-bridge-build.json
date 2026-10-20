@@ -12,9 +12,11 @@
     "camera_worker/sony_bridge.h": "5c6e728eeeef7735e6fc92fbae75faf13e71e1df40a5296d6127a8a7290914b6",
     "camera_worker/sony_bridge.cc": "a7cd89a62da07fb63d01d3c7b2fde460e7cee9e7f7419ba41e015b86665b6e43",
     "camera_worker/sony_identity.h": "6f012623fd597e633be59ba42a68609b2789514df4fb4b23397ca06b8523d736",
+    "camera_worker/sony_owned_image.h": "2ab8175673cf3faede3b2f5a92527731527cf72da194bba627b94bbb011411c2",
+    "camera_worker/tests/sony_owned_image_cases.h": "6f621285f9e9f7f4c7163b373124147b7fa4cafe917f48770dd570cf9b30e60a",
     "camera_worker/tests/sony_identity_cases.h": "f4fe5a5298cb59d972a809541e5878559ab797470ce75729b2a64a0e98c37952",
-    "camera_worker/tests/sony_bridge_test.cc": "0486c38e91af4f47f6ff6fa9f37350dd08ff1a618a55a5fd594a4e95a4efe412",
-    "camera_worker/build_sony_bridge.py": "b683d31686ee0a214b16204ef2f0890d4fa3315bb82b04670d7e1d72bb82f67e"
+    "camera_worker/tests/sony_bridge_test.cc": "27148d340a97c7dffcfd6aa66343e50870c0b2ec6957af80c1482fce0934b46c",
+    "camera_worker/build_sony_bridge.py": "a95ee57ef9eea2840ae0633c99892bbb47893e8cb3baba3c5801eed9fbfcd601"
   },
   "artifacts": {
     "libsony_bridge.a": {
@@ -22,8 +24,8 @@
       "bytes": 4244
     },
     "sony-bridge-test-aarch64": {
-      "sha256": "d500672c72d48de82424feb65ada99c0c1c9066da66078f999f3ca10d10b200d",
-      "bytes": 91512
+      "sha256": "67d24276f3eb798c6ad4d7920411a0d09eb46bcf4b47e314d297c1c5eaef6dfc",
+      "bytes": 290680
     }
   }
 }

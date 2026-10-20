@@ -83,11 +83,26 @@ static std::vector<u8> look_asset(int root,const Catalog& c,const Selection& s){
  for(size_t i=16;i<v.size();i+=4){float x;memcpy(&x,v.data()+i,4);require(std::isfinite(x)&&x>=(i<160?-16:0)&&x<=(i<160?16:1),"selected_LUT_numeric");}return v;}
 static Fd open_job(int root,const char* id){require(identifier(id),"event_id");auto jobs=dirat(root,"jobs");auto job=dirat(jobs.n,id);private_directory(job.n);return job;}
 static void space(int dir,uint64_t needed){struct statvfs v;require(!fstatvfs(dir,&v)&&v.f_frsize&&v.f_bavail>=needed/v.f_frsize+(needed%v.f_frsize!=0),"insufficient_workspace_space");}
-static void arm(int root,const Catalog& c,const char* id){
- require(identifier(id),"event_id");auto selected=selection(root,c);(void)look_asset(root,c,selected);space(root,16ULL<<20);auto jobs=dirat(root,"jobs");
+static void arm(int root,const Catalog& c,const char* id,bool frame=false){
+ require(identifier(id)&&(!frame||strlen(id)<=57),"event_id");auto selected=selection(root,c);(void)look_asset(root,c,selected);space(root,16ULL<<20);auto jobs=dirat(root,"jobs");
  require(!mkdirat(jobs.n,id,0700),"event_already_exists_or_unavailable");syncdir(jobs.n);auto job=dirat(jobs.n,id);
- fresh(job.n,"selection.bin",selected.raw);fresh(job.n,"catalog.sha256",textbytes(hex(c.hash.data())+"\n"));state(job.n,"armed");
+ fresh(job.n,"selection.bin",selected.raw);fresh(job.n,"catalog.sha256",textbytes(hex(c.hash.data())+"\n"));state(job.n,frame?"frame-armed":"armed");
  printf("armed event=%s generation=%llu look=%s lens=%s\n",id,(unsigned long long)selected.generation,c.looks[selected.look].id.c_str(),c.lenses[selected.lens].id.c_str());
+}
+// Controller-only fan-out: completion must never sample the current selection.
+// Group/media come from IdentityLedger201, not the suffix or callback order.
+static void derive_file(int root,const Catalog& c,const char* frame,const char* group,const char* media){
+ require(identifier(frame)&&strlen(frame)<=57,"frame_id_bounds");
+ require(strlen(group)==1&&group[0]>='0'&&group[0]<='1'&&strlen(media)==1&&media[0]>='0'&&media[0]<='3',"group_media_bounds");
+ auto parent=open_job(root,frame);require(state(parent.n)=="frame-armed\n","parent_requires_frozen_frame");
+ auto selected=selection(parent.n,c);(void)look_asset(root,c,selected);
+ require(asset(parent.n,"catalog.sha256",65)==textbytes(hex(c.hash.data())+"\n"),"frame_catalog_binding");
+ std::string id=std::string(frame)+"-g"+group+"-m"+media;space(root,16ULL<<20);auto jobs=dirat(root,"jobs");
+ require(!mkdirat(jobs.n,id.c_str(),0700),"derived_event_already_exists_or_unavailable");syncdir(jobs.n);auto child=dirat(jobs.n,id);
+ fresh(child.n,"selection.bin",selected.raw);fresh(child.n,"catalog.sha256",textbytes(hex(c.hash.data())+"\n"));
+ fresh(child.n,"frame.txt",textbytes("A7FRAME1\nparent="+std::string(frame)+"\ngroup="+group+"\nmedia="+media+
+       "\nselection_sha256="+hex(digest(selected.raw).data())+"\ngeneration="+std::to_string(selected.generation)+"\n"));
+ state(child.n,"armed");printf("%s\n",id.c_str());
 }
 static void enqueue(int root,const Catalog& c,const char* capture_root,const std::string& relative,const char* id,const char* expected){require(identifier(id),"event_id");require(strlen(expected)==64,"expected_source_SHA256");for(size_t i=0;i<64;i++)require((expected[i]>='0'&&expected[i]<='9')||(expected[i]>='a'&&expected[i]<='f'),"expected_source_SHA256");std::string ext;auto dot=relative.rfind('.');if(dot!=std::string::npos)ext=relative.substr(dot);for(auto& x:ext)x=std::tolower(static_cast<unsigned char>(x));
  bool hif=ext==".hif"||ext==".heif"||ext==".heic";require(hif||ext==".jpg"||ext==".jpeg","photo_extension");auto captures=directory(capture_root);auto input=source_file(captures.n,relative);struct stat initial,after;require(!fstat(input.n,&initial)&&initial.st_size>0&&initial.st_size<=64*1024*1024,"capture_size");
@@ -138,9 +153,9 @@ static void run(int root,int control,const Catalog& c,const char* id){auto lease
  try{auto f=regular(job.n,result);auto data=bytes(f.n,128*1024*1024);auto sum=digest(data);fresh(job.n,"result.sha256",textbytes(hex(sum.data())+"\n"));state(job.n,"done");printf("done event=%s result=%s sha256=%s\n",id,result,hex(sum.data()).c_str());}
  catch(...){try{state(job.n,"needs-review");}catch(...){}throw;}
 }
-int main(int argc,char**argv){if(argc==2&&!strcmp(argv[1],"--version")){puts("A7C2 Photo Launcher 0.1.0; explicit completion; offline-tested candidate; hardware untested");return 0;}
- bool syntax=(argc==3&&!strcmp(argv[1],"--list"))||(argc==6&&!strcmp(argv[1],"--select"))||(argc==7&&!strcmp(argv[1],"--enqueue-completed-srgb"))||(argc==4&&(!strcmp(argv[1],"--run")||!strcmp(argv[1],"--status")||!strcmp(argv[1],"--arm")));
- if(!syntax){fputs("Usage: photo-launcher --list ROOT | --select ROOT LOOK LENS APERTURE_OR_unknown | --enqueue-completed-srgb ROOT CAPTURE_ROOT RELATIVE_PHOTO EVENT_ID EXPECTED_SHA256 | --arm|--run|--status ROOT EVENT_ID\n",stderr);return 2;}
+int main(int argc,char**argv){if(argc==2&&!strcmp(argv[1],"--version")){puts("A7C2 Photo Launcher 0.2.0; frozen frame fan-out; offline-tested candidate; hardware untested");return 0;}
+ bool syntax=(argc==3&&!strcmp(argv[1],"--list"))||(argc==6&&(!strcmp(argv[1],"--select")||!strcmp(argv[1],"--derive-file")))||(argc==7&&!strcmp(argv[1],"--enqueue-completed-srgb"))||(argc==4&&(!strcmp(argv[1],"--run")||!strcmp(argv[1],"--status")||!strcmp(argv[1],"--arm")||!strcmp(argv[1],"--arm-frame")));
+ if(!syntax){fputs("Usage: photo-launcher --list ROOT | --select ROOT LOOK LENS APERTURE_OR_unknown | --enqueue-completed-srgb ROOT CAPTURE_ROOT RELATIVE_PHOTO EVENT_ID EXPECTED_SHA256 | --arm|--run|--status ROOT EVENT_ID | --arm-frame ROOT FRAME_ID | --derive-file ROOT FRAME_ID GROUP_0_1 MEDIA_0_3\n",stderr);return 2;}
  struct sigaction action{};action.sa_handler=stop_launcher;sigemptyset(&action.sa_mask);sigaction(SIGINT,&action,nullptr);sigaction(SIGTERM,&action,nullptr);
 #ifdef __linux__
  rlimit mem{512ULL<<20,512ULL<<20},cpu{1800,1800},file{128ULL<<20,128ULL<<20};if(setrlimit(RLIMIT_AS,&mem)||setrlimit(RLIMIT_CPU,&cpu)||setrlimit(RLIMIT_FSIZE,&file)){fputs("resource_limits\n",stderr);return 1;}
@@ -150,5 +165,7 @@ int main(int argc,char**argv){if(argc==2&&!strcmp(argv[1],"--version")){puts("A7
   else if(!strcmp(argv[1],"--select"))select(root.n,c,argv[3],argv[4],argv[5]);
   else if(!strcmp(argv[1],"--enqueue-completed-srgb"))enqueue(root.n,c,argv[3],argv[4],argv[5],argv[6]);
   else if(!strcmp(argv[1],"--arm"))arm(root.n,c,argv[3]);
+  else if(!strcmp(argv[1],"--arm-frame"))arm(root.n,c,argv[3],true);
+  else if(!strcmp(argv[1],"--derive-file"))derive_file(root.n,c,argv[3],argv[4],argv[5]);
   else if(!strcmp(argv[1],"--run"))run(root.n,lock.n,c,argv[3]);else{auto job=open_job(root.n,argv[3]);auto s=state(job.n);printf("%s",s.c_str());}
  }catch(const std::exception& e){fprintf(stderr,"photo-launcher: %s\n",e.what());return 1;}return 0;}

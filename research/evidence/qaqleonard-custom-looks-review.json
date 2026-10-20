@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "review_date": "2026-10-20",
+  "repository": "https://github.com/QAQLeonard/a7c2-fl23-research",
+  "commit": "c046013c53883cd6f0fe660a9f5fec7a48d94722",
+  "camera_accessed": false,
+  "ghub_accessed": false,
+  "upstream_device_code_executed": false,
+  "upstream_code_imported_into_firmware": false,
+  "network_scope": "User-requested repository source retrieval; all tests offline",
+  "reviewed_files": {
+    "README.md": "68f121ff4c263a3f95e25c9b72a4da53f0678577ad2793c5d13b36bbe2bdc311",
+    "LICENSE": "c592870a8504689cbe03449c2ae582ba6517716c9e0cd2f880cea50c187d16e9",
+    "docs/en/custom-lut.md": "8995a6154c2a731987acfb9369a318cb720a4b787247c5368955045958a35a72",
+    "docs/en/technical/validation.md": "56c070698b777e5320426c45dab63b78cde05973037816fd96562faee320c0e2",
+    "docs/en/technical/integration.md": "d9352cac977bfa89eefb7091adfd430b44870fcfc0b5a50095f8cd9719e12de5",
+    "src/looks/LICENSE": "c592870a8504689cbe03449c2ae582ba6517716c9e0cd2f880cea50c187d16e9",
+    "src/looks/looktool/native.py": "e41989f32177c5497615ee469d03b4e436ac7644e333fbd8018891928729d73b",
+    "src/looks/looktool/references.py": "c80813c8ea44fd801fc59504402e207c8bea0c92c71ba14542b82470db2c4669",
+    "src/looks/looktool/six.py": "3ac5824c4d8361d3794b7d64c87c58feec91e75db2d4ba3950c48edd920e5846",
+    "src/looks/looktool/sixbuild.py": "307dec9e0414d4ed0bbcd6db6f9962bce2d13e48fd04f7e4cbb300e1d5e7ef7a",
+    "src/looks/looktool/hooks.py": "3c35f3876f51184c38a5300625512d71a705a9bad9a7d71e16b5360834057b9a"
+  },
+  "observations": {
+    "native_format": "5x9x9x3 signed correction grid; 1215 bytes; six tables; FNV checksums",
+    "native_route": "ST custom selectors 10..15 mapped to markers 249..254; AP selector/names plus CP native LUT helper and cached-table preview retry",
+    "color_scope": "DCP LookTable/tone or CUBE fit through declared Sony ST input model; default one-scene approximation",
+    "reported_hardware": "One Windows-connected body; existing-six-look selected-slot update, preview/photos, reload checks",
+    "HIF_validation": "Listed among remaining RAW/HEIF/burst/video regressions; not established",
+    "AUTO_and_lens_EXIF": "Not established by reviewed source/validation",
+    "consequence_for_worker": "Useful alternative native look route; does not resolve capture-completion ownership or install a JPEG/HIF worker hook"
+  }
+}

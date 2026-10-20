@@ -1,5 +1,11 @@
 # Capture ID, recording object and real file-close linkage
 
+**October 20 follow-up:** [owned encoded bytes and frozen fan-out](COMPLETED_PHOTO_HANDOFF.md)
+adds a traced scratch-write copy boundary, explicit zero-position gate, native
+collector and per-frame JPEG/HIF child jobs. Remaining-work descriptions below
+are historical; real Sony adapter/storage observations remain unproved, while
+the offline fan-out/reconstruction model is now implemented.
+
 October 18, 2026. Offline ILCE-7CM2 2.01 analysis and native model tests.
 No camera, USB, mounted card, live process or installation was accessed.
 
