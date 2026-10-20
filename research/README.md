@@ -73,6 +73,8 @@ Those three findings are now fixed in local revision 0.1.1-preview. [Fixes and r
 
 **FL2/FL3 is implemented experimentally on A7C II 2.01.** The baseline README's original selection/capture/playback results are inherited 0.1.0 reports. The later 0.1.1 hardware trial has its own scoped evidence above. The collection and native LUT investigations below remain offline work and do not establish arbitrary still-photo LUT support.
 
+The [native Fuji-style look implementation review](NATIVE_FUJIFILM_LOOKS.md) explains the alternative ST correction-table route, including source conversion, AP selectors/names, CP packing and preview retries. New offline checks cover 3,520 AP selector cases and 120 original-CP bank cases. This route can avoid the worker handoff for color, while AUTO, HIF and measured color fidelity remain separate questions.
+
 ## What was collected
 
 The 47 starting files are inventoried, with sizes and SHA-256 hashes, in [baseline-inventory.json](baseline-inventory.json). They comprise 13 root files, seven deployment assets, six native source/header files, 19 vendored PMCA files, one license, and one test file. Their original revision remains in Git; the follow-up fixes intentionally modify several working files, as recorded by the revised baseline audit.

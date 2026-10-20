@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "review_date": "2026-10-20",
+  "upstream_commit": "c046013c53883cd6f0fe660a9f5fec7a48d94722",
+  "camera_accessed": false,
+  "ghub_accessed": false,
+  "network_used": false,
+  "compiler_invoked": false,
+  "native_firmware_executed": false,
+  "firmware_mutated": false,
+  "source_hashes": {
+    "src/looks/assets/runtime-v1.json": "05aae699aa529bb4ff9164fdc21f06dc94bcd27396f4b5695c4313ae1dc4e697",
+    "src/looks/assets/rendering-model-v1.json": "15aa6b41d942807be5b947edcfd229602341648f0e295cb6bd3157373027a805",
+    "src/looks/looktool/native.py": "e41989f32177c5497615ee469d03b4e436ac7644e333fbd8018891928729d73b",
+    "src/looks/looktool/references.py": "c80813c8ea44fd801fc59504402e207c8bea0c92c71ba14542b82470db2c4669",
+    "src/looks/looktool/calibration.py": "5ecc4e5c15a19e03606bc8d016e50e7fab60f8e2b20d0c8094793539b7910fac",
+    "src/looks/looktool/standalone.py": "ded9b192a273842df99c687e2b7c8bcfbac49c131e0c278a420551b7d31a2ca4",
+    "src/looks/looktool/sixbuild.py": "307dec9e0414d4ed0bbcd6db6f9962bce2d13e48fd04f7e4cbb300e1d5e7ef7a",
+    "src/looks/looktool/device_layout.py": "c002e302917fe80ad55e72c4106b188ee6e60f93d0f88cf96a7f5fd5742f9ed1",
+    "docs/en/technical/validation.md": "56c070698b777e5320426c45dab63b78cde05973037816fd96562faee320c0e2",
+    "docs/en/technical/formats.md": "b3caf63edc93055e1ab61084a2a164dd303e1d21dc3857b620d7e6ebd1a6aa87",
+    "docs/en/profiles.md": "8e96065dd2c62101d72cd58e5bb8c3aaf31b83dfff1a9901f170cc286a8103e7"
+  },
+  "stock_cp_sha256": "f5a477588698ef965748903b8959a39ce4f59ffd4aee4d4234ef1670f56a1428",
+  "stock_cp_bytes": 18090880,
+  "AP_selector_cases": 3520,
+  "stock_CP_bank_cases": 120,
+  "CP_configuration": {
+    "source_type": 1,
+    "transform": 2,
+    "root_0x36": 0,
+    "levels": [
+      0,
+      1,
+      7,
+      8
+    ],
+    "bank_indices": [
+      0,
+      1,
+      2
+    ],
+    "direct": [
+      0,
+      1
+    ]
+  },
+  "native_raw_bytes": 1215,
+  "hardware_bank_bytes": 1620,
+  "hardware_words": 405,
+  "permutation_bijective": true,
+  "word_fields": {
+    "Y": [
+      22,
+      7
+    ],
+    "C1": [
+      12,
+      7
+    ],
+    "C2": [
+      2,
+      7
+    ]
+  },
+  "model_full_camera_characterization": false,
+  "color_accuracy_tested": false,
+  "physical_HIF_tested": false,
+  "limits": [
+    "Synthetic contexts, no real preview scheduling or image hardware",
+    "AP templates reviewed from pinned local source; not rebuilt with an assembler",
+    "Original CP packer only; custom CP helper, allocator and uploader not run",
+    "Does not prove DCP fidelity, HIF, AUTO selection or compatibility with our installed patch"
+  ],
+  "generator_sha256": "aa811fc5748a858756f0bba535ea6712e3f415fcf8250cecdaf0931097c7cdd1"
+}
