@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "look": "Astia",
+  "slot": 1,
+  "required_base": "ST",
+  "status": "OFFLINE_MODEL_CANDIDATE_NOT_INSTALLABLE",
+  "camera_accessed": false,
+  "ghub_accessed": false,
+  "inputs": {
+    "schema": 1,
+    "look": "Astia",
+    "source": {
+      "source_sha256": "33b8332916ce5ba1f0a03d58cc649f5fa36104d9104d779f82e34159edc1cb4b",
+      "XMP_fingerprint_MD5": "69D40E90F90741D0F7FE8393083FF176",
+      "payload_sha256": "5cdc60241e097065b52cdbb02144dd314fef283f1fd42c79d791e19238a257d8",
+      "header_u32": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "footer_u32": [
+        3,
+        1,
+        0
+      ],
+      "footer_f64": [
+        1.0,
+        1.0
+      ],
+      "stored_sample_words": 98304,
+      "primaries": "Display P3",
+      "transfer": "sRGB",
+      "gamut": "clip",
+      "amount": 1.0,
+      "sample_order": "blue-fastest, uint16 delta-predicted",
+      "color_space_ID_mapping_verified": true,
+      "Adobe_interpolation_semantics_verified": true,
+      "native_interpolation": "tetrahedral",
+      "decoding_alone_validates_sRGB_conversion": false
+    },
+    "oracle_sha256": "611e3dd947b12d368f6da621aa6c55c237cb0b194c9a56001140c302a61e8423",
+    "input_contract": "encoded Sony ST assumed to be rendered sRGB SDR",
+    "target_contract": "existing SDK-validated rendered-sRGB Astia RGBTable adaptation",
+    "scene_referred_inverse_ST": false,
+    "camera_accessed": false,
+    "ghub_accessed": false,
+    "compiler_invoked": false,
+    "groups": {
+      "train": {
+        "vectors": 14048,
+        "input_sha256": "d2aab1807d282bf29c4ce9375cc0b60f69e4325d52774614dc4caf97aae33d16",
+        "target_sha256": "ebbc6999d65faf7abd3085f198c0d95b03a38ad22c80090c0b8b1068e1122055",
+        "OCIO_vs_oracle_max_RGB8": 0.004119928926229477
+      },
+      "selection": {
+        "vectors": 2048,
+        "input_sha256": "0185a3548734d797264e81c24218ffa17787e8537ad72cdebf758c1c60095fbb",
+        "target_sha256": "7599627bc9e9ef7bfffb24fb7f4a283acc6f63d8f9cfb4314f40af669d7a0a35",
+        "OCIO_vs_oracle_max_RGB8": 0.005080327391624451
+      },
+      "random_holdout": {
+        "vectors": 8192,
+        "input_sha256": "e54d94456ea4e9d71240bfd8bccd3e6af23a0470258cac2ba0d2a9ff6ea3cebd",
+        "target_sha256": "e86257b0faede1829e96cdeca5adf1ceafaa9407b47421f7746b1d57b3cc2055",
+        "OCIO_vs_oracle_max_RGB8": 0.004748795181512833
+      },
+      "neutral": {
+        "vectors": 4097,
+        "input_sha256": "076122138775c18823f03e1463a6b3a9a49cd5dac0c077b4488be9ab045c2242",
+        "target_sha256": "91e354614930c0b244e7297d159e4764353b1bd211059f61232cdc87144d994b",
+        "OCIO_vs_oracle_max_RGB8": 0.004146527498960495
+      },
+      "synthetic_skin": {
+        "vectors": 216,
+        "input_sha256": "d79df45abca1e3de65f20c38ec3bf3518afb4a5356fa5e25110aa3cd84db33a1",
+        "target_sha256": "d8cca8a1659a21230f59fab527feec223a94e50225f536bce2d1c406bb6c25e1",
+        "OCIO_vs_oracle_max_RGB8": 0.003115832805633545
+      },
+      "saturated": {
+        "vectors": 2160,
+        "input_sha256": "a2b1c4d1213e5cb9300d4599223184e1ac8c531d9335dc6205f6f43ddee914be",
+        "target_sha256": "1a824fa49d9142a3e2541f3d523f3f3499d086e85df55d659c698daee6787cd1",
+        "OCIO_vs_oracle_max_RGB8": 0.004162676632404327
+      },
+      "gamut_faces": {
+        "vectors": 6534,
+        "input_sha256": "ab86fb072e1f87db39c3ffd9dbd10f6860a7a92475e12616f23c279448630d3a",
+        "target_sha256": "40f455a6af64c8dc7984ba193a1486476fce3c25705ddea1063040b681211337",
+        "OCIO_vs_oracle_max_RGB8": 0.004129428416490555
+      }
+    }
+  },
+  "model_sha256": "15aa6b41d942807be5b947edcfd229602341648f0e295cb6bd3157373027a805",
+  "fitter_sha256": "e41989f32177c5497615ee469d03b4e436ac7644e333fbd8018891928729d73b",
+  "coordinate_model": "bt601-limited-provisional",
+  "response_matrix": [
+    [
+      0.71656333560879,
+      1.069462136868694,
+      0.9013491660074235
+    ],
+    [
+      0.1506854072245598,
+      -0.40253237175021805,
+      1.0804287126458794
+    ],
+    [
+      0.8737257680458423,
+      -0.38074636264862866,
+      0.1530084289181255
+    ]
+  ],
+  "model_measured_on_our_body": false,
+  "full_RAW_or_Fujifilm_match": false,
+  "raw_sha256": "a27dc63c70a2ab2bad2a45bf16947ea563cf1ed6229c65af21281feb18b44487",
+  "raw_bytes": 1215,
+  "selected_trial": 0,
+  "trials": [
+    {
+      "smoothness": 0.1,
+      "rgb_mae": 0.01628884865077408,
+      "abs_rgb_p95": 0.06063268222667513,
+      "max_channel_error": 0.2532804654395894,
+      "epochs": 42,
+      "max_coordinate_update": 9.529318525025587e-05,
+      "converged": true
+    },
+    {
+      "smoothness": 1.0,
+      "rgb_mae": 0.017545867342344174,
+      "abs_rgb_p95": 0.06493441315232205,
+      "max_channel_error": 0.25992179591185083,
+      "epochs": 36,
+      "max_coordinate_update": 8.480159444346214e-05,
+      "converged": true
+    },
+    {
+      "smoothness": 10.0,
+      "rgb_mae": 0.027190424421025622,
+      "abs_rgb_p95": 0.08858589208016807,
+      "max_channel_error": 0.3051419998610948,
+      "epochs": 38,
+      "max_coordinate_update": 8.503182828611955e-05,
+      "converged": true
+    }
+  ],
+  "coefficient_min": -64,
+  "coefficient_max": 63,
+  "coefficients_at_bounds": 138,
+  "coefficient_count": 1215,
+  "metrics": {
+    "random_holdout": {
+      "vectors": 8192,
+      "native_fit": {
+        "RGB8_MAE": 4.210718259452069,
+        "RGB8_p95": 15.034290718449776,
+        "RGB8_p99": 32.49666966007982,
+        "RGB8_max": 62.15550336239012,
+        "deltaE76_mean": 3.0905232296070033,
+        "deltaE76_p95": 7.975299237706285,
+        "deltaE76_max": 24.570910089142785
+      },
+      "no_effect_baseline": {
+        "RGB8_MAE": 37.11512148548645,
+        "RGB8_p95": 75.15443824231625,
+        "RGB8_p99": 92.83433094620705,
+        "RGB8_max": 123.5615255869925,
+        "deltaE76_mean": 22.092100869485613,
+        "deltaE76_p95": 37.84607488393706,
+        "deltaE76_max": 58.98107088319111
+      },
+      "fraction_pixels_clipped": 0.3326416015625
+    },
+    "neutral": {
+      "vectors": 4097,
+      "native_fit": {
+        "RGB8_MAE": 3.580453361352566,
+        "RGB8_p95": 8.447573358880469,
+        "RGB8_p99": 9.211233894557797,
+        "RGB8_max": 9.64286309181368,
+        "deltaE76_mean": 1.478388087420548,
+        "deltaE76_p95": 4.239767420742744,
+        "deltaE76_max": 4.617661506278167
+      },
+      "no_effect_baseline": {
+        "RGB8_MAE": 27.07103806379326,
+        "RGB8_p95": 47.112015187740326,
+        "RGB8_p99": 47.27973362803459,
+        "RGB8_max": 47.33916699886322,
+        "deltaE76_mean": 10.239663151556838,
+        "deltaE76_p95": 17.800171989734736,
+        "deltaE76_max": 17.87624016275054
+      },
+      "fraction_pixels_clipped": 0.10251403465950695
+    },
+    "synthetic_skin": {
+      "vectors": 216,
+      "native_fit": {
+        "RGB8_MAE": 3.40844894385552,
+        "RGB8_p95": 9.07014098206901,
+        "RGB8_p99": 11.617693907007395,
+        "RGB8_max": 12.528820711494262,
+        "deltaE76_mean": 2.5560429627222394,
+        "deltaE76_p95": 5.068796484134302,
+        "deltaE76_max": 6.3892574861166445
+      },
+      "no_effect_baseline": {
+        "RGB8_MAE": 30.29965912638646,
+        "RGB8_p95": 52.09004598855972,
+        "RGB8_p99": 63.429820364713635,
+        "RGB8_max": 70.7973450422287,
+        "deltaE76_mean": 16.074142203244097,
+        "deltaE76_p95": 25.327359761256435,
+        "deltaE76_max": 29.533452361401523
+      },
+      "fraction_pixels_clipped": 0.07407407407407407
+    },
+    "saturated": {
+      "vectors": 2160,
+      "native_fit": {
+        "RGB8_MAE": 4.738986184467406,
+        "RGB8_p95": 15.625492493020092,
+        "RGB8_p99": 33.811940539862654,
+        "RGB8_max": 65.7116792443271,
+        "deltaE76_mean": 3.8928179620303176,
+        "deltaE76_p95": 9.758898569299124,
+        "deltaE76_max": 24.731086910566916
+      },
+      "no_effect_baseline": {
+        "RGB8_MAE": 27.121823064923834,
+        "RGB8_p95": 76.50000303983688,
+        "RGB8_p99": 106.46637928783895,
+        "RGB8_max": 129.84122157096863,
+        "deltaE76_mean": 21.08151164195974,
+        "deltaE76_p95": 39.00131828788196,
+        "deltaE76_max": 59.20527781589449
+      },
+      "fraction_pixels_clipped": 0.6152777777777778
+    },
+    "gamut_faces": {
+      "vectors": 6534,
+      "native_fit": {
+        "RGB8_MAE": 4.0563069016541125,
+        "RGB8_p95": 15.833994423470934,
+        "RGB8_p99": 32.73666704768523,
+        "RGB8_max": 71.91387721480494,
+        "deltaE76_mean": 3.460325569047342,
+        "deltaE76_p95": 9.375467598957453,
+        "deltaE76_max": 26.117230762360517
+      },
+      "no_effect_baseline": {
+        "RGB8_MAE": 28.31001328731249,
+        "RGB8_p95": 79.6875,
+        "RGB8_p99": 103.66866070032127,
+        "RGB8_max": 129.7645416855812,
+        "deltaE76_mean": 23.26234528321842,
+        "deltaE76_p95": 46.41326018162712,
+        "deltaE76_max": 59.39414885502684
+      },
+      "fraction_pixels_clipped": 0.7649219467401286
+    }
+  },
+  "unrestricted_fit_diagnostic": {
+    "description": "Same grid/regularizer without integer or coefficient-range limits; not camera data",
+    "coefficients_outside_signed7": 146,
+    "random_holdout": {
+      "RGB8_MAE": 2.9200908413438804,
+      "RGB8_p95": 10.632750755337804,
+      "RGB8_p99": 22.336608199857267,
+      "RGB8_max": 48.500482925683954,
+      "deltaE76_mean": 1.9984114875497123,
+      "deltaE76_p95": 4.828114111573703,
+      "deltaE76_max": 11.717159085547863
+    },
+    "not_a_precision_only_comparison": true
+  },
+  "independent_scalar_cases": 128,
+  "independent_scalar_max_error": 3.3306690738754696e-16,
+  "metric_scope": "Synthetic encoded-sRGB input/target through provisional native ISP predictor; not photo/camera accuracy",
+  "HIF_color_contract_validated": false,
+  "generator_sha256": "3c290cf1d34c9cf4d83fe2ccf3c781ddb8836653e812c9d1e46d3f970f6aec78"
+}

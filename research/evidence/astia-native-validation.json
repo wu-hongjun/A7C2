@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "deterministic_fresh_rebuild": true,
+  "tampered_training_target_rejected_before_candidate_write": true,
+  "root_host_tests": 41,
+  "compiler_invoked": false,
+  "camera_accessed": false,
+  "ghub_accessed": false,
+  "files": {
+    "research/build_astia_native.py": "3c290cf1d34c9cf4d83fe2ccf3c781ddb8836653e812c9d1e46d3f970f6aec78",
+    "research/check_astia_integration.py": "85633e6fe7d8c07c3b84cdc4d99ad2cb36d90027b4d049aeeb6546761000fab9",
+    "research/check_native_looks.py": "22db2426da0fc9f6ff5e706f26c52e79bb69af8fde9d29d44bb0720173d718fa",
+    "research/evidence/astia-native-fit.json": "252c78b77a33309cf9e0eafb191b25940eac469ca0b518ef08470e0a67412afa",
+    "research/evidence/astia-native-integration.json": "d145f53b20a4cda5403e69f0d7d789f1b384b592f8ea4a1b7ec9e7ed522a7f3c",
+    "research/evidence/native-looks-checks.json": "7bfc4adb55b43bec5363babebdf61286c97cb4aa4aaf36538629548a923f63db"
+  },
+  "private_table_sha256": "a27dc63c70a2ab2bad2a45bf16947ea563cf1ed6229c65af21281feb18b44487"
+}

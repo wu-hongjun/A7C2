@@ -72,5 +72,5 @@
     "Original CP packer only; custom CP helper, allocator and uploader not run",
     "Does not prove DCP fidelity, HIF, AUTO selection or compatibility with our installed patch"
   ],
-  "generator_sha256": "aa811fc5748a858756f0bba535ea6712e3f415fcf8250cecdaf0931097c7cdd1"
+  "generator_sha256": "22db2426da0fc9f6ff5e706f26c52e79bb69af8fde9d29d44bb0720173d718fa"
 }

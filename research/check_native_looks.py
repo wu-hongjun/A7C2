@@ -54,15 +54,17 @@ def selectors(asset):
     return cases
 
 
-def packing(image):
+def packing(image, tables=None):
     """Execute unpatched 2.01 builder with type 1 / transform 2 tables."""
     base = 0x108000
     order = struct.unpack_from('<405H', image, 0xec7c20 - base)
     assert sorted(order) == list(range(405))
     rng = random.Random(201)
-    patterns = [bytes(1215), bytes([64 * 3]) * 1215, bytes([63]) * 1215,
-                bytes((i % 128 - 64) & 255 for i in range(1215)),
-                bytes(rng.randrange(-64, 64) & 255 for _ in range(1215))]
+    patterns = list(tables) if tables is not None else [
+        bytes(1215), bytes([64 * 3]) * 1215, bytes([63]) * 1215,
+        bytes((i % 128 - 64) & 255 for i in range(1215)),
+        bytes(rng.randrange(-64, 64) & 255 for _ in range(1215))]
+    assert patterns and all(len(raw) == 1215 and all(-64 <= v <= 63 for v in struct.unpack('<1215b', raw)) for raw in patterns)
     cases = 0
     for table, level, direct, slot in itertools.product(patterns, [0, 1, 7, 8], [0, 1], range(3)):
         u = Uc(UC_ARCH_ARM, UC_MODE_THUMB)

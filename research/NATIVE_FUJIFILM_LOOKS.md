@@ -173,9 +173,11 @@ PYTHONPATH=research/build/qaqleonard-reference-20261020/src/looks \
 
 ## Consequence for our next implementation
 
-**Prioritize the native correction-table route for in-camera film looks and
-live preview.** The completed-photo worker remains useful for larger transforms,
-manual-lens EXIF and external workflows; it need not block native film looks.
+**Evaluate one native correction-table candidate before choosing this route.**
+The [Astia experiment](ASTIA_NATIVE_CANDIDATE.md) now measures substantial
+model fitting loss and verifies bounded FL23 composition behavior, while HIF
+and physical activation remain unresolved. The completed-photo worker remains
+useful for larger transforms, manual-lens EXIF and external workflows.
 
 | User priority | What this implementation contributes | What is still needed |
 |---|---|---|
